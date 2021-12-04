@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+.section2{
+    height: 100vh;
+    background-color: #f8f9fe;
+    padding:100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    
+}
+
+.makemoney-div{
+    flex: 1 1 50%;
+    
+}
+.makemoney{
+    width: 100%;
+    
+    
+}
+.makemoney-text{
+    flex: 1 1 60%;
+    font-size: 50px;
+    font-family: Acme;
+   
+    
+}
+.makemoney-text > p{
+    font-size: 20px;
+    font-family: Inter;
+    text-align: justify;
+    
+    
+}
+
+
+.create-button-getstartedII{
+    width:200px;
+    height:50px;
+    background-color:#ffc857;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    font-size: bold;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right:5px;
+    font-family: Inter;
+    border: 1px solid #fff;
+    
+  }
+
+  .scrollEffect{
+    animation: 3s slide-up;
+  }
+  .scrollEffect-fadein{
+    animation: fadeIn ease 3s;
+  }
+  
+  /***** Global Style *****/
+*{
+    font-family: Inter;
+  }
+  p{
+    font-size: 20px;
+    color: #444;
+  }
+  
+  /***** Global Slide *****/
+  .slide-right, .slide-left {
+    width: 100%;
+  }
+  
+  /***** Slide Right *****/
+  .slide-right {
+    animation: 3s slide-right;
+  }
+  @keyframes slide-right {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+  
+  /***** Slide Left *****/
+  .slide-left {
+    animation: 3s slide-left;
+  }
+  @keyframes slide-left {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+  @keyframes slide-up {
+    from {
+      margin-top: 100%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+
+
+  @keyframes slide-down {
+    from {
+      margin-top: -100%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+
+  .slideIn{
+    animation: 3s slide-right;
+  }
+
+  
+  /***** Misc Styles *****/
+  .container {
+    width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 25px #000;
+    margin-top: 30px;
+    border: 1px solid #444;  
+    text-align: center;
+  }
+  body {
+    background: #e2e2e2;
+  }
+  
+  /***** FadeIn Underline *****/
+  .line {
+    border-bottom: 3px solid red;
+    width: 200px;
+    margin: auto;
+  }
+  .fade-in {
+    animation: fadeIn ease 3s;
+  }
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+
+  
+
+  

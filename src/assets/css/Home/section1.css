@@ -1,0 +1,57 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+.section1{
+    width: 100%;
+    height: 100vh;
+    background: url('../../images/section1/ride.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    padding:100px;
+}
+
+.videoDiv{
+    border-radius: 15px;
+}
+.riderText{
+    width:50%;
+    text-align: left;
+    
+}
+.riderText-Title > img{
+    width: 25%;
+    
+}
+
+.pundit{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-size: bold; 
+    margin-left: 10px;
+    color: #1e1e94;
+}
+
+.riderText-Title{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+.riderText-subheading{
+    font-family: Cookie;
+    font-size: 35px;
+    margin-top: 5px;
+
+}
+
+.riderText-p{
+    width: 90%;
+    font-size: 18px;
+    font-family: candara;
+    text-align: justify;
+    color:#a3adbb;
+}

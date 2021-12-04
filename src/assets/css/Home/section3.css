@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+.section3{
+    height: 120vh;
+    padding: 100px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.section-3-title{
+    font-family: Acme;
+    font-size: 35px;
+    font-weight: bold;
+}
+.section3 > p{
+    font-size: 14px;
+}
+.why-choose-us-text{
+    width: 100%;
+    text-align: center;
+}
+
+.card-flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+.ourservices{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 30.333%;
+    margin: 10px;
+    height: 400px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    
+}
+.cardTitle{
+    margin-top: 25%;
+    font-family: Acme;
+    font-size: 25px;
+    color: #1C1C93;
+
+}
+.cardBody{
+    margin-top: 10px;
+}
+
+
+.ourservices:hover{
+    transform: scale(1.1); 
+    
+}
+.cardTitle:hover{
+    color: #ffc857;
+}

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+
+.section4{
+    height: 100vh;
+    padding: 50px;
+    text-align: center;
+}
+
+.jupit-way{
+    font-size: 45px;
+    font-family: Acme;
+
+}
+
+.flexCircle{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.circle{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+.centerCircle{
+    width: 50%;
+    height: 50vh;
+    border-radius: 50%;
+    background:#ffc857;
+    border:1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cycle{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:20px;
+}
+
+
+.storyImage{
+    width: 100%;;
+}
+
+.number1{
+    text-align: left;
+    
+}
+
+.logo_white{
+    width: 50%;
+}

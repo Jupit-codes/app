@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+
+.section6{
+    height: 100vh;
+    background: #fff;
+    position: relative;
+    padding: 100px;
+    text-align: center;
+}
+
+.style-circle{
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius: 100px;
+    background: #f5f5f5;
+    top: -70px;
+    left: -50px;
+    
+}
+
+.ourassets{
+    font-family: Acme;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.ourassets_text{
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.asset-flex{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.asset-btc {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 50%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+
+}
+.asset-usdt{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 50%;
+    height: 80vh;
+    
+    display: flex;
+    justify-content: center;
+}
+.btc{
+    width:70%;
+    
+}
+
+.usdt{
+    width:70%;
+    
+    
+}
