@@ -9,7 +9,7 @@ const Index = ()=>{
         
             <div className="greatexperience">
                 <h1>Great Experience <br/>with Jupit</h1>
-                <p>
+                <p className="lorem">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
                 </p>

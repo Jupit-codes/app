@@ -12,6 +12,8 @@ import Section7 from '../../layout/HomeLayout/Section7';
 import Section8 from '../../layout/HomeLayout/Section8';
 import Section9 from '../../layout/HomeLayout/Section9';
 import Section10 from '../../layout/HomeLayout/Section10';
+import Section11 from '../../layout/HomeLayout/Section11';
+import Footer from '../../component/footer';
 const Index=()=>{
     return(
         <div>
@@ -26,6 +28,8 @@ const Index=()=>{
             <Section8/>
             <Section9/>
             <Section10/>
+            <Section11/>
+            <Footer/>
             {/* <Section4/> */}
             
             

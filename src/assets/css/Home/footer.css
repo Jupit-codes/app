@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+.footer{
+    height: 50vh;
+    background-color: #003300;
+}
+
+.jupit_footer{
+    width: 40%;
+}
+
+
+a:link{
+    text-decoration: none;
+}
+
+.footernav > p{
+    font-size: 16px;
+    font-family: candara;
+    text-decoration: none;
+    color: #fff;
+}
+.footernav > p > a{
+    font-size: 16px;
+    font-family: candara;
+    text-decoration: none;
+    color: #fff;
+}
+.motto{
+    font-family: Cookie;
+}
