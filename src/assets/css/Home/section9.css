@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+.section9{
+    height: 50vh;
+    position: relative;
+}
+.bg{
+   background:url('../../images/section9/section9_bg.png');
+   height: 50vh;
+   
+}
+
+.imgpath{
+    width: 100%; 
+}
+.path{
+    position: absolute;
+    top:0px;
+    margin-top: 180px;
+    text-align: center;
+    
+    
+}
+
+.digital_asset{
+    position:absolute;
+    display: flex;
+    width: 100%;
+    top: 0px;
+    margin-top: 12%;
+    justify-content: center;
+    
+}
+
+.digital_asset_div{
+    
+    width: 60%;
+    background: #fff;
+    border-radius: 10px;
+    height: 40vh;
+    display: flex;
+    justify-content: space-around;
+    padding:40px;
+}
+
+.otherservices{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 25%;
+    height: 25vh;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+
+.otherservices_text{
+    font-family: Cookie;
+    font-size: 35px;
+}
+
+.otherservices > img{
+    width: 150px;
+    height: 150px;
+}

@@ -27,7 +27,7 @@ const Index = ()=>{
                 <div className="bannerText">
                     <div className="text1">
                         {/* <div className="typewriter"><h1>World Easiest Cryto Exchange App</h1></div> */}
-                        <div className="HeroText">World Easiest<br/> Cryto Exchange App</div>
+                        <div className="HeroText">World Easiest<br/> Crypto Exchange App</div>
                         <small>Join millions of people globally, to buy and sell cryptocurrencies <br/>the secure and seamless way</small>
                         <div className="buttonSlider">
                             <div className="create-button-getstarted">Get Started</div>
