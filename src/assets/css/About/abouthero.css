@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+.aboutusHero{
+    height: 80vh;
+    width: 100%;
+    background: url('../../images/banner.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 100%;
+}
+
+.overlay{
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(0, 0, 0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative
+    
+}
+
+.bannertext_sm{
+    font-size: 18px;
+    font-family: Acme;
+    color: #fff;
+}
+.bannertext_lg{
+    font-size: 45px;
+    font-family: Acme;
+    color: #fff;
+}
+.hr{
+    color: #fff; 
+}
+.hr > hr{
+    border: 2px solid #fff;
+    
+}
+.pathDiv{
+    width: 100%;
+}
+.pathDiv >img{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin-top: 55vh;
+    
+}
+
+.CEO_welcome{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin-top: 75vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.CEO_welcome > div{
+    width: 50%;
+    font-size: 15px;
+    font-family: candara;
+    font-weight: bold;
+
+}
+
+.CEO_welcome > div > span{
+    
+    font-family: Acme;
+    margin: 10px;
+}

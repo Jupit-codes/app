@@ -22,7 +22,7 @@ const Index = ()=>{
                          width="600"
                          height="300"
                         controls 
-                        autoPlay="true"
+                        autoPlay={false}
                         poster={Poster}
                         className="videoDiv"
                     >

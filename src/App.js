@@ -26,8 +26,11 @@ function App() {
     return null;
   }
 
+
 const RenderRouter = (route)=>{
+  
   document.title = route.title || 'Jupit App';
+  console.log(route.title)
   return <Route 
           path={route.path}
           exact

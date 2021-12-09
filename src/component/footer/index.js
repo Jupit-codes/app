@@ -18,20 +18,20 @@ const Index=()=>{
     </div>
    
      <div>
-      <a href="" class="me-4 text-reset">
+      <a href="" className="me-4 text-reset">
         <Facebook size="20"  color="#fff"/>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" className="me-4 text-reset">
         <Twitter size="20"  color="#fff"/>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" className="me-4 text-reset">
         <Google size="20"  color="#fff"/>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" className="me-4 text-reset">
         <Instagram size="20" color="#fff"/>
       </a>
       
-      <a href="" class="me-4 text-reset">
+      <a href="" className="me-4 text-reset">
         <Whatsapp size="20"  color="#fff"/>
       </a>
     </div> 
@@ -40,14 +40,14 @@ const Index=()=>{
  
 
   
-  <section class="">
-    <div class="container-fluid text-center text-md-start mt-5">
+  <section className="">
+    <div className="container-fluid text-center text-md-start mt-5">
       
-      <div class="row mt-3">
+      <div className="row mt-3">
       
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 footernav">
+        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 footernav">
           
-          <h6 class="text-uppercase fw-bold mb-4">
+          <h6 className="text-uppercase fw-bold mb-4">
             <img src={jupit} className="jupit_footer"/>
           </h6>
           <p className="motto"> 
@@ -76,28 +76,28 @@ const Index=()=>{
           </p>
         </div>
        
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footernav">
+        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footernav">
          
-          <h6 class="text-uppercase fw-bold mb-4">
+          <h6 className="text-uppercase fw-bold mb-4">
             Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">About us</a>
+            <a href="#!" className="text-reset">About us</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Faq</a>
+            <a href="#!" className="text-reset">Faq</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Blog</a>
+            <a href="#!" className="text-reset">Blog</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Contact</a>
+            <a href="#!" className="text-reset">Contact</a>
           </p>
         </div>
         
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 footernav">
+        <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 footernav">
           
-          <h6 class="text-uppercase fw-bold mb-4">
+          <h6 className="text-uppercase fw-bold mb-4">
             Contact
           </h6>
           <p> <GeoAltFill size="20" color="#fff" style={{marginRight:10}} />Lagos, Nigeria</p>
@@ -114,9 +114,9 @@ const Index=()=>{
     </div>
   </section>
  
-  <div class="text-center p-4" style={{color:'#fff'}}>
+  <div className="text-center p-4" style={{color:'#fff'}}>
     © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://jupit.app/">Jupit.app</a>
+    <a className="text-reset fw-bold" href="https://jupit.app/">Jupit.app</a>
   </div>
   
 </footer>

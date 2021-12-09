@@ -1,0 +1,61 @@
+.section_aboutus{
+    height: 100vh;
+    height:100%;
+    background-color: #fff;
+    margin-top: 100px;
+    text-align: center;
+}
+.aboutusImg{
+    padding: 50px;
+}
+.aboutusImg > img {
+    width: 30%;
+}
+
+.Aboutjupit_title{
+    font-family: Acme;
+    font-size: 25px;
+} 
+.Aboutjupit_content{
+    display: flex;
+    justify-content: center;
+}
+.Aboutjupit_content >p {
+    padding-top: 20px;
+    font-size: 18px;
+    width: 50%;
+    font-family: candara;
+}
+
+.qualities{
+    padding-top: 10px;
+}
+
+.section_aboutus_2{
+    padding:50px
+}
+
+.subscribe{
+    width:100%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.submit{
+    width: 100%;
+    margin-top: 30px;
+    height: 50px;
+}
+
+.input{
+    height: 50px;
+    padding: 10px;
+    font-size: 40px;
+    font-family: Cookie;
+}
+
+.subscribe_newsletter{
+    font-size: 40px;
+    font-family: Cookie;
+    margin-bottom: 30px;
+}
