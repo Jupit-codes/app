@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
 
-const Index=()=>{
+const Index=({ActivePath})=>{
     const [scroll,setscrollPosition] = useState(0);
     const handleScroll = () => {
         const position = window.pageYOffset;
@@ -12,6 +12,7 @@ const Index=()=>{
         console.log(scroll)
     };
     
+    console.log('ActivePath',ActivePath)
     useEffect(()=>{
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
@@ -20,17 +21,18 @@ const Index=()=>{
     },[])
 
     return (
-        <div className={scroll === 0 ? 'Header': 'HeaderScroll'}>
+        
+        <div className={scroll != 0 || ActivePath === 'contact-us'  ? 'HeaderScroll': 'Header'}>
             <div className="my-nav-container">
                 <div className="logo">
-                    <Link to='/'><img src={scroll=== 0 ? logo_white : logo}/></Link>
+                    <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
                 </div>
                 <div className="mynav">
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to="/aboutus" className={scroll=== 0 ? 'linkStatic':'linkScroll'}>About Us</Link></div>
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}>Products</div>
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to='/learnwithus' className={scroll=== 0 ? 'linkStatic':'linkScroll'}>Learn</Link></div>
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to="/faq" className={scroll=== 0 ? 'linkStatic':'linkScroll'}>Faq</Link></div>
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}>Contact</div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</Link></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}>Products</div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to='/learnwithus' className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Learn</Link></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/faq" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Faq</Link></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</Link></div>
                 </div>
                 <div className="my-buttons">
                     <div className="create-button-signin">SignIn</div>
