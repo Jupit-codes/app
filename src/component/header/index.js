@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
+import '../../assets/css/Header/nav.css'
 
 const Index=()=>{
     const [scroll,setscrollPosition] = useState(0);
@@ -25,10 +26,10 @@ const Index=()=>{
                     <Link to='/'><img src={scroll=== 0 ? logo_white : logo}/></Link>
                 </div>
                 <div className="mynav">
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to="/aboutus" style={{color:'#fff'}}>About Us</Link></div>
+                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to="/aboutus" className={scroll=== 0 ? 'linkStatic':'linkScroll'}>About Us</Link></div>
                     <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}>Products</div>
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}>Learn</div>
-                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}>Faq</div>
+                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to='/learnwithus' className={scroll=== 0 ? 'linkStatic':'linkScroll'}>Learn</Link></div>
+                    <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}><Link to="/faq" className={scroll=== 0 ? 'linkStatic':'linkScroll'}>Faq</Link></div>
                     <div className={scroll===0? 'mynav-item':'mynav-item-scroll'}>Contact</div>
                 </div>
                 <div className="my-buttons">

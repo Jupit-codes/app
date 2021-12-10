@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+
+.learn{
+    height: 80vh;
+    background:rgb(0  ,0,255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.learnTitle{
+    font-size: 45px;
+    font-family: Acme;
+}
+
+.search{
+    width:70%;
+    margin-top: 20px;
+    height: 120px;
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+.inputSearch{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 70%;
+    margin:5px
+}
+.selectSearch{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 20%;
+    margin:5px;
+}
+.btnSearch{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 10%;
+    margin:5px;
+}
