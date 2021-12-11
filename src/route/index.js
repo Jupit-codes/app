@@ -3,6 +3,7 @@ import About from '../container/Aboutus'
 import Learn from '../container/Learn'
 import Faq from '../container/Faq'
 import Contact from '../container/Contact'
+import Login from '../container/Login'
 const route = [
     {
         path:'/aboutus',
@@ -26,6 +27,12 @@ const route = [
         path:'/contact-us',
         title:'Contact Us | Jupit',
         component:Contact,
+
+    },
+    {
+        path:'/client/login',
+        title:'Client Login | Jupit',
+        component:Login,
 
     },
     {

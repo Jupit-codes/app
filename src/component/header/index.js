@@ -35,7 +35,7 @@ const Index=({ActivePath})=>{
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</Link></div>
                 </div>
                 <div className="my-buttons">
-                    <div className="create-button-signin">SignIn</div>
+                    <Link to='/client/login'><div className="create-button-signin">SignIn</div></Link>
                     <div className="create-button-register">Register</div>
                     
                 </div>

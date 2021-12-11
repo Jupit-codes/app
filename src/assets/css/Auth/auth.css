@@ -1,0 +1,73 @@
+.auth{
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.auth > div{
+    flex: 1 1 50%;
+}
+.logoArea{
+    background-color: #C6FCED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.logincred{
+    font-size: 12px;
+    font-family: candara;
+}
+.welcome-back{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.logoArea >img{
+    width: 70%;
+    animation: bounce 2s 
+    infinite alternate; 
+    margin-bottom: 30px;
+}
+
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
+
+.formarea{
+    align-self: center;
+    text-align: center;
+}
+.divForm{
+    width: 100%;
+    margin: 20px;
+    
+}
+
+.myform{
+    font-family: candara;
+}
+
+.formClass{
+   display: flex;
+   justify-content: center;
+   
+}
+.form-input{
+    width: 60%;
+   
+}
+.mybtn{
+    font-family: candara;
+    background-color: #FFB74A;
+}
+.additional{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 13px;
+    font-family: candara;
+}
+
+.create_account{
+    font-weight: bold;
+    color:#00E0BB;
+    cursor: pointer;
+    
+}
