@@ -38,6 +38,7 @@
 .divForm{
     width: 100%;
     margin: 20px;
+    text-align: left;
     
 }
 
@@ -70,4 +71,17 @@
     color:#00E0BB;
     cursor: pointer;
     
+}
+.forgetpassword{
+    margin-top: 5px;
+    font-size: 13px;
+    font-family: candara;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: left;
+}
+.new-customer{
+    font-size: 13px;
+    font-family: candara;
+    font-weight: bold;
 }

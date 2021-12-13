@@ -4,6 +4,7 @@ import Learn from '../container/Learn'
 import Faq from '../container/Faq'
 import Contact from '../container/Contact'
 import Login from '../container/Login'
+import Register from '../container/Register'
 const route = [
     {
         path:'/aboutus',
@@ -30,9 +31,15 @@ const route = [
 
     },
     {
-        path:'/client/login',
-        title:'Client Login | Jupit',
+        path:'/client/signin',
+        title:'Client SignIn | Jupit',
         component:Login,
+
+    },
+    {
+        path:'/client/signup',
+        title:'Client SignUp | Jupit',
+        component:Register,
 
     },
     {

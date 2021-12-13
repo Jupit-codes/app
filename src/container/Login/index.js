@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../../assets/css/Auth/auth.css'
 import logoArea from '../../assets/images/IMG.png'
 import Jupit from '../../assets/images/logo.png'
@@ -13,7 +14,7 @@ const Index=()=>{
 
 
             <div className="formarea">
-                <div><img src={Jupit} /></div>
+                <div><Link to='/'><img src={Jupit} /></Link></div>
                 <div className="welcome-back">Welcome Back!</div>
                 <div className="logincred">Kindly provide your login credentials.</div>
                 <div className="formClass">
@@ -23,14 +24,14 @@ const Index=()=>{
                         </div>
                         <div className="divForm">
                             <input type="password" className="form-control myform" placeholder="Password" required/>
-                            <small>Forget Password?</small>
+                            <small className="forgetpassword">Forget Password?</small>
                         </div>
 
                         <div className="divForm">
                             <input type="submit" className="form-control mybtn" value="Login"/>
                         </div>
                         <div className="additional">
-                            <span>New Customer? </span><span className="create_account">Create an Account</span>
+                            <span className="new-customer">New Customer? </span><Link to='/client/signup'><span className="create_account">Create an Account</span></Link>
                         </div>
                         
                     </form>
