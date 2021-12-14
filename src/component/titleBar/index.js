@@ -1,8 +1,8 @@
 import '../../assets/css/TitleBar/title.css'
-import Logo from '../../assets/images/jupit_100.png'
+import Logo from '../../assets/images/logo.png'
 import {CgMenu} from 'react-icons/cg'
 import { useState } from 'react'
-
+import {MdOutlineLogout} from 'react-icons/md'
 const Index=(props)=>{
     const[open, setOpen] = useState(true)
     const sidebarHandler = ()=>{
@@ -18,7 +18,7 @@ const Index=(props)=>{
            </div>
            
             <div>
-                <button className="btn btn-md btn-primary shadow-lg">Balance:&#8358;0:00</button>
+                <button className="btn btn-md bg-light shadow-lg">Hello Temiloluwa!</button>
             </div>
         </div>
     )

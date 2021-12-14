@@ -1,11 +1,14 @@
 import React,{useState} from "react";
 
 import '../../assets/css/Body/body.css'
+import WelcomeNote from '../../layout/BodyLayout/WelcomeNote'
+
 const Index=({openClose})=>{
    
     return (
         <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
-            <h1>Welcome To Jupit</h1>
+           <WelcomeNote/>
+            {/* <ImportantNotice/> */}
         </div>
     )
 }

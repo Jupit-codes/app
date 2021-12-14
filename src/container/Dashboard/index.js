@@ -10,8 +10,7 @@ const Index=()=>{
     }
     return (
         <div className="dashboard">
-            <TitleBar  handle={handleCallback}/>
-            
+                <TitleBar  handle={handleCallback}/>
                 <Sidebar openClose={open}/>
                 <Body openClose={open}/>
             
