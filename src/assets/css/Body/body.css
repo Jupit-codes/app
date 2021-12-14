@@ -1,0 +1,10 @@
+.bodyClass{
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
+    margin-left: 260px;
+}
+
+.bodyClass-collapse{
+    margin-left: 100px;
+}

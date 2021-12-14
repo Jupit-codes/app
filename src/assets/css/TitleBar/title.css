@@ -1,0 +1,26 @@
+.titlebar{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding:20px;
+    position: sticky;
+    top: 0px;
+    
+}
+
+.title_bar_logo{
+    width:20%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.menu{
+    justify-self: flex-end;
+    cursor: pointer;
+}
+
