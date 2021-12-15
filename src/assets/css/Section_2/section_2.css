@@ -1,0 +1,45 @@
+.section_2{
+    display: flex;
+    justify-content: space-between;
+    box-shadow:1px 2px 3px 3px #ccc;
+    height: 200px;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 40px;
+
+}
+
+.section_2_div_1{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 50%;
+    align-self: center;
+    padding:20px
+}
+
+.section_2_div_2{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 50%;
+    align-self: center;
+    padding:20px;
+    display: flex;
+    justify-content: end;
+}
+
+.wallet{
+    width: 35%;
+}
+
+.naira_wallet{
+    font-family: candara;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+.balance{
+    font-weight: bold;
+    font-size: 28px;
+    color:#93c3ff
+}
+
