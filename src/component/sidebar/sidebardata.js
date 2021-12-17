@@ -9,6 +9,7 @@ import {FaBusinessTime} from 'react-icons/fa'
 import {MdOutlineNotifications} from 'react-icons/md'
 
 
+
 export const sidebardata=[
     {
         title:'Dashboard',
@@ -21,35 +22,35 @@ export const sidebardata=[
         title:'Wallets',
         check:'wallet',
         Icon:<MdAccountBalanceWallet  size={20} color="#cecece"/>,
-        path:'/wallet',
+        path:'/client/wallet',
         cname:'nav-link'
     },
     {
         title:'KYC',
         check:'kyc',
         Icon:<FaBusinessTime  size={20} color="#cecece"/>,
-        path:'/kyc',
+        path:'/client/kyc',
         cname:'nav-link'
     },
     {
         title:'Transaction',
         check:'kyc',
         Icon:<MdOutlineHistory  size={20} color="#cecece"/>,
-        path:'/kyc',
+        path:'/client/transactions-history',
         cname:'nav-link'
     },
     {
         title:'Settings',
         check:'settings',
         Icon:<MdSettings  size={20} color="#cecece"/>,
-        path:'/settings',
+        path:'/client/settings',
         cname:'nav-link'
     },
     {
         title:'Notification',
         check:'notification',
         Icon:<MdOutlineNotifications size={20} color="#cecece" />,
-        path:'/notification',
+        path:'/client/notification',
         cname:'nav-link'
     },
     {

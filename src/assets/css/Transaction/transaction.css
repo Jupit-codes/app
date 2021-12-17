@@ -1,0 +1,32 @@
+.transaction{
+    
+    min-height: 50vh;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 20px;
+    padding:40px;
+    text-align: center;
+}
+
+
+.th-title{
+    font-size: 25px;
+    font-family: Acme;
+    
+}
+.empty{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    justify-content: center;
+    align-items:center;
+    
+}
+.empty > img{
+    width: 10%;
+}
+.empty >div{
+    font-size: 14px;
+    font-family: candara;
+}

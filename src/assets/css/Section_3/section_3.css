@@ -69,6 +69,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
+    color: #000;
 }
 
 .coin_text{
@@ -82,6 +83,8 @@
     align-self: center;
     font-weight: bold;
     margin-top:12px;
+    color:#fff;
+    line-height: 27px;
 }
 
 .statistics_title{
@@ -194,5 +197,34 @@
 .empty >div{
     font-size: 14px;
     font-family: candara;
+}
+
+.giftCard{
+    width: 30%;
+    height: 200px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow:1px 2px 3px 3px #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.coin_gift_card{
+    width: 130px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #356986;
+    font-size: 15px;
+    font-family:candara;
+    align-self: center;
+    font-weight: bold;
+    margin-top:12px;
+    color: #fff;
+    line-height: 27px;
+    cursor: pointer;
 }
 

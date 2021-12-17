@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import '../../../assets/css/Section_3/section_3.css'
-import wallet from '../../../assets/images/wallet.png'
-import btc from '../../../assets/images/btc.png'
-import {MdOutlineHistory} from 'react-icons/md'
-import {MdOutlinePending} from 'react-icons/md'
-import {MdDownloadDone} from 'react-icons/md'
-import {MdCancel} from 'react-icons/md'
-import {MdRemoveModerator} from 'react-icons/md'
-import empty from '../../../assets/images/empty.png'
-
+import '../../../assets/css/Section_3/section_3.css';
+import wallet from '../../../assets/images/wallet.png';
+import btc from '../../../assets/images/btc.png';
+import {MdOutlineHistory} from 'react-icons/md';
+import {MdOutlinePending} from 'react-icons/md';
+import {MdDownloadDone} from 'react-icons/md';
+import {MdCancel} from 'react-icons/md';
+import {MdRemoveModerator} from 'react-icons/md';
+import empty from '../../../assets/images/empty.png';
+import giftcard from '../../../assets/images/cards.svg';
 const Index=()=>{
 
     return(
@@ -115,6 +115,13 @@ const Index=()=>{
                     <div>No Transaction</div>
                 </div>
             </div> 
+
+            <div className="giftCard">
+                <div>
+                    <img src={giftcard}/>
+                </div>
+                <div className="coin_gift_card">Trade GiftCards</div>
+            </div>
         </div>
     
     )

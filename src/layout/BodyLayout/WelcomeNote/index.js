@@ -19,11 +19,11 @@ const Index=()=>{
                 <button className="btn btn-md btn-secondary mt-2">Kyc Documentation</button>
             </div>
             <div className="progress_div shadow-lg round">
-                <CircularProgressbarWithChildren value={66}>
+                <CircularProgressbarWithChildren value={66} >
                     {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
                     {/* <img style={{ width: 20, marginTop: -5 }} src="https://i.imgur.com/b9NyUGm.png" alt="doge" /> */}
                     <FaBusinessTime  size={30} color="#90ee90"/>
-                    <div style={{ fontSize: 12, marginTop: -5 }}>
+                    <div style={{ fontSize: 12, }}>
                         <strong>66%</strong> KYC
                     </div>
                 </CircularProgressbarWithChildren>

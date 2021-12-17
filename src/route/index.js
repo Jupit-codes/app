@@ -6,6 +6,8 @@ import Contact from '../container/Contact'
 import Login from '../container/Login'
 import Register from '../container/Register'
 import Dashboard from '../container/Dashboard'
+import Test from '../container/Test'
+import KYC from '../container/Kyc'
 const route = [
     {
         path:'/aboutus',
@@ -44,9 +46,51 @@ const route = [
 
     },
     {
+        path:'/client/kyc',
+        title:'Client KYC | Jupit',
+        component:Dashboard,
+
+    },
+    {
+        path:'/client/transactions-history',
+        title:'Client Transactions | Jupit',
+        component:Dashboard,
+
+    },
+    {
+        path:'/client/wallet',
+        title:'Client Wallet | Jupit',
+        component:Dashboard,
+
+    },
+    {
+        path:'/client/settings',
+        title:'Client Settings | Jupit',
+        component:Dashboard,
+
+    },
+    {
+        path:'/client/notification',
+        title:'Client Notification | Jupit',
+        component:Dashboard,
+
+    },
+    {
+        path:'/client/logout',
+        title:'Client Logout | Jupit',
+        component:Dashboard,
+
+    },
+    {
         path:'/client',
         title:'Client Dashboard | Jupit',
         component:Dashboard,
+
+    },
+    {
+        path:'/test',
+        title:'Client Dashboard | Jupit',
+        component:Test,
 
     },
     {
@@ -55,12 +99,9 @@ const route = [
         component:Home,
 
     },
+ 
    
-
-    
-    
-  
-    
+ 
    
 ]
 
