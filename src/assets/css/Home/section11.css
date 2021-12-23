@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
 
 
+
+  
+ 
 .section11{
     width: 100%;
     height:80vh;
@@ -11,6 +14,10 @@
     position: relative;
     padding: 50px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
 }
 
 .testimonia{
@@ -18,4 +25,25 @@
     font-family: Acme;
     margin-bottom: 50px;
     color: #000;
+    
+    width: 100%;
+   
 }
+.item{
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    font-size: 18px;
+    font-family: candara;
+    text-align: center;
+    border: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
+
+
+
+  
+

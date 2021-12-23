@@ -1,7 +1,7 @@
 import React from "react";
 import '../../../assets/css/Home/section10.css'
-import blogpost1 from '../../../assets/images/section10/blogpost1.jpg'
-import blogpost2 from '../../../assets/images/section10/blogpost2.jpg'
+import blogpost1 from '../../../assets/images/section10/blogpost1.png'
+import blogpost2 from '../../../assets/images/section10/blogpost2.png'
 
 
 const Index = ()=>{

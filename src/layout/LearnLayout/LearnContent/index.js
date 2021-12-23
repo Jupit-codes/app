@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../../assets/css/Learn/learncontent.css'
-import blog1 from '../../../assets/images/learn/1.webp'
+import blog1 from '../../../assets/images/learn/1.png'
 import blog2 from '../../../assets/images/learn/2.webp'
 import blog3 from '../../../assets/images/learn/3.webp'
 import blog4 from '../../../assets/images/learn/4.webp'
@@ -53,6 +53,18 @@ const Index =()=>{
                         </div>
                         <div className="otherblog shadow-lg">
                             <img src={blog3} className="cardpost"  />
+                            <div className="newest_title">Trade: Safety Tips  to be Considered during Trading.</div>
+                            <div className="cardBody">
+                                <div className="cardCover">
+                                    <div className="bloginfo">.Trade . Post . 1week</div>
+                                    <div className="newest_more">Everyone has that favorite meal that they can cook with their eyes closed. While some recipes are easily available for anyone to learn from, some come with...</div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div className="otherblog shadow-lg">
+                            <img src={blog4} className="cardpost"  />
                             <div className="newest_title">Trade: Safety Tips  to be Considered during Trading.</div>
                             <div className="cardBody">
                                 <div className="cardCover">
