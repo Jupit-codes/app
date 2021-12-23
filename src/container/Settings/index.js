@@ -1,6 +1,7 @@
-const Index =()=>{
+import '../../assets/css/settings/settings.css'
+const Index =({openClose})=>{
     return (
-        <div>
+        <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
             
         </div>
     )

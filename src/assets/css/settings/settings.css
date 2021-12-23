@@ -1,0 +1,16 @@
+.bodyClass{
+  
+    min-height: 100vh;
+    height: 100%;
+    width: 80%;
+    margin-left: 260px;
+    padding: 20px;
+    
+}
+
+.bodyClass-collapse{
+    width: 92%;
+    margin-left: 100px;
+    padding: 20px;
+    
+}
