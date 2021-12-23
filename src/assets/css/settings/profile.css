@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@500;600&display=swap');
+
+
+.settings-profile{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.myprofile{
+    flex:1 1 30%;
+    margin: 10px;
+    background-color:#fff;
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+
+.profile{
+    flex:1 1 60%;
+    margin: 10px;
+    background-color: blueviolet;
+}
+.profile-pic{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #fff;
+    border:2px solid #f5f5f5
+}
+
+.profile-name{
+    padding-top: 10px;
+    font-size: 20px;
+    font-family: candara;
+    font-weight: bold;
+}
+.email{
+    font-size: 14px;
+    font-family: candara;
+    padding: 10px;
+}
+.phonenumber{
+    font-size: 14px;
+    font-family: candara;
+}
+.kyc-level{
+    font-size: 14px;
+    font-family: candara;
+    padding: 10px;
+}
+.acct{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-family: candara;
+    padding: 10px;
+    margin-top: 20px;
+}
