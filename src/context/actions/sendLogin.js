@@ -1,5 +1,7 @@
 import axios from 'axios'
-export default (items)=>{
+import {LOGIN_ERROR,LOGIN_LOADING,LOGIN_SUCCESS} from '../../constants/actionTypes'
+
+export default (items)=>(dispatch)=>{
     
     //  axios.post(' https://944f-105-112-28-180.ngrok.io/users/login',{
     //     headers: {
@@ -14,6 +16,10 @@ export default (items)=>{
     //  });
     // console.log("items",items.email);
     // return false;
+    dispatch({
+      type:LOGIN_LOADING,
+      
+  })
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../assets/css/Auth/auth.css'
 import logoArea from '../../assets/images/IMG.png'
 import Jupit from '../../assets/images/logo.png'
 import sendLogin from '../../context/actions/sendLogin'
+import Loader from '../../utils/loader/loader'
+import {GlobalContext} from '../../context/Provider'
 const Index=()=>{
+    const {authDispatch,authState:{auth:{loading}}} = useContext(GlobalContext)
+    console.log(loading)
     const [emailaddress,setemailaddress] = useState();
     const [password,setpassword] = useState();
+    const [loaderPlus,setloaderPlus] = useState(false)
     const handleEmail =(e)=>{
         setemailaddress(e.target.value)
     }
@@ -20,16 +25,18 @@ const Index=()=>{
             "email":emailaddress,
             "password":password
         }
-        sendLogin(items)
+        sendLogin(items)(authDispatch)
+        
     }
     return(
         <div className="auth">
+            { loading && <Loader/>}
             <div className="logoArea">
                 <img src={logoArea}/>
                 
             </div>
 
-
+            
 
             <div className="formarea">
                 <div><Link to='/'><img src={Jupit} /></Link></div>
