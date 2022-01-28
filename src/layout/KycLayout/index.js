@@ -159,9 +159,9 @@ export default function ColorTabs() {
             case 'two':
               return <AddAccount/>
                 break;
-            case 'three':
-                return <AddressVerification/> 
-                break;
+            // case 'three':
+            //     return <AddressVerification/> 
+            //     break;
             case 'four':
                return <IDverification/>
                 break;
@@ -185,7 +185,6 @@ export default function ColorTabs() {
       >
         <Tab value="one" label="Email Address Verification"   />
         <Tab value="two" label="Add Bank Account"  />
-        <Tab value="three" label="Address Verification"/>
         <Tab value="four" label="ID Card Verification"  />
       </Tabs>
 
