@@ -5,6 +5,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { GlobalProvider } from './context/Provider';
+
 function App() {
 
   const [isLoading, setLoading] = useState(true);
@@ -31,7 +32,9 @@ function App() {
 const RenderRouter = (route)=>{
   
   document.title = route.title || 'Jupit App';
-  console.log(route.title)
+    if(route.isAuthenticated){
+      console.log('token is required')
+    }
   return <Route 
           path={route.path}
           exact
@@ -43,6 +46,7 @@ const RenderRouter = (route)=>{
     <div className="App">
       <GlobalProvider>
         <BrowserRouter>
+        
             <Switch>
               {Routes.map((myroutes,index)=>{
                 return (<RenderRouter  {...myroutes} key={index}/>)

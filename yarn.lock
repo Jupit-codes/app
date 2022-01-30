@@ -11054,6 +11054,11 @@
     "object-assign" "^4.1.1"
     "prop-types" "^15.6.2"
 
+"reactjs-localstorage@^1.0.1":
+  "integrity" "sha512-eNSwfiVyVDhfjw9h83PBvgqQcFxmyK6KGPrPlutuaaTlALRZVQLZ0MAN72iU9UT+bKtscwtdogHQ2ikZ7rjT+w=="
+  "resolved" "https://registry.npmjs.org/reactjs-localstorage/-/reactjs-localstorage-1.0.1.tgz"
+  "version" "1.0.1"
+
 "read-pkg-up@^2.0.0":
   "integrity" "sha1-a3KoBImE4MQeeVEP1en6mbO1Sb4="
   "resolved" "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-2.0.0.tgz"

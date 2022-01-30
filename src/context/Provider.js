@@ -2,7 +2,6 @@ import React, {Children, createContext,useReducer} from 'react';
 import authInitialState from './initialStates/authInitialState';
 import auth from './reducers/auth';
 
-
 export const GlobalContext = createContext({});
 export const GlobalProvider = ({ children}) =>{
 
