@@ -7,6 +7,12 @@
 .auth > div{
     flex: 1 1 50%;
 }
+.error_red{
+    font-size: 14px;
+    font-family: candara;
+    margin-top: 10px;
+    color:#ff0000
+}
 .logoArea{
     background-color: #C6FCED;
     display: flex;

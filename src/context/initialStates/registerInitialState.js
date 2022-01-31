@@ -4,6 +4,7 @@ export default {
         data:null,
         error:null,
         errorAlert:false,
+        email_error:false
     }
     
 };
