@@ -5,11 +5,12 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { GlobalProvider } from './context/Provider';
-
+import {reactLocalStorage} from 'reactjs-localstorage';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function App() {
 
   const [isLoading, setLoading] = useState(true);
-
+  const history = useHistory();
   function fakeRequest() {
     return new Promise(resolve => setTimeout(() => resolve(), 2500));
   }
@@ -28,18 +29,48 @@ function App() {
     return null;
   }
 
+  const  isToken = ()=>{
+   let check = reactLocalStorage.get('token');
+
+   if(check && check.length > 0){
+     console.log('token present')
+     return true
+   }
+   else{
+    console.log('token absent')
+     return false
+   }
+  }
+
 
 const RenderRouter = (route)=>{
   
   document.title = route.title || 'Jupit App';
+  console.log('The Router',route)
     if(route.isAuthenticated){
-      console.log('token is required')
-    }
-  return <Route 
+      if(reactLocalStorage.get('token')){
+        console.log('Welcome User',reactLocalStorage.get('token'));
+        return <Route 
           path={route.path}
           exact
           render={(props)=><route.component {...props}/>}
         />
+      }
+      else{
+        console.log('Not Authenticated',reactLocalStorage.get('token'));
+        window.location='/client/signin';
+      }
+      
+    }
+    else{
+      console.log('Page','Unauthenticated');
+        return <Route 
+        path={route.path}
+        exact
+        render={(props)=><route.component {...props}/>}
+      />
+    }
+  
 }
 
   return (

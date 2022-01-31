@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../assets/css/Auth/auth.css'
 import logoArea from '../../assets/images/IMG.png'
@@ -9,12 +9,16 @@ import {GlobalContext} from '../../context/Provider'
 import AlertDismissible from '../../utils/alert/alertDisplay'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {reactLocalStorage} from 'reactjs-localstorage';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const Index=()=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
    console.log('errorAlert',errorAlert)
     const [emailaddress,setemailaddress] = useState();
     const [password,setpassword] = useState();
-    const [loaderPlus,setloaderPlus] = useState(false)
+    const [loaderPlus,setloaderPlus] = useState(false);
+    const history = useHistory();
+
     const handleEmail =(e)=>{
         setemailaddress(e.target.value)
     }
@@ -33,6 +37,24 @@ const Index=()=>{
         sendLogin(items)(authDispatch)
         
     }
+    useEffect(()=>{
+        if(reactLocalStorage.get('token')){
+            history.replace('/client')
+        }
+        else{
+            if(data){
+               
+                reactLocalStorage.set('token',data.token);
+                reactLocalStorage.setObject('user',data.docs);
+                history.replace('/client');
+            }
+            else{
+                console.log('DataEffectElse',data)
+            }
+        }
+        
+
+    },[data])
     return(
         <div className="auth">
             

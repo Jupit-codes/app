@@ -1,14 +1,14 @@
-import {LOGIN_ERROR,LOGIN_LOADING,LOGIN_SUCCESS,LOGIN_TEST} from '../../constants/actionTypes'
+import {REGISTER_ERROR,REGISTER_SUCCESS,REGISTER_LOADING,REGISTER_TEST} from '../../constants/actionTypes'
 
-const auth = (state,{payload,type})=>{
+const registerAuth = (state,{payload,type})=>{
     
     switch(type){
         
-        case LOGIN_SUCCESS:
+        case REGISTER_SUCCESS:
             return {
                 ...state,
-                auth:{
-                    ...state.auth,
+                registerAuth:{
+                    ...state.registerAuth,
                     error:null,
                     data:payload,
                     loading:false,
@@ -17,22 +17,22 @@ const auth = (state,{payload,type})=>{
                 }
             }
         
-            case LOGIN_ERROR:
+            case REGISTER_ERROR:
                 return {
                     ...state,
-                    auth:{
-                        ...state.auth,
+                    registerAuth:{
+                        ...state.registerAuth,
                         error:payload,
                         data:null,
                         loading:false,
                         errorAlert:true
                     }
             }
-            case LOGIN_LOADING:
+            case REGISTER_LOADING:
                 return{
                     ...state,
-                    auth:{
-                        ...state.auth,
+                    registerAuth:{
+                        ...state.registerAuth,
                         error: null,
                         data:null,
                         loading:true,
@@ -47,4 +47,4 @@ const auth = (state,{payload,type})=>{
 
 };
 
-export default auth;
+export default registerAuth;

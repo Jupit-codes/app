@@ -45,10 +45,6 @@ const Index=()=>{
                 <TitleBar  handle={handleCallback}/>
                 <Sidebar openClose={open}/>
                 {_renderBodyComponent()}
-              
-                
-            
-            
         </div>
     )
 }

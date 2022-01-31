@@ -1,5 +1,5 @@
 export default {
-    auth:{
+    registerAuth:{
         loading:false,
         data:null,
         error:null,
