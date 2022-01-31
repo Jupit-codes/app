@@ -63,8 +63,6 @@ const Index=()=>{
                 <img src={logoArea}/>
                 
             </div>
-
-            
             <div className="formarea">
                 <div>{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
                 <div><Link to='/'><img src={Jupit} /></Link></div>
