@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import registerUser from "../../context/actions/registerUser";
 import {GlobalContext} from '../../context/Provider'
 export default ()=>{
@@ -9,6 +9,16 @@ export default ()=>{
       const {name,value} = e.target
         setForm({...Form,[name]:value});
     }
+
+    useEffect(()=>{
+        if(data){
+            if(data.status){
+                console.log('Form',Form)
+                setForm({...Form,'username':'','password':'','phonenumber':'','email':'','password':''})
+                
+            }
+        }
+    },[data])
 
     
 
