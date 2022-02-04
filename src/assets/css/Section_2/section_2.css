@@ -43,3 +43,15 @@
     color:#93c3ff
 }
 
+.btn_deposit {
+    width: 35%;
+    padding: 10px;
+    border: 1px solid #FFB74A;
+    background-color: #FFB74A;
+    font-size: 12px;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
