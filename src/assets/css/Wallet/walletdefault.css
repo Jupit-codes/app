@@ -108,6 +108,10 @@
     margin:10px;
     background-color: #fff;
     height: 50vh;
+    padding: 20px;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
    
     border-radius: 15px;
 }
@@ -145,6 +149,43 @@
    
     background-color: #f39321;
    
+}
+.moreusdt{
+    background-color: #50af95;
+}
+
+.usdt-wallet-title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.current_price_usdt {
+    
+    padding: 0 30px;
+}
+.current_price_usdt span{
+    font-size: 16px;
+    font-family: candara;
+    font-weight: bold;
+}
+
+.bookbalance{
+    font-family: Acme;
+    font-size: 16px;
+}
+
+.current_price_usdt .rateText{
+    font-size: 16px;
+    font-family: candara;
+   
+}
+.balance-cypto-usdt{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    padding:10px 0px;
+    color: #000;
 }
 
 

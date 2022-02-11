@@ -12,6 +12,8 @@
     flex-direction: column;
     align-items: start;
     position: fixed;
+    padding: 10px;
+    
    
     
 }
@@ -32,6 +34,8 @@
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
+   padding:0;
+   
     
 }
 .nav-menu-items-collapse{
@@ -44,6 +48,7 @@
     padding-top: 0px;
     flex-wrap: wrap;
     
+    
  }
 .nav-link{
     list-style: none;
@@ -55,6 +60,8 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100%;
+    
+   
 }
 .nav-link-collapse{
     list-style: none;
@@ -84,17 +91,19 @@
     text-decoration: none;
     color: #000;
     font-size: 18px;
-    width: 100%;
+    width: 90%;
     height: 100%;
     display: flex;
     align-items: center;
     padding: 0 16px;
     border-radius: 4px;
     font-family: candara;
+   
 }
 
 .span-text{
     margin-left: 25px;
+    font-family: Acme;
 }
 .nav-link:hover{
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
@@ -123,5 +132,6 @@
     -webkit-box-shadow: 1px 2px 3px 3px  #ccc;
     box-shadow:         1px 2px 3px 3px #ccc;
     border-radius: 10px;
+    
 }
 

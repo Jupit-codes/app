@@ -25,11 +25,26 @@ const Index = ()=>{
         }
     }
 
+    const _renderRateUsdt =()=>{
+        if(percentageUSDT <0){
+            return <div className='bullish'><span>{percentageUSDT}</span></div>
+        }
+        else if(percentageUSDT == 0){
+            return <div className='neutral'><span>{percentageUSDT}</span></div>
+        }
+        else if(percentageUSDT > 0){
+            return <div className='bearish'><span>{percentageUSDT}</span></div>
+        }
+    }
+
     useEffect(()=>{
          Marketprice()(priceDispatch);
          if(data){
              let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
+             let xUSDT = ((data.USDT.USD.PRICE - data.USDT.USD.OPEN24HOUR) / data.USDT.USD.OPEN24HOUR) * 100
+             
              setpercentageBTC(parseFloat(xBTC).toFixed(5));
+             setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
              setbtcprice(data.BTC.USD.PRICE);
              setusdtprice(data.USDT.USD.PRICE);
             
@@ -83,8 +98,28 @@ const Index = ()=>{
                
             </div>
             <div className="usdt-wallet">
-                <Icon name="usdt" size={25} />
+                <div className='usdt-wallet-title'>
+                     <div>
+                         <Icon name="usdt" size={25} /> <span>USDT Wallet</span>
+                         <div className='current_price_usdt'><span className='rateText'>Rate:</span><span>&#36;{usdtprice}&nbsp;(USD/USDT)</span></div>
+                     </div>
+                     <div className='rate'>
+                         {_renderRateUsdt()}
+                     </div>
+                </div>
+                <div className='wallet-balance-crypto'>
+                    <div>Available Wallet Balance:</div>
+                    <div className='balance-cypto-usdt'>
+                        0.000000TETHER
+                    </div>
+                    <div className='bookbalance'>USD EQUIVALENT:&#36;0:00</div>
+                </div>
+                <div className='more moreusdt'>
+                         More Details
+                </div>
+               
             </div>
+            
             
         </div>
     )
