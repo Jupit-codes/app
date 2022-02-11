@@ -33,6 +33,7 @@ const Index=()=>{
                 return <Notification openClose={open}/>
             case '/client/wallet':
                 return <Wallets openClose={open}/>
+            
 
             default:
               
