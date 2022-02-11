@@ -14,7 +14,7 @@ axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,USDT&
 .then(res=>{
     dispatch({
         type:PRICE_SUCCESS,
-        payload:res.data.DISPLAY
+        payload:res.data.RAW
     })
 })
 .catch(err=>{
