@@ -4,7 +4,7 @@ import naira from '../../../assets/images/wallet/naira.svg'
 import '../../../assets/css/Wallet/walletdefault.css'
 import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
-const Index=()=>{
+const Index=(props)=>{
     const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
@@ -69,7 +69,7 @@ const Index=()=>{
                     </div>
                     <div className='bookbalance'>Book Balance: &#x20A6;0:00</div>
                 </div>
-                <div className='more'>
+                <div className='more' onClick={()=>{props.Screen('NairaMore')}}>
                          More Details
                 </div>
             <div>
@@ -93,7 +93,7 @@ const Index=()=>{
                     </div>
                     <div className='bookbalance'>USD EQUIVALENT:&#36;0:00</div>
                 </div>
-                <div className='more morebtc'>
+                <div className='more morebtc' onClick={()=>{props.Screen('BTCMore')}}>
                          More Details
                 </div>
                
@@ -115,7 +115,7 @@ const Index=()=>{
                     </div>
                     <div className='bookbalance'>USD EQUIVALENT:&#36;0:00</div>
                 </div>
-                <div className='more moreusdt'>
+                <div className='more moreusdt' onClick={()=>{props.Screen('USDTMore')}}>
                          More Details
                 </div>
                

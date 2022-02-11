@@ -4,21 +4,28 @@ import Marketprice from '../../context/actions/marketprice'
 import { GlobalContext } from "../../context/Provider";
 
 import Default from './default'
+import NairaMore from './niaraViewMore'
+import BTCMore from './btcViewMore'
+import USDTMore from './usdtViewMore'
 const Index = ()=>{
     const [walletTab,setwalletTab] = useState('Default');
+
+    const getMoreDetails = (ScreenName)=>{
+        setwalletTab(ScreenName)
+    }
         const _renderWalletDetails = ()=>{
             switch(walletTab){
                 case 'Default':
-                    return <Default/>
+                    return <Default Screen={getMoreDetails}/>
                     break;
                 case 'NairaMore':
-                    return 'Naira'
+                    return <NairaMore Screen={getMoreDetails}/>
                     break;
                 case 'BTCMore':
-                    return 'BTC'
+                    return <BTCMore  Screen={getMoreDetails}/>
                     break;
                 case 'USDTMore':
-                    return 'USDT'
+                    return <USDTMore  Screen={getMoreDetails}/>
                     break;
 
 
