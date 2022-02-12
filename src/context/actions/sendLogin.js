@@ -1,8 +1,10 @@
 import axios from 'axios'
 import {LOGIN_ERROR,LOGIN_LOADING,LOGIN_SUCCESS,LOGIN_TEST} from '../../constants/actionTypes'
-
+import validator from 'validator'
 export default (items)=>(dispatch)=>{
 
+  if(validator.isEmail(items.email)){
+    
   dispatch({
     type:LOGIN_LOADING,
   
@@ -44,5 +46,16 @@ export default (items)=>(dispatch)=>{
       
         
       })
+  }
+  else{
+      dispatch({
+        type:LOGIN_ERROR,
+        payload:'BAD EMAIL FORMAT'
+      
+      }) 
+    
+  }
+  
+
    
 }

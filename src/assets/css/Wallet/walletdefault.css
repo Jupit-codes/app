@@ -229,10 +229,10 @@
     margin:5px;
     background-color: #fff;
     height: 40vh;
-    padding: 10px;
-    justify-content: left;
+    padding: 20px;
+    justify-content: space-between;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction:row;
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow:         1px 2px 3px 3px #ccc;
@@ -270,4 +270,158 @@
     to {
       margin-right: 0%;
     }
+  }
+
+  .wallet{
+      font-size: 18px;
+      font-family: Acme;
+      opacity: 1;      
+
+  }
+  .available-balance{
+      font-size: 20px;
+      font-family: Acme;
+      
+  }
+  .available-balance-btc{
+    font-size: 15px;
+    font-family: Acme;
+    
+    
+    
+}
+.balance-btc{
+    padding-left: 30px;
+}
+  .sideCard{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      flex-basis: 50%;
+      height:100%;
+      
+      
+  }
+  .sideCardII{
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex-basis: 50%;
+      align-items: flex-end;
+      
+  }
+  .sideCardII input{
+      margin: 10px;
+      height: 40px;
+      width: 100px;
+      background-color: #fff;
+      border: 1px solid #3498db;
+      color: #3498db;
+      border-radius: 5px;
+      font-size: 13px;
+  }
+  .sendreceive{
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+  }
+.sendreceive input{
+    margin: 10px;
+    height: 40px;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 5px;
+}
+.sendreceive input:hover{
+    background-color:#3498db ;
+    color:#fff
+}
+
+
+  .sideCardII input:hover{
+      background-color: #3498db;
+      color: #fff;
+  }
+  .available-balance span{
+      font-size: 14px;
+  }
+  .balance-In{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    padding:10px 0px;
+    color: #3498db;
+  }
+  .balance-btc{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding:10px 0px;
+    color: #f39321;
+  }
+  .advert{
+      background: url('../../images/wallet/banner.webp');
+      background-position: center;
+      background-size: cover;
+      
+  }
+  .advert-btc{
+    background: url('../../images/wallet/awoof.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+  .sideCardIII{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-basis: 50%;
+    
+  }
+  .sideCardIII .rate{
+      padding-right: 10px;
+  }
+  .buysell{
+      display: flex;
+      
+  }
+  .buysell input{
+    margin: 10px;
+    height: 40px;
+    width: 100px;
+    background-color: #fff;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .buysell input{
+    margin: 10px;
+    height: 40px;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .buysell input:hover{
+      background-color: #3498db;
+      color: #fff;
+  }
+  .sideCard  span{
+      font-size: 14px;
+      font-family: Acme;
   }

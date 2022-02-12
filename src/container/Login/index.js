@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 const Index=()=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
    console.log('errorAlert',errorAlert)

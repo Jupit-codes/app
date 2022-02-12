@@ -4,7 +4,12 @@ import naira from '../../../assets/images/wallet/naira.svg'
 import '../../../assets/css/Wallet/walletdefault.css'
 import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
+import { reactLocalStorage } from "reactjs-localstorage";
 const Index=(props)=>{
+    const [userNaira, setuserNaira]= useState();
+    const [userBtc ,setuserBtc]= useState();
+    const [userUsdt, setuserUsdt]= useState();
+
     const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
@@ -16,29 +21,35 @@ const Index=(props)=>{
   
     const _renderRate =()=>{
         if(percentageBTC <0){
-            return <div className='bullish'><span>{percentageBTC}</span></div>
+            return <div className='bullish'><span>{percentageBTC}%</span></div>
         }
         else if(percentageBTC == 0){
-            return <div className='neutral'><span>{percentageBTC}</span></div>
+            return <div className='neutral'><span>{percentageBTC}%</span></div>
         }
         else if(percentageBTC > 0){
-            return <div className='bearish'><span>{percentageBTC}</span></div>
+            return <div className='bearish'><span>{percentageBTC}%</span></div>
         }
     }
 
     const _renderRateUsdt =()=>{
         if(percentageUSDT <0){
-            return <div className='bullish'><span>{percentageUSDT}</span></div>
+            return <div className='bullish'><span>{percentageUSDT}%</span></div>
         }
         else if(percentageUSDT == 0){
-            return <div className='neutral'><span>{percentageUSDT}</span></div>
+            return <div className='neutral'><span>{percentageUSDT}%</span></div>
         }
         else if(percentageUSDT > 0){
-            return <div className='bearish'><span>{percentageUSDT}</span></div>
+            return <div className='bearish'><span>{percentageUSDT}%</span></div>
         }
     }
 
+  
+
     useEffect(()=>{
+        let x = reactLocalStorage.getObject('user');
+        setuserNaira(x.naira_wallet[0].balance.$numberDecimal);
+        setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
+        setuserUsdt(x.usdt_wallet[0].balance.$numberDecimal);
          Marketprice()(priceDispatch);
          if(data){
              let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
@@ -65,7 +76,7 @@ const Index=(props)=>{
                 <div className='wallet-balance'>
                     <div>Available Wallet Balance:</div>
                     <div className='balance'>
-                        &#x20A6;0:00
+                        &#x20A6;{userNaira}
                     </div>
                     <div className='bookbalance'>Book Balance: &#x20A6;0:00</div>
                 </div>
@@ -89,9 +100,9 @@ const Index=(props)=>{
                 <div className='wallet-balance-crypto'>
                     <div>Available Wallet Balance:</div>
                     <div className='balance-cypto'>
-                        0.000000BTC
+                        {userBtc} BTC
                     </div>
-                    <div className='bookbalance'>USD EQUIVALENT:&#36;0:00</div>
+                    <div className='bookbalance'>USD EQUIVALENT:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3)}</div>
                 </div>
                 <div className='more morebtc' onClick={()=>{props.Screen('BTCMore')}}>
                          More Details
@@ -111,9 +122,9 @@ const Index=(props)=>{
                 <div className='wallet-balance-crypto'>
                     <div>Available Wallet Balance:</div>
                     <div className='balance-cypto-usdt'>
-                        0.000000TETHER
+                        {userUsdt} TETHER
                     </div>
-                    <div className='bookbalance'>USD EQUIVALENT:&#36;0:00</div>
+                    <div className='bookbalance'>USD EQUIVALENT:&#36;&nbsp;{parseFloat(userUsdt * usdtprice).toFixed(3)}</div>
                 </div>
                 <div className='more moreusdt' onClick={()=>{props.Screen('USDTMore')}}>
                          More Details
