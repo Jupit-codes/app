@@ -5,12 +5,16 @@ import empty from '../../../assets/images/empty.png'
 import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import Icon from "react-crypto-icons";
+import { reactLocalStorage } from "reactjs-localstorage";
+import ReceiveModal from '../../../utils/modal/customModal'
 const Index = (props)=>{
+    const [userBtc ,setuserBtc]= useState();
     const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
     const [usdtprice, setusdtprice]= useState()
     const [percentageUSDT ,setpercentageUSDT]= useState()
+    const [openModal, setopenModal] = useState(false);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
   
     const _renderRate =()=>{
@@ -26,6 +30,9 @@ const Index = (props)=>{
     }
 
     useEffect(()=>{
+        let x = reactLocalStorage.getObject('user');
+        
+        setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
         Marketprice()(priceDispatch);
         if(data){
             let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
@@ -40,10 +47,15 @@ const Index = (props)=>{
 
    },[data])
 
+   
 
+  
 
     return (
         <div className='btcmoreClass'>
+            <div className=''>
+                {openModal && <ReceiveModal closeModal={setopenModal} />}
+            </div>
             <div className='back' onClick={()=>{props.Screen('Default')}}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to Wallet</span></div>
             <div className='flexMoreDetails'>
                 <div className='walletInfor slideInLeft'>
@@ -55,9 +67,9 @@ const Index = (props)=>{
                         <div className='wallet-balance-crypto'>
                             <div className='available-balance-btc'>Available Wallet Balance:</div>
                             <div className='balance-btc'>
-                                0.000000 BTC
+                               {userBtc}BTC
                             </div>
-                            <div className='bookbalance'>USD EQUIVALENT:&#36;0:00</div>
+                            <div className='bookbalance'>USD EQUIVALENT:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3)}</div>
                         </div>
                     </div>
 
@@ -66,7 +78,7 @@ const Index = (props)=>{
                             {_renderRate()}
                         </div>
                         <div className='sendreceive'>
-                            <input type="submit" value="Send"/> <input type="submit" value="Receive"/>
+                            <input type="submit" value="Send"/> <input type="button" value="Receive" onClick={()=>{setopenModal(true)}}/>
                         </div>
                         <div className='buysell'>
                         <input type="submit" value="Buy Bitcoin" className='buy'/>
