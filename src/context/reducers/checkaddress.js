@@ -1,6 +1,6 @@
 import {CHECK_ADDRESS_ERROR,CHECK_ADDRESS_LOADING,CHECK_ADDRESS_SUCCESS} from '../../constants/actionTypes'
 
-const auth = (state,{payload,type})=>{
+const checkaddress = (state,{payload,type})=>{
     
     switch(type){
         
@@ -12,7 +12,7 @@ const auth = (state,{payload,type})=>{
                     error:null,
                     data:payload,
                     loading:false,
-                    errorAlert:false
+                    
 
                 }
             }
@@ -47,4 +47,4 @@ const auth = (state,{payload,type})=>{
 
 };
 
-export default auth;
+export default checkaddress;

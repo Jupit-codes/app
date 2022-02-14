@@ -6,7 +6,7 @@ import initialcheckaddress from './initialStates/initialcheckaddress';
 import auth from './reducers/auth';
 import authRegister from './reducers/register'
 import marketprice from './reducers/marketprice';
-import checkaddress  from './actions/checkaddress';
+import checkaddress  from './reducers/checkaddress';
 
 
 export const GlobalContext = createContext({});

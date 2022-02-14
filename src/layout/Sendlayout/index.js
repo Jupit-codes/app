@@ -3,14 +3,22 @@ import {BsArrowLeftCircle} from 'react-icons/bs'
 import Icon from "react-crypto-icons";
 import Equivalent from '../../assets/images/equivalent.svg'
 import {HiCheckCircle} from 'react-icons/hi'
-import { useState } from 'react';
-import { Select } from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import CheckAddress from '../../context/actions/checkaddress.js'
+import { GlobalContext } from '../../context/Provider';
+import { reactLocalStorage } from 'reactjs-localstorage';
+import Loader from '../../assets/images/loader.svg'
+
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();
     const [customdisable, setcustomdiasble]=useState(true)
-    const [ReceipentAddress,setReceipentAddress] = useState()
+    const [ReceipentAddress,setReceipentAddress] = useState('')
+    const {checkaddressState:{checkaddress:{loading,data,error}},checkaddressDispatch} = useContext(GlobalContext);
+    
+    
+
     const handleChangeFee = (e)=>{
         if(e.target.classList.contains('low')){
             sethighFee(false);
@@ -30,7 +38,11 @@ const Index =()=>{
     }
     const _handleReceipent = (e)=>{
         setReceipentAddress(e.target.value);
-        
+        const items = {
+            receipent_address:ReceipentAddress,
+            wallet_type:'BTC'
+        }
+        CheckAddress(items)(checkaddressDispatch)
         // setcustomdiasble(!customdisable)
         
     }
@@ -77,6 +89,8 @@ const Index =()=>{
                         <div className='sendBTCFrom'>To</div>
                         <div>
                             <input type="text"  placeholder='Paste Receipent BTC Address' value={ReceipentAddress} onChange={_handleReceipent}/>
+                            <small>{loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
+                            
                         </div>
                     </div>
                     <div>

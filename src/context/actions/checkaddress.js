@@ -1,16 +1,24 @@
 import axios from "axios"
 import { CHECK_ADDRESS_ERROR, CHECK_ADDRESS_LOADING, CHECK_ADDRESS_SUCCESS } from "../../constants/actionTypes"
-
-export default ()=>(dispatch)=>{
+import { reactLocalStorage } from "reactjs-localstorage"
+export default (items)=>(dispatch)=>{
+  
+    
     dispatch({
         type:CHECK_ADDRESS_LOADING
     })
-axios.post('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,USDT&tsyms=USD',{
-    headers:{
-        'Content-Type':'application/json',
-        'Authorization':'Apikey 475906935b55657e131801270facf7cd73a797ee9cff36bbb24185f751c18d63'
-    }
-})
+    
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+    axios({
+        method: "POST",
+        url: `${Base_url}/threshold/check/customer/Address`,
+        headers: {
+          "Content-Type": "application/json",
+          
+          
+        },
+        data:JSON.stringify({receipent_address:items.receipent_address,wallet_type:items.wallet_type})
+      })
 .then(res=>{
     dispatch({
         type:CHECK_ADDRESS_SUCCESS,
