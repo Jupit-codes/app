@@ -7,7 +7,9 @@ import { GlobalContext } from "../../../context/Provider";
 import Icon from "react-crypto-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
 import ReceiveModal from '../../../utils/modal/customModal'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const Index = (props)=>{
+    const history = useHistory();
     const [userBtc ,setuserBtc]= useState();
     const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()
@@ -49,7 +51,9 @@ const Index = (props)=>{
 
    
 
-  
+  const SendBTC = ()=>{
+      history.push('/client/sendbtc')
+  }
 
     return (
         <div className='btcmoreClass'>
@@ -78,7 +82,7 @@ const Index = (props)=>{
                             {_renderRate()}
                         </div>
                         <div className='sendreceive'>
-                            <input type="submit" value="Send"/> <input type="button" value="Receive" onClick={()=>{setopenModal(true)}}/>
+                            <input type="submit" value="Send" onClick={SendBTC}/> <input type="button" value="Receive" onClick={()=>{setopenModal(true)}}/>
                         </div>
                         <div className='buysell'>
                         <input type="submit" value="Buy Bitcoin" className='buy'/>

@@ -8,6 +8,7 @@ import Register from '../container/Register'
 import Dashboard from '../container/Dashboard'
 import Test from '../container/Test'
 import KYC from '../container/Kyc'
+import Send from '../container/Send'
 const route = [
     {
         path:'/aboutus',
@@ -94,25 +95,36 @@ const route = [
 
     },
     {
-        path:'/client',
+        path:'/client/sendbtc',
         title:'Client Dashboard | Jupit',
         isAuthenticated:true,
         component:Dashboard,
 
     },
     {
+        path:'/client',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
+
+    },
+    
+    {
         path:'/test',
         title:'Client Dashboard | Jupit',
+        isAuthenticated:false,
         component:Test,
 
     },
     {
         path:'/',
         title:'Home | Jupit',
-        
+        isAuthenticated:false,
         component:Home,
 
     },
+
+    
  
    
  

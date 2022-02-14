@@ -49,10 +49,10 @@ const RenderRouter = (route)=>{
   console.log('The Router',route)
     if(route.isAuthenticated){
       if(reactLocalStorage.get('token')){
-        console.log('Welcome User',reactLocalStorage.get('token'));
+        
         return <Route 
           path={route.path}
-          exact
+          exact={true}
           render={(props)=><route.component {...props}/>}
         />
       }
@@ -63,7 +63,7 @@ const RenderRouter = (route)=>{
       
     }
     else{
-      console.log('Page','Unauthenticated');
+     
         return <Route 
         path={route.path}
         exact
