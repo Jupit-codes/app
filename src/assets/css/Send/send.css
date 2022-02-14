@@ -42,6 +42,8 @@
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow:         1px 2px 3px 3px #ccc;
+    padding: 20px;
+    background-color: #e5e5e5;
     
 }
 
@@ -148,4 +150,21 @@
     font-family: Acme;
     font-size:16px;
     color: #27a127;
+}
+.TextInformation{
+    display: flex;
+    height: 50px;
+    justify-content: end;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+    background-color: #cecece;
+    
+}
+
+
+.receipentAddr-TextInfor{
+    font-family: Acme;
+    font-size: 12px;
+    padding-left: 10px;
 }

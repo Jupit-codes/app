@@ -20,7 +20,8 @@ const Index =()=>{
     const[currentRate,setcurrentRate]=useState();
     const {checkaddressState:{checkaddress:{loading,dataAddr,error}},checkaddressDispatch} = useContext(GlobalContext);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
-    
+    const [btcamount,setbtcamount] = useState('');
+    const [usdamount,setusdamount] = useState('');
     const history = useHistory();
     useEffect(()=>{
         Marketprice()(priceDispatch);
@@ -68,11 +69,22 @@ const Index =()=>{
         // setcustomdiasble(!customdisable)
         
     }
+    const BTCAmount = (e)=>{
+        setbtcamount(e.target.value);
+        let pat = currentRate * e.target.value
+        setusdamount(pat)
+    }
+    const USDAmount=(e)=>{
+        setusdamount(e.target.value);
+        let pat = e.target.value / currentRate 
+        setbtcamount(pat)
+    }
     const CopyData = (e)=>{
        
         setReceipentAddress(e.clipboardData.getData('Text'))
     }
     const _selectFee = ()=>{
+        // getAutoFee()()0.00000001
         return (
             <div className=''>
                 <div className='sendBTCFrom'>Select Fee</div>
@@ -115,7 +127,7 @@ const Index =()=>{
                     <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
-                            <input type="text" onPaste={CopyData} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} onChange={_handleReceipent}/>
+                            <input type="text"  onPaste={CopyData} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} onChange={_handleReceipent}/>
                             <small>{loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
                             {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
                             {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
@@ -125,22 +137,46 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="number"  placeholder='BTC'/>
+                            <input type="number"  placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
                             <img src={Equivalent}/>
-                            <input type="number"  placeholder='USD'/>
+                            <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount}/>
                         </div>
                     </div>
                     <div>
-                        {_selectFee()}
+                        {dataAddr && dataAddr === "Non-JupitCustomer" && _selectFee()}
                     </div>
                     <div className={customdisable? 'sendFund disabled': 'sendFund'} >
                             Continue
                     </div>
                 </div>
                 <div className='SendBodyII'>
+                    <div className='TextInformation'>
+                            <div className='sendBTCFrom'>Receipent</div>
+                            <div className='receipentAddr-TextInfor'>
+                                {ReceipentAddress}
+                            </div>
+                    </div>
+                    <div className='TextInformation'>
+                            <div className='sendBTCFrom'>Amount(In BTC)</div>
+                            <div className='receipentAddr-TextInfor'>
+                                {btcamount}
+                            </div>
+                    </div>
+                    <div className='TextInformation'>
+                            <div className='sendBTCFrom'>Network Fee</div>
+                            <div className='receipentAddr-TextInfor'>
+                                {btcamount}
+                            </div>
+                    </div>
+                    <div className='TextInformation'>
+                            <div className='sendBTCFrom'>Total Fee</div>
+                            <div className='receipentAddr-TextInfor'>
+                                {parseFloat({btcamount}) + 0.05}
+                            </div>
+                    </div>
+                </div>
                     
                 </div>
-            </div>
         </div>
     )
 }
