@@ -8,16 +8,38 @@ import CheckAddress from '../../context/actions/checkaddress.js'
 import { GlobalContext } from '../../context/Provider';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import Loader from '../../assets/images/loader.svg'
-
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Marketprice from '../../context/actions/marketprice.js'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();
     const [customdisable, setcustomdiasble]=useState(true)
     const [ReceipentAddress,setReceipentAddress] = useState('')
-    const {checkaddressState:{checkaddress:{loading,data,error}},checkaddressDispatch} = useContext(GlobalContext);
+    const [TransactionType, setTransactionType] = useState();
+    const[currentRate,setcurrentRate]=useState();
+    const {checkaddressState:{checkaddress:{loading,dataAddr,error}},checkaddressDispatch} = useContext(GlobalContext);
+    const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     
-    
+    const history = useHistory();
+    useEffect(()=>{
+        Marketprice()(priceDispatch);
+        if(data){
+            setcurrentRate(data.BTC.USD.PRICE);
+            
+        }
+
+        if(error){
+            console.log(error);
+            if(error === "Token Not Found"){
+                reactLocalStorage.remove('user');
+                reactLocalStorage.remove('token');
+                history.push('/client/login')
+            }
+        }
+        
+
+    },[dataAddr,error,data])
 
     const handleChangeFee = (e)=>{
         if(e.target.classList.contains('low')){
@@ -45,6 +67,10 @@ const Index =()=>{
         CheckAddress(items)(checkaddressDispatch)
         // setcustomdiasble(!customdisable)
         
+    }
+    const CopyData = (e)=>{
+       
+        setReceipentAddress(e.clipboardData.getData('Text'))
     }
     const _selectFee = ()=>{
         return (
@@ -76,6 +102,7 @@ const Index =()=>{
             <div className='back'><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
+                    <div className='currentRate'>&#36;{currentRate}</div>
                     <div className='sendBTCFrom'>Send BTC From</div>
                     <div className='fromBTC'>
                         <div>
@@ -88,8 +115,10 @@ const Index =()=>{
                     <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
-                            <input type="text"  placeholder='Paste Receipent BTC Address' value={ReceipentAddress} onChange={_handleReceipent}/>
+                            <input type="text" onPaste={CopyData} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} onChange={_handleReceipent}/>
                             <small>{loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
+                            {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
+                            {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
                             
                         </div>
                     </div>
@@ -109,7 +138,7 @@ const Index =()=>{
                     </div>
                 </div>
                 <div className='SendBodyII'>
-                    2
+                    
                 </div>
             </div>
         </div>

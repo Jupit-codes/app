@@ -10,7 +10,7 @@ const checkaddress = (state,{payload,type})=>{
                 checkaddress:{
                     ...state.checkaddress,
                     error:null,
-                    data:payload,
+                    dataAddr:payload,
                     loading:false,
                     
 
@@ -23,7 +23,7 @@ const checkaddress = (state,{payload,type})=>{
                     checkaddress:{
                         ...state.checkaddress,
                         error:payload,
-                        data:null,
+                        dataAddr:null,
                         loading:false,
                         
                     }
@@ -34,7 +34,7 @@ const checkaddress = (state,{payload,type})=>{
                     checkaddress:{
                         ...state.checkaddress,
                         error: null,
-                        data:null,
+                        dataAddr:null,
                         loading:true,
                         
                     }

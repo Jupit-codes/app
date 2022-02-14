@@ -2,8 +2,19 @@ import axios from "axios"
 import { CHECK_ADDRESS_ERROR, CHECK_ADDRESS_LOADING, CHECK_ADDRESS_SUCCESS } from "../../constants/actionTypes"
 import { reactLocalStorage } from "reactjs-localstorage"
 export default (items)=>(dispatch)=>{
-  
+    // console.log(reactLocalStorage.getObject('user').btc_wallet[0].address);
+    // console.log('item',items)
     
+    if(items.receipent_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
+        console.log('Hello')
+        dispatch({
+            type:CHECK_ADDRESS_ERROR,
+            payload:'Invalid Wallet Address...Sender Address and Receipent Address Cannot be Same'
+        })
+        
+    }
+    else{
+        
     dispatch({
         type:CHECK_ADDRESS_LOADING
     })
@@ -14,6 +25,7 @@ export default (items)=>(dispatch)=>{
         url: `${Base_url}/threshold/check/customer/Address`,
         headers: {
           "Content-Type": "application/json",
+          "Authorization":`Bearer ${reactLocalStorage.get('token')}`
           
           
         },
@@ -24,12 +36,18 @@ export default (items)=>(dispatch)=>{
         type:CHECK_ADDRESS_SUCCESS,
         payload:res.data
     })
+   
 })
 .catch(err=>{
+    
     dispatch({
         type:CHECK_ADDRESS_ERROR,
-        payload:err.response
+        payload:err.response && err.response.data 
     })
+   
 })
 
+    }
+    
+    
 }

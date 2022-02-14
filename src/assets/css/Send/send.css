@@ -134,3 +134,18 @@
     opacity: 0.5;
     
 }
+.errorBTCAddr{
+    font-family: Acme;
+    color:#ff0000
+}
+.dataBTCAddr{
+    font-family: Acme;
+    color:#003300
+}
+.currentRate{
+    display: flex;
+    justify-content: flex-end;
+    font-family: Acme;
+    font-size:16px;
+    color: #27a127;
+}

@@ -1,7 +1,7 @@
 export default {
     checkaddress:{
         loading:false,
-        data:null,
+        dataAddr:null,
         error:null,
         
     }
