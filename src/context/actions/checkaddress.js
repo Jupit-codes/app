@@ -6,19 +6,19 @@ export default (items)=>(dispatch)=>{
     // console.log('item',items)
     
     if(items.receipent_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
-        console.log('Hello')
+        
         dispatch({
             type:CHECK_ADDRESS_ERROR,
             payload:'Invalid Wallet Address...Sender Address and Receipent Address Cannot be Same'
         })
         
     }
-    else{
+    else if(items.receipent_address !=""){
         
     dispatch({
         type:CHECK_ADDRESS_LOADING
     })
-    
+    console.log('items',items)
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",
@@ -36,6 +36,7 @@ export default (items)=>(dispatch)=>{
         type:CHECK_ADDRESS_SUCCESS,
         payload:res.data
     })
+    console.log('REs',res.data)
    
 })
 .catch(err=>{
@@ -44,6 +45,7 @@ export default (items)=>(dispatch)=>{
         type:CHECK_ADDRESS_ERROR,
         payload:err.response && err.response.data 
     })
+    console.log('REs',err.response)
    
 })
 

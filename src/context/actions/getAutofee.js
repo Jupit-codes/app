@@ -8,7 +8,7 @@ export default ()=>(dispatch)=>{
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",
-        url: `${Base_url}/threshold/getAutofee`,
+        url: `${Base_url}/threshold/getautofee`,
         headers: {
           "Content-Type": "application/json",
           "Authorization":`Bearer ${reactLocalStorage.get('token')}`
@@ -20,7 +20,8 @@ export default ()=>(dispatch)=>{
         type:AUTO_FEE_SUCCESS,
         payload:res.data
     })
-    console.log(res.data)
+    // console.log(res.data)
+   
    
 })
 .catch(err=>{
@@ -29,7 +30,7 @@ export default ()=>(dispatch)=>{
         type:AUTO_FEE_ERROR,
         payload:err.response ? err.response.data : 'NO NETWORK CONNECTION'
     })
-    console.log(err.response);
+    // console.log(err.response)
 })
 
 }

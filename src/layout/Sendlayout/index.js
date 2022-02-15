@@ -10,28 +10,41 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Loader from '../../assets/images/loader.svg'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Marketprice from '../../context/actions/marketprice.js'
+import GetAutoFee from '../../context/actions/getAutofee.js'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();
+
+    const [lowFeeRate, setlowFeeRate]= useState('');
+    const [mediumFeeRate, setmediumFeeRate]= useState('');
+    const [highFeeRate, sethighFeeRate]= useState('');
+
+    const [networkFee,setNetworkFee] = useState(0);
+
     const [customdisable, setcustomdiasble]=useState(true)
     const [ReceipentAddress,setReceipentAddress] = useState('')
-    const [TransactionType, setTransactionType] = useState();
-    const[currentRate,setcurrentRate]=useState();
+    const [selectedAmountType, setselectedAmountType] = useState('');
+    const[currentRate,setcurrentRate]=useState('');
     const {checkaddressState:{checkaddress:{loading,dataAddr,error}},checkaddressDispatch} = useContext(GlobalContext);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
+    const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
+    
     const [btcamount,setbtcamount] = useState('');
     const [usdamount,setusdamount] = useState('');
     const history = useHistory();
     useEffect(()=>{
+        
         Marketprice()(priceDispatch);
+       
         if(data){
             setcurrentRate(data.BTC.USD.PRICE);
             
         }
+        
 
         if(error){
-            console.log(error);
+            // console.log(error);
             if(error === "Token Not Found"){
                 reactLocalStorage.remove('user');
                 reactLocalStorage.remove('token');
@@ -42,21 +55,58 @@ const Index =()=>{
 
     },[dataAddr,error,data])
 
+    useEffect(()=>{
+        GetAutoFee()(autofeeDispatch)
+        if(dataAutofee){
+                
+                dataAutofee.message.auto_fees.forEach((d)=>{
+                    
+                    if(d.block_num === 1){
+                        sethighFeeRate(d.auto_fee)
+                    }
+                    else if(d.block_num === 50){
+                        setmediumFeeRate(d.auto_fee)
+                    }
+                    else if(d.block_num === 100){
+                        setlowFeeRate(d.auto_fee)
+                    }
+                })
+        }
+    },[dataAutofee])
+    
+    useEffect(()=>{
+        
+        if(ReceipentAddress){
+            const items = {
+                receipent_address:ReceipentAddress,
+                wallet_type:'BTC'
+            }
+            CheckAddress(items)(checkaddressDispatch)
+        }
+        
+    },[ReceipentAddress])
+
     const handleChangeFee = (e)=>{
         if(e.target.classList.contains('low')){
             sethighFee(false);
             setmediumFee(false);
             setlowFee(true);
+            let x =parseFloat(lowFeeRate * 226 * 0.00000001 ).toFixed(8);
+            setNetworkFee(x)
         }
         else if(e.target.classList.contains('medium')){
             sethighFee(false);
             setmediumFee(true);
             setlowFee(false);
+            let x =parseFloat(mediumFeeRate * 226 * 0.00000001 ).toFixed(8);
+            setNetworkFee(x)
         }
         else if(e.target.classList.contains('high')){
             sethighFee(true);
             setmediumFee(false);
             setlowFee(false);
+            let x =parseFloat(highFeeRate * 226 * 0.00000001 ).toFixed(8);
+            setNetworkFee(x)
         }
     }
     const _handleReceipent = (e)=>{
@@ -65,10 +115,11 @@ const Index =()=>{
             receipent_address:ReceipentAddress,
             wallet_type:'BTC'
         }
-        CheckAddress(items)(checkaddressDispatch)
+        // CheckAddress(items)(checkaddressDispatch)
         // setcustomdiasble(!customdisable)
         
     }
+   
     const BTCAmount = (e)=>{
         setbtcamount(e.target.value);
         let pat = currentRate * e.target.value
@@ -82,9 +133,20 @@ const Index =()=>{
     const CopyData = (e)=>{
        
         setReceipentAddress(e.clipboardData.getData('Text'))
+       
+        
+        const items = {
+            receipent_address:ReceipentAddress,
+            wallet_type:'BTC'
+        }
+        CheckAddress(items)(checkaddressDispatch)
+    }
+    const _addAmount = ()=>{
+        return parseFloat(btcamount) + parseFloat(networkFee)
     }
     const _selectFee = ()=>{
         // getAutoFee()()0.00000001
+        // console.log('dataloadfee',dataAutofee)
         return (
             <div className=''>
                 <div className='sendBTCFrom'>Select Fee</div>
@@ -92,18 +154,20 @@ const Index =()=>{
                     <div className='selectedbox low' onClick={handleChangeFee}>
                         <div>{lowFee && <HiCheckCircle size={15} color="#8be78b"/>}</div>
                         <div className='selectedtype low'>low Fee</div>
-                        <div className='selectedAmount low'>0.000005 SATOCHI</div>
-                            
+                        <div className='selectedAmount low'>100 Blocks</div>
+                        <div className='selectedAmount high'>16.6Hours</div> 
                     </div>
                     <div className="selectedbox medium" onClick={handleChangeFee}>
                         <div>{mediumFee && <HiCheckCircle size={15} color="#8be78b"/>}</div>
                         <div className='selectedtype medium'>Medium Fee</div>
-                         <div className='selectedAmount medium'>0.00000100 SATOCHI</div>
+                         <div className='selectedAmount medium'>50 Blocks</div>
+                         <div className='selectedAmount high'>8.3Hours</div>
                     </div>
                     <div className='selectedbox high' onClick={handleChangeFee}>
                         <div>{highFee && <HiCheckCircle size={15} color="#8be78b"/>}</div>
                         <div className='selectedtype high'>High Fee</div>
-                         <div className='selectedAmount high'>0.00000100 SATOCHI</div>
+                         <div className='selectedAmount high'>1 Block</div>
+                         <div className='selectedAmount high'>10mins</div>
                     </div>
                 </div>
             </div>
@@ -127,8 +191,8 @@ const Index =()=>{
                     <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
-                            <input type="text"  onPaste={CopyData} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} onChange={_handleReceipent}/>
-                            <small>{loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
+                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} />
+                            <small>{ReceipentAddress && loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
                             {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
                             {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
                             
@@ -143,9 +207,12 @@ const Index =()=>{
                         </div>
                     </div>
                     <div>
-                        {dataAddr && dataAddr === "Non-JupitCustomer" && _selectFee()}
+                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && dataAutofee && _selectFee()}
+                        <small>{loadingAutofee && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
+                        {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>}
+                       
                     </div>
-                    <div className={customdisable? 'sendFund disabled': 'sendFund'} >
+                    <div className={dataAddr && btcamount && networkFee ? 'sendFund': 'sendFund disabled'} >
                             Continue
                     </div>
                 </div>
@@ -163,15 +230,16 @@ const Index =()=>{
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Network Fee</div>
+                            <div className='sendBTCFrom'>Network Fee ( In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
-                                {btcamount}
+                                {networkFee}
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Total Fee</div>
+                            <div className='sendBTCFrom'>Total Fee (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
-                                {parseFloat({btcamount}) + 0.05}
+                                
+                                {dataAddr && btcamount && networkFee && _addAmount()}
                             </div>
                     </div>
                 </div>
