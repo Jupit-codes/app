@@ -28,9 +28,9 @@ export default ()=>(dispatch)=>{
     
     dispatch({
         type:AUTO_FEE_ERROR,
-        payload:err.response ? err.response.data : 'NO NETWORK CONNECTION'
+        payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
     })
-    // console.log(err.response)
+    
 })
 
 }

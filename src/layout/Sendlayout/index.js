@@ -73,7 +73,7 @@ const Index =()=>{
                 })
         }
     },[dataAutofee])
-    
+
     useEffect(()=>{
         
         if(ReceipentAddress){
@@ -93,6 +93,8 @@ const Index =()=>{
             setlowFee(true);
             let x =parseFloat(lowFeeRate * 226 * 0.00000001 ).toFixed(8);
             setNetworkFee(x)
+              
+            
         }
         else if(e.target.classList.contains('medium')){
             sethighFee(false);
@@ -207,9 +209,9 @@ const Index =()=>{
                         </div>
                     </div>
                     <div>
-                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && dataAutofee && _selectFee()}
-                        <small>{loadingAutofee && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
-                        {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>}
+                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && _selectFee()}
+                        {/* <small>{loadingAutofee && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small> */}
+                        {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
                        
                     </div>
                     <div className={dataAddr && btcamount && networkFee ? 'sendFund': 'sendFund disabled'} >
