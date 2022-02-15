@@ -36,7 +36,7 @@ export default (items)=>(dispatch)=>{
         type:CHECK_ADDRESS_SUCCESS,
         payload:res.data
     })
-    console.log('REs',res.data)
+  
    
 })
 .catch(err=>{

@@ -53,7 +53,7 @@ const Index =()=>{
         }
         
 
-    },[dataAddr,error,data])
+    },[error,data])
 
     useEffect(()=>{
         GetAutoFee()(autofeeDispatch)
@@ -126,11 +126,20 @@ const Index =()=>{
         setbtcamount(e.target.value);
         let pat = currentRate * e.target.value
         setusdamount(pat)
+        if(dataAddr === "Internal Transfer"){
+            setNetworkFee(0)
+            console.log('NetworkFee',networkFee)
+        }
+        
     }
     const USDAmount=(e)=>{
         setusdamount(e.target.value);
         let pat = e.target.value / currentRate 
         setbtcamount(pat)
+        if(dataAddr === "Internal Transfer"){
+            setNetworkFee(0)
+            console.log('NetworkFee',networkFee)
+        }
     }
     const CopyData = (e)=>{
        
@@ -241,7 +250,8 @@ const Index =()=>{
                             <div className='sendBTCFrom'>Total Fee (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {dataAddr && btcamount && networkFee && _addAmount()}
+                                {dataAddr && dataAddr === "Internal Transfer" && btcamount && _addAmount()}
+                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee && _addAmount()}
                             </div>
                     </div>
                 </div>
