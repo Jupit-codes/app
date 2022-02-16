@@ -24,7 +24,7 @@ export const GlobalProvider = ({ children}) =>{
     const [checkaddressState, checkaddressDispatch] = useReducer(checkaddress,initialcheckaddress);
     const [autofeeState, autofeeDispatch] = useReducer(autofee,autofeeinitial);
     const [userdetailsState, userdetailsDispatch] = useReducer(userdetails,userdetailsinitial);
-    const [sendcoinState, sencoinDispatch] = useReducer(sendcoin,sendcoininitial);
+    const [sendcoinState, sendcoinDispatch] = useReducer(sendcoin,sendcoininitial);
     return <GlobalContext.Provider value={
         {
             authState,
@@ -40,7 +40,7 @@ export const GlobalProvider = ({ children}) =>{
             userdetailsState,
             userdetailsDispatch,
             sendcoinState,
-            sencoinDispatch
+            sendcoinDispatch
 
         }
     }>

@@ -14,7 +14,7 @@ import GetAutoFee from '../../context/actions/getAutofee.js'
 import { ToastContainer, toast } from 'react-toastify';
 import ProcessCoin from '../../context/actions/sendcoin'
 import 'react-toastify/dist/ReactToastify.css';
-import LoaderOverlay from '../../utils/loader/loader.js'
+import LoaderOverlay from '../../utils/loader/mainLoader'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -36,10 +36,23 @@ const Index =()=>{
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
     const {sendcoinState:{sendcoin:{SEND_COIN_loading,SEND_COIN_data,SEND_COIN_error}},sendcoinDispatch} = useContext(GlobalContext);
-    
+    console.log('sendCoindata',SEND_COIN_data);
+    console.log('sendCoinError',SEND_COIN_error);
     const [btcamount,setbtcamount] = useState('');
     const [usdamount,setusdamount] = useState('');
     const history = useHistory();
+            
+    useEffect(()=>{
+        if(SEND_COIN_data){
+                toast(SEND_COIN_data.Message)
+        }
+
+        if(SEND_COIN_error){
+            toast(SEND_COIN_error.Message)
+        }
+
+    },[SEND_COIN_data,SEND_COIN_error])
+
     useEffect(()=>{
         
         Marketprice()(priceDispatch);
@@ -83,7 +96,7 @@ const Index =()=>{
             }
         }
         
-    },[dataAutofee,mount])
+    },[])
 
     useEffect(()=>{
         
@@ -227,7 +240,7 @@ const Index =()=>{
         
         console.log(items)
 
-        ProcessCoin(items)(checkaddressDispatch);
+        ProcessCoin(items)(sendcoinDispatch);
 
         // toast('Coin Successfully Sent');
 

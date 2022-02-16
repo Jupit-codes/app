@@ -8,3 +8,17 @@
     position: absolute;
     background-color: rgb(1, 1, 1,0.2);
 }
+
+.loaderMain{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    top:0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgb(1, 1, 1,0.2);
+}

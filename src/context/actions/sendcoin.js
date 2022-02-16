@@ -4,12 +4,13 @@ import { reactLocalStorage } from "reactjs-localstorage"
 
 export default (item)=>(dispatch)=>{
    
+
     dispatch({
         type:SEND_COIN_LOADING,
        
     })
 
-    return false;
+    // return false;
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
     axios({
@@ -40,7 +41,7 @@ export default (item)=>(dispatch)=>{
     .catch((err)=>{
         dispatch({
             type:SEND_COIN_ERROR,
-            payload:err.response
+            payload:err.response ? err.response : 'CONNECTION FAULT'
         })
        
     })
