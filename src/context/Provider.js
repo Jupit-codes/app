@@ -5,7 +5,7 @@ import initialMarketprice from './initialStates/initialMarketprice';
 import initialcheckaddress from './initialStates/initialcheckaddress';
 import autofeeinitial from './initialStates/autofeeinitial';
 import userdetailsinitial from './initialStates/userdetailsinitial';
-import sendcoininitial from './initialStates/sendCoin_initialstate'
+import sendcoininitial from './initialStates/sendcoininitialstate'
 import auth from './reducers/auth';
 import authRegister from './reducers/register'
 import marketprice from './reducers/marketprice';
