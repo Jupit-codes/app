@@ -1,6 +1,6 @@
 import {SEND_COIN_ERROR,SEND_COIN_LOADING,SEND_COIN_SUCCESS} from '../../constants/actionTypes'
 
-const sendCoin = (state,{payload,type})=>{
+const sendcoin = (state,{payload,type})=>{
     
     switch(type){
         
@@ -47,4 +47,4 @@ const sendCoin = (state,{payload,type})=>{
 
 };
 
-export default sendCoin;
+export default sendcoin;

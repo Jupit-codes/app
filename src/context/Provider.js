@@ -12,7 +12,7 @@ import marketprice from './reducers/marketprice';
 import checkaddress  from './reducers/checkaddress';
 import autofee from './reducers/autofee'
 import userdetails from './reducers/userdetails'
-import sendcoin from './reducers/sendCoin'
+import sendcoin from './reducers/sendcoin'
 
 
 export const GlobalContext = createContext({});
