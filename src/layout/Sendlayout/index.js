@@ -14,6 +14,7 @@ import GetAutoFee from '../../context/actions/getAutofee.js'
 import { ToastContainer, toast } from 'react-toastify';
 import ProcessCoin from '../../context/actions/sendcoin'
 import 'react-toastify/dist/ReactToastify.css';
+import LoaderOverlay from '../../utils/loader/loader.js'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -34,6 +35,7 @@ const Index =()=>{
     const {checkaddressState:{checkaddress:{loading,dataAddr,error}},checkaddressDispatch} = useContext(GlobalContext);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
+    const {sendcoinState:{sendcoin:{SEND_COIN_loading,SEND_COIN_data,SEND_COIN_error}},sendcoinDispatch} = useContext(GlobalContext);
     
     const [btcamount,setbtcamount] = useState('');
     const [usdamount,setusdamount] = useState('');
@@ -219,12 +221,13 @@ const Index =()=>{
             block_average:blockaverage,
             wallet_type:"BTC",
             transferType:dataAddr,
-            SenderAddress:reactLocalStorage.getObject.btc_wallet[0].address
+            SenderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
 
         }
         
+        console.log(items)
 
-        ProcessCoin(items)()
+        ProcessCoin(items)(sendcoinDispatch);
 
         // toast('Coin Successfully Sent');
 
@@ -233,6 +236,7 @@ const Index =()=>{
     }
     return (
         <div className="sendBTC">
+            { SEND_COIN_loading && <LoaderOverlay/>}
             <div className='back'><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
