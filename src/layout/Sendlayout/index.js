@@ -227,7 +227,7 @@ const Index =()=>{
         
         console.log(items)
 
-        ProcessCoin(items)(sendcoinDispatch);
+        ProcessCoin(items)(checkaddressDispatch);
 
         // toast('Coin Successfully Sent');
 
