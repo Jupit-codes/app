@@ -11,17 +11,22 @@ import Loader from '../../assets/images/loader.svg'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Marketprice from '../../context/actions/marketprice.js'
 import GetAutoFee from '../../context/actions/getAutofee.js'
+import { ToastContainer, toast } from 'react-toastify';
+import ProcessCoin from '../../context/actions/sendcoin'
+import 'react-toastify/dist/ReactToastify.css';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();
+    const [blockaverage, setblockaverage]= useState(0);
 
     const [lowFeeRate, setlowFeeRate]= useState('');
     const [mediumFeeRate, setmediumFeeRate]= useState('');
     const [highFeeRate, sethighFeeRate]= useState('');
+    const [mount,setMount] = useState(false)
 
     const [networkFee,setNetworkFee] = useState(0);
-
+    const [ButtonDisable,setButtonDisable] = useState(null)
     const [customdisable, setcustomdiasble]=useState(true)
     const [ReceipentAddress,setReceipentAddress] = useState('')
     const [selectedAmountType, setselectedAmountType] = useState('');
@@ -57,22 +62,26 @@ const Index =()=>{
 
     useEffect(()=>{
         GetAutoFee()(autofeeDispatch)
-        if(dataAutofee){
-                
-                dataAutofee.message.auto_fees.forEach((d)=>{
+        if(!mount){
+                if(dataAutofee){
                     
-                    if(d.block_num === 1){
-                        sethighFeeRate(d.auto_fee)
-                    }
-                    else if(d.block_num === 50){
-                        setmediumFeeRate(d.auto_fee)
-                    }
-                    else if(d.block_num === 100){
-                        setlowFeeRate(d.auto_fee)
-                    }
-                })
+                    dataAutofee.message.auto_fees.forEach((d)=>{
+                        
+                        if(d.block_num === 1){
+                            sethighFeeRate(d.auto_fee)
+                        }
+                        else if(d.block_num === 50){
+                            setmediumFeeRate(d.auto_fee)
+                        }
+                        else if(d.block_num === 100){
+                            setlowFeeRate(d.auto_fee)
+                        }
+                    })
+                    setMount(true)
+            }
         }
-    },[dataAutofee])
+        
+    },[dataAutofee,mount])
 
     useEffect(()=>{
         
@@ -84,6 +93,8 @@ const Index =()=>{
             CheckAddress(items)(checkaddressDispatch)
         }
         
+        
+        
     },[ReceipentAddress])
 
     const handleChangeFee = (e)=>{
@@ -93,6 +104,7 @@ const Index =()=>{
             setlowFee(true);
             let x =parseFloat(lowFeeRate * 226 * 0.00000001 ).toFixed(8);
             setNetworkFee(x)
+            setblockaverage(100)
               
             
         }
@@ -102,6 +114,7 @@ const Index =()=>{
             setlowFee(false);
             let x =parseFloat(mediumFeeRate * 226 * 0.00000001 ).toFixed(8);
             setNetworkFee(x)
+            setblockaverage(50)
         }
         else if(e.target.classList.contains('high')){
             sethighFee(true);
@@ -109,6 +122,7 @@ const Index =()=>{
             setlowFee(false);
             let x =parseFloat(highFeeRate * 226 * 0.00000001 ).toFixed(8);
             setNetworkFee(x)
+            setblockaverage(1)
         }
     }
     const _handleReceipent = (e)=>{
@@ -117,6 +131,8 @@ const Index =()=>{
             receipent_address:ReceipentAddress,
             wallet_type:'BTC'
         }
+        setbtcamount('');
+        setusdamount('')
         // CheckAddress(items)(checkaddressDispatch)
         // setcustomdiasble(!customdisable)
         
@@ -128,7 +144,7 @@ const Index =()=>{
         setusdamount(pat)
         if(dataAddr === "Internal Transfer"){
             setNetworkFee(0)
-            console.log('NetworkFee',networkFee)
+            
         }
         
     }
@@ -138,7 +154,7 @@ const Index =()=>{
         setbtcamount(pat)
         if(dataAddr === "Internal Transfer"){
             setNetworkFee(0)
-            console.log('NetworkFee',networkFee)
+            
         }
     }
     const CopyData = (e)=>{
@@ -160,6 +176,7 @@ const Index =()=>{
         // console.log('dataloadfee',dataAutofee)
         return (
             <div className=''>
+                <ToastContainer/>
                 <div className='sendBTCFrom'>Select Fee</div>
                 <div className='selectFee'>
                     <div className='selectedbox low' onClick={handleChangeFee}>
@@ -183,6 +200,36 @@ const Index =()=>{
                 </div>
             </div>
         )
+    }
+    // useEffect(()=>{
+    //     if(dataAddr && dataAddr === "Internal Transfer" && btcamount)
+    //     {
+    //         setButtonDisable (false);
+    //     }
+    //     else if(dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee){
+    //         setButtonDisable (false);
+    //     }
+    // },[dataAddr])
+    const sendCoin = ()=>{
+        const items={
+            ReceipentAddress:ReceipentAddress,
+            networkFee:networkFee,
+            userid:reactLocalStorage.getObject('user')._id,
+            amount:btcamount,
+            block_average:blockaverage,
+            wallet_type:"BTC",
+            transferType:dataAddr,
+            SenderAddress:reactLocalStorage.getObject.btc_wallet[0].address
+
+        }
+        
+
+        ProcessCoin(items)()
+
+        // toast('Coin Successfully Sent');
+
+
+        
     }
     return (
         <div className="sendBTC">
@@ -223,7 +270,7 @@ const Index =()=>{
                         {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
                        
                     </div>
-                    <div className={dataAddr && btcamount && networkFee ? 'sendFund': 'sendFund disabled'} >
+                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
                             Continue
                     </div>
                 </div>

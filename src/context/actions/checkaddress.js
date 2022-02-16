@@ -18,7 +18,7 @@ export default (items)=>(dispatch)=>{
     dispatch({
         type:CHECK_ADDRESS_LOADING
     })
-    console.log('items',items)
+    // console.log('items',items)
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",
