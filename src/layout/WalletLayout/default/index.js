@@ -5,6 +5,7 @@ import '../../../assets/css/Wallet/walletdefault.css'
 import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
+import axios from "axios";
 const Index=(props)=>{
     const [userNaira, setuserNaira]= useState();
     const [userBtc ,setuserBtc]= useState();
@@ -48,7 +49,7 @@ const Index=(props)=>{
     useEffect(()=>{
         let x = reactLocalStorage.getObject('user');
         setuserNaira(x.naira_wallet[0].balance.$numberDecimal);
-        setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
+        // setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
         setuserUsdt(x.usdt_wallet[0].balance.$numberDecimal);
          Marketprice()(priceDispatch);
          if(data){
@@ -65,6 +66,37 @@ const Index=(props)=>{
          
 
     },[data])
+
+    useEffect(()=>{
+        let _id = reactLocalStorage.getObject('user')._id;
+        getbalance(_id)
+    },[userBtc])
+
+
+    const getbalance = (_id)=>{
+        
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:_id})
+        })
+        .then((res)=>{
+          
+            setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+            
+          
+        })
+        .catch((err)=>{
+           
+            console.log(err.response)
+            
+        })
+    }
+
 
     return(
         <div className="walletdefault">

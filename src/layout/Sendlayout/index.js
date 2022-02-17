@@ -17,6 +17,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoaderOverlay from '../../utils/loader/mainLoader'
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
 import { USER_DETAILS_LOADING } from '../../constants/actionTypes';
+import { useRef } from 'react';
+import axios from 'axios';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -45,27 +47,74 @@ const Index =()=>{
     const [usdamount,setusdamount] = useState('');
     const [Balance,setBalance] = useState(0);
     const [mountBalance,setMountBalance] = useState(false)
+    const isMounted = useRef(false);
     const history = useHistory();
     
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
-   UserDetailsRefresh(_id)(userdetailsDispatch)
+        UserDetailsRefresh(_id)(userdetailsDispatch)
     
             if(USER_data){
                     
                 setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
-                setMountBalance(true);
+                // reactLocalStorage.setObject('user',USER_data)
+                
             }
-    
-       
+            // console.log('TestServer',USER_data)
+
    },[])
+
+    const getbalance = (_id)=>{
+        
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:_id})
+        })
+        .then((res)=>{
+            // dispatch({
+            //     type:USER_DETAILS_SUCCESS,
+            //     payload:res.data
+            // })
+            // console.log(res.data);
+            setBalance(res.data.btc_wallet[0].balance.$numberDecimal);
+            console.log(Balance)
+        })
+        .catch((err)=>{
+            // dispatch({
+            //     type:USER_DETAILS_ERROR,
+            //     payload:err.response
+            // })
+            console.log(err.response)
+            
+        })
+    }
+     useEffect(()=>{
+         let _id = reactLocalStorage.getObject('user')._id;
+         getbalance(_id)
+     },[Balance])
+
     useEffect(()=>{
         if(SEND_COIN_data){
-                toast.success(SEND_COIN_data.Message,'SUCCESS')
+                
+            ReceipentAddress && btcamount && toast.success(SEND_COIN_data.Message,'SUCCESS')
+                setReceipentAddress('');
+                setbtcamount('');
+                setusdamount('');
+                setNetworkFee('');
+                setBalance(0);
+                
+                
+
         }
 
         if(SEND_COIN_error){
+            ReceipentAddress && btcamount && toast.success(SEND_COIN_data.Message,'SUCCESS')
             toast.error(SEND_COIN_error.Message,"ERROR")
         }
 
@@ -173,11 +222,10 @@ const Index =()=>{
    
     const BTCAmount = (e)=>{
         setbtcamount(e.target.value);
-        if(btcamount > Balance){
-            toast.error('Insufficent Fund','ERROR')
-        }
+        
         let pat = currentRate * e.target.value
         setusdamount(pat)
+        
         if(dataAddr === "Internal Transfer"){
             setNetworkFee(0)
             
@@ -259,7 +307,7 @@ const Index =()=>{
 
         }
         
-        console.log(items)
+        // console.log(items)
 
         ProcessCoin(items)(sendcoinDispatch);
 
@@ -293,7 +341,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{USER_data && Balance}
+                            Balance:{Balance}
                         </div>
                     </div>
                     <div className='toBTC'>
@@ -320,9 +368,11 @@ const Index =()=>{
                         {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
                        
                     </div>
-                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
+                    {btcamount && btcamount > Balance && <div className='errorBTCAddr pt-4'>Amount Inputted is Greater than Available Balance</div> }
+                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount && btcamount < Balance  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && btcamount < Balance && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
                             Continue
                     </div>
+                   
                 </div>
                 <div className='SendBodyII'>
                     <div className='TextInformation'>

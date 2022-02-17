@@ -8,6 +8,7 @@ import Icon from "react-crypto-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
 import ReceiveModal from '../../../utils/modal/customModal'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import axios from 'axios';
 const Index = (props)=>{
     const history = useHistory();
     const [userBtc ,setuserBtc]= useState();
@@ -34,7 +35,7 @@ const Index = (props)=>{
     useEffect(()=>{
         let x = reactLocalStorage.getObject('user');
         
-        setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
+        // setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
         Marketprice()(priceDispatch);
         if(data){
             let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
@@ -48,6 +49,35 @@ const Index = (props)=>{
         
 
    },[data])
+
+   const getbalance = (_id)=>{
+        
+    axios({
+        method: "POST",
+        url: `https://myjupit.herokuapp.com/users/refresh`,
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':reactLocalStorage.get('token')
+        },
+        data:JSON.stringify({_id:_id})
+    })
+    .then((res)=>{
+        
+        setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+        
+      
+    })
+    .catch((err)=>{
+    
+        console.log(err.response)
+        
+    })
+}
+ useEffect(()=>{
+     let _id = reactLocalStorage.getObject('user')._id;
+     getbalance(_id)
+ },[userBtc])
+
 
    
 
