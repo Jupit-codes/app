@@ -9,9 +9,9 @@ const userdetails = (state,{payload,type})=>{
                 ...state,
                 userdetails:{
                     ...state.userdetails,
-                    error:null,
-                    data:payload,
-                    loading:false,
+                    USER_error:null,
+                    USER_data:payload,
+                    USER_loading:false,
                  
 
                 }
@@ -22,9 +22,9 @@ const userdetails = (state,{payload,type})=>{
                     ...state,
                     userdetails:{
                         ...state.userdetails,
-                        error:payload,
-                        data:null,
-                        loading:false,
+                        USER_error:payload,
+                        USER_data:null,
+                        USER_loading:false,
                       
                     }
             }
@@ -33,9 +33,9 @@ const userdetails = (state,{payload,type})=>{
                     ...state,
                     userdetails:{
                         ...state.userdetails,
-                        error: null,
-                        data:null,
-                        loading:true,
+                        USER_error: null,
+                        USER_data:null,
+                        USER_loading:true,
                        
                     }
             };

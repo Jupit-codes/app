@@ -10,7 +10,7 @@ export default (_id)=>(dispatch)=>{
     })
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
-   
+  
     
     axios({
         method: "POST",
@@ -26,13 +26,13 @@ export default (_id)=>(dispatch)=>{
             type:USER_DETAILS_SUCCESS,
             payload:res.data
         })
-        console.log(res.data)
+        
     })
     .catch((err)=>{
         dispatch({
             type:USER_DETAILS_ERROR,
             payload:err.response
         })
-        console.log(err.response)
+        
     })
 }

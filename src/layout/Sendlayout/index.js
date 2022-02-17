@@ -15,6 +15,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import ProcessCoin from '../../context/actions/sendcoin'
 import 'react-toastify/dist/ReactToastify.css';
 import LoaderOverlay from '../../utils/loader/mainLoader'
+import UserDetailsRefresh from '../../context/actions/userdetails.js'
+import { USER_DETAILS_LOADING } from '../../constants/actionTypes';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -36,19 +38,35 @@ const Index =()=>{
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
     const {sendcoinState:{sendcoin:{SEND_COIN_loading,SEND_COIN_data,SEND_COIN_error}},sendcoinDispatch} = useContext(GlobalContext);
-    console.log('sendCoindata',SEND_COIN_data);
-    console.log('sendCoinError',SEND_COIN_error);
+    const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
+    // console.log('sendCoindata',SEND_COIN_data);
+    // console.log('sendCoinError',SEND_COIN_error);
     const [btcamount,setbtcamount] = useState('');
     const [usdamount,setusdamount] = useState('');
+    const [Balance,setBalance] = useState(0);
+    const [mountBalance,setMountBalance] = useState(false)
     const history = useHistory();
-            
+    
+   useEffect(()=>{
+       let _id = reactLocalStorage.getObject('user')._id;
+       
+   UserDetailsRefresh(_id)(userdetailsDispatch)
+    
+            if(USER_data){
+                    
+                setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                setMountBalance(true);
+            }
+    
+       
+   },[])
     useEffect(()=>{
         if(SEND_COIN_data){
-                toast(SEND_COIN_data.Message)
+                toast.success(SEND_COIN_data.Message,'SUCCESS')
         }
 
         if(SEND_COIN_error){
-            toast(SEND_COIN_error.Message)
+            toast.error(SEND_COIN_error.Message,"ERROR")
         }
 
     },[SEND_COIN_data,SEND_COIN_error])
@@ -155,6 +173,9 @@ const Index =()=>{
    
     const BTCAmount = (e)=>{
         setbtcamount(e.target.value);
+        if(btcamount > Balance){
+            toast.error('Insufficent Fund','ERROR')
+        }
         let pat = currentRate * e.target.value
         setusdamount(pat)
         if(dataAddr === "Internal Transfer"){
@@ -191,7 +212,7 @@ const Index =()=>{
         // console.log('dataloadfee',dataAutofee)
         return (
             <div className=''>
-                <ToastContainer/>
+                
                 <div className='sendBTCFrom'>Select Fee</div>
                 <div className='selectFee'>
                     <div className='selectedbox low' onClick={handleChangeFee}>
@@ -250,6 +271,17 @@ const Index =()=>{
     return (
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
             <div className='back'><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
@@ -260,7 +292,8 @@ const Index =()=>{
                             <Icon name="btc" size={30} /> <span>BTC Wallet</span>
                         </div>
                         <div>
-                            Balance:0.0000000
+                            {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
+                            Balance:{USER_data && Balance}
                         </div>
                     </div>
                     <div className='toBTC'>
@@ -276,7 +309,7 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="number"  placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
+                            <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
                             <img src={Equivalent}/>
                             <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount}/>
                         </div>

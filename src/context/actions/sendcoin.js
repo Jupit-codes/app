@@ -21,7 +21,7 @@ export default (item)=>(dispatch)=>{
             'Authorization':reactLocalStorage.get('token')
         },
         data:JSON.stringify({
-            ReceipentAddress:item.ReceipentAddress,
+            receipentAddress:item.ReceipentAddress,
             block_average:item.block_average,
             networkFee:item.networkFee,
             wallet_type:item.wallet_type,
