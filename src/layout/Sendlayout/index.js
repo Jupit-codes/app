@@ -143,8 +143,9 @@ const Index =()=>{
     },[error,data])
 
     useEffect(()=>{
-        GetAutoFee()(autofeeDispatch)
+        
         if(!mount){
+            GetAutoFee()(autofeeDispatch)
                 if(dataAutofee){
                     
                     dataAutofee.message.auto_fees.forEach((d)=>{
@@ -163,7 +164,7 @@ const Index =()=>{
             }
         }
         
-    },[])
+    },[dataAutofee])
 
     useEffect(()=>{
         
