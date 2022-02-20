@@ -7,12 +7,12 @@ import autofeeinitial from './initialStates/autofeeinitial';
 import userdetailsinitial from './initialStates/userdetailsinitial';
 import sendcoininitial from './initialStates/sendcoininitialstate'
 import auth from './reducers/auth';
-import authRegister from './reducers/register'
-import marketprice from './reducers/marketprice';
-import checkaddress  from './reducers/checkaddress';
-import autofee from './reducers/autofee'
-import userdetails from './reducers/userdetails'
-import sendcoin from './reducers/sendcoin'
+import authRegister from './reducers/register.js'
+import marketprice from './reducers/marketprice.js';
+import checkaddress  from './reducers/checkaddress.js';
+import autofee from './reducers/autofee.js'
+import userdetails from './reducers/userdetails.js'
+import sendcoin from './reducers/sendcoin.js'
 
 
 export const GlobalContext = createContext({});
