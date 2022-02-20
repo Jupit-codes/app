@@ -21,14 +21,14 @@ export default (item)=>(dispatch)=>{
             'Authorization':reactLocalStorage.get('token')
         },
         data:JSON.stringify({
-            receipentAddress:item.ReceipentAddress,
+            receipentaddress:item.ReceipentAddress,
             block_average:item.block_average,
             networkFee:item.networkFee,
             wallet_type:item.wallet_type,
             userid:item.userid,
-            transferType:item.transferType,
+            transfertype:item.transferType,
             amount:item.amount,
-            senderAddress:reactLocalStorage.getObject('user').btc_wallet[0].address
+            senderaddress:reactLocalStorage.getObject('user').btc_wallet[0].address
         })
     })
     .then((res)=>{
