@@ -55,7 +55,10 @@ const Index =()=>{
        
         UserDetailsRefresh(_id)(userdetailsDispatch)
     
-            if(USER_data){
+            if(USER_data ){
+                if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
+                    setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                }
                     
                 setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
                 // reactLocalStorage.setObject('user',USER_data)
@@ -63,7 +66,7 @@ const Index =()=>{
             }
             // console.log('TestServer',USER_data)
 
-   },[])
+   },[USER_data])
 
     const getbalance = (_id)=>{
         
@@ -94,10 +97,7 @@ const Index =()=>{
             
         })
     }
-     useEffect(()=>{
-         let _id = reactLocalStorage.getObject('user')._id;
-         getbalance(_id)
-     },[Balance])
+   
 
     useEffect(()=>{
         if(SEND_COIN_data){
@@ -108,9 +108,6 @@ const Index =()=>{
                 setusdamount('');
                 setNetworkFee('');
                 setBalance(0);
-                
-                
-
         }
 
         if(SEND_COIN_error){

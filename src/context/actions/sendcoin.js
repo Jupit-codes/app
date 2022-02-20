@@ -27,7 +27,8 @@ export default (item)=>(dispatch)=>{
             wallet_type:item.wallet_type,
             userid:item.userid,
             transferType:item.transferType,
-            amount:item.amount
+            amount:item.amount,
+            senderAddress:reactLocalStorage.getObject('user').btc_wallet[0].address
         })
     })
     .then((res)=>{
