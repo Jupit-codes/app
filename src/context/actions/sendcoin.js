@@ -12,12 +12,12 @@ export default (item)=>(dispatch)=>{
 
     // return false;
     const Base_url = process.env.REACT_APP_BACKEND_URL;
-    console.log(Base_url);
+    
    
     
     axios({
         method: "POST",
-        url: `${Base_url}/users/test`,
+        url: 'https://myjupit.herokuapp.com/users/test',
         headers:{
             'Content-Type':'application/json',
             'Authorization':reactLocalStorage.get('token')
@@ -31,7 +31,7 @@ export default (item)=>(dispatch)=>{
             userid:item.userid,
             transfertype:item.transferType,
             amount:item.amount,
-            senderaddress:reactLocalStorage.getObject('user').btc_wallet[0].address
+            senderaddress:item.senderAddress
   
         })
     })
