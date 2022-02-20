@@ -79,6 +79,10 @@
   cursor: pointer;
 }
 
+body{
+	background-color: #fff;
+}
+
 .mynav-item-scroll{
   font-family: Inter;
   font-size: 13px;
