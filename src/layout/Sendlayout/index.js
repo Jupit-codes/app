@@ -97,6 +97,11 @@ const Index =()=>{
             
         })
     }
+
+    // useEffect(()=>{
+    //     const _id = reactLocalStorage.getObject('user')._id;
+    //     getbalance();
+    // },[Balance])
    
 
     useEffect(()=>{
@@ -111,8 +116,9 @@ const Index =()=>{
         }
 
         if(SEND_COIN_error){
-            ReceipentAddress && btcamount && toast.success(SEND_COIN_data.Message,'SUCCESS')
-            toast.error(SEND_COIN_error.Message,"ERROR")
+            ReceipentAddress && btcamount && toast.error(SEND_COIN_error.Message,'ERROR')
+            console.log(SEND_COIN_error.Message);
+            // toast.error(SEND_COIN_error.Message,"ERROR")
         }
 
     },[SEND_COIN_data,SEND_COIN_error])
