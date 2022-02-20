@@ -10,7 +10,7 @@ const Index = ()=>{
             
             <div className="riderText">
                 <div className="riderText-Title">
-                    <img src={jupit}/> <span className="pundit">Pundit</span>
+                     <span className="pundit">JUPIT Pundit</span>
                 </div>
                 <div className="riderText-subheading">Lets Walk you through the world of crypto space.</div>
                 <p className="riderText-p">
