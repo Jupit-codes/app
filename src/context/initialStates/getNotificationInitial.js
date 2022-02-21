@@ -1,7 +1,7 @@
 export default {
     getnotification:{
         loadingNotification:false,
-        dataNotification:null,
+        dataNotification:[],
         errorNotification:null,
         
     }

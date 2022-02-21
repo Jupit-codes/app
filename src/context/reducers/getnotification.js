@@ -10,9 +10,9 @@ const getNotification = (state,{payload,type})=>{
                 ...state,
                 getnotification:{
                     ...state.getnotification,
-                    errorerrorNotification:null,
-                    dataerrorNotification:payload,
-                    loadingerrorNotification:false,
+                    errorNotification:null,
+                    dataNotification:payload,
+                    loadingNotification:false,
                     
 
                 }
@@ -23,9 +23,9 @@ const getNotification = (state,{payload,type})=>{
                     ...state,
                     getnotification:{
                         ...state.getnotification,
-                        errorerrorNotification:null,
-                        dataerrorNotification:payload,
-                        loadingerrorNotification:false,
+                        errorNotification:null,
+                        dataNotification:payload,
+                        loadingNotification:false,
                     }
                    
             }
@@ -34,9 +34,9 @@ const getNotification = (state,{payload,type})=>{
                     ...state,
                     getnotification:{
                         ...state.getnotification,
-                        errorerrorNotification:null,
-                        dataerrorNotification:null,
-                        loadingerrorNotification:true,
+                        errorNotification:null,
+                        dataNotification:null,
+                        loadingNotification:true,
                         
     
                     }
