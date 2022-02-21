@@ -1,8 +1,26 @@
 import {AiOutlineRise} from 'react-icons/ai'
 import {AiOutlineFall} from 'react-icons/ai'
 import {Button} from 'react-bootstrap'
+import { useEffect, useState } from 'react'
+import FetchNotification from '../../context/actions/getNotification'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import {GlobalContext} from '../../context/Provider'
 
 const Index = ()=>{
+
+    const [notificationData,setnotificationData] = useState()
+    
+
+    useEffect(()=>{
+        const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
+        const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
+        const item ={
+            addressBTC:addressBTC,
+            addressUSDT:addressUSDT
+        }
+        FetchNotification(item)
+    },[])
+
     return (
         
             <div className="transaction">
