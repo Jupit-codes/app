@@ -20,12 +20,13 @@ export default (item)=>(dispatch)=>{
             data:JSON.stringify({addressBTC:item.addressBTC,addressUSDT:item.addressUSDT})
         })
         .then(res=>{
+
             dispatch({
                 type:GET_NOTIFICATION_SUCCESS,
                 payload:res.data
             })
 
-            // console.log('Result',res.data)
+            console.log('Result',res.data)
           
         
         

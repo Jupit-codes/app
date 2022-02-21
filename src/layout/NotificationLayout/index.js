@@ -9,11 +9,13 @@ import Spinner from '../../assets/images/spinner.gif'
 import empty from '../../assets/images/empty.png'
 import Details from '../../utils/modal/notification_details'
 import moment from 'moment'
+
 const Index = ()=>{
 
     const [notificationData,setnotificationData] = useState()
     const [modal,setmodal] = useState(false)
     const [orderid,setorderId] = useState('')
+    const [state, setState] = useState({});
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     // console.log('loader',loadingNotification);
     // console.log('dataNotification',dataNotification);
@@ -25,10 +27,10 @@ const Index = ()=>{
             addressUSDT:addressUSDT
         }
         FetchNotification(item)(getnotificationDispatch)
-
-        if(dataNotification){
-            setnotificationData(dataNotification)
-        }
+        return () => {
+            setState({}); // This worked for me
+          };
+       
     },[])
 
     const _handleDetails = (orderid)=>{
@@ -36,6 +38,13 @@ const Index = ()=>{
         setmodal(true);
         setorderId(orderid)
     }
+
+    const handleModal =(id)=>{
+
+        setorderId(id)
+        setmodal(true);
+
+    }   
 
     const _renderNotification =()=>{
         if(dataNotification){
@@ -53,7 +62,7 @@ const Index = ()=>{
                                 <div>{moment(d.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
                             <div className='notify-flex-2'>
-                            <Button onClick={_handleDetails(d.orderid)}>View Details</Button>
+                            <Button onClick={()=>{handleModal(d.orderid)}}>View Details</Button>
                             </div>
 
                         </div>
@@ -74,7 +83,7 @@ const Index = ()=>{
     return (
         
             <div className="transaction">
-                
+                {modal && <Details closeModal={modal} orderid={orderid}/>}
                 <div className='notifyTitle'>NOTIFICATION</div>
                {loadingNotification && <img src={Spinner}/>}
                {!loadingNotification && _renderNotification()}
