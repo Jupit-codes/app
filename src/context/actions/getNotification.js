@@ -16,8 +16,6 @@ export default (item)=>(dispatch)=>{
             headers: {
             "Content-Type": "application/json",
             "Authorization":`Bearer ${reactLocalStorage.get('token')}`
-            
-            
             },
             data:JSON.stringify({addressBTC:item.addressBTC,addressUSDT:item.addressUSDT})
         })
@@ -28,6 +26,7 @@ export default (item)=>(dispatch)=>{
             })
 
             console.log('Result',res.data)
+          
         
         
         })
