@@ -6,6 +6,7 @@ import initialcheckaddress from './initialStates/initialcheckaddress';
 import autofeeinitial from './initialStates/autofeeinitial';
 import userdetailsinitial from './initialStates/userdetailsinitial';
 import sendcoininitial from './initialStates/sendcoininitialstate'
+import getNotificationInitial from './initialStates/getNotificationInitial';
 import auth from './reducers/auth';
 import authRegister from './reducers/register.js'
 import marketprice from './reducers/marketprice.js';
@@ -13,6 +14,7 @@ import checkaddress  from './reducers/checkaddress.js';
 import autofee from './reducers/autofee.js'
 import userdetails from './reducers/userdetails.js'
 import sendcoin from './reducers/sendcoin.js'
+import getNotification from './reducers/getnotification';
 
 
 export const GlobalContext = createContext({});
@@ -25,6 +27,7 @@ export const GlobalProvider = ({ children}) =>{
     const [autofeeState, autofeeDispatch] = useReducer(autofee,autofeeinitial);
     const [userdetailsState, userdetailsDispatch] = useReducer(userdetails,userdetailsinitial);
     const [sendcoinState, sendcoinDispatch] = useReducer(sendcoin,sendcoininitial);
+    const [getnotificationState, getnotificationDispatch] = useReducer(getNotification,getNotificationInitial);
     return <GlobalContext.Provider value={
         {
             authState,
@@ -40,7 +43,9 @@ export const GlobalProvider = ({ children}) =>{
             userdetailsState,
             userdetailsDispatch,
             sendcoinState,
-            sendcoinDispatch
+            sendcoinDispatch,
+            getnotificationState,
+            getnotificationDispatch
 
         }
     }>

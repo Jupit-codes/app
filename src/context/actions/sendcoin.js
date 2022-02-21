@@ -17,10 +17,10 @@ export default (item)=>(dispatch)=>{
     
     axios({
         method: "POST",
-        url: 'https://myjupit.herokuapp.com/users/test',
+        url: `${Base_url}/threshold/transfer/coin/`,
         headers:{
-            'Content-Type':'application/json',
-            'Authorization':reactLocalStorage.get('token')
+            "Content-Type":"application/json",
+            "Authorization":reactLocalStorage.get('token')
         },
         data:JSON.stringify({
             receipentaddress:item.ReceipentAddress,

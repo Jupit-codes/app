@@ -19,6 +19,7 @@ import UserDetailsRefresh from '../../context/actions/userdetails.js'
 import { USER_DETAILS_LOADING } from '../../constants/actionTypes';
 import { useRef } from 'react';
 import axios from 'axios';
+import getNotification from '../../context/actions/getNotification';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -31,6 +32,7 @@ const Index =()=>{
     const [mount,setMount] = useState(false)
 
     const [networkFee,setNetworkFee] = useState(0);
+    // const [actualNetworkFee,setactualNetworkFee] = useState(0);
     const [ButtonDisable,setButtonDisable] = useState(null)
     const [customdisable, setcustomdiasble]=useState(true)
     const [ReceipentAddress,setReceipentAddress] = useState('')
@@ -41,6 +43,7 @@ const Index =()=>{
     const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
     const {sendcoinState:{sendcoin:{SEND_COIN_loading,SEND_COIN_data,SEND_COIN_error}},sendcoinDispatch} = useContext(GlobalContext);
     const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
+    const {getnotificationState,getnotificationDispatch} = useContext(GlobalContext)
     // console.log('sendCoindata',SEND_COIN_data);
     // console.log('sendCoinError',SEND_COIN_error);
     const [btcamount,setbtcamount] = useState('');
@@ -66,7 +69,7 @@ const Index =()=>{
             }
             // console.log('TestServer',USER_data)
 
-   },[USER_data])
+   },[])
 
     const getbalance = (_id)=>{
         
@@ -75,33 +78,29 @@ const Index =()=>{
             url: `https://myjupit.herokuapp.com/users/refresh`,
             headers:{
                 'Content-Type':'application/json',
+                
                 'Authorization':reactLocalStorage.get('token')
             },
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            // dispatch({
-            //     type:USER_DETAILS_SUCCESS,
-            //     payload:res.data
-            // })
-            // console.log(res.data);
-            setBalance(res.data.btc_wallet[0].balance.$numberDecimal);
-            console.log(Balance)
+            if(Balance !== res.data.btc_wallet[0].balance.$numberDecimal ){
+                setBalance(res.data.btc_wallet[0].balance.$numberDecimal);
+                console.log(Balance)
+            }
+            
         })
         .catch((err)=>{
-            // dispatch({
-            //     type:USER_DETAILS_ERROR,
-            //     payload:err.response
-            // })
-            console.log(err.response)
+            
+            console.log('error',err.response)
             
         })
     }
 
-    // useEffect(()=>{
-    //     const _id = reactLocalStorage.getObject('user')._id;
-    //     getbalance();
-    // },[Balance])
+    useEffect(()=>{
+        const _id = reactLocalStorage.getObject('user')._id;
+        getbalance(_id);
+    },[Balance])
    
 
     useEffect(()=>{
@@ -113,6 +112,7 @@ const Index =()=>{
                 setusdamount('');
                 setNetworkFee('');
                 setBalance(0);
+                getNotification(4)(getnotificationDispatch)
         }
 
         if(SEND_COIN_error){
@@ -190,7 +190,8 @@ const Index =()=>{
             setlowFee(true);
             let x =parseFloat(lowFeeRate * 226 * 0.00000001 ).toFixed(8);
             setNetworkFee(x)
-            setblockaverage(100)
+            setblockaverage(100);
+            
               
             
         }
@@ -307,7 +308,7 @@ const Index =()=>{
             block_average:blockaverage,
             wallet_type:"BTC",
             transferType:dataAddr,
-            SenderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
+            senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
 
         }
         
@@ -334,7 +335,7 @@ const Index =()=>{
                 draggable
                 pauseOnHover
                 />
-            <div className='back'><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
+            <div className='back' onClick='/wallet'><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>

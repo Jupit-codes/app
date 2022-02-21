@@ -19,7 +19,7 @@ const Index=()=>{
         setOpen(value)
     }
     console.log('path',path)
-    
+    const x =1
     const _renderBodyComponent=()=>{
         let component;
         switch(path){
@@ -54,7 +54,7 @@ const Index=()=>{
     return (
         <div className="dashboard">
                 <TitleBar  handle={handleCallback}/>
-                <Sidebar openClose={open}/>
+                <Sidebar openClose={open} notify={x}/>
                 {_renderBodyComponent()}
         </div>
     )

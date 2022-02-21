@@ -12,13 +12,13 @@ import UserDetailsRefresh from '../../context/actions/userdetails.js'
 const Index=({openClose})=>{
 
 const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
-    console.log(USER_error,USER_data)
+    
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
    UserDetailsRefresh(_id)(userdetailsDispatch)
         if(USER_data){
-            console.log('userdetails',USER_data)
+            
         }
    },[USER_data])
     return (
