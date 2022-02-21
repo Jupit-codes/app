@@ -25,6 +25,7 @@
     font-family: Acme;
     display: flex;
     flex-direction: row;
+   margin-top: 10px;
 }
 
 .notifyDiv div{
