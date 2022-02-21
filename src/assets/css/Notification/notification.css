@@ -1,0 +1,54 @@
+.transaction{
+    
+    min-height: 100vh;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 20px;
+    padding:20px;
+    text-align: center;
+}
+
+
+.th-title{
+    font-size: 25px;
+    font-family: Acme;
+    
+}
+.notifyDiv{
+    width: 100%;
+    border-radius: 10px;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    text-align: left;
+    padding: 10px;
+    font-family: Acme;
+    display: flex;
+    flex-direction: row;
+}
+
+.notifyDiv div{
+    font-family: Acme;
+   
+}
+
+.notifyAmount{
+    color: #1c1c93;
+    font-size: 25px;
+
+}
+.notifyDiv small{
+    font-family: candara;
+    font-weight: bold;
+}
+.notify-flex-1{
+    flex:1 1 90%;
+    
+}
+.notify-flex-2{
+    flex:1 1 10%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
