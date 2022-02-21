@@ -7,7 +7,7 @@ export default (item)=>(dispatch)=>{
        
     })
 
-    console.log(item)
+    // console.log(item)
     
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
@@ -25,7 +25,7 @@ export default (item)=>(dispatch)=>{
                 payload:res.data
             })
 
-            console.log('Result',res.data)
+            // console.log('Result',res.data)
           
         
         
@@ -36,7 +36,7 @@ export default (item)=>(dispatch)=>{
                 type:GET_NOTIFICATION_ERROR,
                 payload:err.response && err.response.data 
             })
-            console.log('REs',err.response)
+            // console.log('REs',err.response)
         
         })
 

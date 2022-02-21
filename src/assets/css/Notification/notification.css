@@ -54,3 +54,25 @@
     justify-content: center;
     align-items: center;
 }
+
+.empty H1{
+    font-size: 28px;
+    font-family: Acme;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.red{
+    color: #ff0000;
+}
+.green{
+    color: #003300;
+}
+.notifyTitle{
+    font-size: 25px;
+    padding:5px;
+    font-family: candara;
+    font-weight: bolder;
+}
