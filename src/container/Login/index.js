@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Index=()=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
-   console.log('errorAlert',errorAlert)
+   
     const [emailaddress,setemailaddress] = useState('');
     const [password,setpassword] = useState('');
     const [loaderPlus,setloaderPlus] = useState(false);
