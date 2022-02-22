@@ -91,7 +91,7 @@ const Index = ({closeModal,userid})=>{
                             Notification Details
                         </div>
                         
-                        <IoClose size={25} onClick={()=>closeModal(!closeModal)} />
+                            <IoClose size={25} onClick={()=>closeModal(!closeModal)} />
                     </div>
                     
                     <div><hr/></div>
