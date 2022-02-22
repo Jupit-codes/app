@@ -10,6 +10,9 @@ import Wallets from  '../../container/Wallets'
 import Send from '../../container/Send'
 import '../../assets/css/Dashboard/dashboard.css'
 import { useLocation } from "react-router";
+import { reactLocalStorage } from "reactjs-localstorage";
+import axios from "axios";
+
 const Index=()=>{
     const location = useLocation();
     const path = location.pathname;
@@ -18,7 +21,36 @@ const Index=()=>{
     const handleCallback =(value)=>{
         setOpen(value)
     }
-    console.log('path',path)
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+    const kyc = async ()=>{
+        let userid = reactLocalStorage.getObject('user')._id;
+
+        await axios({
+            method: "POST",
+            url: `${Base_url}/user/kyc/fetch`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({kycid:userid})
+        })
+        .then((res)=>{
+          
+          console.log(res.data)
+          
+        })
+        .catch((err)=>{
+           
+            console.log(err)
+            
+        })
+    }
+
+    
+
+    useEffect(()=>{
+        kyc();
+    },[])
     const x =1
     const _renderBodyComponent=()=>{
         let component;
