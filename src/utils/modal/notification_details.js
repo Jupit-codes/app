@@ -5,6 +5,7 @@ import {IoClose} from 'react-icons/io5'
 import axios from 'axios'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import moment from 'moment'
+import Spinner from '../../assets/images/spinner.gif'
 const Index = ({closeModal,userid})=>{
  
     const [src,setSrc]= useState('')
@@ -27,6 +28,7 @@ const Index = ({closeModal,userid})=>{
        .then((res)=>{
          
           setData(res.data)
+          setloader(false)
           console.log(res.data)
          
        })
@@ -93,7 +95,7 @@ const Index = ({closeModal,userid})=>{
                 </div>
                 
                 <div className='modalbody '>
-                  
+                    {loader && <img src={Spinner} style={{width:50}}/>}
                     { closeModal &&_renderBody()}
                     {!userid &&  
                         <div>
