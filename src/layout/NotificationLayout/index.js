@@ -33,11 +33,7 @@ const Index = ()=>{
        
     },[])
 
-    const _handleDetails = (orderid)=>{
-        console.log('Moment',orderid);
-        setmodal(true);
-        setorderId(orderid)
-    }
+    
 
     const handleModal =(id)=>{
 
@@ -47,7 +43,7 @@ const Index = ()=>{
     }   
 
     const _renderNotification =()=>{
-        if(dataNotification){
+        if(dataNotification && dataNotification.length > 0){
             // console.log(dataNotification)
             
             return dataNotification.map((d,index)=>{
@@ -62,7 +58,7 @@ const Index = ()=>{
                                 <div>{moment(d.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
                             <div className='notify-flex-2'>
-                            <Button onClick={()=>{handleModal(d.orderid)}}>View Details</Button>
+                            <Button onClick={()=>{setmodal(true);setorderId(d.orderid)}}>View Details</Button>
                             </div>
 
                         </div>
@@ -83,7 +79,7 @@ const Index = ()=>{
     return (
         
             <div className="transaction">
-                {modal && <Details closeModal={modal} orderid={orderid}/>}
+                {modal && <Details closeModal={setmodal} orderid={orderid}/>}
                 <div className='notifyTitle'>NOTIFICATION</div>
                {loadingNotification && <img src={Spinner}/>}
                {!loadingNotification && _renderNotification()}
