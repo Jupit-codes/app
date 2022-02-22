@@ -48,7 +48,7 @@ const Index=({openClose,notify})=>{
             }
         }
        
-    },[dataNotification])
+    },[])
     return(
         
         <div className="sidebar">
