@@ -10,6 +10,7 @@ import empty from '../../assets/images/empty.png'
 import Details from '../../utils/modal/notification_details'
 import moment from 'moment'
 import axios from 'axios'
+import { IoCompassOutline } from 'react-icons/io5'
 const Index = ()=>{
 
     const [notificationData,setnotificationData] = useState()
@@ -43,15 +44,41 @@ const Index = ()=>{
        .then((res)=>{
          
          
-          console.log('jireh',res.data)
+          console.log('notify',"Updated")
          
        })
        .catch((err)=>{
           
-           console.log(err.response)
+           console.log("err",err.response)
            
        })
    }
+
+   const fetchNotification =  async () =>{
+
+    const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
+    const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+    await axios({
+            method: "POST",
+            url: `${Base_url}/threshold/notification/fetch`,
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+            },
+            data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT})
+        })
+        .then(res=>{
+            setState(res.data)
+    
+        })
+        .catch(err=>{
+            console.log("err",err.response)
+        })
+    
+  
+    }
+
 
 
 
@@ -59,26 +86,15 @@ const Index = ()=>{
         state && updateRead();
     },[state])
 
+
+
+
+
     useEffect(()=>{
-        const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
-        const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
-        const item ={
-            addressBTC:addressBTC,
-            addressUSDT:addressUSDT
-        }
-        FetchNotification(item)(getnotificationDispatch)
-        
-        if(dataNotification){
-           
-            if(dataNotification.length !== state.length){
-                setmyLoader(false)
-                setState(dataNotification)
-                
-            }
-            
-        }
+
+        fetchNotification();
        
-    },[dataNotification])
+    },[])
 
     
 
