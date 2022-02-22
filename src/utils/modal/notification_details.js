@@ -17,6 +17,7 @@ const Index = ({closeModal,userid})=>{
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
     const _fetch =  async () =>{
+        
         await axios({
            method: "POST",
            url: `${Base_url}/threshold/notification/details`,

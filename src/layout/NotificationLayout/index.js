@@ -9,7 +9,7 @@ import Spinner from '../../assets/images/spinner.gif'
 import empty from '../../assets/images/empty.png'
 import Details from '../../utils/modal/notification_details'
 import moment from 'moment'
-
+import axios from 'axios'
 const Index = ()=>{
 
     const [notificationData,setnotificationData] = useState()
@@ -18,9 +18,47 @@ const Index = ()=>{
     const [state, setState] = useState([]);
     const [myLoader, setmyLoader] = useState(true);
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
-    
+    const all_ids = []
     // console.log('loader',loadingNotification);
     // console.log('dataNotificationwww',dataNotification);
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+
+    const updateRead =  async () =>{
+        all_ids=[];
+        state.map((d)=>{
+            all_ids.push(d._id)
+        })
+
+        console.log(all_ids);
+      
+        await axios({
+           method: "POST",
+           url: `${Base_url}/threshold/update/read`,
+           headers:{
+               'Content-Type':'application/json',
+               'Authorization':reactLocalStorage.get('token')
+           },
+           data:JSON.stringify({id:all_ids})
+       })
+       .then((res)=>{
+         
+         
+          console.log(res.data)
+         
+       })
+       .catch((err)=>{
+          
+           console.log(err.response)
+           
+       })
+   }
+
+
+
+    useEffect(()=>{
+        updateRead();
+    },[])
+
     useEffect(()=>{
         const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
         const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
