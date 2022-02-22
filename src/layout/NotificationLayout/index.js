@@ -18,18 +18,18 @@ const Index = ()=>{
     const [state, setState] = useState([]);
     const [myLoader, setmyLoader] = useState(true);
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
-    const all_ids = []
+    const all_ids=[];
     // console.log('loader',loadingNotification);
     // console.log('dataNotificationwww',dataNotification);
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
     const updateRead =  async () =>{
-        all_ids=[];
+      
         state.map((d)=>{
             all_ids.push(d._id)
         })
 
-        console.log(all_ids);
+        console.log('Here',all_ids);
       
         await axios({
            method: "POST",
@@ -38,12 +38,12 @@ const Index = ()=>{
                'Content-Type':'application/json',
                'Authorization':reactLocalStorage.get('token')
            },
-           data:JSON.stringify({id:all_ids})
+           data:{id:all_ids}
        })
        .then((res)=>{
          
          
-          console.log(res.data)
+          console.log('jireh',res.data)
          
        })
        .catch((err)=>{
@@ -56,8 +56,8 @@ const Index = ()=>{
 
 
     useEffect(()=>{
-        updateRead();
-    },[])
+        state && updateRead();
+    },[state])
 
     useEffect(()=>{
         const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
