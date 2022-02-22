@@ -30,7 +30,7 @@ const Index = ()=>{
             all_ids.push(d._id)
         })
 
-        console.log('Here',all_ids);
+        
       
         await axios({
            method: "POST",
@@ -92,7 +92,7 @@ const Index = ()=>{
 
     useEffect(()=>{
 
-        fetchNotification();
+        // fetchNotification();
        
     },[])
 
