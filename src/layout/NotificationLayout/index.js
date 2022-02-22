@@ -38,7 +38,7 @@ const Index = ()=>{
                'Content-Type':'application/json',
                'Authorization':reactLocalStorage.get('token')
            },
-           data:{id:all_ids}
+           data:all_ids
        })
        .then((res)=>{
          
