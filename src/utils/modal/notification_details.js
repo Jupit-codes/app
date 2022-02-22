@@ -13,6 +13,7 @@ const Index = ({closeModal,userid})=>{
     const [data,setData] = useState();
     const [error,setError] = useState()
     const [loader,setloader] = useState(true)
+  
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
     const _fetch =  async () =>{
@@ -29,7 +30,7 @@ const Index = ({closeModal,userid})=>{
          
           setData(res.data)
           setloader(false)
-          console.log(res.data)
+        //   console.log(res.data)
          
        })
        .catch((err)=>{
@@ -41,6 +42,7 @@ const Index = ({closeModal,userid})=>{
 
 
     useEffect(()=>{
+       
         _fetch();
     },[])
     

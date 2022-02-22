@@ -14,6 +14,8 @@ const Index=({openClose,notify})=>{
     const [large,setlarge] = useState()
     const[notifyLength,setnotify] = useState();
     const [notificationLength,setnotificationLength] = useState()
+    const [counter,setcounter] = useState([]);
+    const [xCounter,setxCounter]=useState([]);
     const location = useLocation();
     const path = location.pathname;
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
@@ -27,10 +29,27 @@ const Index=({openClose,notify})=>{
             addressUSDT:addressUSDT
         }
         FetchNotification(item)(getnotificationDispatch)
+        
         if(dataNotification){
-            if(dataNotification.length !== notificationLength){
-                setnotificationLength(dataNotification.length)
+            if(dataNotification.length > 0){
+                // console.log(dataNotification)
+                dataNotification.map((d)=>{
+                   if(d.read === "unread"){
+                       
+                    xCounter.push(d)
+                   }
+                })
+
+                console.log('counter',xCounter.length)
+
+                // if(counter.length !== setnotificationLength){
+                //     setnotificationLength(counter)
+                // }
+               
             }
+            // if(dataNotification.length !== notificationLength){
+            //     setnotificationLength(dataNotification.length)
+            // }
         }
        
     },[dataNotification])

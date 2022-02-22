@@ -15,10 +15,12 @@ const Index = ()=>{
     const [notificationData,setnotificationData] = useState()
     const [modal,setmodal] = useState(false)
     const [userid,setuserid] = useState('')
-    const [state, setState] = useState({});
+    const [state, setState] = useState([]);
+    const [myLoader, setmyLoader] = useState(true);
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
+    
     // console.log('loader',loadingNotification);
-    // console.log('dataNotification',dataNotification);
+    // console.log('dataNotificationwww',dataNotification);
     useEffect(()=>{
         const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
         const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
@@ -27,11 +29,18 @@ const Index = ()=>{
             addressUSDT:addressUSDT
         }
         FetchNotification(item)(getnotificationDispatch)
-        return () => {
-            setState({}); // This worked for me
-          };
+        
+        if(dataNotification){
+           
+            if(dataNotification.length !== state.length){
+                setmyLoader(false)
+                setState(dataNotification)
+                
+            }
+            
+        }
        
-    },[])
+    },[dataNotification])
 
     
 
@@ -43,11 +52,11 @@ const Index = ()=>{
     }   
 
     const _renderNotification =()=>{
-        if(dataNotification && dataNotification.length > 0){
+        if(state && state.length > 0){
             // console.log(dataNotification)
             
-            return dataNotification.map((d,index)=>{
-                console.log(d.updated)
+            return state.map((d,index)=>{
+               
                 return (    
                         <div key={index} className="notifyDiv">
  
@@ -81,8 +90,8 @@ const Index = ()=>{
             <div className="transaction">
                 {modal && <Details closeModal={setmodal} userid={userid}/>}
                 <div className='notifyTitle'>NOTIFICATION</div>
-               {loadingNotification && <img src={Spinner}/>}
-               {!loadingNotification && _renderNotification()}
+               {myLoader && <img src={Spinner}/>}
+               {!myLoader && state && _renderNotification()}
                
                 
 

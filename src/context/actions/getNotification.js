@@ -26,7 +26,7 @@ export default (item)=>(dispatch)=>{
                 payload:res.data
             })
 
-            console.log('Result',res.data)
+            // console.log('Result',res.data)
           
         
         
