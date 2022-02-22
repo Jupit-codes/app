@@ -29,6 +29,7 @@
     width: 100%;
     padding-top: 20px;
     text-align: center;
+    position: relative;
 }
 .nav-menu-items{
    display: flex;
@@ -102,14 +103,16 @@
 }
 
 .span-text{
-    margin-left: 15px;
     font-family: Acme;
+    display: absolute;
+    
 }
 .nav-link:hover{
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow:         1px 2px 3px 3px #ccc;
     border-radius: 15px;
+
     /* border-left:2px solid #ccc;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px; */
@@ -135,3 +138,9 @@
     
 }
 
+
+.badge{
+    
+    position: absolute;
+    font-size: 10px;
+}

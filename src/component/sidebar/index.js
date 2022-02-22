@@ -8,16 +8,32 @@ import { GlobalContext } from "../../context/Provider";
 import getNotification from "../../context/actions/getNotification";
 import { sidebardata } from "./sidebardata";
 import { reactLocalStorage } from "reactjs-localstorage";
+import FetchNotification from '../../context/actions/getNotification'
 const Index=({openClose,notify})=>{
 
     const [large,setlarge] = useState()
     const[notifyLength,setnotify] = useState();
+    const [notificationLength,setnotificationLength] = useState()
     const location = useLocation();
     const path = location.pathname;
-   
-    const {getnotificationState:{getnotification:{dataNotification}},getnotificationDispatch} = useContext(GlobalContext)
+    const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     
-   
+
+    useEffect(()=>{
+        const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
+        const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
+        const item ={
+            addressBTC:addressBTC,
+            addressUSDT:addressUSDT
+        }
+        FetchNotification(item)(getnotificationDispatch)
+        if(dataNotification){
+            if(dataNotification.length !== notificationLength){
+                setnotificationLength(dataNotification.length)
+            }
+        }
+       
+    },[dataNotification])
     return(
         
         <div className="sidebar">
@@ -32,7 +48,7 @@ const Index=({openClose,notify})=>{
                             sidebardata.map((d,index)=>{
                                 return (
                                     <li key={index} className={`nav-link ${path=== d.path && `active`}`}> 
-                                        <Link to={d.path}>{d.Icon} {d.title === "Notification" ? <span className='span-text'>{d.title}<Badge bg="secondary" pill={true}>{dataNotification}</Badge></span> : <span className='span-text'>{d.title}</span> }</Link>
+                                        <Link to={d.path}>{d.Icon} {d.title === "Notification" ? <div className='span-text'>{d.title}<Badge bg="secondary" pill={true} className="badge">{notificationLength && notificationLength}</Badge></div> : <div className='span-text'>{d.title}</div> }</Link>
                                     </li>
                                 )
                                 
@@ -45,9 +61,9 @@ const Index=({openClose,notify})=>{
                                        <Link to={d.path} className='checks'>
                                            {d.title === "Notification" ?
                                            
-                                           <span>{d.Icon} <Badge bg="secondary" pill={true}>{dataNotification}</Badge></span>:
+                                           <div>{d.Icon} <Badge bg="secondary" pill={true}>{notificationLength && notificationLength}</Badge></div>:
                                           
-                                           <span>{d.Icon}</span>
+                                           <div>{d.Icon}</div>
                                         }
                                            
                                            
