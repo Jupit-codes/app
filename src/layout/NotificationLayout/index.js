@@ -14,7 +14,7 @@ const Index = ()=>{
 
     const [notificationData,setnotificationData] = useState()
     const [modal,setmodal] = useState(false)
-    const [orderid,setorderId] = useState('')
+    const [userid,setuserid] = useState('')
     const [state, setState] = useState({});
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     // console.log('loader',loadingNotification);
@@ -37,7 +37,7 @@ const Index = ()=>{
 
     const handleModal =(id)=>{
 
-        setorderId(id)
+        setuserid(id)
         setmodal(true);
 
     }   
@@ -58,7 +58,7 @@ const Index = ()=>{
                                 <div>{moment(d.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
                             <div className='notify-flex-2'>
-                            <Button onClick={()=>{setmodal(true);setorderId(d.orderid)}}>View Details</Button>
+                            <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
                             </div>
 
                         </div>
@@ -79,7 +79,7 @@ const Index = ()=>{
     return (
         
             <div className="transaction">
-                {modal && <Details closeModal={setmodal} orderid={orderid}/>}
+                {modal && <Details closeModal={setmodal} userid={userid}/>}
                 <div className='notifyTitle'>NOTIFICATION</div>
                {loadingNotification && <img src={Spinner}/>}
                {!loadingNotification && _renderNotification()}

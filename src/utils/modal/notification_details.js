@@ -4,8 +4,9 @@ import '../../assets/css/Modal/modal.css'
 import {IoClose} from 'react-icons/io5'
 import axios from 'axios'
 import { reactLocalStorage } from 'reactjs-localstorage'
-const Index = ({closeModal,orderid})=>{
-   console.log("orderid",orderid)
+import moment from 'moment'
+const Index = ({closeModal,userid})=>{
+ 
     const [src,setSrc]= useState('')
     const [address, setAddress] = useState();
     const [data,setData] = useState();
@@ -21,11 +22,12 @@ const Index = ({closeModal,orderid})=>{
                'Content-Type':'application/json',
                'Authorization':reactLocalStorage.get('token')
            },
-           data:JSON.stringify({orderid:orderid})
+           data:JSON.stringify({userid:userid})
        })
        .then((res)=>{
          
           setData(res.data)
+          console.log(res.data)
          
        })
        .catch((err)=>{
@@ -42,10 +44,38 @@ const Index = ({closeModal,orderid})=>{
     
 
     const _renderBody = ()=>{
-        if(orderid && orderid !== "N/A"){
-            
-        }
+      return data &&  
         
+        <div className='modalNotification'>
+            <div className='list'>
+                <div>Asset</div> <div className='listValue'>{data.asset}</div>
+                
+            </div>
+            <div className='list'>
+                <div>Amount</div> <div className='listValue'>{data.amount}</div>
+            </div>
+            <div className='list'>
+                <div>Transfer Type</div> <div className='listValue'>{data.transfertype}</div>
+            </div>
+            <div className='list'>
+                <div>Type</div> <div className='listValue'>{data.type === "1" && 'Deposit'} {data.type === "2" && 'Withdrawal'}</div>
+            </div>
+            <div className='list'>
+                <div>From_address</div> <div className='listValue'>{data.from_address}</div>
+            </div>
+            <div className='list'>
+                <div>To_address</div> <div className='listValue'>{data.to_address}</div>
+            </div>
+            <div className='list'>
+                <div>Status</div> <div className='listValue'>{data.status}</div>
+            </div>
+            <div className='list'>
+                <div>Updated</div> <div className='listValue'>{moment(data.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
+            </div>
+            
+            
+        </div>
+    
     }
     return (
         <div className="modalBackground">
@@ -64,12 +94,11 @@ const Index = ({closeModal,orderid})=>{
                 
                 <div className='modalbody '>
                   
-                   
                     { closeModal &&_renderBody()}
-                    {orderid && orderid === "N/A" && 
+                    {!userid &&  
                         <div>
                                 <h2>Transaction Currently Unavailable</h2>
-                                <small>{orderid}</small>
+                                <small>{userid}</small>
                         </div> 
                     }
                 </div>

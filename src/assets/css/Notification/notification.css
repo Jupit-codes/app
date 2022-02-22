@@ -76,3 +76,22 @@
     font-family: candara;
     font-weight: bolder;
 }
+.modalNotification{
+  
+  width: 100%;
+  
+}
+.list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+}
+
+.list div{
+    flex:1 1 50%;
+    display: flex;
+    justify-content: start;
+    padding: 5px;
+    font-family: Acme;
+}
