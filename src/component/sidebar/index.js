@@ -21,34 +21,34 @@ const Index=({openClose,notify})=>{
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     
 
-    useEffect(()=>{
-        const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
-        const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
-        const item ={
-            addressBTC:addressBTC,
-            addressUSDT:addressUSDT
-        }
-        FetchNotification(item)(getnotificationDispatch)
-        if(dataNotification){
-            if(dataNotification.length !== notificationLength){
+    // useEffect(()=>{
+    //     const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
+    //     const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
+    //     const item ={
+    //         addressBTC:addressBTC,
+    //         addressUSDT:addressUSDT
+    //     }
+    //     FetchNotification(item)(getnotificationDispatch)
+    //     if(dataNotification){
+    //         if(dataNotification.length !== notificationLength){
 
-                setManageRead(dataNotification);
+    //             setManageRead(dataNotification);
                 
                
-                manageRead.map((d)=>{
-                    if(d.read === "unread"){
-                        counter.push(d);
-                    }
-                })
-                setnotificationLength(counter.length)
+    //             manageRead.map((d)=>{
+    //                 if(d.read === "unread"){
+    //                     counter.push(d);
+    //                 }
+    //             })
+    //             setnotificationLength(counter.length)
 
 
 
 
-            }
-        }
+    //         }
+    //     }
        
-    },[])
+    // },[])
     return(
         
         <div className="sidebar">

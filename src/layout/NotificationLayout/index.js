@@ -16,7 +16,7 @@ const Index = ()=>{
     const [notificationData,setnotificationData] = useState()
     const [modal,setmodal] = useState(false)
     const [userid,setuserid] = useState('')
-    const [state, setState] = useState([]);
+    const [state, setState] = useState();
     const [myLoader, setmyLoader] = useState(true);
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     const all_ids=[];
@@ -54,7 +54,7 @@ const Index = ()=>{
        })
    }
 
-   const fetchNotification =  async () =>{
+   const myNotification =  async () =>{
 
     const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
     const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
@@ -70,33 +70,28 @@ const Index = ()=>{
         })
         .then(res=>{
             setState(res.data)
+            setmyLoader(false)
+
+            // console.log('Best',res.data)
+            // console.log('State',state.length)
     
         })
         .catch(err=>{
-            console.log("err",err.response)
+            console.log("err",err)
         })
     
   
     }
 
 
-
-
-    useEffect(()=>{
-        state && updateRead();
-    },[state])
-
-
-
-
-
     useEffect(()=>{
 
-        // fetchNotification();
+        myNotification();
        
     },[])
-
-    
+    useEffect(()=>{
+       state && updateRead();
+    },[state])
 
     const handleModal =(id)=>{
 
