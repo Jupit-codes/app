@@ -9,10 +9,12 @@ import Footer from '.././../layout/BodyLayout/Footer'
 import { GlobalContext } from "../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
+import axios from "axios";
+
 const Index=({openClose})=>{
 
 const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
-    
+const kyc = reactLocalStorage.getObject('kyc')
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -21,6 +23,37 @@ const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userde
             
         }
    },[USER_data])
+
+   const Base_url = process.env.REACT_APP_BACKEND_URL;
+   const kycFetch = async ()=>{
+       let userid = reactLocalStorage.getObject('user')._id;
+
+       await axios({
+           method: "POST",
+           url: `${Base_url}/users/kyc`,
+           headers:{
+               'Content-Type':'application/json',
+               'Authorization':reactLocalStorage.get('token')
+           },
+           data:JSON.stringify({userid:userid})
+       })
+       .then((res)=>{
+         reactLocalStorage.setObject('kyc',res.data)
+         console.log(res.data)
+         
+       })
+       .catch((err)=>{
+          
+           console.log(err)
+           kycFetch();
+           
+       })
+   }
+
+   useEffect(()=>{
+       kycFetch();
+   },[])
+
     return (
         <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
            <WelcomeNote/>

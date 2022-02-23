@@ -4,7 +4,7 @@ import Spinner from './spinner'
 const Index = ()=>{
    
     return(
-        <div className="loaderSelf">
+        <div className="loaderMain">
 
             <Spinner/>
         </div>
