@@ -7,28 +7,41 @@ import { useState } from 'react';
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();
-    console.log('CapturedImageSent',CapturedImage)
+    const [cardType,setcardType] = useState();
+    const [cardNumber,setcardNumber] = useState('');
+    const _handleIDCard = (e)=>{
+        setcardType(e.target.value)
+    }
+    
+
+    const _handleNumber = (e)=>{
+        setcardNumber(e.target.value)
+    }
+
+    const saveImageVerification = ()=>{
+        alert('Submitted')
+    }
     return (
         <div className="formAccount">
             {open && <WebCamModal closeModal={setOpen} CapturedImage={setCapturedImage}/>}
             <div className="formAccount_form">
                 <label>Select ID Card Type</label>
-                <select className="form-control">
-                    <option>Select Bank</option>
-                    <option>International Passport</option>
-                    <option>NIMC</option>
-                    <option>Drivers Licence</option>
+                <select className="form-control" value={cardType} onChange={_handleIDCard}>
+                    <option>Select ID Card Type</option>
+                    <option value="international-passport">International Passport</option>
+                    <option value="nimc">NIMC</option>
+                    <option value="driver">Drivers Licence</option>
                 </select>
             </div>
 
             <div className="formAccount_form">
                 <label>Unique Number</label>
-                <input type="text" className="form-control" placeholder="ID Card Number"/>
+                <input type="text" className="form-control" placeholder="ID Card Number" value={cardNumber} onChange={_handleNumber}/>
             </div>
 
             <div className="formAccount_form">
                 
-                <input type="submit" className="form-control btn-secondary" value="Take A Photo With Your ID Card" onClick={()=>{setOpen(true)}}/>
+                <input type="submit" className="form-control btn-secondary" value={CapturedImage ? 'Retake Picture': 'Take A Photo With Your ID Card'} onClick={()=>{setOpen(true)}}/>
             </div>
 
             <div className='selfieDiv'>
@@ -38,18 +51,18 @@ const Index = ()=>{
                 </div>
                 <div className='flex2'>
                     <div className='samplepictureText'>Your Picture</div>
-                    <img src={Empty}/>
+                    {CapturedImage ? <img src={CapturedImage}/> : <img src={Empty}/>}
                 </div>
             </div>
 
             {/* <div>
                 <WebcamCapture/>
             </div> */}
-{/* 
+
             <div className="formAccount_form">
                 
-                <input type="submit" className="form-control" value="Save"/>
-            </div> */}
+               {CapturedImage && <input type="submit" className="form-control btn-primary" value="Save" disabled={cardNumber && cardType ? false: true}  onClick={saveImageVerification}/> } 
+            </div> 
             
         </div>
     )
