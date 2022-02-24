@@ -19,7 +19,13 @@ const Index = ()=>{
     }
 
     const saveImageVerification = ()=>{
-        alert('Submitted')
+        const item ={
+            CapturedImage:CapturedImage,
+            cardNumber:cardNumber,
+            cardType:cardType
+        }
+
+        
     }
     return (
         <div className="formAccount">
