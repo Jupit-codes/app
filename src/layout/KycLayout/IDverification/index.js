@@ -1,10 +1,16 @@
 import '../../../assets/css/Kyc/tab.css'
 import WebcamCapture from '../WebCam';
 import sampleImage from '../../../assets/images/photo-id.jpg'
-
+import Empty from '../../../assets/images/empty-photo.png'
+import WebCamModal from '../../../utils/modal/webcam'
+import { useState } from 'react';
 const Index = ()=>{
+    const [open,setOpen] = useState(false);
+    const [CapturedImage,setCapturedImage] = useState();
+    console.log('CapturedImageSent',CapturedImage)
     return (
         <div className="formAccount">
+            {open && <WebCamModal closeModal={setOpen} CapturedImage={setCapturedImage}/>}
             <div className="formAccount_form">
                 <label>Select ID Card Type</label>
                 <select className="form-control">
@@ -22,16 +28,17 @@ const Index = ()=>{
 
             <div className="formAccount_form">
                 
-                <input type="submit" className="form-control btn-secondary" value="Take A Photo With Your ID Card"/>
+                <input type="submit" className="form-control btn-secondary" value="Take A Photo With Your ID Card" onClick={()=>{setOpen(true)}}/>
             </div>
 
             <div className='selfieDiv'>
                 <div className='flex1'>
                     <div className='samplepictureText'>Sample Picture</div>
-                    <img src={sampleImage}/>
+                    <img src={sampleImage} />
                 </div>
                 <div className='flex2'>
-                    Sample
+                    <div className='samplepictureText'>Your Picture</div>
+                    <img src={Empty}/>
                 </div>
             </div>
 
