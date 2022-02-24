@@ -5,6 +5,7 @@ import Empty from '../../../assets/images/empty-photo.png'
 import WebCamModal from '../../../utils/modal/webcam'
 import { useContext, useState } from 'react';
 import { GlobalContext } from '../../../context/Provider';
+import idcard from '../../../context/actions/idcard';
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();
@@ -28,9 +29,12 @@ const Index = ()=>{
             cardNumber:cardNumber,
             cardType:cardType
         }
-        
 
-        
+        let formData = new FormData();
+        formData.append('image',CapturedImage);
+        formData.append('cardnumber',cardNumber);
+        formData.append('cardtype',cardType);
+        idcard(formData)(idCardDispatch);
     }
     return (
         <div className="formAccount">
