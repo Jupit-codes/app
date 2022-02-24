@@ -30,11 +30,11 @@ const Index = ()=>{
             cardType:cardType
         }
      
-        // let formData = new FormData();
-        // formData.append('idcard',CapturedImage);
-        // formData.append('cardnumber',cardNumber);
-        // formData.append('cardtype',cardType);
-        idcard(item)(idCardDispatch);
+        let formData = new FormData();
+        formData.append('idcard',CapturedImage);
+        formData.append('cardnumber',cardNumber);
+        formData.append('cardtype',cardType);
+        idcard(formData)(idCardDispatch);
     }
     return (
         <div className="formAccount">
