@@ -206,11 +206,7 @@ export default function ColorTabs() {
         
          <Tab icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
          <Tab icon={secondLevel === "Verified" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
-         <Tab label="Verify Id Card" aria-label="phone" disabled={disableThirdLevel}  value="three" />
-
-        {/* <Tab value="one" label="Email Address Verification" />
-        <Tab value="two" label="Add Bank Account"   />
-        <Tab value="four" label="ID Card Verification"  disabled={disableThirdLevel} /> */}
+         <Tab  label="Verify Id Card" aria-label="phone"   value="four" />
       </Tabs>
 
         <div className="tab_content">
