@@ -9,15 +9,14 @@ export default (items)=>(dispatch)=>{
    
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
-    console.log('items',items)
-    return false;
+   
     axios({
         method: "POST",
-        url: `${Base_url}/user/save/idcard/verification/submit`,
+        url: `${Base_url}/user/verification/submit`,
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "multipart/form-data"
         },
-        data:{email:items.email,password:items.password}
+        data:{items}
       }).then(res => {
         
         dispatch({
@@ -26,6 +25,7 @@ export default (items)=>(dispatch)=>{
          
         })
       
+        console.log(res.data)
         
 
       })
@@ -41,6 +41,8 @@ export default (items)=>(dispatch)=>{
           payload:'NO CONNECTION'
          
         }) 
+
+        console.log(err.response)
 
       
         

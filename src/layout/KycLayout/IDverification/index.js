@@ -11,9 +11,9 @@ const Index = ()=>{
     const [CapturedImage,setCapturedImage] = useState();
     const [cardType,setcardType] = useState();
     const [cardNumber,setcardNumber] = useState('');
-    const {idCardState,idCardDispatch} = useContext(GlobalContext)
+    const {idCardState:{idcardVerification:{idcard_loading,idcard_data,idcard_error}},idCardDispatch} = useContext(GlobalContext)
 
-  
+    console.log(idcard_loading)
     const _handleIDCard = (e)=>{
         setcardType(e.target.value)
     }
@@ -31,7 +31,7 @@ const Index = ()=>{
         }
 
         let formData = new FormData();
-        formData.append('image',CapturedImage);
+        formData.append('idcard',CapturedImage);
         formData.append('cardnumber',cardNumber);
         formData.append('cardtype',cardType);
         idcard(formData)(idCardDispatch);
