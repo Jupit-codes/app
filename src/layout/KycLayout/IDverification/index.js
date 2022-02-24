@@ -6,6 +6,7 @@ import WebCamModal from '../../../utils/modal/webcam'
 import { useContext, useState } from 'react';
 import { GlobalContext } from '../../../context/Provider';
 import idcard from '../../../context/actions/idcard';
+import FormData from 'form-data'
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();

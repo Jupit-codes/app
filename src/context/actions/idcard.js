@@ -9,7 +9,7 @@ export default (items)=>(dispatch)=>{
    
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     const boundary = "educateAll";
-    
+    console.log(items)
     axios({
         method: "POST",
         url: `${Base_url}/users/idcardverification`,
@@ -26,7 +26,7 @@ export default (items)=>(dispatch)=>{
          
         })
       
-        console.log(res.data)
+        console.log('RES',res.data)
         
 
       })
