@@ -1,11 +1,14 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { toast,ToastContainer } from 'react-toastify';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import '../../../assets/css/Kyc/tab.css'
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../../../utils/loader/loader.js'
 import '../../../assets/css/other.css'
+import Validation from '../../../context/actions/validation';
+import { GlobalContext } from '../../../context/Provider';
+
 const Index = ()=>{
     const [bank,setbank] = useState('');
     const [accountNumber,setaccountNumber] = useState('');
@@ -14,6 +17,9 @@ const Index = ()=>{
     const [disable,setdisabled] = useState(true)
     const [banklist,setbanklist] = useState();
     const [loading, setloading] = useState(false)
+    const {validationState:{validation:{validation_loading,validation_error,validation_data}},validationDispatch} = useContext(GlobalContext)
+
+    
     const _handleAccount = (e)=>{
         
         setaccountNumber(e.target.value);
@@ -87,6 +93,52 @@ const Index = ()=>{
     const _handleBVN =(e)=>{
         setBvn(e.target.value)
     }
+    const sendValidation = ()=>{
+        const item={
+            bank:bank,
+            accountNumber:accountNumber,
+            accountName:accountName,
+            bvn:bvn
+        }
+        Validation(item)(validationDispatch)
+        
+    }
+
+    useEffect(()=>{
+        if(validation_data){
+            toast.success(validation_data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+                setbank('')
+                setaccountName('')
+                setaccountNumber('')
+                setBvn('')
+        }
+
+        if(validation_error){
+            toast.error(validation_error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+                setbank('')
+                setaccountName('')
+                setaccountNumber('')
+                setBvn('')
+        }
+            
+    },[validation_error,validation_data])
 
 //    const getBank = async()=>{
 //     await axios({
@@ -141,7 +193,7 @@ const Index = ()=>{
             {/* Same as */}
             <ToastContainer />
             { loading && <Loader/>}
-            
+            { validation_loading && <Loader/>}
             <div className="formAccount_form">
                 <label>Select Bank</label>
                 
@@ -169,7 +221,7 @@ const Index = ()=>{
             </div>
             <div className="formAccount_form">
                 
-                <input type="submit" className={`form-control ${accountName && accountNumber && bank & bvn ? 'btn btn-primary': 'disable'}` } value="Submit" />
+                <input type="submit" className={`form-control ${accountName && accountNumber && bank & bvn ? 'btn btn-primary': 'disable'}` } value="Submit" onClick={sendValidation}/>
             </div>
             
         </div>

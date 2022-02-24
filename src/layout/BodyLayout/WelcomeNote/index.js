@@ -3,7 +3,7 @@ import '../../../assets/css/Body/welcome.css'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import {Button} from 'react-bootstrap'
 import logo from '../../../assets/images/jupit_100.png'
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren,buildStyles  } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {FaBusinessTime} from 'react-icons/fa'
 import { reactLocalStorage } from "reactjs-localstorage";
@@ -58,10 +58,19 @@ const Index=()=>{
         }
        
         return <div className="progress_div shadow-lg round">
-                    <CircularProgressbarWithChildren value={counter} >
+                    <CircularProgressbarWithChildren value={counter}
+                    
+                    styles={buildStyles({
+                       
+                       
+                        trailColor: '#d6d6d6',
+                        pathTransitionDuration: 0.5,
+                         
+                      })}
+                    >
                         
-                        <FaBusinessTime  size={30} color="#90ee90"/>
-                        <div style={{ fontSize: 12, }}>
+                        <FaBusinessTime  size={30} color="#90ee90"/> 
+                         <div style={{ fontSize: 12, }}>
                             <strong>{counter}%</strong> KYC
                         </div>
                     </CircularProgressbarWithChildren>

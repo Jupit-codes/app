@@ -128,8 +128,8 @@
 
 
 
-
-import * as React from 'react';
+import { useContext, useEffect, useState }  from 'react';
+import React from "react";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -139,15 +139,35 @@ import IDverification from './IDverification'
 import AddressVerification from './AddressVerification'
 import Email from './Email'
 import {MdFileDownloadDone} from 'react-icons/md'
+import {BsCheckCircle} from 'react-icons/bs'
+import { reactLocalStorage } from 'reactjs-localstorage';
 export default function ColorTabs() {
   const [value, setValue] = React.useState('two');
-  const [content,setContent] = React.useState('IDverification')
+  const [content,setContent] = useState('IDverification')
+  const [firstLevel, setfirstLevel] = useState();
+  const [secondLevel, setsecondLevel] = useState();
+
+  const[disableFirstLevel,setdisableFirstLevel] = useState(true);
+  const[disableSecondLevel,setdisableSecondLevel] = useState(true);
+  const[disableThirdLevel,setdisableThirdLevel] = useState(true);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setContent(newValue)
   };
+  React.useEffect(()=>{
+    // let level1 = reactLocalStorage.getObject('kyc').level1[0].status;
+    // let level2 = reactLocalStorage.getObject('kyc').leve2[0].event_status;
+    setfirstLevel(reactLocalStorage.getObject('kyc').level1[0].status)
+    setsecondLevel(reactLocalStorage.getObject('kyc').level2[0].event_status);
 
+    if(firstLevel === "Verified"){
+        setdisableSecondLevel(false);
+    }
+    else if(secondLevel === "Verified"){
+      setdisableThirdLevel(false)
+    }
+  })
   
 
     const _renderComponentTab = ()=>{
@@ -183,9 +203,14 @@ export default function ColorTabs() {
         aria-label="secondary tabs example"
         style={{backgroundColor:'#fff'}}
       >
-        <Tab value="one" label="Email Address Verification"   />
-        <Tab value="two" label="Add Bank Account"  />
-        <Tab value="four" label="ID Card Verification"  />
+        
+         <Tab icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
+         <Tab icon={secondLevel === "Verified" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
+         <Tab label="Verify Id Card" aria-label="phone" disabled={disableThirdLevel}  value="three" />
+
+        {/* <Tab value="one" label="Email Address Verification" />
+        <Tab value="two" label="Add Bank Account"   />
+        <Tab value="four" label="ID Card Verification"  disabled={disableThirdLevel} /> */}
       </Tabs>
 
         <div className="tab_content">
