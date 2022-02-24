@@ -27,6 +27,7 @@ const Index = ()=>{
 
             <div className='selfieDiv'>
                 <div className='flex1'>
+                    <div className='samplepictureText'>Sample Picture</div>
                     <img src={sampleImage}/>
                 </div>
                 <div className='flex2'>

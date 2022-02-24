@@ -13,7 +13,7 @@ const Index=({openClose})=>{
         <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
             <WelcomeNote/>
             <KYC/>
-           <Footer/>
+           {/* <Footer/> */}
             {/* <ImportantNotice/> */}
         </div>
     )
