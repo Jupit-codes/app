@@ -14,7 +14,7 @@ export default (items)=>(dispatch)=>{
         method: "POST",
         url: `${Base_url}/users/idcardverification`,
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "multipart/form-data"
         },
         data:{items}
       }).then(res => {
@@ -42,7 +42,7 @@ export default (items)=>(dispatch)=>{
          
         }) 
 
-        console.log(err.response)
+        console.log(err.response.data)
 
       
         
