@@ -3,12 +3,16 @@ import WebcamCapture from '../WebCam';
 import sampleImage from '../../../assets/images/photo-id.jpg'
 import Empty from '../../../assets/images/empty-photo.png'
 import WebCamModal from '../../../utils/modal/webcam'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { GlobalContext } from '../../../context/Provider';
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();
     const [cardType,setcardType] = useState();
     const [cardNumber,setcardNumber] = useState('');
+    const {idCardState,idCardDispatch} = useContext(GlobalContext)
+
+  
     const _handleIDCard = (e)=>{
         setcardType(e.target.value)
     }
@@ -24,6 +28,7 @@ const Index = ()=>{
             cardNumber:cardNumber,
             cardType:cardType
         }
+        
 
         
     }
