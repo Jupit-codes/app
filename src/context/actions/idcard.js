@@ -12,9 +12,9 @@ export default (items)=>(dispatch)=>{
    
     axios({
         method: "POST",
-        url: `${Base_url}/user/submit`,
+        url: `${Base_url}/users/idcardverification`,
         headers: {
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "application/json"
         },
         data:{items}
       }).then(res => {
