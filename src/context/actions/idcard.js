@@ -12,7 +12,7 @@ export default (items)=>(dispatch)=>{
    
     axios({
         method: "POST",
-        url: `${Base_url}/user/verification/submit`,
+        url: `${Base_url}/user/submit`,
         headers: {
           "Content-Type": "multipart/form-data"
         },
