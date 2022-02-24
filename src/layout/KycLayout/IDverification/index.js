@@ -29,9 +29,9 @@ const Index = ()=>{
             cardNumber:cardNumber,
             cardType:cardType
         }
-        console.log(CapturedImage[0])
+     
         let formData = new FormData();
-        formData.append('idcard',JSON.stringify(CapturedImage));
+        formData.append('idcard',CapturedImage);
         formData.append('cardnumber',cardNumber);
         formData.append('cardtype',cardType);
         idcard(formData)(idCardDispatch);

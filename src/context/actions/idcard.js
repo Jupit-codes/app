@@ -8,15 +8,15 @@ export default (items)=>(dispatch)=>{
     })
    
     const Base_url = process.env.REACT_APP_BACKEND_URL;
-
-   
+    const boundary = "educateAll";
+    
     axios({
         method: "POST",
         url: `${Base_url}/users/idcardverification`,
         headers: {
-          "Content-Type": "multipart/form-data"
+          'Content-Type': 'multipart/form-data; boundary' + boundary
         },
-        data:{items}
+        data:JSON.stringify({items})
       }).then(res => {
         
         dispatch({
