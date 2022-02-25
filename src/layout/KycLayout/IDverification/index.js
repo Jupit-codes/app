@@ -7,6 +7,8 @@ import { useContext, useState } from 'react';
 import { GlobalContext } from '../../../context/Provider';
 import idcard from '../../../context/actions/idcard';
 import FormData from 'form-data'
+import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3";
+
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();
@@ -25,18 +27,52 @@ const Index = ()=>{
     }
 
     const saveImageVerification = ()=>{
+       
+     
+       
+        var decodedImg = decodeBase64Image(CapturedImage);
+        var dataToBlob = dataURItoBlob(CapturedImage)
+        console.log(decodedImg)
+        console.log('DataToBlob',dataToBlob)
+
         const item ={
-            CapturedImage:CapturedImage,
+            CapturedImage:decodedImg.data,
             cardNumber:cardNumber,
             cardType:cardType
         }
-     
-        let formData = new FormData();
-        formData.append('idcard',CapturedImage);
-        formData.append('cardnumber',cardNumber);
-        formData.append('cardtype',cardType);
-        idcard(formData)(idCardDispatch);
+
+        // let formData = new FormData();
+        // formData.append('idcard',decodedImg.data);
+        // formData.append('cardnumber',cardNumber);
+        // formData.append('cardtype',cardType);
+        idcard(item)(idCardDispatch);
     }
+
+    function decodeBase64Image(dataString) {
+    var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+      response = {};
+  
+    if (matches.length !== 3) {
+      return new Error('Invalid input string');
+    }
+  
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+  
+    return response;
+  }
+
+  function dataURItoBlob(dataURI) {
+    var binary = atob(dataURI.split(',')[1]);
+    var array = [];
+  for (var i = 0; i < binary.length; i++) {
+     array.push(binary.charCodeAt(i));
+  }
+ return new Blob([new Uint8Array(array)], {
+    type: 'image/jpg'
+});
+}
+
     return (
         <div className="formAccount">
             {open && <WebCamModal closeModal={setOpen} CapturedImage={setCapturedImage}/>}

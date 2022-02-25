@@ -14,10 +14,10 @@ export default (items)=>(dispatch)=>{
         method: "POST",
         url: `${Base_url}/users/idcardverification`,
         headers: {
-        //   'Content-Type': 'application/json'
-          'Content-Type': 'multipart/form-data; boundary' + boundary
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'multipart/form-data; boundary' + boundary
         },
-        data:JSON.stringify({items})
+        data:JSON.stringify({formdata:items})
       }).then(res => {
         
         dispatch({
