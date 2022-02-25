@@ -1,10 +1,11 @@
 
   import Webcam from "react-webcam";
-  import React from "react";
+  import React, { useRef } from "react";
   import '../../../assets/css/Webcam/webcam.css'
   
 const WebcamCapture = ({captured}) => {
         const webcamRef = React.useRef(null);
+        const fileInput = useRef()
         const videoConstraints = {
             // width: 1280,
             // height: 720,
@@ -16,11 +17,19 @@ const WebcamCapture = ({captured}) => {
         const capture = React.useCallback(
         () => {
             const imageSrc = webcamRef.current.getScreenshot();
-            console.log('Images',imageSrc)
-            captured(imageSrc)
+            var data = webcamRef.current.getScreenshot().toString().replace(/^data:image\/jpeg;base64,/, "");
+            
+            captured(data);
         },
         [webcamRef]
         );
+
+        const _handleFileInput = (e)=>{
+            e.preventDefault()
+            console.log(fileInput.current.files[0])
+        }
+
+        
   
         return (
             <div className="webcamContainer">
@@ -33,7 +42,12 @@ const WebcamCapture = ({captured}) => {
                     width={1280}
                     videoConstraints={videoConstraints}
                     />
+                   
                 </div>
+                {/* <div>
+                   <input type="file"  ref={fileInput}/>
+                    <button onClick={_handleFileInput}>Check</button>
+                </div> */}
                  
                 
                 <div className='modalClose' >

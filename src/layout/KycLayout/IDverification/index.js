@@ -8,7 +8,7 @@ import { GlobalContext } from '../../../context/Provider';
 import idcard from '../../../context/actions/idcard';
 import FormData from 'form-data'
 import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3";
-
+import S3 from 'react-aws-s3'
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();
@@ -22,6 +22,14 @@ const Index = ()=>{
     }
     
 
+    const config = {
+        bucketName:process.env.REACT_APP_BUCKET_NAME,
+        region:process.env.REACT_APP_REGION,
+        accessKeyId:process.env.REACT_APP_AWS_KEY_ID,
+        secretAccessKey:process.env.REACT_APP_AWS_SECRET_KEY
+    }
+
+    const ReactS3Client = new S3(config);
     const _handleNumber = (e)=>{
         setcardNumber(e.target.value)
     }
@@ -32,8 +40,8 @@ const Index = ()=>{
        
         var decodedImg = decodeBase64Image(CapturedImage);
         var dataToBlob = dataURItoBlob(CapturedImage)
-        console.log(decodedImg)
-        console.log('DataToBlob',dataToBlob)
+        // console.log(decodedImg)
+        // console.log('DataToBlob',dataToBlob)
 
         const item ={
             CapturedImage:decodedImg.data,
@@ -41,11 +49,15 @@ const Index = ()=>{
             cardType:cardType
         }
 
+        ReactS3Client.uploadFile(CapturedImage,"Filename").then(data=>{
+            console.log('DataSent',data);
+        })
+        
         // let formData = new FormData();
         // formData.append('idcard',decodedImg.data);
         // formData.append('cardnumber',cardNumber);
         // formData.append('cardtype',cardType);
-        idcard(item)(idCardDispatch);
+        // idcard(item)(idCardDispatch);
     }
 
     function decodeBase64Image(dataString) {
