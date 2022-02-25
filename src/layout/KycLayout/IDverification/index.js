@@ -45,7 +45,7 @@ const Index = ()=>{
         // console.log(decodedImg)
         // console.log('DataToBlob',dataToBlob)
         var x = CapturedImage.toString().replace(/^data:image\/jpeg;base64,/, "")
-        const item ={
+        const item = {
             CapturedImage:Buffer.from(x, 'base64'),
             cardNumber:cardNumber,
             cardType:cardType
