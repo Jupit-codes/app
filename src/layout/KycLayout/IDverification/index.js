@@ -37,9 +37,9 @@ const Index = ()=>{
     const saveImageVerification = ()=>{
        
      
-    //    console.log(config)
+       console.log(config)
 
-    //    return false;
+       return false;
         var decodedImg = decodeBase64Image(CapturedImage);
         var dataToBlob = dataURItoBlob(CapturedImage)
         // console.log(decodedImg)
