@@ -3,12 +3,16 @@ import WebcamCapture from '../WebCam';
 import sampleImage from '../../../assets/images/photo-id.jpg'
 import Empty from '../../../assets/images/empty-photo.png'
 import WebCamModal from '../../../utils/modal/webcam'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../../../context/Provider';
 import idcard from '../../../context/actions/idcard';
 import FormData from 'form-data'
 import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3";
 import S3 from 'react-aws-s3'
+import { reactLocalStorage } from 'reactjs-localstorage';
+import { toast,ToastContainer } from 'react-toastify';
+import Loader from '../../../utils/loader/loader.js'
+
 const Index = ()=>{
     const [open,setOpen] = useState(false);
     const [CapturedImage,setCapturedImage] = useState();
@@ -37,29 +41,33 @@ const Index = ()=>{
     const saveImageVerification = ()=>{
        
      
-       console.log(config)
+    //    console.log(config)
 
-       return false;
+    //    return false;
         var decodedImg = decodeBase64Image(CapturedImage);
         var dataToBlob = dataURItoBlob(CapturedImage)
         // console.log(decodedImg)
         // console.log('DataToBlob',dataToBlob)
         var x = CapturedImage.toString().replace(/^data:image\/jpeg;base64,/, "")
+
+        // console.log(atob(x)) ;
+        // return false;
         const item = {
-            CapturedImage:Buffer.from(x, 'base64'),
+            CapturedImage:CapturedImage,
             cardNumber:cardNumber,
-            cardType:cardType
+            cardType:cardType,
+            userid:reactLocalStorage.getObject('user')._id
         }
 
-        ReactS3Client.uploadFile(CapturedImage,"Filename").then(data=>{
-            console.log('DataSent',data);
-        })
+        // ReactS3Client.uploadFile(Buffer.from(x, 'base64'),"Filename").then(data=>{
+        //     console.log('DataSent',data);
+        // })
         
         // let formData = new FormData();
         // formData.append('idcard',decodedImg.data);
         // formData.append('cardnumber',cardNumber);
         // formData.append('cardtype',cardType);
-        // idcard(item)(idCardDispatch);
+        idcard(item)(idCardDispatch);
     }
 
     function decodeBase64Image(dataString) {
@@ -86,10 +94,53 @@ const Index = ()=>{
     type: 'image/jpg'
 });
 }
+    useEffect(()=>{
+            if(idcard_error){
+                toast.error(idcard_error, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
 
+            if(idcard_data){
+                toast.success(idcard_data, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
+    },[idcard_data,idcard_error,idcard_loading])
+
+    
+    
     return (
         <div className="formAccount">
+            <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            />
+            {/* Same as */}
+            <ToastContainer />
+
             {open && <WebCamModal closeModal={setOpen} CapturedImage={setCapturedImage}/>}
+            {idcard_loading && <Loader/>}
+            
             <div className="formAccount_form">
                 <label>Select ID Card Type</label>
                 <select className="form-control" value={cardType} onChange={_handleIDCard}>

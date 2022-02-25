@@ -22,7 +22,7 @@ const idcard = (state,{payload,type})=>{
                     ...state,
                     idcardVerification:{
                         ...state.idcardVerification,
-                        id_card_error:payload,
+                        idcard_error:payload,
                         idcard_data:null,
                         idcard_loading:false,
                       

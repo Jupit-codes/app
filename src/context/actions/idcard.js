@@ -17,7 +17,7 @@ export default (items)=>(dispatch)=>{
           'Content-Type': 'application/json'
           // 'Content-Type': 'multipart/form-data; boundary' + boundary
         },
-        data:JSON.stringify({formdata:items})
+        data:JSON.stringify({items})
       }).then(res => {
         
         dispatch({
@@ -26,7 +26,7 @@ export default (items)=>(dispatch)=>{
          
         })
       
-        console.log('RES',res.data)
+        
         
 
       })
@@ -42,8 +42,7 @@ export default (items)=>(dispatch)=>{
           payload:'NO CONNECTION'
          
         }) 
-
-        console.log(err.response.data)
+       
 
       
         
