@@ -117,6 +117,9 @@ const Index = ()=>{
                     draggable: true,
                     progress: undefined,
                     });
+                    setCapturedImage('')
+                    setcardNumber('')
+                    setcardType('')
             }
     },[idcard_data,idcard_error,idcard_loading])
 
