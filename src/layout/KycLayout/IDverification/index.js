@@ -37,14 +37,16 @@ const Index = ()=>{
     const saveImageVerification = ()=>{
        
      
-       
+    //    console.log(config)
+
+    //    return false;
         var decodedImg = decodeBase64Image(CapturedImage);
         var dataToBlob = dataURItoBlob(CapturedImage)
         // console.log(decodedImg)
         // console.log('DataToBlob',dataToBlob)
-
+        var x = CapturedImage.toString().replace(/^data:image\/jpeg;base64,/, "")
         const item ={
-            CapturedImage:decodedImg.data,
+            CapturedImage:Buffer.from(x, 'base64'),
             cardNumber:cardNumber,
             cardType:cardType
         }
