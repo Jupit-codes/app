@@ -1,5 +1,6 @@
 import '../../../assets/css/settings/account.css'
 import {AiOutlineEdit} from 'react-icons/ai'
+import {FaEdit} from 'react-icons/fa'
 import { reactLocalStorage } from 'reactjs-localstorage';
 const Index = ()=>{
     return(
@@ -18,8 +19,8 @@ const Index = ()=>{
                 <input type="text" className='form-control' placeholder='' value={reactLocalStorage.getObject('user').phonenumber}/>
             </div>
             <div className='TabInput SubmitModal'>
-                 
-                <input type="submit" className='form-control' placeholder='' value="Edit Profile"/>
+                <FaEdit size={20}/>Edit Profile
+               
             </div>
            
         </div>

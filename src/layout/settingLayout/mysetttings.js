@@ -5,8 +5,26 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import { useEffect, useState } from 'react'
 import { Tab } from './tab'
 import AccountSettings from './AccountSettings'
+import NotificationSettings from './NotificationSettings'
+import SecuritySetting from './SecuritySettings'
 const Index=()=>{
     const [Kyc,setKyc] = useState();
+    const [active,setactive] = useState('Account-Settings');
+    console.log('Active',active)
+    const _renderComponent = ()=>{
+        switch(active){
+            case 'Account-Settings':
+                return <AccountSettings/>
+                break;
+            case 'Notification-Settings':
+                return <NotificationSettings/>
+                break;
+            case 'Security-Settings':
+                return <SecuritySetting/>
+                break;
+        }
+    }
+
     useEffect(()=>{
        var kyc_level1 =  reactLocalStorage.getObject('kyc').level1[0].status;
        var kyc_level2 =  reactLocalStorage.getObject('kyc').level2[0].event_status;
@@ -24,8 +42,8 @@ const Index=()=>{
     return (
         <div className="settings-profile">
             <div className="profile">
-               <Tab/>
-               <AccountSettings/>
+               <Tab Active={setactive} currentActiveState={active}/>
+              { active && _renderComponent()} 
             </div>
             <div className="myprofile">
                 

@@ -13,7 +13,7 @@
     font-size: 18px;
 }
 .tabSettings div:hover{
-    border-bottom: 3px solid #2d9cdb;
+    /* border-bottom: 3px solid #2d9cdb; */
     cursor: pointer;
 }
 .tabDiv{
@@ -22,4 +22,9 @@
     align-items: flex-end;
     justify-content: center;
     padding: 10px;
+}
+
+.activeTab{
+    border-bottom: 3px solid #2d9cdb;
+    
 }
