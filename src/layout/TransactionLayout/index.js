@@ -30,7 +30,7 @@ const Index = ()=>{
         })
         .catch(err=>{
             
-            seterror(err.response.data)
+            seterror(err.response ? err.response.data : 'Internal Server Error...Pls Try Again')
             
         })
     }
@@ -45,18 +45,12 @@ const Index = ()=>{
 
 
     const columns = [
-        {
-            Header:'SN',
-            accessor:''
-        },
+        
         {
             Header:'Transaction Type',
             accessor:'type'
         },
-        {
-            Header:'Order ID',
-            accessor:'order_id'
-        },
+       
         {
             Header:'Currency',
             accessor:'currency'
@@ -103,7 +97,7 @@ const Index = ()=>{
                         </div>
                 </div>
                 } */}
-            {data && <Table  column={columns} data={data}/>}
+            {data .length > 0 && <Table  column={columns} data={data}/>}
                 
        
         </div>

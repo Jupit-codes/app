@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useTable } from "react-table";
+import { useTable,useSortBy } from "react-table";
 
 const Table = ({column,data})=>{
     
@@ -9,7 +9,7 @@ const Table = ({column,data})=>{
     const TableInstance = useTable({
         columns:COLUMN,
         data:DATA
-    })
+    },useSortBy)
 
     const {getTableProps,getTableBodyProps,headerGroups,rows,prepareRow} = TableInstance
       return (
