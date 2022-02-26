@@ -7,6 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Table from './Table';
 import Spinner from '../../assets/images/spinner.gif'
 import './table.css'
+
 const Index = ()=>{
     const [data,setdata] = useState([]);
     const [error,seterror] = useState();

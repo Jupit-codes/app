@@ -17,3 +17,28 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+  .searchDiv{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 14px;
+    font-family: Acme;
+    
+  }
+  .searchTable{
+    padding: 5px;
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    font-family: Acme;
+    line-height: 25px;
+    border-radius: 10px;
+    margin-left: 5px;
+  }
+  .globalClass{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 20px; 
+    
+  }
