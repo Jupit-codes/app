@@ -24,6 +24,8 @@ const Table = ({column,data})=>{
         page,
         nextPage,
         previousPage,
+        canNextPage,
+        canPreviousPage,
         prepareRow,
         state,
         setGlobalFilter} = TableInstance
@@ -77,8 +79,8 @@ const Table = ({column,data})=>{
         </table>
         <div className="PrevNextCover">
             <div className="buttonNextPrev">
-                <div onClick={()=>previousPage()}> <BiSkipPrevious size={20}/>Previous  </div>
-                <div onClick={()=>nextPage()}><BiSkipNext size={20}/>Next  </div>
+                <div onClick={()=>previousPage()} disabled={!canPreviousPage} > <BiSkipPrevious size={20}/>Previous  </div>
+                <div onClick={()=>nextPage()} disabled={!canNextPage}><BiSkipNext size={20}/>Next  </div>
             </div>
         </div>
         
