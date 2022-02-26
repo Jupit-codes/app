@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 import { useTable,useSortBy } from "react-table";
+import {AiOutlineCaretDown} from 'react-icons/ai'
+import {AiOutlineCaretUp} from 'react-icons/ai'
 
 const Table = ({column,data})=>{
     
@@ -22,7 +24,7 @@ const Table = ({column,data})=>{
                                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                                     {column.render('Header')}
                                     <span>
-                                       {column.isSorted ? (column.isSortedDesc ? 'down':'up'): ''}
+                                       {column.isSorted ? (column.isSortedDesc ? <AiOutlineCaretDown size={10}/>:<AiOutlineCaretUp size={10}/>): ''}
                                     </span>
 
                                 </th>

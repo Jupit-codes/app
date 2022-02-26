@@ -47,7 +47,7 @@ const Index = ()=>{
     const columns = [
         
         {
-            Header:'Transaction Type',
+            Header:'Type',
             accessor:'type'
         },
        
@@ -76,7 +76,7 @@ const Index = ()=>{
             accessor:'status'
         },
         {
-            Header:'DateOfTransaction',
+            Header:'Date',
             accessor:'updated'
         },
         
@@ -85,6 +85,7 @@ const Index = ()=>{
     
     return (
         <div className="transaction">
+            <h4>Wallet Transaction</h4>
                 {Loading && <img src={Spinner}/>}
                 {/* {data && data.length === 0 && 
                 <div>
