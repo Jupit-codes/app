@@ -4,6 +4,7 @@ import {BsTelephone} from 'react-icons/bs'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import { useEffect, useState } from 'react'
 import { Tab } from './tab'
+import AccountSettings from './AccountSettings'
 const Index=()=>{
     const [Kyc,setKyc] = useState();
     useEffect(()=>{
@@ -24,6 +25,7 @@ const Index=()=>{
         <div className="settings-profile">
             <div className="profile">
                <Tab/>
+               <AccountSettings/>
             </div>
             <div className="myprofile">
                 

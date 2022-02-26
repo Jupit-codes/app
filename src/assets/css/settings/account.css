@@ -1,0 +1,35 @@
+.TabBody{
+    display: flex;
+    height: 100%;
+    min-height: 25vh;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 20px;
+    flex-direction: column;
+
+}
+.TabInput{
+    width: 100%;
+    margin: 10px;
+    font-family: Acme;
+}
+
+.TabInput label{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.SubmitModal{
+    margin-top: 20px;
+}
+
+.SubmitModal input{
+    display: flex;
+    width: 100%;
+    background-color: #3498db;
+    justify-content: center;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Acme;
+
+}
