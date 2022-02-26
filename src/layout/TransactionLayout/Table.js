@@ -19,8 +19,12 @@ const Table = ({column,data})=>{
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {
                             headerGroup.headers.map((column)=>(
-                                <th {...column.getHeaderProps()}>
+                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                                     {column.render('Header')}
+                                    <span>
+                                       {column.isSorted ? (column.isSortedDesc ? 'down':'up'): ''}
+                                    </span>
+
                                 </th>
                             ))
                         }
