@@ -1,0 +1,25 @@
+.tabSettings{
+    
+    flex-direction: row;
+    display: flex;
+    background-color: #fff;
+    justify-content: space-around;
+    align-items: flex-end;
+    border: 1px solid #fff;
+   
+}
+.tabSettings div{
+    font-family: candara;
+    font-size: 18px;
+}
+.tabSettings div:hover{
+    border-bottom: 3px solid #2d9cdb;
+    cursor: pointer;
+}
+.tabDiv{
+    flex:1 1 33.333%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+}

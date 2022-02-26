@@ -26,14 +26,19 @@
 .profile{
     flex:1 1 60%;
     margin: 10px;
-    background-color: blueviolet;
+    
+    
 }
 .profile-pic{
     width: 200px;
     height: 200px;
     border-radius: 100px;
-    background-color: #fff;
-    border:2px solid #f5f5f5
+    /* background-color: #fff; */
+    border:1px solid #f5f5f5;
+    background:url('../../images/avatar.png');
+    background-position: center;
+    background-size: cover;
+    
 }
 
 .profile-name{
