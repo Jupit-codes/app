@@ -1,8 +1,10 @@
 import { useMemo } from "react";
-import { useTable,useSortBy,useGlobalFilter } from "react-table";
+import { useTable,useSortBy,useGlobalFilter,usePagination } from "react-table";
 import {AiOutlineCaretDown} from 'react-icons/ai'
 import {AiOutlineCaretUp} from 'react-icons/ai'
 import GlobalFilter from './globalFilter'
+import {BiSkipPrevious} from 'react-icons/bi'
+import {BiSkipNext} from 'react-icons/bi'
 const Table = ({column,data})=>{
     
     const COLUMN = useMemo(()=>column,[])
@@ -11,14 +13,17 @@ const Table = ({column,data})=>{
     const TableInstance = useTable({
         columns:COLUMN,
         data:DATA
-    },useGlobalFilter,useSortBy)
+    },useGlobalFilter,useSortBy,usePagination)
 
     
 
     const {getTableProps,
         getTableBodyProps,
         headerGroups,
-        rows,
+        // rows,
+        page,
+        nextPage,
+        previousPage,
         prepareRow,
         state,
         setGlobalFilter} = TableInstance
@@ -48,7 +53,7 @@ const Table = ({column,data})=>{
             </thead>
             <tbody  {...getTableBodyProps}>
                 {
-                    rows.map(row=>{
+                    page.map(row=>{
                         prepareRow(row)
                         return (
                             <tr {...row.getRowProps()}>
@@ -70,6 +75,13 @@ const Table = ({column,data})=>{
                 </tr>
             </tbody>
         </table>
+        <div className="PrevNextCover">
+            <div className="buttonNextPrev">
+                <div onClick={()=>previousPage()}> <BiSkipPrevious size={20}/>Previous  </div>
+                <div onClick={()=>nextPage()}><BiSkipNext size={20}/>Next  </div>
+            </div>
+        </div>
+        
         </>
       );
 }
