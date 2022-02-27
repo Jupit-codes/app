@@ -11,8 +11,8 @@ const Index = ({Next})=>{
                         Click on the Button Below to get Started, while we walk you through a seamless pipeline to activating the process.
                     </div>
 
-                    <div className='TabInput SubmitModal' onClick={Next('Section3')} >
-                      Activate 2FA
+                    <div className='TabInput SubmitModal' onClick={()=>Next('Section3')} >
+                      Activate 3FA
                 
             </div>
         </div>
