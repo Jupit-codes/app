@@ -34,7 +34,7 @@ const Index = ({closeModal})=>{
                 <div className='modalHeader'>
                     <div className='modalText'>
                         <div className='receiveText'>
-                           2FA
+                            TWO FACTOR AUTHENTICATION SET UP
                         </div>
                         
                             <IoClose size={25} onClick={()=>closeModal(!closeModal)} />

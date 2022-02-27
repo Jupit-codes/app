@@ -102,6 +102,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-y: scroll;
    
     /* justify-content: center;
     align-items: center;
@@ -174,3 +175,54 @@
     text-align: center;
     margin-top: 20px;
 }
+
+.welcome2fa-section{
+  
+    text-align: left;
+    margin-top: 20px;
+    
+}
+.welcome2fa-section p{
+    font-family: Acme;
+    font-size: 14px;
+    padding: 10px;
+}
+
+
+
+.slide-right {
+    animation: 1s slide-right;
+  }
+  @keyframes slide-right {
+    from {
+      margin-left: -50%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .slide-left {
+    animation: 1s slide-left;
+  }
+  @keyframes slide-left {
+    from {
+      margin-right: -50%;
+    }
+    to {
+      margin-right: 0%;
+    }
+  }
+
+  .barcodeAuth {
+     
+      display: flex;
+      justify-content: center;
+
+  }
+  .barcodeAuth img{
+      width: 30%;
+  }
+  .barcodeAuth .input{
+      width: 50%;
+  }
