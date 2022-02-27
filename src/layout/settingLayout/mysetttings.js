@@ -24,6 +24,7 @@ const Index=()=>{
                 break;
         }
     }
+    
 
     useEffect(()=>{
        var kyc_level1 =  reactLocalStorage.getObject('kyc').level1[0].status;

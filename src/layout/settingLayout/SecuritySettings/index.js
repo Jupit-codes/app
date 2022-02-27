@@ -3,11 +3,14 @@ import {AiOutlineEdit} from 'react-icons/ai'
 import {RiLockPasswordFill} from 'react-icons/ri'
 import {Si1Password} from 'react-icons/si'
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TWO_FAmodal from '../../../utils/modal/2FAmodal'
+import axios from 'axios';
 const Index = ()=>{
+
     const [TwoFA,setTwoFA] = useState(false)
-    return(
+    const [qrcode,setqrcode] = useState()
+        return(
         <div className="TabBodySecurity">
             {TwoFA && <TWO_FAmodal closeModal={setTwoFA} />}
             <div className='CoverDIvSecurity'>

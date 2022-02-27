@@ -11,7 +11,7 @@ const Index = ({Next})=>{
     const [address, setAddress] = useState('');
     const [copied,setCopied] = useState(false)
     const [qrcode, setqrcode] = useState();
-    const [faData, setfaData] = useState();
+    const [token, setToken] = useState();
     const Base_url = process.env.REACT_APP_BACKEND_URL
    const twoFActorFetch = async ()=>{
         let userid = reactLocalStorage.getObject('user')._id;
@@ -28,7 +28,7 @@ const Index = ({Next})=>{
         .then((res)=>{
             
             reactLocalStorage.setObject('2fa',res.data)
-            setfaData(res.data)
+            
             
         })
         .catch((err)=>{
@@ -61,22 +61,16 @@ const Index = ({Next})=>{
         <div>
             <div className='welcome2fa-section slide-right'>
                  <p>
-                    - Scan the barcode/Qrcode below with the Authenticator as Installed on your mobile device or Click on the secret key button to copy for manual setup on the Authenticator.
+                    - Input Token Generated From the Authenticatior App.
                 </p> 
+                
                 <div className='barcodeAuth'>
-                    <img src={src}/>
-                </div>
-                <div className='barcodeAuth'>
-                    <input type="text" value={reactLocalStorage.getObject('2fa').base32} disabled />
-                    <CopyToClipboard text={reactLocalStorage.getObject('2fa').base32}
-                    onCopy={() => {setCopied(true)}}>
-                    <div className={copied ? 'Copy' :'Copied'}>{copied ? 'Copied' :'Copy Secret'}</div>
-                    </CopyToClipboard>
+                    <input type="text" value={token} onChange={(e)=>setToken(e.target.value)} />
                 </div>      
             </div>
 
-            <div className='TabInput SubmitModal mt-4' onClick={()=>Next('Section4')}>
-               Click To Proceed After Authenticator SetUp
+            <div className='TabInput SubmitModal mt-4'>
+               Confirm
                 
             </div>
         </div>

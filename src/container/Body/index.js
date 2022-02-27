@@ -52,6 +52,7 @@ const kyc = reactLocalStorage.getObject('kyc')
 
    useEffect(()=>{
        kycFetch();
+       
    },[])
 
     return (

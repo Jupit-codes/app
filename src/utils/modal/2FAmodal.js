@@ -9,6 +9,7 @@ import moment from 'moment'
 import Section1 from './2FA_STEPS/section1'
 import Section2 from './2FA_STEPS/section2'
 import Section3 from './2FA_STEPS/section3'
+import Section4 from './2FA_STEPS/section4'
 const Index = ({closeModal})=>{
  
     const [step,setstep] = useState('Section1');
@@ -23,6 +24,9 @@ const Index = ({closeModal})=>{
                     break;
             case 'Section3':
                 return <Section3 Next={setstep} />
+                break;
+            case 'Section4':
+                return <Section4 Next={setstep} />
                 break;
 
         }
