@@ -2,13 +2,31 @@ import {useState,useEffect} from 'react'
 import React from 'react'
 import '../../assets/css/Modal/modal.css'
 import {IoClose} from 'react-icons/io5'
-import {MdOutlineSecurity} from 'react-icons/md'
+
 import axios from 'axios'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import moment from 'moment'
-
+import Section1 from './2FA_STEPS/section1'
+import Section2 from './2FA_STEPS/section2'
+import Section3 from './2FA_STEPS/section3'
 const Index = ({closeModal})=>{
  
+    const [step,setstep] = useState('Section1');
+
+    const _renderStep = ()=>{
+        switch(step){
+            case 'Section1':
+                return <Section1 Next={setstep}/>
+                break;
+            case 'Section2':
+                    return <Section2 Next={setstep}/>
+                    break;
+            case 'Section3':
+                return <Section3 Next={setstep} />
+                break;
+
+        }
+    }
     
     return (
         <div className="modalBackground">
@@ -26,18 +44,8 @@ const Index = ({closeModal})=>{
                 </div>
                 
                 <div className='fa'>
-                    <div className=''>
-                    <MdOutlineSecurity size={100} color="#3498db"/>
-                    </div>
-                    <div className='welcome2fa'>
-                        Welcome to Jupit 2FA Authentication SetUp.
-                        Click on the Button Below to get Started, while we walk you through a seamless pipeline to activating the process.
-                    </div>
-
-                    <div className='TabInput SubmitModal'>
-                      Activate 2FA
-                
-                    </div>
+                    {_renderStep()}
+                    {/* <Section1/> */}
                    
                 </div>
                 <div className='modalFooter'>
