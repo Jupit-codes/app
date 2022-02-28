@@ -47,10 +47,7 @@ const Index = ({Next})=>{
 
     useEffect(()=>{
         twoFActorFetch();
-        console.log(reactLocalStorage.getObject('2fa'))
-        QRcode.toDataURL(reactLocalStorage.getObject('2fa').otpauth_url).then((data)=>{
-            setSrc(data)
-        })
+       
         //setAddress(reactLocalStorage.getObject('user').btc_wallet[0].address)
         
     },[])

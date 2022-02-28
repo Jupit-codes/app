@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from '../../layout/HomeLayout/Hero';
-
+import HeroNew from '../../layout/HomeLayout/Hero3';
 import Header from '../../component/header';
 import Section1 from '../../layout/HomeLayout/Section1';
 import Section2 from '../../layout/HomeLayout/Section2';
@@ -18,13 +18,12 @@ const Index=()=>{
     return(
         <div>
             <Header/>
-            <Hero/>
+            <HeroNew/>
             {/* <Hero2/> */}
             <Section1/>
             <Section2/>
             <Section3/>
-            {/* <Section4/>
-            <Section5/> */}
+            
             <Section6/>
             <Section7/>
             <Section8/>
