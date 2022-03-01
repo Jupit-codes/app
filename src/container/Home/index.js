@@ -17,9 +17,9 @@ import Footer from '../../component/footer';
 const Index=()=>{
     return(
         <div>
-            {/* <Header/> */}
-            <HeroNew/>
-            {/* <Hero2/> */}
+            <Header/>
+            {/* <HeroNew/> */}
+            <Hero/>
             <Section1/>
             <Section2/>
             <Section3/>
