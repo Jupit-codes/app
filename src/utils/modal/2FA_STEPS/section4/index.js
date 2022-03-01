@@ -55,7 +55,9 @@ const Index = ({Next})=>{
 
     useEffect(()=>{
         if(data){
-            toast.success(data, {
+            console.log(data);
+            reactLocalStorage.setObject('user',data.data)
+            toast.success(data.message, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,

@@ -12,7 +12,6 @@ const Index = ({Next,close})=>{
    
 
   
-
     return(
         <div>
             

@@ -9,7 +9,44 @@ import axios from 'axios';
 const Index = ()=>{
 
     const [TwoFA,setTwoFA] = useState(false)
+    const [status,setStatus] = useState(null)
     const [qrcode,setqrcode] = useState()
+    const [err,setErr]  = useState();
+    const Base_url = process.env.REACT_APP_BACKEND_URL
+    const get2fa= async ()=>{
+        await axios({
+            method: "POST",
+            url: `${Base_url}/get2FA`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
+        })
+        .then((res)=>{
+            
+            reactLocalStorage.setObject('2fa',res.data)
+            
+          
+        })
+        .catch((err)=>{
+            console.log(err);
+            setErr(err.response? err.response.data:'NO Connecetion')
+            
+        })
+    }
+
+
+    useEffect(()=>{
+        get2fa();
+    },[])
+
+    useEffect(()=>{
+        if(reactLocalStorage.getObject('2fa')){
+            setStatus(reactLocalStorage.getObject('2fa').activated)
+        }
+
+    },[reactLocalStorage.getObject('2fa')])
         return(
         <div className="TabBodySecurity">
             {TwoFA && <TWO_FAmodal closeModal={setTwoFA} />}
@@ -25,9 +62,9 @@ const Index = ()=>{
             <div className='CoverDIvSecurity'>
                 <div className='reset'>Enable 2FA</div>
                 <small>Click on the Button Below To Activate</small>
-                <div className='TabInput SubmitModal' onClick={()=>setTwoFA(true)}>
+                <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} onClick={()=>setTwoFA(true)}>
                  
-                    <Si1Password size={20} style={{marginRight:10}}/>Enable 2FA
+                    <Si1Password size={20} style={{marginRight:10}}/>{status ? 'Disable 2FA': ' Enable 2FA'}
                 </div>
             </div>
            
