@@ -1,6 +1,59 @@
 import {MdOutlineSecurity} from 'react-icons/md'
-
+import axios from 'axios'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 const Index = ({Next})=>{
+    const Base_url = process.env.REACT_APP_BACKEND_URL
+    const [err,setErr] = useState();
+    const [data,setData] = useState();
+    const activate = async()=>{
+        await axios({
+            method: "POST",
+            url: `${Base_url}/2FA`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,email:reactLocalStorage.getObject('user').email})
+        })
+        .then((res)=>{
+            
+            // if(res.data === "Proceed"){
+            //     Next('Section2')
+            // }
+            setData(res.data)
+            
+        })
+        .catch((err)=>{
+            
+            setErr(err.response? err.response.data :'No Connection')
+            console.log(err);
+            
+            
+        })
+        
+    }
+
+    useEffect(()=>{
+            if(err){
+                toast.error(err, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
+
+            if(data){
+                Next('Section3');
+            }
+    },[err,data])
+    
+
     return(
         <div>
             <div className='welcome2fa'>
@@ -11,7 +64,7 @@ const Index = ({Next})=>{
                         Click on the Button Below to get Started, while we walk you through a seamless pipeline to activating the process.
                     </div>
 
-                    <div className='TabInput SubmitModal' onClick={()=>Next('Section2')} >
+                    <div className='TabInput SubmitModal' onClick={()=>activate()} >
                       Activate 2FA
                 
             </div>

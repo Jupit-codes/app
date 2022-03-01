@@ -5,5 +5,49 @@
     background-size: cover; */
     width: 100%;
     height: 100vh;
+    
+ 
+}
+.owl-carousel{
+    position: relative;
+    background-color: #003300;
+    height: 100vh;
+}
+
+.owl-nav{
+    position: absolute;
+    z-index: 1;
+    top:45%;
+    width: 100%;
+   
+}
+
+/* .owl-dots{
+    position:absolute;
+    z-index: 1;
+    top: 45%;
+    left: 45%;
+} */
+
+.owl-next{
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+
+}
+
+.owl-prev{
+    position: absolute;
+    left:0px;
+    color: #000;
+    width: 50px;
+    height: 50px;
+}
+
+.item{
     display: flex;
+    height: 100vh;
+    background-color: #ff0000;
+   
 }

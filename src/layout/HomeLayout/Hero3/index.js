@@ -1,54 +1,67 @@
 import '../../../assets/css/newHero/hero.css'
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'owl.carousel/dist/assets/owl.carousel.min.css';
+import 'owl.carousel/dist/assets/owl.theme.default.min.css';
+
+
 import Slider1 from '../../../assets/images/landingpage/bg/slider-1.jpg'
 import Slider2 from '../../../assets/images/landingpage/bg/slider-2.jpg'
 import Slider3 from '../../../assets/images/landingpage/bg/slider-3.jpg'
-import Slider from 'react-animated-slider';
-import 'react-animated-slider/build/horizontal.css';
+import { Dot } from 'react-bootstrap-icons';
+
+
 const Index = ()=>{
+    const items = {
+        item:[
+            <img src={Slider1} style={{width:'100vw',height:'100vh'}}/>,
+            <img src={Slider2} style={{width:'100vw',height:'100vh'}}/>,
+            <img src={Slider3} style={{width:'100vw',height:'100vh'}}/>,
+        ]
+    }
+
     const content = [
-        { 
-            title: 'Welcome To Jupit CryptoExchange', 
-            description: '..Speed..Service..Security',
-            image:Slider1,
-            button:'Speed'
-
+        {
+            title:'World Best CryptoExchange PlatForm',
+            img:<img src={Slider1} style={{width:'100vw',height:'100vh'}}/>,
+            imgUrl:'../../../assets/images/landingpage/bg/slider-2.jpg',
+            button:'Get Started'
         },
-        { 
-            title: 'Welcome To Jupit CryptoExchange', 
-            description: '..Speed..Service..Security',
-            image:Slider2,
-            button:'Service'
-
-        },
-        { 
-            title: 'Welcome To Jupit CryptoExchange', 
-            description: '..Speed..Service..Security',
-            image:Slider3,
-            button:'Security'
-
-        },
+        {
+            title:'We Buy And Sell',
+            img:<img src={Slider1} style={{width:'100vw',height:'100vh'}}/>,
+            imgUrl:'../../../assets/images/landingpage/bg/slider-1.jpg',
+            button:'Get Started'
+        }
+    ]
+    const options = {
+        items: 1,
+        nav: true,
+        rewind: true,
+        autoplay: true,
+        dot:true,
+        smartSpeed:1500
         
-      ];
+    };
     return (
-        <div className="hero">
-           <Slider classNames={horizontalCss}>
-            {content.map((item, index) => (
-                <div
-                    key={index}
-                    style={{ background: `url('${item.image}') no-repeat center center` }}
-                >
-                    <div className="center">
-                        <h1>{item.title}</h1>
-                        <p>{item.description}</p>
-                        <button>{item.button}</button>
-                    </div>
-                </div>
-            ))}
-            </Slider>
+        <div className='hero'>
+            <OwlCarousel  
+                nav
+                loop 
+                items={1}
+                className="owl-theme" 
+                margin={0}
+                smartSpeed={1500}
+                autoplay>
+
+               {items.item}
+               {/* {content.map((d,index)=>{
+                    return <div key={index} className='item' style={{backgroundImage: `url(../../../assets/images/landingpage/bg/slider-1.jpg)` }}>
+                                <h1>{d.title}</h1>
+                            </div>
+               })} */}
+               
+            </OwlCarousel>
         </div>
     )
 }
