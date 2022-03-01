@@ -2,12 +2,15 @@ import {MdOutlineSecurity} from 'react-icons/md'
 import axios from 'axios'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast,ToastContainer } from 'react-toastify'
+import LoaderModal from '../../../loader/loader.js'
 const Index = ({Next})=>{
     const Base_url = process.env.REACT_APP_BACKEND_URL
     const [err,setErr] = useState();
     const [data,setData] = useState();
+    const [Loader,setLoader] = useState(false)
     const activate = async()=>{
+        setLoader(true)
         await axios({
             method: "POST",
             url: `${Base_url}/2FA`,
@@ -22,13 +25,15 @@ const Index = ({Next})=>{
             // if(res.data === "Proceed"){
             //     Next('Section2')
             // }
-            setData(res.data)
+            setLoader(false);
+            setData(res.data);
+            
             
         })
         .catch((err)=>{
-            
+            setLoader(false);
             setErr(err.response? err.response.data :'No Connection')
-            console.log(err);
+            
             
             
         })
@@ -49,7 +54,7 @@ const Index = ({Next})=>{
             }
 
             if(data){
-                Next('Section3');
+                Next('Section2');
             }
     },[err,data])
     
@@ -57,6 +62,8 @@ const Index = ({Next})=>{
     return(
         <div>
             <div className='welcome2fa'>
+                <ToastContainer/>
+             {Loader && <LoaderModal/>}
                     <div className=''>
                             <MdOutlineSecurity size={100} color="#3498db"/>
                     </div>

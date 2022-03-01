@@ -47,13 +47,13 @@ const Index = ({Next})=>{
 
     useEffect(()=>{
         twoFActorFetch();
-        console.log(reactLocalStorage.getObject('2fa'))
+        
         QRcode.toDataURL(reactLocalStorage.getObject('2fa').otpauth_url).then((data)=>{
             setSrc(data)
         })
         //setAddress(reactLocalStorage.getObject('user').btc_wallet[0].address)
         
-    },[])
+    },[reactLocalStorage.getObject('2fa')])
 
   
 
@@ -67,7 +67,7 @@ const Index = ({Next})=>{
                     <img src={src}/>
                 </div>
                 <div className='barcodeAuth'>
-                    <input type="text" value={reactLocalStorage.getObject('2fa').base32} disabled />
+                    <input type="text" value={reactLocalStorage.getObject('2fa').base32 || ''} disabled />
                     <CopyToClipboard text={reactLocalStorage.getObject('2fa').base32}
                     onCopy={() => {setCopied(true)}}>
                     <div className={copied ? 'Copy' :'Copied'}>{copied ? 'Copied' :'Copy Secret'}</div>
