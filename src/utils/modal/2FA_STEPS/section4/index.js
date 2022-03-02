@@ -56,7 +56,7 @@ const Index = ({Next})=>{
     useEffect(()=>{
         if(data){
             console.log(data);
-            reactLocalStorage.setObject('user',data.data)
+            reactLocalStorage.setObject('2fa',data.new2fa)
             toast.success(data.message, {
                 position: "top-right",
                 autoClose: 5000,

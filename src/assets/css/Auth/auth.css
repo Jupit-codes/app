@@ -58,6 +58,23 @@
    justify-content: center;
    
 }
+.formClassToken{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    
+    
+    
+ }
+ .return{
+     cursor: pointer;
+ }
+ .return span {
+     font-family: candara;
+     font-size: 14px;
+ }
+
 .form-input{
     width: 60%;
    

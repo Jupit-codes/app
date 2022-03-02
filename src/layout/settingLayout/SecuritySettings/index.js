@@ -6,6 +6,8 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import { useEffect, useState } from 'react';
 import TWO_FAmodal from '../../../utils/modal/2FAmodal'
 import axios from 'axios';
+import { Check } from 'react-bootstrap-icons';
+import { toast,ToastContainer } from 'react-toastify';
 const Index = ()=>{
 
     const [TwoFA,setTwoFA] = useState(false)
@@ -26,7 +28,7 @@ const Index = ()=>{
         .then((res)=>{
             
             reactLocalStorage.setObject('2fa',res.data)
-            
+            console.log('here',res.data)
           
         })
         .catch((err)=>{
@@ -35,7 +37,23 @@ const Index = ()=>{
             
         })
     }
-
+    const CheckStatus = ()=>{
+        if(status){
+            
+            toast.info('Kindly do a mail to support@jupit.app, to disable this feature.', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
+        else{
+            setTwoFA(true)
+        }
+    }
 
     useEffect(()=>{
         get2fa();
@@ -49,6 +67,7 @@ const Index = ()=>{
     },[reactLocalStorage.getObject('2fa')])
         return(
         <div className="TabBodySecurity">
+            <ToastContainer/>
             {TwoFA && <TWO_FAmodal closeModal={setTwoFA} />}
             <div className='CoverDIvSecurity'>
                 <div className='reset'>Reset Your Password</div>
@@ -60,9 +79,9 @@ const Index = ()=>{
             </div>
 
             <div className='CoverDIvSecurity'>
-                <div className='reset'>Enable 2FA</div>
-                <small>Click on the Button Below To Activate</small>
-                <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} onClick={()=>setTwoFA(true)}>
+                <div className='reset'>{status ? 'Disable 2FA': ' Enable 2FA'}</div>
+                <small>Click on the Button Below</small>
+                <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} onClick={()=>CheckStatus()}>
                  
                     <Si1Password size={20} style={{marginRight:10}}/>{status ? 'Disable 2FA': ' Enable 2FA'}
                 </div>
