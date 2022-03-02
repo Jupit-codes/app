@@ -16,13 +16,22 @@ import Section2 from './section2'
 const Index=()=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
     const [section,setsection] = useState('Section1');
+    const [emailSection,setEmailSection] = useState();
+    const [passwordSection,setPasswordSection] = useState();
+
     const _renderSection = ()=>{
         switch(section){
             case 'Section1':
-                return <Section1 Next={setsection}/>
+                return <Section1 Next={setsection} 
+                     
+                    setUserEmail={setEmailSection}
+
+                    setUserPassword={setPasswordSection}
+                 
+                 />
                 break;
             case 'Section2':
-                return <Section2 Next={setsection}/>
+                return <Section2 Next={setsection} userEmail={emailSection} userPassword={passwordSection}/>
                 break;
             default:
                 return null

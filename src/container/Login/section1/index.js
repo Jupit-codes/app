@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-const Index=({Next})=>{
+const Index=({Next,setUserPassword,setUserEmail})=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
    
     const [emailaddress,setemailaddress] = useState('');
@@ -22,9 +22,11 @@ const Index=({Next})=>{
 
     const handleEmail =(e)=>{
         setemailaddress(e.target.value)
+        setUserEmail(e.target.value)
     }
     const handlePassword =(e)=>{
         setpassword(e.target.value)
+        setUserPassword(e.target.value)
     }
 
     const notify = ()=> toast(error);
