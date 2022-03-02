@@ -18,6 +18,7 @@ import Footer from '../../component/footer';
 import NextGen from '../../layout/HomeLayout/Nextgen';
 import Innovative from '../../layout/HomeLayout/Innovation'
 import HowItWorks from '../../layout/HomeLayout/howitworks'
+import OurOffer from '../../layout/HomeLayout/Ouroffer'
 const Index=()=>{
     return(
         <div>
@@ -26,6 +27,7 @@ const Index=()=>{
             <NextGen/>
             <Innovative/>
             <HowItWorks/>
+            <OurOffer/>
             
             {/* <Whoweare/> */}
             {/* <Hero/>
