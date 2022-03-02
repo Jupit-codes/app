@@ -12,6 +12,7 @@ import SliderTextII from './sliderTextII'
 const Index = ()=>{
    
     const [animateImg, setanimateImg] = useState(0)
+    const [stateComponent,setstateComponent] = useState();
     
     useEffect(()=>{
         const intervalId = setInterval(changeHero,10000)
@@ -22,11 +23,22 @@ const Index = ()=>{
         
     }
 
+    
+    
 
     return (
         <div className='hero'>
            <div className='content'>
-               <SliderTextII/>
+             {/* <SliderText/> */}
+             <div className='title slide-left '>
+                The Trusted
+            </div>
+            <div className='text slide-right'>
+                Digital Money Exchange
+            </div>
+            <div className='button slide-up'>
+                <button>Read More</button>
+            </div>
                
            </div>
         </div>

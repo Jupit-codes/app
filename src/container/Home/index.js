@@ -2,6 +2,7 @@ import React from "react";
 import Hero from '../../layout/HomeLayout/Hero';
 import HeroNew from '../../layout/HomeLayout/Hero3';
 import Header from '../../component/header';
+import Whoweare from '../../layout/HomeLayout/Whoweare'
 import Section1 from '../../layout/HomeLayout/Section1';
 import Section2 from '../../layout/HomeLayout/Section2';
 import Section3 from '../../layout/HomeLayout/Section3';
@@ -14,11 +15,18 @@ import Section9 from '../../layout/HomeLayout/Section9';
 import Section10 from '../../layout/HomeLayout/Section10';
 import Section11 from '../../layout/HomeLayout/Section11';
 import Footer from '../../component/footer';
+import NextGen from '../../layout/HomeLayout/Nextgen';
+import Innovative from '../../layout/HomeLayout/Innovation'
+import HowItWorks from '../../layout/HomeLayout/howitworks'
 const Index=()=>{
     return(
         <div>
             <Header/>
             <HeroNew/>
+            <NextGen/>
+            <Innovative/>
+            <HowItWorks/>
+            {/* <Whoweare/> */}
             {/* <Hero/>
             <Section1/>
             <Section2/>
