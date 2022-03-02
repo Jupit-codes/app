@@ -26,10 +26,11 @@ const Index=()=>{
             <NextGen/>
             <Innovative/>
             <HowItWorks/>
+            
             {/* <Whoweare/> */}
             {/* <Hero/>
             <Section1/>
-            <Section2/>
+            
             <Section3/>
             
             <Section6/>
