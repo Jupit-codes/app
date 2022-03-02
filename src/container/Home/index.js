@@ -18,8 +18,8 @@ const Index=()=>{
     return(
         <div>
             <Header/>
-            {/* <HeroNew/> */}
-            <Hero/>
+            <HeroNew/>
+            {/* <Hero/>
             <Section1/>
             <Section2/>
             <Section3/>
@@ -30,7 +30,7 @@ const Index=()=>{
             <Section9/>
             <Section10/>
             <Section11/>
-            <Footer/>
+            <Footer/> */}
             {/* <Section4/> */}
             
             

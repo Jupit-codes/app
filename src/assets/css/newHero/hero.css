@@ -1,53 +1,132 @@
 .hero{
-    /* background-image: url('../../images/landingpage/bg/slider-1.jpg');
+   
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: url('../../images/landingpage/bg/slider-2.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; */
-    width: 100%;
-    height: 100vh;
-    
+    background-size: cover;
+    animation: slide 10s infinite;
  
 }
-.owl-carousel{
-    position: relative;
-    background-color: #003300;
-    height: 100vh;
-}
 
-.owl-nav{
-    position: absolute;
-    z-index: 1;
-    top:45%;
-    width: 100%;
-   
-}
-
-/* .owl-dots{
-    position:absolute;
-    z-index: 1;
-    top: 45%;
-    left: 45%;
-} */
-
-.owl-next{
-    position: absolute;
-    right: 0px;
-    width: 50px;
-    height: 50px;
-
-}
-
-.owl-prev{
-    position: absolute;
-    left:0px;
-    color: #000;
-    width: 50px;
-    height: 50px;
-}
-
-.item{
+.content{
+   width: 100%;
+    text-align: center;
     display: flex;
-    height: 100vh;
-    background-color: #ff0000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    position: absolute;
+    top: 40%;
+    
+}
+.content div{
+    display: flex;
+    justify-content: center
+    
+    
+}
+.slider{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.title{
+    font-size: 30px;
+    font-family: candara;
+    color: #fff;
+}
+
+.text{
+    font-size: 60px;
+    font-family: candara;
+    color: #fff;
+}
+
+.button{
+    margin: auto;
+    text-align: center;
+    
+}
+.button button{
+    width:200px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #ffc857;
+    
+}
+
+.slide-right {
+    animation: 3s slide-right;
+  }
+
+
+  @keyframes slide-right {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+  
+  /***** Slide Left *****/
+  .slide-left {
+    animation: 3s slide-left;
+  }
+
+
+  @keyframes slide-left {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .slide-up {
+    animation: 3s slide-up;
+  }
+
+
+  @keyframes slide-up {
+    from {
+      margin-top: 100%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+
+
+  @keyframes slide-down {
+    from {
+      margin-top: -100%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+
+
+
+@keyframes slide {
+    0%{
+        background: url('../../images/landingpage/bg/slider-1.jpg');
+    }
+    33%{
+        background: url('../../images/landingpage/bg/slider-2.jpg');
+    }
+    67%{
+        background: url('../../images/landingpage/bg/slider-3.jpg');
+    }
    
+
 }
