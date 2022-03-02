@@ -43,7 +43,7 @@ const Index = ({Next,userEmail,userPassword})=>{
         .catch((err)=>{
             setloader(false)
             setmyerror(err.response ? err.response.data : 'No Connection')
-            toast.error(myerror, {
+            toast.error(err.response.data , {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
