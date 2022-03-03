@@ -48,7 +48,7 @@
       align-items: center;
   }
 
-  .rate{
+  .ratewhoWEARE{
       position:absolute;
       margin-top: 50px;
       width:1000px;
@@ -62,7 +62,7 @@
       -webkit-box-shadow: 3px 3px 5px 6px #ccc;
       box-shadow:         1px 2px 3px 3px #ccc;
   }
-  .rate p{
+  .ratewhoWEARE p{
       font-family: candara;
       font-size: 17px;
       

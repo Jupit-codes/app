@@ -30,7 +30,7 @@ const Index=()=>{
             <HowItWorks/>
             <OurOffer/>
             <Process/>
-            <Section4/>
+            
             
             {/* <Whoweare/> */}
             {/* <Hero/>
