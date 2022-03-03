@@ -58,7 +58,7 @@ const RenderRouter = (route)=>{
         />
       }
       else{
-        console.log('Not Authenticated',reactLocalStorage.get('token'));
+        // console.log('Not Authenticated',reactLocalStorage.get('token'));
         window.location='/client/signin';
       }
       

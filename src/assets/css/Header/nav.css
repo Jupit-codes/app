@@ -4,3 +4,12 @@
 .linkScroll{
 	color:#000;
 }
+
+.whatsappIcon{
+	position: absolute;
+	z-index: 10000;
+	top:0;
+	left: 0;
+	bottom: 10px;
+	background-color: #000;
+}

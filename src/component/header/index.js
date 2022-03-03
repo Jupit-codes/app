@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
-
+import {BsWhatsapp} from 'react-icons/bs'
 const Index=({ActivePath})=>{
     const [scroll,setscrollPosition] = useState(0);
     const handleScroll = () => {
@@ -23,6 +23,9 @@ const Index=({ActivePath})=>{
     return (
         
         <div className={scroll != 0 || ActivePath === 'contact-us'  ? 'HeaderScroll': 'Header'}>
+            <div className="whatsappIcon">
+                    <whatsappIcon size={40}/>
+            </div>
             <div className="my-nav-container">
                 <div className="logo">
                     <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
