@@ -8,12 +8,45 @@
 .whatsappIcon{
 	position: fixed;
 	top: 88vh;
-	left: 93%;
+	left: 80%;
 	padding: 10px;
 	z-index: 10000000000;
-	background-color: #25D366;
+	
 	border-radius: 15px;
 	cursor: pointer;
+	width: 250px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 	
 	
+	
+}
+.whatsappcover{
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #25D366;
+
+}
+
+.tooltipDiv{
+	width: 150px;
+	border-radius: 15px;
+	background-color:#25D366;
+	font-size: 13px;
+	font-weight: candara;
+	line-height: 20px;
+	color:#fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-right: 55px;
+	
+	display: none;
+	position: absolute;
+}
+
+.whatsappIcon:hover .tooltipDiv{
+	display: block;
 }

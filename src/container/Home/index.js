@@ -29,11 +29,19 @@ import '../../assets/css/Header/nav.css'
 const Index=()=>{
     return(
         <div style={{position:'relative',width:'100%',height:'100%'}}>
-            <a href="https://wa.me/+2348088213177" target="_blank">
-                <div className="whatsappIcon">
-                    <BsWhatsapp size={40} color="#fff" />
-                </div>
-            </a>
+                
+                    
+                    <div className="whatsappIcon">
+                        <div className="whatsappcover">
+                             <BsWhatsapp size={30} color="#fff" />
+                        </div>
+                        <div className="tooltipDiv">Whatsapp LTE</div>
+                        
+        
+                    </div>
+                
+                
+            
             
             <Header/>
             
