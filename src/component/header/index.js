@@ -23,9 +23,7 @@ const Index=({ActivePath})=>{
     return (
         
         <div className={scroll != 0 || ActivePath === 'contact-us'  ? 'HeaderScroll': 'Header'}>
-            <div className="whatsappIcon">
-                    <whatsappIcon size={40}/>
-            </div>
+             
             <div className="my-nav-container">
                 <div className="logo">
                     <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
@@ -40,7 +38,7 @@ const Index=({ActivePath})=>{
                 <div className="my-buttons">
                     <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
                     <Link to='/client/signup'><div className="create-button-register">Register</div></Link>
-                    
+                   
                 </div>
             </div>
             

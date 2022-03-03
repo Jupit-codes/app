@@ -12,16 +12,16 @@ const Index = ()=>{
 
             <div className='socialmedia'>
                <div>
-                     <AiFillLinkedin size={25} color="#fff"/>
+                     <AiFillLinkedin size={25} color="#0e76a8"/>
                 </div> 
                 <div>
-                    <AiFillFacebook size={25} color="#fff"/>
+                    <AiFillFacebook size={25} color="#3b5998"/>
                 </div>
                 <div>
-                    <AiFillTwitterSquare size={25} color="#fff"/>
+                    <AiFillTwitterSquare size={25} color="#00acee"/>
                 </div>
                 <div>
-                    <AiFillInstagram size={25} color="#fff"/>
+                    <AiFillInstagram size={25} color="#de1885"/>
                 </div>
             
             </div>

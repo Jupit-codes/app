@@ -23,9 +23,12 @@ import OurOffer from '../../layout/HomeLayout/Ouroffer'
 import Process from '../../layout/HomeLayout/ProcessFlow'
 import OurTeam from '../../layout/HomeLayout/Ourteam'
 import GetInTouch from '../../layout/HomeLayout/GetIntouch'
+import {BsWhatsapp} from 'react-icons/bs'
+import '../../assets/css/Header/nav.css'
 const Index=()=>{
     return(
-        <div>
+        <div style={{position:'relative'}}>
+            
             <Header/>
             <HeroNew/>
             <NextGen/>
