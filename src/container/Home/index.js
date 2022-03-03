@@ -20,6 +20,7 @@ import Innovative from '../../layout/HomeLayout/Innovation'
 import HowItWorks from '../../layout/HomeLayout/howitworks'
 import OurOffer from '../../layout/HomeLayout/Ouroffer'
 import Process from '../../layout/HomeLayout/ProcessFlow'
+import OurTeam from '../../layout/HomeLayout/Ourteam'
 const Index=()=>{
     return(
         <div>
@@ -30,6 +31,7 @@ const Index=()=>{
             <HowItWorks/>
             <OurOffer/>
             <Process/>
+            <OurTeam/>
             
             
             {/* <Whoweare/> */}
