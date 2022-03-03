@@ -2,15 +2,91 @@
     display: flex;
     width: 100%;
     height: 100%;
+    text-align: center;
     min-height: 100vh;
-    justify-content: center;
-    padding-top: 50px;
+    padding-top: 0px;
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: column;
 
 }
 
 .getIntouch > h1{
     letter-spacing: 5px;
-    font-size: 30px;
+    font-size: 40px;
     font-family: candara;
     margin-top: 20px;
+}
+
+.lightTextTouch{
+    width:100%;
+    margin-top: 5px;
+    color: #ccc;
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.TitleGetInTouch{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+.TitleGetInTouch >h1{
+    letter-spacing: 5px;
+    font-size: 40px;
+    font-family: candara;
+    margin-top: 20px;
+}
+.contactDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contactDiv > div{
+    flex:1 1 calc(50%-20px);
+   
+    margin: 10px;
+
+}
+
+.controlInput{
+    margin-bottom: 10px;
+    
+}
+
+.controlInput > input{
+    border-radius: 15px;
+    padding: 10px;
+    font-family: candara;
+}
+.controlInput > textarea{
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.submit{
+    background-color: #ffc875;
+    border: 1px solid #ffc875;
+}
+
+.spaceOut{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+   
+    width: 100%;
+    padding: 10px;
+    
+
+}
+.spaceOut > div{
+    text-align: center;
+    font-family: candara;
+    font-size: 18px;
+    margin-left: 10px;
 }

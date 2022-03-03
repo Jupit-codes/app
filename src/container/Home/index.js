@@ -35,7 +35,7 @@ const Index=()=>{
             <OurTeam/>
             <Section7/>
             <GetInTouch/>
-            
+            <Footer/>
             {/* <Whoweare/> */}
             {/* <Hero/>
             <Section1/>
