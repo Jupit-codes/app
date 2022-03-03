@@ -61,3 +61,7 @@
 .TeamMember > img{
     width: 100%;
 }
+
+.TeamMember > div{
+    font-family: Acme;
+}

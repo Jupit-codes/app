@@ -6,8 +6,11 @@ import {FaCoins} from 'react-icons/fa'
 const Index = ()=>{
     return(
         <section className="section7">
-            
-            <div className="rates">
+            <h1>About Us</h1>
+            <div className="aboutUsText">
+                At Jupit, we get it that advanced digital currency can be adopted with fair facilitate channel and that's why we've done a few exceptionally curiously things as a group, from community vibes to work ethics that engage improvement. Jupit has preeminent astonishing values.
+            </div>
+            {/* <div className="rates">
               <div className="row mt-3">
                 <div className="col-md-4 rate-title">
                         OUR RATES
@@ -87,7 +90,7 @@ const Index = ()=>{
                     </div>
 
              </div>
-            </div>
+            </div> */}
            
         </section>
     )

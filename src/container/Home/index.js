@@ -21,6 +21,7 @@ import HowItWorks from '../../layout/HomeLayout/howitworks'
 import OurOffer from '../../layout/HomeLayout/Ouroffer'
 import Process from '../../layout/HomeLayout/ProcessFlow'
 import OurTeam from '../../layout/HomeLayout/Ourteam'
+import GetInTouch from '../../layout/HomeLayout/GetIntouch'
 const Index=()=>{
     return(
         <div>
@@ -32,7 +33,8 @@ const Index=()=>{
             <OurOffer/>
             <Process/>
             <OurTeam/>
-            
+            <Section7/>
+            <GetInTouch/>
             
             {/* <Whoweare/> */}
             {/* <Hero/>
