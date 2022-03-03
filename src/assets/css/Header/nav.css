@@ -5,11 +5,15 @@
 	color:#000;
 }
 
-.whatsapIcon{
-	position: absolute;
-	top: 100vh;
-	left: 200px;
+.whatsappIcon{
+	position: fixed;
+	top: 88vh;
+	left: 93%;
+	padding: 10px;
 	z-index: 10000000000;
-	bottom: 10px;
+	background-color: #25D366;
+	border-radius: 15px;
+	cursor: pointer;
+	
 	
 }

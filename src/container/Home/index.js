@@ -23,13 +23,21 @@ import OurOffer from '../../layout/HomeLayout/Ouroffer'
 import Process from '../../layout/HomeLayout/ProcessFlow'
 import OurTeam from '../../layout/HomeLayout/Ourteam'
 import GetInTouch from '../../layout/HomeLayout/GetIntouch'
+import Whatsapp from '../../layout/HomeLayout/Whatsapp'
 import {BsWhatsapp} from 'react-icons/bs'
 import '../../assets/css/Header/nav.css'
 const Index=()=>{
     return(
-        <div style={{position:'relative'}}>
+        <div style={{position:'relative',width:'100%',height:'100%'}}>
+            <a href="https://wa.me/+2348088213177" target="_blank">
+                <div className="whatsappIcon">
+                    <BsWhatsapp size={40} color="#fff" />
+                </div>
+            </a>
             
             <Header/>
+            
+            
             <HeroNew/>
             <NextGen/>
             <Innovative/>
