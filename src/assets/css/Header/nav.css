@@ -18,9 +18,7 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	
-	
-	
+
 }
 .whatsappcover{
 	padding: 10px;
@@ -182,4 +180,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		text-align: end;
 		
 	}
+	.whatsappIcon{
+		
+	top: 85%;
+	left: 18%;
+	
+	
+	}
+	
 }

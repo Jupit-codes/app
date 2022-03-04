@@ -57,7 +57,7 @@ const Index=()=>{
             <Process/>
             <OurTeam/>
             <GetInTouch/>
-            
+            <NewFooter/>
             {/* 
             
             

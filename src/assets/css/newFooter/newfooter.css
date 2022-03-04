@@ -53,3 +53,43 @@
     margin-top: 20px;
     color: #fff;
 }
+@media screen 
+and (min-device-width:300px)
+and (max-device-width:400px)
+{
+    .newFooter{
+        padding:30px;
+        height: 100%;
+        min-height:40vh ;
+        
+    }
+    .newFooter h1{
+        letter-spacing: 2px;
+        font-size: 14px;
+        font-family: candara;
+        margin-top: 20px;
+        color: #fff;
+        
+    }
+    .subscribeText{
+        width: 100%;
+        margin-top: 10px;
+        position: relative; 
+    }
+    .subscribeText > input{
+      font-size: 14px;
+    }
+    .socialmedia{
+        margin-top: 20px;
+        width: 50%;
+    }
+    .footerText{
+        font-family: candara;
+        font-size: 12px;
+        margin-top: 20px;
+        color: #fff;
+        width: 100%;
+
+    }
+    
+}
