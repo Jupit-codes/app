@@ -50,3 +50,26 @@
 .whatsappIcon:hover .tooltipDiv{
 	display: block;
 }
+.hamburger{
+	display: none;
+}
+
+@media only screen 
+and (min-device-width: 280px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+	.mynav{
+		display: none;
+	}
+	
+	.hamburger{
+		width: 100px;
+	}
+	
+	.my-buttons{
+		display: none;
+	}
+
+
+}

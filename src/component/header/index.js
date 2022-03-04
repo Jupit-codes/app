@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
-import {Link} from 'react-scroll'
+import {GiHamburgerMenu} from 'react-icons/gi'
+
 import {BsWhatsapp} from 'react-icons/bs'
 const Index=({ActivePath})=>{
     const [scroll,setscrollPosition] = useState(0);
     const handleScroll = () => {
         const position = window.pageYOffset;
         setscrollPosition(position)
-        console.log(scroll)
+        
     };
     
-    console.log('ActivePath',ActivePath)
+   
     useEffect(()=>{
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
@@ -35,6 +36,9 @@ const Index=({ActivePath})=>{
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to='/learnwithus' className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Learn</Link></div>
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/faq" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Faq</Link></div>
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</Link></div>
+                </div>
+                <div>
+                    <GiHamburgerMenu  color="#fff" size={25} className="hamburger"/>
                 </div>
                 <div className="my-buttons">
                     {/* <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
