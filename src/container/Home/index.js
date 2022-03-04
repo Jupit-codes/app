@@ -38,7 +38,7 @@ const Index=()=>{
                             </div>
                         </a>
                         
-                        <div className="tooltipDiv">Whatsapp LTE</div>
+                        <div className="tooltipDiv">WhatsApp Us</div>
                         
         
                     </div>
