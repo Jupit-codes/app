@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
-
+import { Offcanvas } from "react-bootstrap";
 import {GiHamburgerMenu} from 'react-icons/gi'
 
 import {BsWhatsapp} from 'react-icons/bs'
 const Index=({ActivePath})=>{
     const [scroll,setscrollPosition] = useState(0);
+    const [show,setshow] = useState(false);
+    const handleClose = ()=>{
+        setshow(false)
+    }
     const handleScroll = () => {
         const position = window.pageYOffset;
         setscrollPosition(position)
@@ -32,7 +36,7 @@ const Index=({ActivePath})=>{
                     <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
                 </div>
                 <div className="hamburg">
-                    <GiHamburgerMenu  color="#fff" size={35} className="hamburger"/>
+                    <GiHamburgerMenu  color="#fff" size={35} className="hamburger" onClick={()=>setshow(true)}/>
                 </div>
                 <div className="mynav">
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</Link></div>
@@ -50,6 +54,16 @@ const Index=({ActivePath})=>{
 
                 </div>
             </div>
+            <Offcanvas show={show} onHide={handleClose} placement="end" style={{width:'70%',backgroundColor:'#070722'}}>
+                    <Offcanvas.Header closeButton closeVariant='white' >
+                        <Offcanvas.Title></Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                        <div className=''>
+                           
+                       </div>
+                    </Offcanvas.Body>
+                </Offcanvas>
             
         </div>
     )
