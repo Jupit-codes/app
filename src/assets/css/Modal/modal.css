@@ -226,3 +226,7 @@
   .barcodeAuth .input{
       width: 50%;
   }
+
+  .videobody{
+      background-color: #000;
+  }
