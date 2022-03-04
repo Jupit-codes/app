@@ -32,9 +32,12 @@ const Index=()=>{
                 
                     
                     <div className="whatsappIcon">
-                        <div className="whatsappcover">
-                             <BsWhatsapp size={30} color="#fff" />
-                        </div>
+                        <a href="https://wa.me/2348088213177" target='_blank'>
+                            <div className="whatsappcover">
+                                <BsWhatsapp size={30} color="#fff" />
+                            </div>
+                        </a>
+                        
                         <div className="tooltipDiv">Whatsapp LTE</div>
                         
         
