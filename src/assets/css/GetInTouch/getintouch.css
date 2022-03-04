@@ -90,3 +90,56 @@
     font-size: 18px;
     margin-left: 10px;
 }
+
+@media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .getIntouch{
+        display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    flex-direction: column;
+        
+    
+    }
+    .TitleGetInTouch{
+        display: flex;
+        width: 100%;
+        
+        
+    }
+    .TitleGetInTouch >h1{
+        letter-spacing: 5px;
+        font-size: 15px;
+        font-family: candara;
+        margin-top: 20px;
+    }
+
+    .lightTextTouch{
+        width:100%;
+       display: flex;
+       justify-content: center;
+        margin-top: 5px;
+        color: #ccc;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px;
+    }
+    .contactDiv{
+        flex-direction: column;
+    }
+    .contactDiv > div{
+        flex:1 1 calc(100%);
+       background-color: aqua;
+        margin: 10px;
+    
+    }
+    .spaceOut > div{
+        font-size: 14px;
+    }
+}
