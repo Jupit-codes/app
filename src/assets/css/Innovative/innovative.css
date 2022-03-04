@@ -54,3 +54,28 @@
     margin-top: 20px;
     cursor: pointer;
 }
+
+
+.slide-right {
+    animation: 1s slide-right;
+  }
+  @keyframes slide-right {
+    from {
+      margin-left: -50%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+  
+  .slide-left {
+    animation: 1s slide-left;
+  }
+  @keyframes slide-left {
+    from {
+      margin-right: -50%;
+    }
+    to {
+      margin-right: 0%;
+    }
+  }

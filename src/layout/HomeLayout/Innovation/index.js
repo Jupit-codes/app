@@ -3,10 +3,10 @@ import img from '../../../assets/images/team-on-work.png'
 const Index = ()=>{
     return(
         <div className="innovative">
-            <div className="innovative1">
-                <img src={img}/>
+            <div className="innovative1 slide-right">
+                <img src={img} className=""/>
             </div>
-            <div className='innovative2'>
+            <div className='innovative2 slide-left' >
                 <div className='innovative-2a'>Innovative Payment Network</div>
                 <div className='innovative-2b'>NEW KIND OF MONEY</div>
                  <div className="innovative-2c">

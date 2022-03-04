@@ -1,8 +1,8 @@
 import '../../../assets/css/Nextgen/nextgen.css'
-import Easy from '../../../assets/images/nextgen/easy.jpg'
-import Secure from '../../../assets/images/nextgen/secure.jpg'
-import Noloss from '../../../assets/images/nextgen/noloss.jpg'
-import Support from '../../../assets/images/nextgen/support.jpg'
+import Easy from '../../../assets/images/nextgen/easy.png'
+import Secure from '../../../assets/images/nextgen/secure.png'
+import Noloss from '../../../assets/images/nextgen/noloss.png'
+import Support from '../../../assets/images/nextgen/support.png'
 const Index = ()=>{
     return(
         <div className="nextgen">
@@ -16,8 +16,10 @@ const Index = ()=>{
 
                     <div className='core'>
                             <div className='coreChild'>
-                                
-                                <img src={Easy}/>
+                                   
+                                        <img src={Easy}/>
+                                   
+                               
                                 <div className='nextGenTag'>
                                     Easy To Transact
                                 </div >
@@ -34,6 +36,7 @@ const Index = ()=>{
 
                             </div>
                             <div className='coreChild'>
+                                
                                 <img src={Secure}/>
                                 <div className='nextGenTag'>
                                     Safe & Secure
