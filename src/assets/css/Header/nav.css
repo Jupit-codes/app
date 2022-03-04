@@ -194,5 +194,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		align-items: center;
 	
 	}
+	.tooltipDiv{
+		margin-right: 70px;
+	}
 	
 }
