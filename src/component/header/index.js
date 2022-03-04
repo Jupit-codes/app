@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
+import {Link} from 'react-scroll'
 import {BsWhatsapp} from 'react-icons/bs'
 const Index=({ActivePath})=>{
     const [scroll,setscrollPosition] = useState(0);
@@ -36,9 +37,11 @@ const Index=({ActivePath})=>{
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</Link></div>
                 </div>
                 <div className="my-buttons">
-                    <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
-                    <Link to='/client/signup'><div className="create-button-register">Register</div></Link>
-                   
+                    {/* <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
+                    <Link to='/client/signup'><div className="create-button-register">Register</div></Link> */}
+                    <div className="create-button-signin">SignIn</div>
+                    <div className="create-button-register">Register</div>
+
                 </div>
             </div>
             
