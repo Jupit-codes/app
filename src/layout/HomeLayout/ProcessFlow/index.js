@@ -31,7 +31,9 @@ const Index = ()=>{
                             </div>
                         </div>
                     </div>
-                  <div className='whatsappButton'><BsWhatsapp size={60} color="#25D366" /><span>Click To Talk To Our Team</span></div>
+                    <a href="https://wa.me/2348088213177" target='_blank'>
+                        <div className='whatsappButton'><BsWhatsapp size={60} color="#25D366" /><span>Click To Talk To Our Team</span></div>
+                        </a>
                  </div>
         </div>
     )
