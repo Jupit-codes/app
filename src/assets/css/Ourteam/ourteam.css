@@ -51,10 +51,21 @@
     border: 1px solid #ccc;
    
 }
-
-.pictureDiv > div:hover {
-    transform: rotateY(180deg);
+.onHover{
+    display: none;
 }
+
+
+.pictureDiv > div:hover .onHover {
+    display: block;
+}
+.pictureDiv > div:hover .show {
+    display: none;
+}
+/* .pictureDiv .TeamMember > img:hover {
+    transform: rotateY(180deg);
+    cursor: pointer;
+}  */
 
 .TeamMember{
     display: flex;

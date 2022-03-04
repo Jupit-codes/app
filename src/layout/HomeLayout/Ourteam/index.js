@@ -12,18 +12,23 @@ const Index = ()=>{
            </div>
            <div className='underline'><hr/></div>
            <div className='pictureDiv'>
+               <div>
                 <div className='TeamMember'>
-                    <div>ROLAND SAMUEL</div>
-                    <div>CEO</div>
-                    <img src={CEO} />
+                        <div className='name'>ROLAND SAMUEL</div>
+                        <div className='role'>CEO</div>
+                        <img src={CEO} className="show" />
+                        <img src={AMD} className="onHover" />
 
-                </div>
+                    </div>
+               </div>
+               
 
                 <div>
                     <div className='TeamMember'>
                         <div>ANITA JOY</div>
                         <div>CCO</div>
-                        <img src={AMD} />
+                        <img src={AMD} className="show" />
+                        <img src={CTO} className="onHover" />
 
                     </div>
                 </div>
@@ -31,15 +36,16 @@ const Index = ()=>{
                     <div className='TeamMember'>
                         <div>JOE MAIN</div>
                         <div>MARKETER</div>
-                        <img src={CCO} />
-
+                        <img src={CCO} className="show" />
+                        <img src={CEO} className="onHover" />
                     </div>
                 </div>
                 <div>
                     <div className='TeamMember'>
                         <div>DENNIS JOY</div>
                         <div>CTO</div>
-                        <img src={CTO} />
+                        <img src={CTO} className="show" />
+                        <img src={CCO} className="onHover" />
 
                     </div>
                 </div>
