@@ -36,6 +36,8 @@
     flex-wrap: wrap;
     width: 90%;
     justify-content: space-between;
+    transition: 0.5s;
+    transform-style: preserve-3d;
 
 }
 
@@ -48,6 +50,10 @@
     height: 100%;
     border: 1px solid #ccc;
    
+}
+
+.pictureDiv > div:hover {
+    transform: rotateY(180deg);
 }
 
 .TeamMember{

@@ -15,7 +15,7 @@ const Index = ()=>{
                 <div className='TeamMember'>
                     <div>ROLAND SAMUEL</div>
                     <div>CEO</div>
-                    <img src={CEO}/>
+                    <img src={CEO} />
 
                 </div>
 
@@ -23,7 +23,7 @@ const Index = ()=>{
                     <div className='TeamMember'>
                         <div>ANITA JOY</div>
                         <div>CCO</div>
-                        <img src={AMD}/>
+                        <img src={AMD} />
 
                     </div>
                 </div>
@@ -31,7 +31,7 @@ const Index = ()=>{
                     <div className='TeamMember'>
                         <div>JOE MAIN</div>
                         <div>MARKETER</div>
-                        <img src={CCO}/>
+                        <img src={CCO} />
 
                     </div>
                 </div>
@@ -39,7 +39,7 @@ const Index = ()=>{
                     <div className='TeamMember'>
                         <div>DENNIS JOY</div>
                         <div>CTO</div>
-                        <img src={CTO}/>
+                        <img src={CTO} />
 
                     </div>
                 </div>
