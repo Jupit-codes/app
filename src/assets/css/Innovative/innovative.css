@@ -95,17 +95,17 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
   .innovative1{
-    flex:1 1 100%;
+    flex:1 1 80%;
     display: flex;
     justify-content: center;
 }
 .innovative1 >img{
-  width: 80%;
-  height: 50%;
+  width: 50%;
+  
   
 }
 .innovative2{
-    flex:1 1 100%;
+    flex:1 1 80%;
 }
 .innovative-2a{
   font-size: 18px;
