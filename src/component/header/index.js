@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
+
 import {GiHamburgerMenu} from 'react-icons/gi'
 
 import {BsWhatsapp} from 'react-icons/bs'
@@ -30,6 +31,9 @@ const Index=({ActivePath})=>{
                 <div className="logo">
                     <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
                 </div>
+                <div className="hamburg">
+                    <GiHamburgerMenu  color="#fff" size={35} className="hamburger"/>
+                </div>
                 <div className="mynav">
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</Link></div>
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}>Products</div>
@@ -37,9 +41,7 @@ const Index=({ActivePath})=>{
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/faq" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Faq</Link></div>
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</Link></div>
                 </div>
-                <div>
-                    <GiHamburgerMenu  color="#fff" size={25} className="hamburger"/>
-                </div>
+                
                 <div className="my-buttons">
                     {/* <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
                     <Link to='/client/signup'><div className="create-button-register">Register</div></Link> */}

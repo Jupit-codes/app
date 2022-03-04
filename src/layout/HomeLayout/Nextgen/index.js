@@ -17,7 +17,7 @@ const Index = ()=>{
                     <div className='core'>
                             <div className='coreChild'>
                                    
-                                        <img src={Easy}/>
+                                    <img src={Easy}/>
                                    
                                
                                 <div className='nextGenTag'>
