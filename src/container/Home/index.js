@@ -54,14 +54,17 @@ const Index=()=>{
             <Innovative/>
             <HowItWorks/>
             <OurOffer/>
+            <Process/>
+            <OurTeam/>
+            
             {/* 
             
             
             
-            <Process/>
-            <OurTeam/>
+            
+            
             <Section7/>
-            <GetInTouch/>
+            
             <NewFooter/> */}
             {/* <Whoweare/> */}
             {/* <Hero/>

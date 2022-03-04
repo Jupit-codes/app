@@ -1,6 +1,6 @@
 .ouroffer{
     width:100%;
-    height: 70vh;
+    min-height: 70vh;
     height: 100%;
     background-color: #fff;
     padding:50px;
@@ -77,9 +77,8 @@ and (max-device-width: 400px)
 and (-webkit-min-device-pixel-ratio: 2) {
     .ouroffer{
         width:100%;
-        height: 70vh;
+        min-height: 100vh;
         height: 100%;
-        background-color: #fff;
         padding:40px;
         display: flex;
         flex-direction: column;
@@ -103,7 +102,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .stakeholders {
        display: flex;
        width: 100%;
-       height: 50%;
+       height: 100%;
+       padding: 20px;
        background-color: #fff;
        margin: 10px;
        border-radius: 15px;
@@ -115,7 +115,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .offerTable{
         width: 80%;
         border-radius: 15px;
-        height: 300px;
+        height: 100%;
         border: 0px solid #25D366;
         margin-top: 20px;
         display: flex;
@@ -127,6 +127,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
     .stakeholders div{
         font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
     }
     .offerbuy{
         width: 100px;
