@@ -51,11 +51,13 @@ const Index=()=>{
             
             <HeroNew/>
             <NextGen/>
-            
-            {/* 
             <Innovative/>
             <HowItWorks/>
             <OurOffer/>
+            {/* 
+            
+            
+            
             <Process/>
             <OurTeam/>
             <Section7/>

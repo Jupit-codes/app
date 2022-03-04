@@ -1,6 +1,7 @@
 .ouroffer{
     width:100%;
     height: 70vh;
+    height: 100%;
     background-color: #fff;
     padding:50px;
     display: flex;
@@ -56,8 +57,84 @@
 .offerbuy{
     width: 150px;
     height: 30px;
-    background-color: #2f83f2;
-    border: 1px solid #2f83f2 ;
+    background-color: #25D366;
+    border: 1px solid #25D366 ;
     border-radius: 10px;
-    color:#fff
+    margin-top:5px;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.myicon{
+    margin-left: 5px;
+}
+
+@media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .ouroffer{
+        width:100%;
+        height: 70vh;
+        height: 100%;
+        background-color: #fff;
+        padding:40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        
+    }
+    .titleOffer{
+        font-size: 25px;
+        color: #000;
+        font-family: Acme;
+    }
+    .titleTextOffer{
+        color: #ccc;
+        font-family: candara;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .stakeholders {
+       display: flex;
+       width: 100%;
+       height: 50%;
+       background-color: #fff;
+       margin: 10px;
+       border-radius: 15px;
+       -moz-box-shadow:    3px 3px 5px 6px #ccc;
+       -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+       box-shadow:         1px 2px 3px 3px #ccc;
+       
+    }
+    .offerTable{
+        width: 80%;
+        border-radius: 15px;
+        height: 300px;
+        border: 0px solid #25D366;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        justify-content: space-between;
+       
+        
+    }
+    .stakeholders div{
+        font-size: 14px;
+    }
+    .offerbuy{
+        width: 100px;
+        height: 30px;
+        background-color: #25D366;
+        border: 1px solid #25D366 ;
+        border-radius: 10px;
+        color:#fff;
+        margin-top: 5px;
+    }
 }

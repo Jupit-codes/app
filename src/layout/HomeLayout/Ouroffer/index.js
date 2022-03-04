@@ -1,4 +1,5 @@
 import '../../../assets/css/ouroffer/ouroffer.css'
+import {BsWhatsapp} from 'react-icons/bs'
 const Index = ()=>{
     return (
         <div className="ouroffer">
@@ -18,7 +19,9 @@ const Index = ()=>{
                         &#36;520
                    </div>
                    <div>
-                       <button className='offerbuy'>Buy Now</button>
+                   <a href="https://wa.me/2348088213177" target='_blank'>
+                        <button className='offerbuy'>Buy Now <BsWhatsapp size={15} className="myicon"/></button>
+                    </a> 
                    </div>
                 </div>
                 <div className='stakeholders'>  
@@ -30,7 +33,9 @@ const Index = ()=>{
                         &#36;520
                    </div>
                    <div>
-                       <button className='offerbuy'>Buy Now</button>
+                    <a href="https://wa.me/2348088213177" target='_blank'>
+                       <button className='offerbuy'>Buy Now <BsWhatsapp size={15} className="myicon"/></button>
+                    </a>
                    </div>
                 </div>
                 <div className='stakeholders'>
@@ -42,7 +47,9 @@ const Index = ()=>{
                         &#36;520
                    </div>
                    <div>
-                       <button className='offerbuy'>Buy Now</button>
+                   <a href="https://wa.me/2348088213177" target='_blank'>
+                       <button className='offerbuy'>Buy Now <BsWhatsapp size={15} className="myicon"/></button>
+                    </a>
                    </div>
                 </div>
                 <div className='stakeholders nullBorder' >
@@ -54,7 +61,9 @@ const Index = ()=>{
                         &#36;520
                    </div>
                    <div>
-                       <button className='offerbuy'>Buy Now</button>
+                   <a href="https://wa.me/2348088213177" target='_blank'>
+                       <button className='offerbuy'>Buy Now <BsWhatsapp size={15} className="myicon"/></button>
+                    </a>
                    </div>
                 </div>
             </div>
