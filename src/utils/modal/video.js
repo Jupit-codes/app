@@ -26,7 +26,10 @@ const Index = ({closeModal})=>{
                  <ReactPlayer 
                  playing
                  controls
-                 url={Video} />
+                 url={Video} 
+                 style={{height:'100%'}}
+                 
+                 />
                    
                 </div>
                 <div className='modalFooter'>
