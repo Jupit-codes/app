@@ -36,7 +36,7 @@ const Index=({ActivePath})=>{
                     <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
                 </div>
                 <div className="hamburg">
-                    <GiHamburgerMenu  color="#fff" size={35} className="hamburger" onClick={()=>setshow(true)}/>
+                    <GiHamburgerMenu  color={scroll === 0 ? '#fff':'#000'} size={35} className="hamburger" onClick={()=>setshow(true)}/>
                 </div>
                 <div className="mynav">
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</Link></div>

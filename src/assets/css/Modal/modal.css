@@ -230,3 +230,38 @@
   .videobody{
       background-color: #000;
   }
+
+  @media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+ 
+
+.modalContainerII{
+   
+    width: 80%;
+    height: 300px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin-top: 20px;
+
+}
+.camerabody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+.videobody{
+    background-color: #000;
+    
+    height: 70%;
+}
+    
+}
