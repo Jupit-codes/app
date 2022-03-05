@@ -9,7 +9,7 @@ const Index = ()=>{
 		setmodal(true)
 	}
     return (
-        <div class="sectionDiv">
+        <div class="sectionDiv" id="howitworks">
 			{modal && <VideoModal closeModal={setmodal}/>}
 				<div className='parallax'></div>
 				<div className='punditX'>

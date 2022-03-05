@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
 import { Offcanvas } from "react-bootstrap";
 import {GiHamburgerMenu} from 'react-icons/gi'
-
+import {Link} from 'react-scroll'
+import {FaHome} from 'react-icons/fa'
+import {GiRegeneration} from 'react-icons/gi'
+import {MdPayments} from 'react-icons/md'
+import {MdVideoLibrary} from 'react-icons/md'
+import {ImPriceTags} from 'react-icons/im'
+import {VscDebugStart} from 'react-icons/vsc'
+import {AiOutlineTeam} from 'react-icons/ai'
+import {BiSupport} from 'react-icons/bi'
 import {BsWhatsapp} from 'react-icons/bs'
 const Index=({ActivePath,getscroll})=>{
     const [scroll,setscrollPosition] = useState(0);
@@ -62,7 +70,74 @@ const Index=({ActivePath,getscroll})=>{
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <div className=''>
-                           
+                        <Link  to="/" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <FaHome color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Home</div>
+                            </div>
+                        </Link>
+                        <Link  to="nextgen" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <GiRegeneration color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Next Generation</div>
+                            </div>
+                        </Link>
+                        <Link  to="innovative" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <MdPayments color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Payment Network</div>
+                            </div>
+                        </Link>
+                        <Link  to="howitworks" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <MdVideoLibrary color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>How it Works</div>
+                            </div>
+                        </Link>
+                        <Link  to="ouroffer" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <ImPriceTags color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Our Offer</div>
+                            </div>
+                        </Link>
+                        <Link  to="process" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <VscDebugStart color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Get Started</div>
+                            </div>
+                        </Link>
+
+                        <Link  to="ourteam" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <AiOutlineTeam color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Our Team</div>
+                            </div>
+                        </Link>
+                        <Link  to="NextGeneration" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <BiSupport color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>Get In Touch</div>
+                            </div>
+                        </Link>
+                        
+
+                        
                        </div>
                     </Offcanvas.Body>
                 </Offcanvas>

@@ -3,7 +3,7 @@ import img from '../../../assets/images/team-on-work.png'
 const Index = ({myscroll})=>{
     console.log('Innovation', myscroll)
     return(
-        <div className='innovative'>
+        <div className='innovative' id="innovative">
             <div className={myscroll >= 1277 ? 'innovative1 slide-right':''}>
                 {myscroll >= 1277 && <img src={img} className=""/>}
             </div>

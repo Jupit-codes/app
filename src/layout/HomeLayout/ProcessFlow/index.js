@@ -2,7 +2,7 @@ import '../../../assets/css/Process/process.css'
 import {BsWhatsapp} from 'react-icons/bs'
 const Index = ()=>{
     return (
-        <div className="process">
+        <div className="process" id="process">
                  <div className="process-parallax"></div>
                  <div className='stepDiv'>
                     <h1>How to Get Started</h1>

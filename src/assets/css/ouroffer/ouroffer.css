@@ -90,6 +90,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 25px;
         color: #000;
         font-family: Acme;
+        margin-top: 50px;
     }
     .titleTextOffer{
         color: #ccc;

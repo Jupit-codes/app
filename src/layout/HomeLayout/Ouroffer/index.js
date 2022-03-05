@@ -2,7 +2,7 @@ import '../../../assets/css/ouroffer/ouroffer.css'
 import {BsWhatsapp} from 'react-icons/bs'
 const Index = ()=>{
     return (
-        <div className="ouroffer">
+        <div className="ouroffer" id="ouroffer">
             <div className='titleOffer'>Our Offer</div>
             <div className='titleTextOffer'>
                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
