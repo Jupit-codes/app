@@ -27,7 +27,7 @@ const Index = ({closeModal})=>{
                  playing
                  controls
                  url={Video} 
-                 style={{height:'100%'}}
+                 
                  
                  />
                    
