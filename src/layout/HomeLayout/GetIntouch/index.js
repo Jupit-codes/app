@@ -5,7 +5,7 @@ import {MdOutlineMail} from 'react-icons/md'
 import {IoMdCall} from 'react-icons/io'
 const Index = ()=>{
     return(
-        <div className="getIntouch">
+        <div className="getIntouch" id="getIntouch">
             <div className='TitleGetInTouch'>
                  <h1>Get In Touch</h1>
             </div>

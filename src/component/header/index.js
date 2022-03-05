@@ -127,7 +127,7 @@ const Index=({ActivePath,getscroll})=>{
                                 <div className='tagName'>Our Team</div>
                             </div>
                         </Link>
-                        <Link  to="NextGeneration" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="getIntouch" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <BiSupport color='#fff' size={20} />
