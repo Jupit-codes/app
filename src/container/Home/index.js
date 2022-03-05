@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Hero from '../../layout/HomeLayout/Hero';
 import HeroNew from '../../layout/HomeLayout/Hero3';
 import Header from '../../component/header';
@@ -27,6 +27,8 @@ import Whatsapp from '../../layout/HomeLayout/Whatsapp'
 import {BsWhatsapp} from 'react-icons/bs'
 import '../../assets/css/Header/nav.css'
 const Index=()=>{
+    const [scroll,setscroll] = useState(0)
+    console.log(scroll)
     return(
         <div style={{position:'relative',width:'100%',height:'100%'}}>
                 
@@ -46,12 +48,12 @@ const Index=()=>{
                 
             
             
-            <Header/>
+            <Header getscroll={setscroll} />
             
             
             <HeroNew/>
             <NextGen/>
-            <Innovative/>
+            <Innovative myscroll={scroll}/>
             <HowItWorks/>
             <OurOffer/>
             <Process/>

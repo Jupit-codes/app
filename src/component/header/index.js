@@ -7,7 +7,7 @@ import { Offcanvas } from "react-bootstrap";
 import {GiHamburgerMenu} from 'react-icons/gi'
 
 import {BsWhatsapp} from 'react-icons/bs'
-const Index=({ActivePath})=>{
+const Index=({ActivePath,getscroll})=>{
     const [scroll,setscrollPosition] = useState(0);
     const [show,setshow] = useState(false);
     const handleClose = ()=>{
@@ -16,6 +16,8 @@ const Index=({ActivePath})=>{
     const handleScroll = () => {
         const position = window.pageYOffset;
         setscrollPosition(position)
+        console.log(position)
+        getscroll(position)
         
     };
     

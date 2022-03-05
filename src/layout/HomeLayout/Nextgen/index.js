@@ -3,9 +3,38 @@ import Easy from '../../../assets/images/nextgen/easy.png'
 import Secure from '../../../assets/images/nextgen/secure.png'
 import Noloss from '../../../assets/images/nextgen/noloss.png'
 import Support from '../../../assets/images/nextgen/support.png'
+import { scroller } from "react-scroll";
+import { useState } from 'react'
+
 const Index = ()=>{
+    // const [scrollTop, setScrollTop] = useState();
+    // const [scroll, setScroll] = useState(0);
+    // const scrollToSection = () => { 
+    //     scroller.scrollTo("nextgen", {
+    //       duration: 800,
+    //       delay: 0,
+    //       smooth: "easeInOutQuart",
+    //     });
+    //   };
+    //   const onScroll = () => {
+    //     const scrollY = window.scrollY //Don't get confused by what's scrolling - It's not the window
+    //     const scrollTopValue= this.myRef.current.scrollTop
+    //     console.log(`onScroll, window.scrollY: ${scrollY} myRef.scrollTop: ${scrollTop}`)
+    //         setScrollTop(scrollTopValue)
+    //   }
+    //   const scrollEvent =(e)=> {
+    //     const target = e.target;
+    //     console.log('Current scroll position:', target.scrollTop);
+    // }
+    // const onScroll = () => {
+    //     const scrollY = window?.scrollY;
+    //     const scrollTop = document.getElementById("nextgen").scrollTop;
+    // console.log('ScrollTop',scrollTop)
+    //     setScroll(scrollTop);
+    //   };
+   
     return(
-        <div className="nextgen">
+        <div className="nextgen" id='nextgen'>
                 
                     <div className='titleSmall'>The Next Generation Digital</div>
                     <div className='titleBig'>Currency Exchange</div>

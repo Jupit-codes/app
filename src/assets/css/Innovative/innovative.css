@@ -59,7 +59,7 @@
 
 
 .slide-right {
-    animation: 1s slide-right;
+    animation: 10s slide-right;
   }
   @keyframes slide-right {
     from {
@@ -71,7 +71,7 @@
   }
   
   .slide-left {
-    animation: 1s slide-left;
+    animation: 10s slide-left;
   }
   @keyframes slide-left {
     from {
