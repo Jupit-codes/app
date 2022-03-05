@@ -27,7 +27,7 @@ const Index = ()=>{
     
 
     return (
-        <div className='hero'>
+        <div className='hero' id='hero'>
            <div className='content'>
              {/* <SliderText/> */}
              <div className='title slide-left '>

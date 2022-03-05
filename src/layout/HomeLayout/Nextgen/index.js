@@ -54,7 +54,7 @@ const Index = ()=>{
                                 </div >
                                 {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                Conventional borderless payment can be stressful and frustrating, with every transaction involving long chain of intermediaries, that should approve the transaction before it gets to the beneficiary which may likely take between one to five days to hit (in the case of cross border payment.)
+                                Conventional borderless payment can be stressful and frustrating, with every transaction involving long chain of intermediaries, that should approve the transaction before it gets to the beneficiary which may likely take between one to five days to hit .
 
 
                                 </div>

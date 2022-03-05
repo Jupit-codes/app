@@ -56,10 +56,40 @@
     font-weight: bold;
 }
 
-.aboutUsText{
+
+
+.aboutUsText > p{
     width: 80%;
     color:#fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 18px;
-    margin-top: 20px;
+   
+    margin-top: 30px;
+}
+
+@media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+    .section7{
+     
+        height: 100vh;
+        padding: 40px;
+    
+    }
+
+    .section7 >h1 {
+        font-family: Acme;
+        font-size: 20px;
+        color: #000;
+        
+    }
+    .aboutUsText > p{
+        width: 100%;
+        color:#fff;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 13px;
+        margin-top: 20px;
+    }
 }

@@ -14,6 +14,7 @@ import {ImPriceTags} from 'react-icons/im'
 import {VscDebugStart} from 'react-icons/vsc'
 import {AiOutlineTeam} from 'react-icons/ai'
 import {BiSupport} from 'react-icons/bi'
+import {FiBookOpen} from 'react-icons/fi'
 import {BsWhatsapp} from 'react-icons/bs'
 const Index=({ActivePath,getscroll})=>{
     const [scroll,setscrollPosition] = useState(0);
@@ -70,12 +71,20 @@ const Index=({ActivePath,getscroll})=>{
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <div className=''>
-                        <Link  to="/" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="hero" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <FaHome color='#fff' size={20} />
                                 </div>
                                 <div className='tagName'>Home</div>
+                            </div>
+                        </Link>
+                        <Link  to="aboutus" spy={true} smooth={true} onClick={handleClose}>
+                            <div className='tag'>
+                                <div className='tagIcon'>
+                                     <FiBookOpen color='#fff' size={20} />
+                                </div>
+                                <div className='tagName'>About Us</div>
                             </div>
                         </Link>
                         <Link  to="nextgen" spy={true} smooth={true} onClick={handleClose}>

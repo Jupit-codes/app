@@ -12,7 +12,7 @@ const Index = ()=>{
                         <div className='step'>
                             <div className='count'>01</div>
                             <div className='countDetails'>
-                                <div className='countDetailsTitle'>SignUp For Jupit</div>
+                                <div className='countDetailsTitle'>SignUp To Jupit</div>
                                 <p>Signup with just username,email address and password.</p>
                             </div>
                         </div>
