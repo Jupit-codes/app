@@ -40,7 +40,7 @@ const Index = ()=>{
                     <div className='titleBig'>Currency Exchange</div>
 
                     <div className='lightText'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis nisl porttitor, eleifend tortor sed, auctor libero. Proin quis purus eu mi fermentum blandit. Nam eget nisi ipsum. Nullam vitae
+                    Despite all resistance, the global economy is gradually embracing a computerized eco-framework. From investment to settlement, everything is going paperless. The freshest and most encouraging expansion to the payment infrastructure is cryptographic money.
                     </div>
 
                     <div className='core'>
@@ -52,9 +52,9 @@ const Index = ()=>{
                                 <div className='nextGenTag'>
                                     Easy To Transact
                                 </div >
-                                <div className='nextGenPeer' >Peer To Peer Transaction</div>
+                                {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                Conventional borderless payment can be stressful and frustrating, with every transaction involving long chain of intermediaries, that should approve the transaction before it gets to the beneficiary which may likely take between one to five days to hit (in the case of cross border payment.)
 
 
                                 </div>
@@ -70,9 +70,9 @@ const Index = ()=>{
                                 <div className='nextGenTag'>
                                     Safe & Secure
                                 </div >
-                                <div className='nextGenPeer' >Peer To Peer Transaction</div>
+                                {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    Security is of the highest importance to us, and our platform is built to safeguard each step in the transaction lifecycle.
 
 
                                 </div>
@@ -100,9 +100,9 @@ const Index = ()=>{
                                 <div className='nextGenTag'>
                                     Prompt Support Service
                                 </div >
-                                <div className='nextGenPeer' >Peer To Peer Transaction</div>
+                                {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                As part of our core concentration conscious, we're distinctively conscious of what PROMPT interpret and we're not giving anything short of.
 
 
                                 </div>

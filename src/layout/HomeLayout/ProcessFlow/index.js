@@ -5,7 +5,7 @@ const Index = ()=>{
         <div className="process" id="process">
                  <div className="process-parallax"></div>
                  <div className='stepDiv'>
-                    <h1>How to Get Started</h1>
+                    <h1>How “we intend for it to work” </h1>
                     
                     <div className='underline'><hr/></div>
                     <div className='buildStep'>
@@ -13,21 +13,22 @@ const Index = ()=>{
                             <div className='count'>01</div>
                             <div className='countDetails'>
                                 <div className='countDetailsTitle'>SignUp For Jupit</div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.</p>
+                                <p>Signup with just username,email address and password.</p>
                             </div>
                         </div>
                         <div className='step'>
                         <div className='count'>02</div>
                             <div className='countDetails'>
-                                <div className='countDetailsTitle'>Connect To Bank</div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.</p>
+                                <div className='countDetailsTitle'>Email Confirmation</div>
+                                <p>Confirm your email and login into your account.</p>
                             </div>
                         </div>
                         <div className='step'>
                         <div className='count'>03</div>
                             <div className='countDetails'>
                                 <div className='countDetailsTitle'>Start Trading</div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.</p>
+                                <p>Setup your Walletsafety password (WSP).</p>
+                                <p>Fund Your wallet and Start Trading.</p>
                             </div>
                         </div>
                     </div>

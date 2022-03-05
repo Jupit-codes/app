@@ -166,7 +166,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         flex:1 1 calc(100% - 20px);
         margin: 20px;
         text-align: center;
-        height: 340px;
+        height: 370px;
         -moz-box-shadow:    3px 3px 5px 6px #ccc;
         -webkit-box-shadow: 3px 3px 5px 6px #ccc;
         box-shadow:         1px 2px 3px 3px #ccc;
@@ -192,7 +192,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 .buttonNextGen{
     width: 100%;
-    height: 20px;
+    height: 30px;
     background-color: #000;
     color: #fff;
     margin-top: 5px;

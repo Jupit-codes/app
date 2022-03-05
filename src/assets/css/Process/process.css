@@ -98,7 +98,7 @@
     padding: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 .countDetailsTitle{
@@ -115,9 +115,11 @@
 }
 
 .countDetails > p{
-    font-size: 14px;
+    font-size: 16px;
     color:#ccc;
-    font-family:Acme
+    font-family:Acme;
+    text-align: left;
+
 }
 
 .whatsappButton{
@@ -161,10 +163,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     
 }
 .stepDiv h1{
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     font-size: 15px;
     font-family: candara;
     margin-top: 50px;
+    text-align: center;
 }
 .process-parallax {
     /* The image used */
@@ -220,16 +223,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .countDetails{
     flex: 1 1 90%;
     font-family: candara;
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 .countDetailsTitle{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     color: #000;
     font-weight: bolder;
     margin-bottom: 5px;
@@ -242,7 +245,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 .countDetails > p{
-    font-size: 10px;
+    font-size: 14px;
     color:#ccc;
     font-family:Acme
 }
