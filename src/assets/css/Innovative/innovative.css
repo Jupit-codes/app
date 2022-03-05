@@ -89,16 +89,19 @@ and (-webkit-min-device-pixel-ratio: 2) {
     display: flex;
     flex-direction: column;
     padding: 40px;
+    
 }
 
   .innovative1{
     flex:1 1 80%;
     display: flex;
     justify-content: center;
+    margin-top: 150px;
 }
 .innovative1 >img{
   width: 60%;
   height: 60%;
+  
   
   
 }
