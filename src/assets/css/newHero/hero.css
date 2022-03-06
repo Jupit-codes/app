@@ -5,7 +5,7 @@
     min-height: 100vh;
     overflow: hidden;
     position: relative;
-    background: url('../../images/landingpage/bg/slider-1.jpg');
+    background: url('../../images/landingpage/bg/slider-2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -122,9 +122,11 @@
         background: url('../../images/landingpage/bg/slider-1.jpg');
     }
     33%{
-        background: url('../../images/landingpage/bg/slider-2.jpg');
+        background: url('../../images/landingpage/bg/slider-3.jpg');
     }
-   
+    /* 67%{
+        background: url('../../images/landingpage/bg/slider-3.jpg');
+    } */
    
 
 }
