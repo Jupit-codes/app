@@ -63,9 +63,9 @@ const Index=({ActivePath,getscroll})=>{
                 <div className="my-buttons">
                     {/* <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
                     <Link to='/client/signup'><div className="create-button-register">Register</div></Link> */}
-                    <div className="create-button-signin" onClick={()=>setloadModal(true)} >SignIn</div>
-                    <div className="create-button-register" onClick={()=>setloadModal(true)}>Register</div>
-
+                    {/* <div className="create-button-signin" onClick={()=>setloadModal(true)} >SignIn</div>
+                    <div className="create-button-register" onClick={()=>setloadModal(true)}>Register</div> */}
+                    <div className="create-button-register" onClick={()=>setloadModal(true)}>Get Started</div>
                 </div>
             </div>
             <Offcanvas show={show} onHide={handleClose} placement="end" style={{width:'70%',backgroundColor:'#070722'}}>
