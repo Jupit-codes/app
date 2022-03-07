@@ -56,7 +56,8 @@ const Index = ()=>{
                                 </div >
                                 {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                Conventional borderless payment can be stressful and frustrating, with every transaction involving long chain of intermediaries, that should approve the transaction before it gets to the beneficiary which may likely take between one to five days to hit .
+                                Conventional borderless payment can be unwieldy. But virtual currency is SEAMLESS!
+                                {/* Conventional borderless payment can be stressful and frustrating, with every transaction involving long chain of intermediaries, that should approve the transaction before it gets to the beneficiary which may likely take between one to five days to hit . */}
 
 
                                 </div>
@@ -74,7 +75,8 @@ const Index = ()=>{
                                 </div >
                                 {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                    Security is of the highest importance to us, and our platform is built to safeguard each step in the transaction lifecycle.
+                                    Security is of the highest importance to us.
+                                    {/* Security is of the highest importance to us, and our platform is built to safeguard each step in the transaction lifecycle. */}
 
 
                                 </div>
@@ -82,7 +84,7 @@ const Index = ()=>{
                                     Read More
                                 </div>
                             </div>
-                            <div className='coreChild'>
+                            {/* <div className='coreChild'>
                                 <img src={Noloss}/>
                                 <div className='nextGenTag'>
                                     No Loss
@@ -96,7 +98,7 @@ const Index = ()=>{
                                 <div className='buttonNextGen'>
                                     Read More
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='coreChild'>
                                 <img src={Support}/>
                                 <div className='nextGenTag'>
@@ -104,7 +106,8 @@ const Index = ()=>{
                                 </div >
                                 {/* <div className='nextGenPeer' >Peer To Peer Transaction</div> */}
                                 <div className='nextGenText'>
-                                As part of our core concentration conscious, we're distinctively conscious of what PROMPT interpret and we're not giving anything short of.
+                                {/* As part of our core concentration conscious, we're distinctively conscious of what PROMPT interpret and we're not giving anything short of. */}
+                                Security is of the highest importance to us.
 
 
                                 </div>
