@@ -16,8 +16,11 @@ import {AiOutlineTeam} from 'react-icons/ai'
 import {BiSupport} from 'react-icons/bi'
 import {FiBookOpen} from 'react-icons/fi'
 import {BsWhatsapp} from 'react-icons/bs'
+import Modal from '../../utils/modal/wallet_note'
+
 const Index=({ActivePath,getscroll})=>{
     const [scroll,setscrollPosition] = useState(0);
+    const [loadModal,setloadModal] = useState(false);
     const [show,setshow] = useState(false);
     const handleClose = ()=>{
         setshow(false)
@@ -41,7 +44,7 @@ const Index=({ActivePath,getscroll})=>{
     return (
         
         <div className={scroll != 0 || ActivePath === 'contact-us'  ? 'HeaderScroll': 'Header'}>
-             
+             {loadModal && <Modal closeModal={setloadModal}/>}
             <div className="my-nav-container">
                 <div className="logo">
                     <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
@@ -60,8 +63,8 @@ const Index=({ActivePath,getscroll})=>{
                 <div className="my-buttons">
                     {/* <Link to='/client/signin'><div className="create-button-signin">SignIn</div></Link>
                     <Link to='/client/signup'><div className="create-button-register">Register</div></Link> */}
-                    <div className="create-button-signin">SignIn</div>
-                    <div className="create-button-register">Register</div>
+                    <div className="create-button-signin" onClick={()=>setloadModal(true)} >SignIn</div>
+                    <div className="create-button-register" onClick={()=>setloadModal(true)}>Register</div>
 
                 </div>
             </div>

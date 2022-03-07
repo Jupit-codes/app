@@ -161,6 +161,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
   border-radius: 10px;
   background-color: #ffc857;
   font-size: 12px;
+  border: 1px solid #ffc857;
   
 }
 

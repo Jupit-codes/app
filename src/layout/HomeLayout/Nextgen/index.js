@@ -40,7 +40,9 @@ const Index = ()=>{
                     <div className='titleBig'>Currency Exchange</div>
 
                     <div className='lightText'>
-                    Despite all resistance, the global economy is gradually embracing a computerized eco-framework. From investment to settlement, everything is going paperless. The freshest and most encouraging expansion to the payment infrastructure is cryptographic money.
+                    {/* Despite all resistance, the global economy is gradually embracing a computerized eco-framework. From investment to settlement, everything is going paperless. The freshest and most encouraging expansion to the payment infrastructure is cryptographic money. */}
+                    The global economy is gradually embracing a virtual eco-framework, despite many resistances.<br/>
+                    From investment to settlement, everything is going digital. The emerging and innovative expansion to the payment infrastructure is <b>cryptographic money</b>
                     </div>
 
                     <div className='core'>
