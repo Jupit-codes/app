@@ -25,6 +25,7 @@ import OurTeam from '../../layout/HomeLayout/Ourteam'
 import GetInTouch from '../../layout/HomeLayout/GetIntouch'
 import Whatsapp from '../../layout/HomeLayout/Whatsapp'
 import {BsWhatsapp} from 'react-icons/bs'
+import Products from '../../layout/HomeLayout/Products'
 import '../../assets/css/Header/nav.css'
 const Index=()=>{
     const [scroll,setscroll] = useState(0)
@@ -60,6 +61,7 @@ const Index=()=>{
             <Process/>
             
             <OurTeam/>
+            <Products/>
             <GetInTouch/>
             <NewFooter/>
             {/* 
