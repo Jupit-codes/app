@@ -3,6 +3,7 @@ import '../../../assets/css/Home/section7.css'
 import {GrBitcoin} from 'react-icons/gr'
 import {BsBank2} from 'react-icons/bs'
 import {FaCoins} from 'react-icons/fa'
+import { Link } from "react-router-dom";
 const Index = ()=>{
     return(
         <section className="section7" id="aboutus">
@@ -12,7 +13,7 @@ const Index = ()=>{
                 <p>We're all about simplifying your daily exchange.<br/>
                 Beyond operating a secure channel, we're dedicated to providing you with the best service, with a focus on dependability matched with satisfaction.</p>
             </div>
-            <button className="">ReadMore</button>
+            <Link to='/aboutus' ><button className="aboutusbtn">Read More</button></Link>
             {/* <div className="rates">
               <div className="row mt-3">
                 <div className="col-md-4 rate-title">
