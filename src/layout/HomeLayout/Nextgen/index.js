@@ -32,7 +32,51 @@ const Index = ()=>{
     // console.log('ScrollTop',scrollTop)
     //     setScroll(scrollTop);
     //   };
-   
+    const [dropdown,setdropdown] = useState(false);
+    const [dropdownSecure,setdropdownSecure] = useState(false)
+    const [dropdownSupport,setdropdownSupport] = useState(false)
+    const _handleClick = ()=>{
+        setdropdown(!dropdown)
+    }
+    const _handleClickSecure = ()=>{
+        setdropdownSecure(!dropdownSecure)
+    }
+
+    const _handleClickSupport = ()=>{
+        setdropdownSupport(!dropdownSupport)
+    }
+
+
+    const _renderComponent = ()=>{
+        return <div className="nextGenTextReadmore">
+                    
+                        The conventional cross-border payment infrastructure is designed to presuppose a long chain of intermediaries that must first approve the transaction before its being processed. Such wise, the conventional process often take between one to five business days to complete.<br/>
+                        Conversely, virtual currencies eliminate such intermediaries from its structure. Any persons(s) can exchange digital currency without stressing over geographic distance.
+                    
+             </div>   
+    }
+
+    const _renderComponentSecure =()=>{
+        return <div className="nextGenTextReadmore">
+                    
+                    Our platform is built to safeguard each step in the transaction infrastructure. Such wise, we are confident to say to you that your virtual assets is in a safe haven.
+    
+                </div>  
+    }
+    const _renderComponentSupport =()=>{
+        return <div className="nextGenTextReadmore">
+                    
+                    As part of our core concentration, we’re distinctively conscious of what PROMPT interpret and we're not giving anything short of;<br/>
+                    P- prioritizing your satisfaction,<br/>
+                    R - reliable service delivery to you, <br/>
+                    O – outstanding interaction with you, <br/>
+                    M - measuring your satisfaction to improve delivery, <br/>
+                    P - personnel training, and <br/>
+                    T - technologically focusing on new ways of getting things done.
+
+    
+                </div>  
+    }
     return(
         <div className="nextgen" id='nextgen'>
                 
@@ -59,10 +103,10 @@ const Index = ()=>{
                                 Conventional borderless payment can be unwieldy. But virtual currency is SEAMLESS!
                                 {/* Conventional borderless payment can be stressful and frustrating, with every transaction involving long chain of intermediaries, that should approve the transaction before it gets to the beneficiary which may likely take between one to five days to hit . */}
 
-
+                                {dropdown && _renderComponent()}
                                 </div>
-                                <div className='buttonNextGen'>
-                                    Read More
+                                <div className='buttonNextGen' onClick={_handleClick} >
+                                   {dropdown ? 'Read Less':'ReadMore'} 
                                 </div>
 
 
@@ -77,11 +121,11 @@ const Index = ()=>{
                                 <div className='nextGenText'>
                                     Security is of the highest importance to us.
                                     {/* Security is of the highest importance to us, and our platform is built to safeguard each step in the transaction lifecycle. */}
-
-
+                                   
+                                    {dropdownSecure && _renderComponentSecure()}
                                 </div>
-                                <div className='buttonNextGen'>
-                                    Read More
+                                <div className='buttonNextGen'  onClick={_handleClickSecure}>
+                                    {dropdownSecure ? 'Read Less':'ReadMore'} 
                                 </div>
                             </div>
                             {/* <div className='coreChild'>
@@ -109,10 +153,11 @@ const Index = ()=>{
                                 {/* As part of our core concentration conscious, we're distinctively conscious of what PROMPT interpret and we're not giving anything short of. */}
                                 Security is of the highest importance to us.
 
+                                {dropdownSupport && _renderComponentSupport()}
 
                                 </div>
-                                <div className='buttonNextGen'>
-                                    Read More
+                                <div className='buttonNextGen' onClick={_handleClickSupport}>
+                                    {dropdownSupport ? 'Read Less':'ReadMore'} 
                                 </div>
                             </div>
                     </div>
