@@ -28,7 +28,7 @@ import {BsWhatsapp} from 'react-icons/bs'
 import '../../assets/css/Header/nav.css'
 const Index=()=>{
     const [scroll,setscroll] = useState(0)
-    console.log(scroll)
+   
     return(
         <div style={{position:'relative',width:'100%',height:'100%'}}>
                 
@@ -53,11 +53,12 @@ const Index=()=>{
             
             <HeroNew/>
             <NextGen/>
+            <Section7/>
             <Innovative myscroll={scroll}/>
             <HowItWorks/>
             <OurOffer/>
             <Process/>
-            <Section7/>
+            
             <OurTeam/>
             <GetInTouch/>
             <NewFooter/>
