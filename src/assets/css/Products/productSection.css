@@ -14,10 +14,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+  
+}
+.productFlex1 > h1{
+    font-size: 38px;
+    font-family: Acme;   
 }
 
 .productFlex2{
     flex:1 1 60%;
+    padding-left: 20px;
     
 }
 
@@ -33,4 +40,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.tabs-products{
+    width: 80%;
+    padding: 5px;
+    background-color: #f2f2f2;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.tabs-products > div{
+    
+    font-size: 14px;
+    flex:1 1 33.33%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.p2p{
+    background-color: #fff;
+    
+    height: 45px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    color:#1c1c93;
+    font-weight: bold;
+    
 }
