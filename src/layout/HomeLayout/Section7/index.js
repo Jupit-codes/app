@@ -9,8 +9,8 @@ const Index = ()=>{
             <h1>About Us</h1>
             <div className="aboutUsText">
                 {/* At Jupit, we get it that advanced digital currency can be adopted with fair facilitate channel and that's why we've done a few exceptionally curiously things as a group, from community vibes to work ethics that engage improvement. Jupit has preeminent astonishing values. */}
-                <p>We're all about simplifying your daily exchange.</p>
-                <p>Beyond operating a secure channel, we're dedicated to providing you with the best service, with a focus on dependability matched with satisfaction.</p>
+                <p>We're all about simplifying your daily exchange.
+                Beyond operating a secure channel, we're dedicated to providing you with the best service, with a focus on dependability matched with satisfaction.</p>
             </div>
             {/* <div className="rates">
               <div className="row mt-3">
