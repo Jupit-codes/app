@@ -28,8 +28,8 @@ const Index=({ActivePath,getscroll})=>{
     const handleScroll = () => {
         const position = window.pageYOffset;
         setscrollPosition(position)
-        console.log(position)
-        getscroll(position)
+        
+        // getscroll(position)
         
     };
     

@@ -3,16 +3,23 @@ import Header from '../../component/header';
 import HeroAboutus from '../../layout/AboutusLayout/HeroAbout'
 import Section1 from '../../layout/AboutusLayout/Section1'
 import Section2 from '../../layout/AboutusLayout/Section2'
-import Footer from '../../component/footer';
-
+// import Footer from '../../component/footer';
+import Section3 from '../../layout/AboutusLayout/Section3'
+import Section4 from '../../layout/AboutusLayout/Section4'
+import Team from '../../layout/HomeLayout/Ourteam'
+import Footer from '../../component/newfooter'
 const Index=()=>{
     return(
         <div>
             <Header/>
             <HeroAboutus/>
-            <Section1/>
-            <Section2/>
+            <Section3/>
+            <Section4/>
+            <Team/>
             <Footer/>
+            {/* <Section1/>
+            <Section2/> */}
+           
             
         </div>
     )
