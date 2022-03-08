@@ -5,12 +5,27 @@
 
 
 .aboutusHero{
-    height: 80vh;
-    width: 100%;
-    background: url('../../images/banner.jpg');
+    height: 100vh;
+    
+    background: url('../../images/landingpage/bg/slider-1.jpg');
     background-repeat: no-repeat;
-    background-position: right;
-    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    
+}
+.aboutusHero > h1{
+    font-family: Acme;
+    font-size: 70px;
+}
+.heroSmallTitle{
+    font-family: candara;
+    font-size: 30px;
 }
 
 .overlay{
@@ -75,4 +90,43 @@
     
     font-family: Acme;
     margin: 10px;
+}
+
+.mission{
+    width: 100%;
+    min-height: 50vh;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+.mission > div{
+    flex:1 1 50%
+}
+.mission-title{
+    font-weight: bold;
+    font-family: Candara;
+    font-size: 40px;
+}
+.mission-main{
+    
+    font-family: Candara;
+    padding-bottom: 20px;
+    font-size: 17px;
+    color:#9DA8B6;
+}
+.mission-text{
+    color: #ffce00;
+}
+.missionImg{
+    width: 80%;
+}
+.imgIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
 }
