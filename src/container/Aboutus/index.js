@@ -8,10 +8,12 @@ import Section3 from '../../layout/AboutusLayout/Section3'
 import Section4 from '../../layout/AboutusLayout/Section4'
 import Team from '../../layout/HomeLayout/Ourteam'
 import Footer from '../../component/newfooter'
+import { useState } from "react";
 const Index=()=>{
+    const [scroll,setscroll] = useState(0)
     return(
         <div>
-            <Header/>
+            <Header getscroll={setscroll} />
             <HeroAboutus/>
             <Section3/>
             <Section4/>

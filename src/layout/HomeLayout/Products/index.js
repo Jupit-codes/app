@@ -2,8 +2,8 @@ import { useState } from 'react'
 import '../../../assets/css/Products/productSection.css'
 import logo from '../../../assets/images/logo_black.png'
 const Index = ()=>{
-    const [tabClick, settabClick] = useState(false)
-    const [type, settype] = useState();
+    const [tabClick, settabClick] = useState(true)
+    const [type, settype] = useState('p2p');
     const [content,setcontent] =useState()
     const _handleClick = (type)=>{
         switch(type){
@@ -46,28 +46,32 @@ const Index = ()=>{
     }
     
     return (
-        <div className="productSection">
-            
-            <div className="productFlex1">
-                <h1>Our Products</h1>
-                <div className='ImageProd'>
+        <div className='product'>
+            <h1>Our Products</h1>
+            <div className="productSection">
+                
+                <div className="productFlex1">
                     
-                        <img src={logo}/>
+                    <div className='ImageProd'>
+                        
+                            <img src={logo}/>
+                    </div>
                 </div>
-            </div>
-            <div className="productFlex2">
-                <div className='tabs-products'>
-                        <div className={tabClick && type==="p2p" ? 'p2p':''} onClick={()=>_handleClick('p2p')}>P2P crypto to cash</div>
-                        <div className={tabClick && type==="giftcard" ? 'p2p':''} onClick={()=>_handleClick('giftcard')}>Gift Cards to Cash</div>
-                        <div className={tabClick && type==="otc" ? 'p2p':''} onClick={()=>_handleClick('otc')}>OTC </div>
-                </div>
-                <div className='tab-content'>
-                   {
-                       tabClick && _renderContent()
-                   }
+                <div className="productFlex2">
+                    <div className='tabs-products'>
+                            <div className={tabClick && type==="p2p" ? 'p2p':''} onClick={()=>_handleClick('p2p')}>P2P crypto to cash</div>
+                            <div className={tabClick && type==="giftcard" ? 'p2p':''} onClick={()=>_handleClick('giftcard')}>Gift Cards to Cash</div>
+                            <div className={tabClick && type==="otc" ? 'p2p':''} onClick={()=>_handleClick('otc')}>OTC </div>
+                    </div>
+                    <div className='tab-content'>
+                    {
+                        tabClick && _renderContent()
+                    }
+                    </div>
                 </div>
             </div>
         </div>
+        
     )
 }
 
