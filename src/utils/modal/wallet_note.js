@@ -22,8 +22,10 @@ const Index = ({closeModal})=>{
                     <div><hr/></div>
                 </div>
                 
-                <div className='modalbody'>
-                    <h2>Dear Customer, Pls note the  wallet section is currently under development</h2>
+                <div className='modalbody walletbody'>
+                   Dear Customer<br/>
+                   The wallet section of this application is currently under development.<br/>
+                   Kindly link us up on whatsapp to trade.
                 </div>
                 <div className='modalFooter'>
                     

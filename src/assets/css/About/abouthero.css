@@ -161,7 +161,17 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
     .mission > div{
         flex:1 1 100%;
+        
         text-align: justify;
         margin: 10px;
+    }
+    .mission-text{
+        color: #ffce00;
+        font-size: 13px;
+    }
+    .mission{
+       padding: 20px;
+        
+        
     }
 }
