@@ -131,3 +131,37 @@
     align-items: center;
   
 }
+
+@media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .aboutusHero{
+        height: 80vh;
+    }
+    .aboutusHero > h1{
+        font-family: Acme;
+        font-size: 35px;
+    }
+    .heroSmallTitle{
+        font-family: candara;
+        font-size: 15px;
+    }
+    .mission-title{
+        font-weight: bold;
+        font-family: Candara;
+        font-size: 20px;
+    }
+    .mission-main{
+        
+        font-family: Candara;
+        padding-bottom: 20px;
+        font-size: 14px;
+        color:#9DA8B6;
+    }
+    .mission > div{
+        flex:1 1 100%;
+        text-align: justify;
+        margin: 10px;
+    }
+}

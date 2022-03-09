@@ -9,7 +9,8 @@
 
 
 .productFlex1{
-    flex:1 1 40%;
+    flex:1 1 calc(40% - 20px);
+    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +23,8 @@
 }
 
 .productFlex2{
-    flex:1 1 60%;
+    flex:1 1 calc(60% - 20px);
+    margin: 10px;
     padding-left: 20px;
     
 }
@@ -100,4 +102,34 @@
       font-size: 38px;
       font-family: Acme;
       font-weight: bold;
+}
+
+@media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .tabs-products{
+        width: 100%;
+        font-size: 14px;
+    }
+    .tabs-products > div{
+        text-align: center;
+        font-size: 12px;
+    }
+    .product{
+        width: 100%;
+        padding: 20px;
+    }
+    .tab-content{
+        width: 100%;
+        font-size: 13px;
+    }
+    .ImageProd{
+        width: 150px;
+        height: 150px;
+    }
+    .ImageProd > img{
+        width: 80%;
+    }
+
 }

@@ -5,6 +5,10 @@ import Image from '../../../assets/images/About/mission.svg'
 const Index =()=>{
     return(
         <div className="mission">
+           
+            <div className='imgIcon'>
+               <img src={Image} className="missionImg"/>
+            </div>
             <div>
                <div className='mission-title'>Freedom For All</div> 
                <div className='mission-main'>
@@ -13,9 +17,6 @@ const Index =()=>{
                <div className='mission-text'>
                    Vision
                </div>
-            </div>
-            <div className='imgIcon'>
-               <img src={Image} className="missionImg"/>
             </div>
             
         </div>

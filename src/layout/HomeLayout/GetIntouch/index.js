@@ -16,8 +16,7 @@ const Index = ()=>{
                 <div>
                     <div className="spaceOut">
                         <ImLocation2 size={30}/>
-                        <div>The BuyCoin Company, LLC
-32 Barnard St. #145, GA 80634</div>
+                        <div>Ajah Lagos, Nigeria</div>
                     </div>
                     <div className="spaceOut">
                         <BiTimeFive size={30}/>
@@ -31,7 +30,7 @@ const Index = ()=>{
 
                     <div className="spaceOut">
                         <IoMdCall size={30}/>
-                        <div>+2347080934005</div>
+                        <div>+2347060934005</div>
                     </div>
 
                     
