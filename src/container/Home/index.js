@@ -27,6 +27,7 @@ import Whatsapp from '../../layout/HomeLayout/Whatsapp'
 import {BsWhatsapp} from 'react-icons/bs'
 import Products from '../../layout/HomeLayout/Products'
 import '../../assets/css/Header/nav.css'
+import Step from '../../layout/HomeLayout/Step'
 const Index=()=>{
     const [scroll,setscroll] = useState(0)
    
@@ -53,12 +54,14 @@ const Index=()=>{
             
             
             <HeroNew/>
+            
             <NextGen/>
             <Section7/>
             <Innovative myscroll={scroll}/>
             <HowItWorks/>
             <OurOffer/>
-            <Process/>
+            {/* <Process/> */}
+            <Step/>
             
             {/* <OurTeam/> */}
             <Products/>

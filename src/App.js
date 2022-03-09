@@ -47,7 +47,7 @@ function App() {
 const RenderRouter = (route)=>{
   
   document.title = route.title || 'Jupit App';
-  console.log('The Router',route)
+ 
     if(route.isAuthenticated){
       if(reactLocalStorage.get('token')){
         
