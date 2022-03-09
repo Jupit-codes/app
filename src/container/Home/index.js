@@ -60,7 +60,7 @@ const Index=()=>{
             <OurOffer/>
             <Process/>
             
-            <OurTeam/>
+            {/* <OurTeam/> */}
             <Products/>
             <GetInTouch/>
             <NewFooter/>

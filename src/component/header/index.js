@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link as NewLink } from "react-router-dom";
 import logo from '../../assets/images/logo.png';
 import logo_white from '../../assets/images/logo_white_new.png';
 import '../../assets/css/Header/nav.css'
@@ -47,17 +47,17 @@ const Index=({ActivePath,getscroll})=>{
              {loadModal && <Modal closeModal={setloadModal}/>}
             <div className="my-nav-container">
                 <div className="logo">
-                    <Link to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></Link>
+                    <NewLink to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></NewLink>
                 </div>
                 <div className="hamburg">
                     <GiHamburgerMenu  color={scroll === 0 ? '#fff':'#000'} size={35} className="hamburger" onClick={()=>setshow(true)}/>
                 </div>
                 <div className="mynav">
-                    <div className={scroll != 0 || ActivePath === 'aboutus' ? 'mynav-item-scroll':'mynav-item'}><Link to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</Link></div>
+                    <div className={scroll != 0 || ActivePath === 'aboutus' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</NewLink></div>
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}>Products</div>
-                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to='/learnwithus' className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Learn</Link></div>
-                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/faq" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Faq</Link></div>
-                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</Link></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to='/learnwithus' className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Learn</NewLink></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/faq" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Faq</NewLink></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</NewLink></div>
                 </div>
                 
                 <div className="my-buttons">
@@ -74,14 +74,14 @@ const Index=({ActivePath,getscroll})=>{
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <div className=''>
-                        <Link  to="hero" spy={true} smooth={true} onClick={handleClose}>
+                        <NewLink  to="/" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <FaHome color='#fff' size={20} />
                                 </div>
                                 <div className='tagName'>Home</div>
                             </div>
-                        </Link>
+                        </NewLink>
                         <Link  to="aboutus" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
