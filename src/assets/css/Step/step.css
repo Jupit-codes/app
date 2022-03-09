@@ -175,6 +175,7 @@
     and (-webkit-min-device-pixel-ratio: 2) {
         .step{
             flex-direction: column;
+            padding: 40px;
         }
         .timeline ul li{
             width: 100%;
