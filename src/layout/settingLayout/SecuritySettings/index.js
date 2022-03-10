@@ -28,7 +28,7 @@ const Index = ()=>{
         .then((res)=>{
             
             reactLocalStorage.setObject('2fa',res.data)
-            console.log('here',res.data)
+            // console.log('here',res.data)
           
         })
         .catch((err)=>{

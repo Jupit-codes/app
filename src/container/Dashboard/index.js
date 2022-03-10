@@ -56,7 +56,7 @@ const Index=()=>{
 
     return (
         <div className="dashboard">
-                <TitleBar  handle={handleCallback}/>
+                <TitleBar  handle={setOpen} currentHandle={open}/>
                 <Sidebar openClose={open} notify={x}/>
                 {_renderBodyComponent()}
         </div>

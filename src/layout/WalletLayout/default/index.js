@@ -7,9 +7,9 @@ import { GlobalContext } from "../../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
 import axios from "axios";
 const Index=(props)=>{
-    const [userNaira, setuserNaira]= useState();
-    const [userBtc ,setuserBtc]= useState();
-    const [userUsdt, setuserUsdt]= useState();
+    const [userNaira, setuserNaira]= useState(0);
+    const [userBtc ,setuserBtc]= useState(0);
+    const [userUsdt, setuserUsdt]= useState(0);
 
     const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()

@@ -39,12 +39,12 @@ const kyc = reactLocalStorage.getObject('kyc')
        })
        .then((res)=>{
          reactLocalStorage.setObject('kyc',res.data)
-         console.log(res.data)
+        
          
        })
        .catch((err)=>{
           
-           console.log(err)
+        //    console.log(err)
            kycFetch();
            
        })

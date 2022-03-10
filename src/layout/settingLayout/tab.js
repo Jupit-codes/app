@@ -9,9 +9,9 @@ export const Tab = ({Active,currentActiveState})=>{
             <div  onClick={()=>Active('Account-Settings')} className={currentActiveState === "Account-Settings" ? ' tabDiv activeTab':'tabDiv' }>
                 Account Settings
             </div>
-            <div onClick={()=>Active('Notification-Settings')} className={currentActiveState === "Notification-Settings" ? 'tabDiv activeTab' :'tabDiv' }>
+            {/* <div onClick={()=>Active('Notification-Settings')} className={currentActiveState === "Notification-Settings" ? 'tabDiv activeTab' :'tabDiv' }>
                 Notification Settings
-            </div>
+            </div> */}
             <div  onClick={()=>Active('Security-Settings')}  className={currentActiveState === "Security-Settings" ? 'tabDiv activeTab':'tabDiv' } >
                 Security Settings
             </div>

@@ -5,12 +5,13 @@ import { useState } from 'react'
 import {MdOutlineLogout} from 'react-icons/md'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-const Index=(props)=>{
+const Index=({handle,currentHandle})=>{
     const[open, setOpen] = useState(true)
-    const sidebarHandler = ()=>{
-        setOpen(!open);
-        props.handle(open)
-    }
+    // const sidebarHandler = ()=>{
+    //     setOpen(!open);
+    //     handle(open)
+    // }
+    // console.log('myhandler',currentHandle)
     const history = useHistory();
     const logout =()=>{
        reactLocalStorage.remove('user');
@@ -22,7 +23,7 @@ const Index=(props)=>{
         <div className="titlebar">
            <div className="title_bar_logo">
                 <img src={Logo} className="d_img"/>
-                <CgMenu className="menu" size={30} onClick={sidebarHandler}/>
+                <CgMenu className="menu" size={30} onClick={()=>handle(!currentHandle)}/>
            </div>
            
             <div>

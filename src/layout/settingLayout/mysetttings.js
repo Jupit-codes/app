@@ -10,7 +10,7 @@ import SecuritySetting from './SecuritySettings'
 const Index=()=>{
     const [Kyc,setKyc] = useState();
     const [active,setactive] = useState('Account-Settings');
-    console.log('Active',active)
+    // console.log('Active',active)
     const _renderComponent = ()=>{
         switch(active){
             case 'Account-Settings':
