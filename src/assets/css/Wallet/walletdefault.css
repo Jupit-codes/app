@@ -364,6 +364,13 @@
     padding:10px 0px;
     color: #f39321;
   }
+  .balance-usdt{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding:10px 0px;
+    color: #26a69a;
+  }
   .advert{
       background: url('../../images/wallet/banner.webp');
       background-position: center;
