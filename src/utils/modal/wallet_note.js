@@ -5,6 +5,7 @@ import {IoClose} from 'react-icons/io5'
 import QRcode from 'qrcode'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {BsWhatsapp} from 'react-icons/bs'
 const Index = ({closeModal})=>{
     
     return (
@@ -26,9 +27,16 @@ const Index = ({closeModal})=>{
                    Dear Customer<br/>
                    The wallet section of this application is currently under development.<br/>
                    Kindly link us up on whatsapp to trade.
+                  
                 </div>
                 <div className='modalFooter'>
-                    
+                {/* <BsWhatsapp size={40} color="#25D366"/> */}
+                        <a href="https://wa.me/2348088213177" target='_blank'>
+                            <div className="whatsappcover">
+                                <BsWhatsapp size={30} color="#fff" />
+                            </div>
+                        </a>
+
                 </div>
                 <div className='modalClose' >
                     <input type="submit" value="Close" onClick={()=>{closeModal(false)}}/>
