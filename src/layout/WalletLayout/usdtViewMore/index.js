@@ -84,7 +84,7 @@ const Index = (props)=>{
    
 
   const SendBTC = ()=>{
-      history.push('/client/sendbtc')
+      history.push('/client/sendusdt')
   }
 
     return (

@@ -8,6 +8,7 @@ import Notification from  '../../container/Notification'
 import Settings from  '../../container/Settings'
 import Wallets from  '../../container/Wallets'
 import Send from '../../container/Send'
+import SendUSDT from '../../container/SendUsdt'
 import '../../assets/css/Dashboard/dashboard.css'
 import { useLocation } from "react-router";
 import { reactLocalStorage } from "reactjs-localstorage";
@@ -46,6 +47,9 @@ const Index=()=>{
                 break;
             case '/client/sendbtc':
                 return <Send openClose={open}/>
+                break;
+            case '/client/sendusdt':
+                return <SendUSDT openClose={open}/>
                 break;
 
             default:

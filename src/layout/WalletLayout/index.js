@@ -11,10 +11,11 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 const Index = ()=>{
     const [walletTab,setwalletTab] = useState('Default');
     const location = useLocation();
-    console.log('location',location.state)
+   
     const getMoreDetails = (ScreenName)=>{
         setwalletTab(ScreenName)
     }
+    
     useEffect(()=>{
         location.state && setwalletTab(location.state.currentPage)
     },[location])

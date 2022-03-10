@@ -102,6 +102,13 @@ const route = [
 
     },
     {
+        path:'/client/sendusdt',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
+
+    },
+    {
         path:'/client',
         title:'Client Dashboard | Jupit',
         isAuthenticated:true,
