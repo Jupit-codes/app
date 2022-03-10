@@ -182,7 +182,12 @@ const Index =()=>{
         
         
     },[ReceipentAddress])
-
+    const handleSend = ()=>{
+        history.push({
+            pathname:'/client/wallet',
+            state:{currentPage:'BTCMore'}
+        })
+    }
     const handleChangeFee = (e)=>{
         if(e.target.classList.contains('low')){
             sethighFee(false);
@@ -335,7 +340,7 @@ const Index =()=>{
                 draggable
                 pauseOnHover
                 />
-            <div className='back' onClick='/wallet'><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
+            <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>
