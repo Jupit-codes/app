@@ -170,7 +170,8 @@ const Index =()=>{
         }
         
     },[dataAutofee])
-
+// 1 TRX = 1,000,000 SUN
+// xtrx = 9,8000,000SUN
     useEffect(()=>{
         
         if(ReceipentAddress){
@@ -195,7 +196,8 @@ const Index =()=>{
             sethighFee(false);
             setmediumFee(false);
             setlowFee(true);
-            let x =parseFloat(lowFeeRate * 226 * 0.00000001 ).toFixed(8);
+            console.log('lowRate',lowFeeRate)
+            let x =parseFloat(lowFeeRate * 226 * 0.000001 ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(100);
             
@@ -206,7 +208,7 @@ const Index =()=>{
             sethighFee(false);
             setmediumFee(true);
             setlowFee(false);
-            let x =parseFloat(mediumFeeRate * 226 * 0.00000001 ).toFixed(8);
+            let x =parseFloat(mediumFeeRate * 226 * 0.000001  ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(50)
         }
@@ -214,7 +216,7 @@ const Index =()=>{
             sethighFee(true);
             setmediumFee(false);
             setlowFee(false);
-            let x =parseFloat(highFeeRate * 226 * 0.00000001 ).toFixed(8);
+            let x =parseFloat(highFeeRate * 226 * 0.000001 ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(1)
         }

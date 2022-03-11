@@ -82,7 +82,7 @@ const Index = (props)=>{
  },[userBtc])
 
 
-   
+   //1 SUN = 0.199
 
   const SendBTC = ()=>{
       history.push('/client/sendusdt')
