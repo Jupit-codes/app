@@ -197,7 +197,7 @@ const Index =()=>{
             setmediumFee(false);
             setlowFee(true);
             console.log('lowRate',lowFeeRate)
-            let x =parseFloat(lowFeeRate * 226 * 0.000001 ).toFixed(8);
+            let x =parseFloat(lowFeeRate *  0.000001 ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(100);
             
@@ -208,7 +208,7 @@ const Index =()=>{
             sethighFee(false);
             setmediumFee(true);
             setlowFee(false);
-            let x =parseFloat(mediumFeeRate * 226 * 0.000001  ).toFixed(8);
+            let x =parseFloat(mediumFeeRate *  0.000001  ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(50)
         }
@@ -216,7 +216,7 @@ const Index =()=>{
             sethighFee(true);
             setmediumFee(false);
             setlowFee(false);
-            let x =parseFloat(highFeeRate * 226 * 0.000001 ).toFixed(8);
+            let x =parseFloat(highFeeRate * 0.000001 ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(1)
         }
