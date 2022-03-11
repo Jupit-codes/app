@@ -1,7 +1,8 @@
 import axios from "axios"
 import { AUTO_FEE_ERROR,AUTO_FEE_SUCCESS,AUTO_FEE_LOADING } from "../../constants/actionTypes"
 import { reactLocalStorage } from "reactjs-localstorage"
-export default ()=>(dispatch)=>{
+import { NavItem } from "react-bootstrap"
+export default (item)=>(dispatch)=>{
     dispatch({
         type:AUTO_FEE_LOADING
     })
@@ -13,7 +14,8 @@ export default ()=>(dispatch)=>{
           "Content-Type": "application/json",
           "Authorization":`Bearer ${reactLocalStorage.get('token')}`
 
-        }
+        },
+        data:JSON.stringify({walletType:item})
       })
 .then(res=>{
     dispatch({

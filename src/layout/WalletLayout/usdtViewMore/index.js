@@ -7,6 +7,7 @@ import { GlobalContext } from "../../../context/Provider";
 import Icon from "react-crypto-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
 import ReceiveModal from '../../../utils/modal/customModal'
+import ReceiveUSDT from '../../../utils/modal/usdtreceivemodal'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
 import Tether from '../../../assets/images/tether.png'
@@ -90,7 +91,7 @@ const Index = (props)=>{
     return (
         <div className='btcmoreClass'>
             <div className=''>
-                {openModal && <ReceiveModal closeModal={setopenModal} />}
+                {openModal && <ReceiveUSDT closeModal={setopenModal} />}
             </div>
             <div className='back' onClick={()=>{props.Screen('Default')}}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to Wallet</span></div>
             <div className='flexMoreDetails'>

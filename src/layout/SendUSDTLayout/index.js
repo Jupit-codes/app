@@ -149,7 +149,8 @@ const Index =()=>{
     useEffect(()=>{
         
         if(!mount){
-            GetAutoFee()(autofeeDispatch)
+            let wallet_type = "USDT"
+            GetAutoFee(wallet_type)(autofeeDispatch)
                 if(dataAutofee){
                     
                     dataAutofee.message.auto_fees.forEach((d)=>{
@@ -312,7 +313,7 @@ const Index =()=>{
             userid:reactLocalStorage.getObject('user')._id,
             amount:btcamount,
             block_average:blockaverage,
-            wallet_type:"BTC",
+            wallet_type:"USDT",
             transferType:dataAddr,
             senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
 
@@ -341,7 +342,7 @@ const Index =()=>{
                 draggable
                 pauseOnHover
                 />
-            <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
+            <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to USDT Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>
@@ -368,7 +369,7 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
+                            <input type="number"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
                             <img src={Equivalent}/>
                             <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount}/>
                         </div>

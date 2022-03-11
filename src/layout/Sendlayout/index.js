@@ -148,7 +148,8 @@ const Index =()=>{
     useEffect(()=>{
         
         if(!mount){
-            GetAutoFee()(autofeeDispatch)
+            let wallet_type = "BTC"
+            GetAutoFee(wallet_type)(autofeeDispatch)
                 if(dataAutofee){
                     
                     dataAutofee.message.auto_fees.forEach((d)=>{
