@@ -7,7 +7,7 @@ import Section2 from '../../layout/AboutusLayout/Section2'
 import Section3 from '../../layout/AboutusLayout/Section3'
 import Section4 from '../../layout/AboutusLayout/Section4'
 import Team from '../../layout/HomeLayout/Ourteam'
-import Footer from '../../component/newfooter'
+import Footer from '../../component/xfooter'
 import { useState } from "react";
 const Index=()=>{
     const [scroll,setscroll] = useState(0)

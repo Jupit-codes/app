@@ -34,7 +34,7 @@
     font-size: 35px;
     font-family: candara;
     margin-top: 20px;
-    color: #ffce00;
+    color: #fff;
 }
 
 .subscribeText > input{
@@ -45,6 +45,13 @@
     background-color: #322b3e;
 }
 
+.icon{
+    right: 10px;
+    position:absolute;
+    
+    top:5px
+    
+}
 
 .subscribeText{
     width: 25%;
@@ -106,6 +113,6 @@
 .link > div > p > a{
    color: #fff;
    font-size: 14px;
-    
+    color: #fff;
     font-family: candara;
 }
