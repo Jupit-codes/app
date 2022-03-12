@@ -119,9 +119,9 @@
 
 @keyframes slide {
     0%{
-        background: url('../../images/landingpage/bg/slider-1.jpg');
+        background: url('../../images/landingpage/bg/slider-2.jpg');
     }
-    33%{
+    67%{
         background: url('../../images/landingpage/bg/slider-3.jpg');
     }
     /* 67%{
