@@ -1,0 +1,111 @@
+.xfooter{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 50vh;
+    background-color: #000;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px;
+    
+}
+
+.socialmedias{
+    width: 100%;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+  
+    
+}
+.subcribe{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  
+    
+}
+.subcribe > h1{
+    letter-spacing: 5px;
+    font-size: 35px;
+    font-family: candara;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.subscribeText > input{
+
+    border-radius: 15px;
+    width: 100%;
+    height: 40px;
+    background-color: #322b3e;
+}
+
+
+.subscribeText{
+    width: 25%;
+    margin-top: 10px;
+    position: relative; 
+}
+
+
+.socialmedias-icons{
+    width:20%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.message{
+    width: 100%;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+.message > div{
+    width: 50%;
+    text-align: center;
+    font-family: candara;
+    color: #fff;
+}
+
+.link{
+    width: 100%;
+    display: flex;
+   justify-content: center;
+   margin-top: 10px;
+ 
+}
+
+.link > div{
+    flex:1 1 calc(33.333% - 20px);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start ;
+    align-items: flex-start;
+    
+}
+
+.link > div > h1{
+    font-size: 18px;
+    color: #fff;
+}
+.link > div > p{
+    font-size: 14px;
+    color: #fff;
+    font-family: candara;
+}
+.link > div > p > a{
+   color: #fff;
+   font-size: 14px;
+    
+    font-family: candara;
+}

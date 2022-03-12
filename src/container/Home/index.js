@@ -15,7 +15,7 @@ import Section9 from '../../layout/HomeLayout/Section9';
 import Section10 from '../../layout/HomeLayout/Section10';
 import Section11 from '../../layout/HomeLayout/Section11';
 import Footer from '../../component/footer';
-import NewFooter from '../../component/newfooter'
+import NewFooter from '../../component/xfooter'
 import NextGen from '../../layout/HomeLayout/Nextgen';
 import Innovative from '../../layout/HomeLayout/Innovation'
 import HowItWorks from '../../layout/HomeLayout/howitworks'
