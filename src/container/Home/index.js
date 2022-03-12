@@ -61,7 +61,7 @@ const Index=()=>{
             <HowItWorks/>
             <OurOffer/>
             <Process/>
-            <Step/>
+            {/* <Step/> */}
             
             {/* <OurTeam/> */}
             <Products/>
