@@ -26,7 +26,7 @@ const Index = ()=>{
             
             </div>
             <div className='footerText'>
-                © Jupit, 2022. POwered By Jupit Dev. Team
+                © Jupit, 2022. Powered By Jupit Dev. Team
             </div>
         </div>
     )

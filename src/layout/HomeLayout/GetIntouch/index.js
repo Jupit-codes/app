@@ -30,7 +30,7 @@ const Index = ()=>{
 
                     <div className="spaceOut">
                         <IoMdCall size={30}/>
-                        <div>+2347060934005</div>
+                        <div>+2348088213177</div>
                     </div>
 
                     
@@ -49,7 +49,7 @@ const Index = ()=>{
                         </textarea>
                     </div>
                     <div className='controlInput'>
-                        <input type="submit" className='form-control' value="Send Message" className="submit"/>
+                        <input type="submit" className='form-control submit' value="Send Message" />
                     </div>
                 </div>
             </div>

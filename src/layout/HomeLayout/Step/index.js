@@ -3,7 +3,7 @@ import Phone from '../../../assets/images/landingpage/bg/89347.png'
 const Index = ()=>{
     return(
         <div className="step">
-            
+            <div className="process-parallax"></div>
             <div className='containery'>
                 <img src={Phone}/>
 

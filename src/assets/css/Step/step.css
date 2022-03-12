@@ -168,6 +168,19 @@
     .containery img{
         width: 70%;
     }
+    
+.process-parallax {
+    /* The image used */
+    background-image: url("../../images/section-bg/section-bg5.jpg");
+    min-height: 100vh; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  
 
     @media only screen  
     and (min-device-width: 200px) 
@@ -185,5 +198,16 @@
             font-size: 20px;
             font-family: 'Montserrat' sans-serif;
             margin-bottom: 20px;
+        }
+        
+        .process-parallax {
+            /* The image used */
+            background-image: url("../../images/section-bg/section-bg5.jpg");
+            min-height: 130vh; 
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     }

@@ -66,7 +66,7 @@ const Index = ()=>{
     const _renderComponentSupport =()=>{
         return <div className="nextGenTextReadmore">
                     
-                    As part of our core concentration, we’re distinctively conscious of what PROMPT interpret and we're not giving anything short of;<br/>
+                    As part of our core concentration, we’re distinctively conscious of what PROMPT interpret and we're not giving anything short of;<br/><br/>
                     P- prioritizing your satisfaction,<br/>
                     R - reliable service delivery to you, <br/>
                     O – outstanding interaction with you, <br/>
