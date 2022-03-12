@@ -53,6 +53,8 @@
     
 }
 
+
+
 .subscribeText{
     width: 25%;
     margin-top: 10px;
@@ -115,4 +117,51 @@
    font-size: 14px;
     color: #fff;
     font-family: candara;
+}
+
+@media only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 400px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+    .xfooter{
+        padding: 20px;
+    }
+    .socialmedias-icons{
+        width:80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .subcribe > h1{
+        letter-spacing: 1px;
+        font-size: 22px;
+        font-family: candara;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .message{
+        width: 100%;
+    }
+    .subscribeText{
+        width: 100%;
+        margin-top: 10px;
+        position: relative; 
+    }
+    .message{
+        display: none;
+    }
+    .link{
+        flex-wrap: wrap;
+    }
+    .link > div{
+        flex: 1 1 100%;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
 }
