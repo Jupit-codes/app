@@ -172,9 +172,11 @@ and (max-device-width: 400px)
 and (-webkit-min-device-pixel-ratio: 2) {
     .process{
         width: 100%;
-        min-height: 130vh;
+        min-height: 150vh;
         height: 100%;
         position: relative;
+        padding: 20px;
+        
     }
     
   .stepDiv{
@@ -198,25 +200,18 @@ and (-webkit-min-device-pixel-ratio: 2) {
     margin-top: 50px;
     text-align: center;
 }
-.process-parallax {
-    /* The image used */
-    background-image: url("../../images/section-bg/section-bg5.jpg");
-    min-height: 130vh; 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
   .buildStep{
     width: 100%;
-    min-height: 100vh;
     height: 100%;
+    min-height: 150vh;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+   
+    
+    
     
     
 }
@@ -285,6 +280,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
     background-color: #fff;
     padding: 10px;
 }
+
+
+
+
  
 
 }
