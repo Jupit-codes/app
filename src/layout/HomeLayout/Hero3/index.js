@@ -9,28 +9,51 @@ import { useEffect } from 'react';
 import SliderText from './sliderText'
 import SliderTextII from './sliderTextII'
 
+import Typewriter from 'typewriter-effect';
 const Index = ()=>{
    
     const [animateImg, setanimateImg] = useState(0)
     const [stateComponent,setstateComponent] = useState();
     
-    useEffect(()=>{
-        const intervalId = setInterval(changeHero,10000)
-        return () => clearInterval(intervalId);
-    },[animateImg])
+    // useEffect(()=>{
+    //     const intervalId = setInterval(changeHero,10000)
+    //     return () => clearInterval(intervalId);
+    // },[animateImg])
 
-    const changeHero = ()=>{
-        
+    const Herotext = ()=>{
+        return  <span style={{color:'#00C0CE'}}>
+                        <Typewriter
+                            options={{
+                            // strings: ['Hello', 'World'],
+                            autoStart: true,
+                            loop: true,
+                            }}
+                        onInit={(typewriter) => {
+                            typewriter.typeString("<strong>safest</strong>")
+                            .pauseFor(2500)
+                            .deleteChars(7)
+                            .typeString('<strong>easiest</strong>')
+                            .pauseFor(2500)
+                            .deleteChars(8)
+                            .typeString('<strong>secure</strong>')
+                            .pauseFor(2500)
+                            .start();
+                            
+                        }}
+                    />
+            
+                </span>
     }
 
-    
-    
 
     return (
         <div className='hero' id='hero'>
            <div className='content'>
-             {/* <SliderText/> */}
-             <div className='title slide-left '>
+            
+            <div className='cryptoText'>The &nbsp;{Herotext()}</div>
+            <div className='cryptoText'>crypto exchange app</div>
+
+             {/* <div className='title slide-left '>
                 The Trusted
             </div>
             <div className='text slide-right'>
@@ -39,7 +62,7 @@ const Index = ()=>{
             <div className='button slide-up'>
                 <button>Read More</button>
             </div>
-               
+                */}
            </div>
         </div>
     )
