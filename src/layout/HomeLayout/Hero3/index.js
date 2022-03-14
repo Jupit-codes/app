@@ -51,7 +51,7 @@ const Index = ()=>{
            <div className='content'>
             
             <div className='cryptoText'>The &nbsp;{Herotext()}</div>
-            <div className='cryptoText'>crypto exchange app</div>
+            <div className='cryptoText'>crypto exchange app.</div>
 
              {/* <div className='title slide-left '>
                 The Trusted

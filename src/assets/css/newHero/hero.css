@@ -156,11 +156,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
   color: #fff;
 }
 
-.text{
+.cryptoText{
   font-size: 27px;
-  font-family: candara;
-  color: #fff;
+ 
 }
+
+
 
 .button button{
   width:100px;
