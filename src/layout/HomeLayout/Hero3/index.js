@@ -21,7 +21,7 @@ const Index = ()=>{
     // },[animateImg])
 
     const Herotext = ()=>{
-        return  <span style={{color:'#00C0CE'}}>
+        return  <span style={{color:'#1c1c93'}}>
                         <Typewriter
                             options={{
                             // strings: ['Hello', 'World'],
