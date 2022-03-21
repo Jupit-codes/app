@@ -6,7 +6,7 @@ import CCO from '../../../assets/images/team/member3.png'
 const Index = ()=>{
     return(
         <div className="ourteam" id="ourteam">
-           <h1 className='ourTeamTitle'>Our Team</h1>
+           <h1 className='mission-title'>Our Team</h1>
            <div className='teamText'>
                 <p>We are proud of our great team. He is one of the most motivated and is always ready and willing to help out where needed.</p>
            </div>
@@ -14,8 +14,8 @@ const Index = ()=>{
            <div className='pictureDiv'>
                <div>
                 <div className='TeamMember'>
-                        <div className='name'>ROLAND SAMUEL</div>
-                        <div className='role'>CEO</div>
+                        <div className='name'>FEMI A. SOMOYE </div>
+                        <div className='role'>Team Lead</div>
                         <img src={CEO} className="show" />
                         <img src={AMD} className="onHover" />
 
@@ -25,8 +25,8 @@ const Index = ()=>{
 
                 <div>
                     <div className='TeamMember'>
-                        <div>ANITA JOY</div>
-                        <div>CCO</div>
+                        <div>OLALEKAN AKINOLA</div>
+                        <div>Brand Strategist</div>
                         <img src={AMD} className="show" />
                         <img src={CTO} className="onHover" />
 
@@ -34,16 +34,16 @@ const Index = ()=>{
                 </div>
                 <div>
                     <div className='TeamMember'>
-                        <div>JOE MAIN</div>
-                        <div>MARKETER</div>
+                        <div>PEACE ORIOLA</div>
+                        <div>SM Campaign Manager</div>
                         <img src={CCO} className="show" />
                         <img src={CEO} className="onHover" />
                     </div>
                 </div>
                 <div>
                     <div className='TeamMember'>
-                        <div>DENNIS JOY</div>
-                        <div>CTO</div>
+                        <div>TEMILOLUWA ODEWUMI</div>
+                        <div>Developer</div>
                         <img src={CTO} className="show" />
                         <img src={CCO} className="onHover" />
 

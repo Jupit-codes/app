@@ -111,6 +111,7 @@
     font-weight: bold;
     font-family: Candara;
     font-size: 40px;
+    color: #1c1c93;
 }
 .mission-main{
     
@@ -120,7 +121,7 @@
     color:#9DA8B6;
 }
 .mission-text{
-    color: #ffce00;
+    color: #1c1c93
 }
 .missionImg{
     width: 80%;
@@ -129,9 +130,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  
 }
 
+.welcome-aboutus{
+    width: 80%;
+    text-align: center;
+}
+
+
+
+.aboutusNew{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.what_defines_us{
+    font-size: 25px;
+}
 @media only screen 
 and (min-device-width: 200px) 
 and (max-device-width: 400px)
@@ -148,9 +166,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 15px;
     }
     .mission-title{
-        font-weight: bold;
+        
         font-family: Candara;
         font-size: 20px;
+        color: #1c1c93;
     }
     .mission-main{
         
@@ -161,7 +180,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
     .mission > div{
         flex:1 1 100%;
-        
         text-align: justify;
         margin: 10px;
     }
@@ -171,7 +189,5 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
     .mission{
        padding: 20px;
-        
-        
     }
 }

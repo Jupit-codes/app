@@ -14,7 +14,6 @@ const Index =()=>{
                     onInit={(typewriter) => {
                         typewriter.typeString(" We 're all about simplifying your daily exchange.")
                         .pauseFor(10)
-                        .deleteChars(15)
                         .callFunction(() => {
                             
                         })

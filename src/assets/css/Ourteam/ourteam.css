@@ -11,11 +11,14 @@
 }
 
 .ourteam h1{
-    color:#000;
+    /* color:#000;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 38px;
       font-family: Acme;
-      font-weight: bold;
+      font-weight: bold; */
+    font-family: Candara;
+    font-size: 40px;
+    color: #1c1c93;
 }
 .teamText{
     width: 50%;
