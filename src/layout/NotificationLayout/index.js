@@ -102,7 +102,7 @@ const Index = ()=>{
 
     const _renderNotification =()=>{
         if(state && state.length > 0){
-            // console.log(dataNotification)
+            console.log(state)
             
             return state.map((d,index)=>{
                

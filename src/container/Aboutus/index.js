@@ -8,9 +8,12 @@ import Section3 from '../../layout/AboutusLayout/Section3'
 import Section4 from '../../layout/AboutusLayout/Section4'
 import Team from '../../layout/HomeLayout/Ourteam'
 import Footer from '../../component/xfooter'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 const Index=()=>{
     const [scroll,setscroll] = useState(0)
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return(
         <div>
             <Header getscroll={setscroll} />
