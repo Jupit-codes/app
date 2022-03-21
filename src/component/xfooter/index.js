@@ -21,9 +21,7 @@ const Index = ()=>{
                     </div>
                 </div>
                 <div className="message">
-                    <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat voluptatibus placeat nam.
-                    </div>
+                    
                 </div>
                 <div className="link">
                     <div>
