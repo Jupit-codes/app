@@ -238,7 +238,8 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-padding-left: 60px;
+  padding-left: 60px;
+  margin-top: 40px;
   
 }
 .counter > div > span{
@@ -249,6 +250,34 @@ padding-left: 60px;
 .rulerII{
   margin-left: 25px;
   
+}
+.fixedtoken{
+  width: 100%;
+  margin-top: 40px;
+  color: #1c1c93;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.token{
+  width: 200px;
+  height: 50px;
+  background-image: linear-gradient(to right top, #0079d9, #0063ca, #004db9, #0d36a7, #1c1c93);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.mastercard{
+  margin-top: 10px;
+  width: 20%;
+  
+  display: flex;
+  justify-content: space-between;
 }
 
 @media only screen 

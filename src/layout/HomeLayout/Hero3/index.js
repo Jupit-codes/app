@@ -9,8 +9,10 @@ import { useEffect } from 'react';
 import SliderText from './sliderText'
 import SliderTextII from './sliderTextII'
 import {BiCheckCircle} from 'react-icons/bi'
-
+import {FaCcVisa} from 'react-icons/fa'
+import {FaCcMastercard} from 'react-icons/fa'
 import Typewriter from 'typewriter-effect';
+import {BsPaypal} from 'react-icons/bs'
 const Index = ()=>{
    
     const [animateImg, setanimateImg] = useState(0)
@@ -96,6 +98,19 @@ const Index = ()=>{
                                     <div className='amountHeroCard'>
                                         12M USD
                                     </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: '75%'}}></div>
+                                    </div>
+                            </div>
+                            <div className='fixedtoken'>
+                                Fixed token edition 3,000.000BITS
+                            </div>
+                            <div className='token'>
+                                    Buy Token
+                            </div>
+                            <div className='mastercard'>
+                                    <FaCcVisa size={25} color="#9da8b6"/><FaCcMastercard size={25} color="#9da8b6"/><BsPaypal size={25} color="#9da8b6" />
+
                             </div>
                         </div>
                         
