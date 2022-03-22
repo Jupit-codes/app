@@ -13,6 +13,7 @@ import {FaCcVisa} from 'react-icons/fa'
 import {FaCcMastercard} from 'react-icons/fa'
 import Typewriter from 'typewriter-effect';
 import {BsPaypal} from 'react-icons/bs'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 const Index = ()=>{
    
     const [animateImg, setanimateImg] = useState(0)
@@ -91,7 +92,14 @@ const Index = ()=>{
                                     <BiCheckCircle size={15} color="green" /><span>5M</span>
                                 </div>
                             </div>
-                            <div className='progressHigh'>
+                            <div className='fixedprogressbar'>
+                                    
+                                     <ProgressBar animated now={60}  variant='#1c1c93' style={{height:50,backgroundColor:'transparent'}}/>
+                                    
+                            </div>
+                            
+                            {/* <div className='progressHigh'>
+                               
                                     <div class="progress-bar">
                                         <div class="progress-bar-value"></div>
                                     </div> 
@@ -99,11 +107,14 @@ const Index = ()=>{
                                         12M USD
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: '75%'}}></div>
+                                        <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: '75%'}}></div>
                                     </div>
-                            </div>
+                                   
+                                    
+                            </div> */}
                             <div className='fixedtoken'>
                                 Fixed token edition 3,000.000BITS
+                                
                             </div>
                             <div className='token'>
                                     Buy Token
