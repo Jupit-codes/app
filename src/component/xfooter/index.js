@@ -6,10 +6,12 @@ const Index = ()=>{
         <div className="xfooter">
                 <div className="socialmedias">
                   <div className='socialmedias-icons'>
-                        <AiFillLinkedin size={30} color="#fff"/>
+                        {/* <AiFillLinkedin size={30} color="#fff"/>
                         <AiFillFacebook  size={30} color="#fff"/>
-                        <AiFillTwitterSquare  size={30} color="#fff"/>
-                        <AiFillInstagram  size={30} color="#fff"/>
+                        <AiFillTwitterSquare  size={30} color="#fff"/> 
+                         <AiFillInstagram  size={30} color="#fff"/>
+                        */}
+                       
 
                   </div>
                 </div>

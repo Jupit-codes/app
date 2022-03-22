@@ -25,12 +25,12 @@ const Index = ()=>{
 
                     <div className="spaceOut">
                         <MdOutlineMail size={30} color="#003300"/>
-                        <div>support@jupitapp.co</div>
+                        <div>hello@jupitapp.co</div>
                     </div>
 
                     <div className="spaceOut">
                         <IoMdCall size={30}/>
-                        <div>+2348088213177</div>
+                        <div>(+234) 808 821 3177</div>
                     </div>
 
                     
