@@ -8,6 +8,7 @@ import { Dot } from 'react-bootstrap-icons';
 import { useEffect } from 'react';
 import SliderText from './sliderText'
 import SliderTextII from './sliderTextII'
+import {BiCheckCircle} from 'react-icons/bi'
 
 import Typewriter from 'typewriter-effect';
 const Index = ()=>{
@@ -68,7 +69,7 @@ const Index = ()=>{
 
            </div> */}
            <div className='cardText'>
-               Temi
+               Temiloluwa
            </div>
            <div className='cardHero'>
                <div className='heroCard'>
@@ -78,12 +79,26 @@ const Index = ()=>{
                         <div className='discount'>
                             Discount 33% from final price
                         </div>
-
-                        <div className='progressHigh'>
-                                <div class="progress-bar">
-                                        
-                                </div> 
+                        
+                        <div className='heroFlex'>
+                        <div className='counter'>
+                                <div className='rulerI'>
+                                    <BiCheckCircle size={15} color="green" /><span>900K</span>
+                                </div>
+                                <div className='rulerII'>
+                                    <BiCheckCircle size={15} color="green" /><span>5M</span>
+                                </div>
+                            </div>
+                            <div className='progressHigh'>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-value"></div>
+                                    </div> 
+                                    <div className='amountHeroCard'>
+                                        12M USD
+                                    </div>
+                            </div>
                         </div>
+                        
                         {/* <div class="demo-container">
                             <div class="progress-bar">
                                 <div class="progress-bar-value"></div>
