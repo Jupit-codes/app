@@ -10,6 +10,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     animation: slide 10s infinite;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    
  
 }
 
@@ -17,12 +22,12 @@
    width: 100%;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    /* position: absolute;
+    top: 20%; */
     
-    position: absolute;
-    top: 40%;
     
 }
 .content div{
@@ -138,6 +143,91 @@
 
 }
 
+.cardHero{
+  flex:1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.cardText{
+  flex: 1 1 50%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: #ffc857;
+}
+
+.heroCard{
+  width:70%;
+  height:400px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.jupitIco{
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.discount{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.progressHigh{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.progressProgress{
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #000;
+  margin-top: 40px;
+ 
+}
+.progress-progress{
+  width: 70%;
+  height: 38px;
+  border-radius: 20px;
+  background-color: #0079D9;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  /* background-color: rgba(5, 114, 206, 0.2); */
+  overflow: hidden;
+}
+
+.progress-bar-value {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(5, 114, 206);
+  animation: indeterminateAnimation 1s infinite linear;
+  transform-origin: 0% 50%;
+}
+
+@keyframes indeterminateAnimation {
+  0% {
+    transform:  translateX(0) scaleX(0);
+  }
+  40% {
+    transform:  translateX(0) scaleX(0.4);
+  }
+  100% {
+    transform:  translateX(100%) scaleX(0.5);
+  }
+}
 
 @media only screen 
 and (min-device-width: 300px) 

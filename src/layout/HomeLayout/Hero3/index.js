@@ -48,12 +48,12 @@ const Index = ()=>{
 
     return (
         <div className='hero' id='hero'>
-           <div className='content'>
-            
+           {/* <div className='content'>
+                        
             <div className='cryptoText'>The &nbsp;{Herotext()}</div>
             <div className='cryptoText'>crypto exchange app.</div>
 
-             {/* <div className='title slide-left '>
+             <div className='title slide-left '>
                 The Trusted
             </div>
             <div className='text slide-right'>
@@ -62,7 +62,35 @@ const Index = ()=>{
             <div className='button slide-up'>
                 <button>Read More</button>
             </div>
-                */}
+               
+
+              
+
+           </div> */}
+           <div className='cardText'>
+               Temi
+           </div>
+           <div className='cardHero'>
+               <div className='heroCard'>
+                        <div className='jupitIco'>
+                            Jupit ICO:
+                        </div>
+                        <div className='discount'>
+                            Discount 33% from final price
+                        </div>
+
+                        <div className='progressHigh'>
+                                <div class="progress-bar">
+                                        
+                                </div> 
+                        </div>
+                        {/* <div class="demo-container">
+                            <div class="progress-bar">
+                                <div class="progress-bar-value"></div>
+                            </div>
+                        </div> */}
+               </div>
+
            </div>
         </div>
     )
