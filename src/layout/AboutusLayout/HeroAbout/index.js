@@ -12,11 +12,10 @@ const Index =()=>{
                
                 <Typewriter
                     onInit={(typewriter) => {
-                        typewriter.typeString(" We 're all about simplifying your daily exchange.")
+                        typewriter.typeString(" We 're all about simplifying your exchange.")
                         .pauseFor(10)
-                        .callFunction(() => {
-                            
-                        })
+                        .deleteChars(8)
+                        .typeString('<strong>daily exchange</strong>')
                         .start();
                         
                     }}

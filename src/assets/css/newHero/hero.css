@@ -155,7 +155,14 @@
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: #ffc857;
+ flex-direction: column;
+ 
+}
+.typewriterEffect{
+  color:#fff;
+  font-family: candara;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .heroCard{
@@ -258,8 +265,6 @@
   background-color: #fff;
   border: 1px solid #0063ca;
 
-  
- 
 }
 .fixedtoken{
   width: 100%;
@@ -268,6 +273,12 @@
   font-size: 16px;
   font-weight: 400;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.cardTextTitle{
+  font-size: 50px;
+  letter-spacing: 5px;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .token{

@@ -11,9 +11,10 @@ import SliderTextII from './sliderTextII'
 import {BiCheckCircle} from 'react-icons/bi'
 import {FaCcVisa} from 'react-icons/fa'
 import {FaCcMastercard} from 'react-icons/fa'
-import Typewriter from 'typewriter-effect';
+
 import {BsPaypal} from 'react-icons/bs'
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import Typewriter from 'typewriter-effect';
 const Index = ()=>{
    
     const [animateImg, setanimateImg] = useState(0)
@@ -72,7 +73,19 @@ const Index = ()=>{
 
            </div> */}
            <div className='cardText'>
-               Temiloluwa
+               <div className='cardTextTitle'>Jupit BlockChain</div>
+                <div className='typewriterEffect'>
+                    <Typewriter
+                        onInit={(typewriter) => {
+                            typewriter.typeString(" We 're all about simplifying your exchange.")
+                            .pauseFor(10)
+                            .deleteChars(9)
+                            .typeString('<strong>daily exchange.</strong>')
+                            .start();
+                            
+                        }}
+                />
+                </div>
            </div>
            <div className='cardHero'>
                <div className='heroCard'>
@@ -94,7 +107,7 @@ const Index = ()=>{
                             </div>
                             <div className='fixedprogressbar'>
                                     
-                                     <ProgressBar animated now={60}  variant='#1c1c93' style={{height:50,backgroundColor:'transparent'}}/>
+                                     <ProgressBar animated now={75}  variant='#1c1c93' style={{height:50,backgroundColor:'transparent'}}/>
                                     
                             </div>
                             
