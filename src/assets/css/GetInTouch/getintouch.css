@@ -6,6 +6,7 @@
     min-height: 100vh;
     padding: 40px;
     flex-direction: column;
+    margin-top: 40px;
 
 }
 
@@ -42,19 +43,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
     justify-content: space-between;
+  
 }
 
 .contactInfor{
-    flex:1 1 calc(80%-20px);
-    margin: 10;
-   
-    
+    width: 20%;
+    margin: 10px;
 }
 .contactForm{
     flex:1 1 calc(90%-20px);
     margin: 10;
+    padding-right: 20px;
+  
     
 
 }

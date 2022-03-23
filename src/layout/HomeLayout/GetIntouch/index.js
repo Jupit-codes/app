@@ -6,8 +6,8 @@ import {IoMdCall} from 'react-icons/io'
 const Index = ()=>{
     return(
         <div className="getIntouch" id="getIntouch">
-            <div className='TitleGetInTouch'>
-                 <h1>Get In Touch</h1>
+            <div className='titleOffer'>
+                 Get In Touch
             </div>
             <div className='lightTextTouch'>
                 We are always open and we welcome and questions you have for our team.<br/> If you wish to get in touch, please fill out the form below.

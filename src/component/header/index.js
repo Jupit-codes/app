@@ -53,11 +53,21 @@ const Index=({ActivePath,getscroll})=>{
                     <GiHamburgerMenu  color={scroll === 0 ? '#fff':'#000'} size={35} className="hamburger" onClick={()=>setshow(true)}/>
                 </div>
                 <div className="mynav">
-                    <div className={scroll != 0 || ActivePath === 'aboutus' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</NewLink></div>
-                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}>Products</div>
-                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to='/learnwithus' className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Learn</NewLink></div>
+                    {/* <div className={scroll != 0 || ActivePath === 'aboutus' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/aboutus" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>About Us</NewLink></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to="/product" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Product</Link></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><Link to='/getIntouch' className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact Us</Link></div>
                     <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/faq" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Faq</NewLink></div>
-                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</NewLink></div>
+                    <div className={scroll != 0 || ActivePath === 'contact-us' ? 'mynav-item-scroll':'mynav-item'}><NewLink to="/contact-us" className={scroll != 0 || ActivePath === 'contact-us' ? 'linkScroll':'linkStatic'}>Contact</NewLink></div> */}
+               
+                    <div className={scroll != 0 ? 'mynav-item-scroll':'mynav-item'}><Link to="aboutus" spy={true} smooth={true}  activeClass ='activeClass'>About Us</Link></div>
+                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="product" spy={true} smooth={true}  activeClass ='activeClass'>Products</Link></div>
+                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="nextgen" spy={true} smooth={true} activeClass ='activeClass'>Next Generation</Link></div>
+                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="faq" spy={true} smooth={true} activeClass ='activeClass'>Faq</Link></div>
+                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="roadmap" spy={true} smooth={true} activeClass ='activeClass'>Roadmap</Link></div>
+                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="getIntouch" spy={true} smooth={true} activeClass ='activeClass' >Contact</Link></div>
+                    
+                    
+                
                 </div>
                 
                 <div className="my-buttons">
@@ -90,55 +100,41 @@ const Index=({ActivePath,getscroll})=>{
                                 <div className='tagName'>About Us</div>
                             </div>
                         </Link>
-                        <Link  to="nextgen" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="product" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <GiRegeneration color='#fff' size={20} />
                                 </div>
-                                <div className='tagName'>Next Generation</div>
+                                <div className='tagName'>Product</div>
                             </div>
                         </Link>
-                        <Link  to="innovative" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="nextgen" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <MdPayments color='#fff' size={20} />
                                 </div>
-                                <div className='tagName'>Payment Network</div>
+                                <div className='tagName'>Next Generation</div>
                             </div>
                         </Link>
-                        <Link  to="howitworks" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="faq" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <MdVideoLibrary color='#fff' size={20} />
                                 </div>
-                                <div className='tagName'>How it Works</div>
+                                <div className='tagName'>faq</div>
                             </div>
                         </Link>
-                        <Link  to="ouroffer" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="roadmap" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <ImPriceTags color='#fff' size={20} />
                                 </div>
-                                <div className='tagName'>Our Offer</div>
+                                <div className='tagName'>Roadmap</div>
                             </div>
                         </Link>
-                        <Link  to="process" spy={true} smooth={true} onClick={handleClose}>
-                            <div className='tag'>
-                                <div className='tagIcon'>
-                                     <VscDebugStart color='#fff' size={20} />
-                                </div>
-                                <div className='tagName'>Get Started</div>
-                            </div>
-                        </Link>
+                        
 
-                        <Link  to="ourteam" spy={true} smooth={true} onClick={handleClose}>
-                            <div className='tag'>
-                                <div className='tagIcon'>
-                                     <AiOutlineTeam color='#fff' size={20} />
-                                </div>
-                                <div className='tagName'>Our Team</div>
-                            </div>
-                        </Link>
+                       
                         <Link  to="getIntouch" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
@@ -147,8 +143,6 @@ const Index=({ActivePath,getscroll})=>{
                                 <div className='tagName'>Get In Touch</div>
                             </div>
                         </Link>
-                        
-
                         
                        </div>
                     </Offcanvas.Body>

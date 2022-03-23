@@ -76,8 +76,9 @@
 	font-weight: bold;
 	align-self: center;
 	color: #fff;
-	padding: 10px;
+	
 	cursor: pointer;
+	
   }
   
   body{
@@ -133,6 +134,7 @@
 	font-weight: bold;
   }
   
+  
   .my-buttons{
 	/* background-color: #ff0000; */
 	flex-grow: 1;
@@ -142,7 +144,12 @@
 	justify-content: end;
 	
   }
+                  
+.activeClass{
+	text-decoration: none;
 
+	padding: 10px;
+}
   .logo{
 	text-align: start;
 	/* background-color: #fff; */

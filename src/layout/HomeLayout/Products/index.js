@@ -45,7 +45,7 @@ const Index = ()=>{
     }
     
     return (
-        <div className='product'>
+        <div className='product' id="product">
             {/* <h1>Our Products</h1> */}
             <div className='titleOffer'>Our Products</div>
             {/* <div className='titleTextOffer'>
