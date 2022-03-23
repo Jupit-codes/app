@@ -6,7 +6,7 @@ import CCO from '../../../assets/images/team/member3.png'
 const Index = ()=>{
     return(
         <div className="aboutusNew" >
-           <h1 className='mission-title'>What Defines Us</h1>
+           <h1 className='titleOffer'>What Defines Us</h1>
           
            <div className='underline'><hr/></div>
            <div className='welcome-aboutus mission-main'>

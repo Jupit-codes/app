@@ -110,18 +110,19 @@
 .mission-title{
     font-weight: bold;
     font-family: Candara;
-    font-size: 40px;
-    color: #1c1c93;
+    font-size: 22px;
+    color: #000;
 }
 .mission-main{
     
     font-family: Candara;
     padding-bottom: 20px;
     font-size: 17px;
-    color:#9DA8B6;
+    color:#000;
 }
 .mission-text{
-    color: #1c1c93
+    color: #1c1c93;
+    font-weight: bold;
 }
 .missionImg{
     width: 80%;
@@ -167,16 +168,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
     .mission-title{
         
-        font-family: Candara;
-        font-size: 20px;
-        color: #1c1c93;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        color: #000;
     }
     .mission-main{
         
         font-family: Candara;
         padding-bottom: 20px;
         font-size: 14px;
-        color:#9DA8B6;
+        color:#000;
     }
     .mission > div{
         flex:1 1 100%;

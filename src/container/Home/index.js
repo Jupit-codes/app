@@ -30,6 +30,9 @@ import '../../assets/css/Header/nav.css'
 import Step from '../../layout/HomeLayout/Step'
 import Faq from '../../layout/HomeLayout/Faq'
 import Roadmap from '../../layout/HomeLayout/Roadmap'
+import WhatDefinesus from '../../layout/AboutusLayout/Section5'
+import OurMission from '../../layout/AboutusLayout/Section3'
+import OurVision from '../../layout/AboutusLayout/Section4'
 const Index=()=>{
     const [scroll,setscroll] = useState(0)
    
@@ -53,17 +56,18 @@ const Index=()=>{
             
             
             <Header getscroll={setscroll} />
-            
-            
             <HeroNew/>
             <Section7/>
             <Products/>
             <NextGen/>
-            
+            <WhatDefinesus/>
+            <OurMission/>
+            <OurVision/>
             {/* <Innovative myscroll={scroll}/> */}
             {/* <HowItWorks/> */}
-            <Faq/>
             <Roadmap/>
+            <Faq/>
+            
             {/* <OurOffer/> */}
             {/* <Process/> */}
             {/* <Step/> */}
