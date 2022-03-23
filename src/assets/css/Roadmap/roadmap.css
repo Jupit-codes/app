@@ -16,6 +16,11 @@
 
 .roadmapDiv{
     margin-top: 20px;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 .timeliner{
@@ -99,4 +104,17 @@ ul li:nth-child(4)   .timeline-point{
     left:0%;
     transition: 1s linear;
     border-radius: 999px;
+}
+
+.buttonRoadMap{
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #1c1c93, #0d36a7, #004db9, #0063ca, #0079d9);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    align-self: center;
 }

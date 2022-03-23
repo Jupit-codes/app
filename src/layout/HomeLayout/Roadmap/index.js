@@ -47,6 +47,9 @@ const Index = ()=>{
                         </li>
                     </ul>
                 </section>
+                <div className='buttonRoadMap'>
+                        Roll With Us
+                </div>
             </div>
 
 
