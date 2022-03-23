@@ -29,6 +29,7 @@ import Products from '../../layout/HomeLayout/Products'
 import '../../assets/css/Header/nav.css'
 import Step from '../../layout/HomeLayout/Step'
 import Faq from '../../layout/HomeLayout/Faq'
+import Roadmap from '../../layout/HomeLayout/Roadmap'
 const Index=()=>{
     const [scroll,setscroll] = useState(0)
    
@@ -61,6 +62,7 @@ const Index=()=>{
             <Innovative myscroll={scroll}/>
             <HowItWorks/>
             <Faq/>
+            <Roadmap/>
             {/* <OurOffer/> */}
             {/* <Process/> */}
             {/* <Step/> */}

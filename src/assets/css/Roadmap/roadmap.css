@@ -1,0 +1,14 @@
+.roadmap{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.titleTextOffer{
+    color: #9da8b6;
+}

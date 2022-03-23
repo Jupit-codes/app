@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
    font-size: 40px;
-   font-family: Acme;
+   font-family: Georgia, 'Times New Roman', Times, serif
     
 }
 
@@ -139,6 +139,7 @@
     padding: 5px;
 }
 
+
 @media only screen 
 and (min-device-width: 200px) 
 and (max-device-width: 400px)
@@ -172,11 +173,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .lightText{
         width:100%;
         margin-top: 20px;
-        color: #ccc;
+        color: #9da8b6;
         text-align: center;
         font-family: 'Times New Roman', Times, serif;
         font-size: 14px;
     }
+   
     .coreChild{
         flex:1 1 calc(100% - 20px);
         margin: 20px;

@@ -35,6 +35,9 @@
 
 }
 
+.titleTextOffer{
+  color: #9DA8B6;
+}
 
 .faq-title > h1{
     
@@ -99,6 +102,19 @@
 }
 .faq-title:hover{
   color: #1c1c93;
+}
+
+.rotate {
+  animation: rotation 0.5s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
 }
 
 .faq-icon{
