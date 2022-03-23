@@ -15,18 +15,20 @@
 
 
 .roadmapDiv{
-    margin-top: 20px;
+    
    height: 100%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    width: 100%;
+   padding: 30px 30px;
+   
 }
 
 .timeliner{
-    margin: 150px 0;
-    padding: 15px;
+    margin: 100px 0;
+    
 }
 ul{
     margin-top: 30px;
@@ -50,11 +52,12 @@ li p{
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     transition:1.5s;
-    font-size: 16px;
+    font-size: 14px;
     position: absolute;
     top:-70px;
     left: 38%;
 }
+
 ul li:nth-child(2) .date{
     top: -80px;
 }
@@ -62,7 +65,7 @@ ul li:nth-child(3) .date{
     top:-80px;
 }
 ul li:nth-child(4) .date{
-    top:-80px;
+    top:-75px;
 }
 ul li:nth-child(5) .date{
     top:-70px;
@@ -86,7 +89,7 @@ ul li:nth-child(3)   .timeline-point{
     top:-50px;
 }
 ul li:nth-child(4)   .timeline-point{
-    top:-50px;
+    top:-40px;
 }
 .timeline-line{
     background-color: #1c1c93;

@@ -56,11 +56,12 @@ const Index=()=>{
             
             
             <HeroNew/>
-            
-            <NextGen/>
             <Section7/>
-            <Innovative myscroll={scroll}/>
-            <HowItWorks/>
+            <Products/>
+            <NextGen/>
+            
+            {/* <Innovative myscroll={scroll}/> */}
+            {/* <HowItWorks/> */}
             <Faq/>
             <Roadmap/>
             {/* <OurOffer/> */}
@@ -68,7 +69,7 @@ const Index=()=>{
             {/* <Step/> */}
             
             {/* <OurTeam/> */}
-            <Products/>
+            
             <GetInTouch/>
             <NewFooter/>
             {/* 

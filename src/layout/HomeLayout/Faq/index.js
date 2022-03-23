@@ -91,7 +91,7 @@ const Index=()=>{
     return (
         <div className="faq" id="faq">
            
-           <div className='titleOffer'>FAQ</div>
+           <div className='titleOffer'>Faq</div>
             <div className='titleTextOffer'>
             Below we’ve provided a bit of information regarding our brand and operations. If you have any other questions, please get in touch.
             </div>

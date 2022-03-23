@@ -10,10 +10,10 @@ const Index = ()=>{
                  <h1>Get In Touch</h1>
             </div>
             <div className='lightTextTouch'>
-                We are always open and we welcome and questions you have for our team. If you wish to get in touch, please fill out the form below.
+                We are always open and we welcome and questions you have for our team.<br/> If you wish to get in touch, please fill out the form below.
             </div>
             <div className='contactDiv'>
-                <div>
+                <div className='contactInfor'>
                     <div className="spaceOut">
                         <ImLocation2 size={30}/>
                         <div>Ajah Lagos, Nigeria</div>
@@ -36,7 +36,7 @@ const Index = ()=>{
                     
                 </div>
 
-                <div>
+                <div className='contactForm'>
                     <div className='controlInput'>
                         <input type="text" className='form-control'  placeholder='Name'/>
                     </div>
