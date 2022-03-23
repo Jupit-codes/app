@@ -96,6 +96,7 @@
     font-size: 18px;
     font-family: candara;
     flex:1 1 90%;
+    font-weight: bold;
     
     text-align: start;
     color:#000 ;
@@ -136,7 +137,7 @@
 .faq-answer >p{
     text-align: justify;
     font-size: 16px;
-    font-weight: bold;
+    
     font-family: candara;
     margin-left: 20px;
 }

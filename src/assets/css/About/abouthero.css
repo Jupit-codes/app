@@ -119,6 +119,7 @@
     padding-bottom: 20px;
     font-size: 17px;
     color:#000;
+    
 }
 .mission-text{
     color: #1c1c93;
@@ -177,6 +178,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-family: Candara;
         padding-bottom: 20px;
         font-size: 14px;
+      
         color:#000;
     }
     .mission > div{
