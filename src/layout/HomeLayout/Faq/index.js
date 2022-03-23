@@ -4,8 +4,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Collapsible from 'react-collapsible';
 import { useState } from 'react'
-import {RiArrowDropDownFill} from 'react-icons/ri';
+// import {AiOutlinePlus} from 'react-icons/ri';
 import {MdArrowDropUp} from 'react-icons/md'
+import {AiOutlinePlus} from 'react-icons/ai'
 const Index=()=>{
     const [isOpenEvent1, setOpenEvent1] = useState(false);
     const [isOpenEvent2, setOpenEvent2] = useState(false);
@@ -90,71 +91,27 @@ const Index=()=>{
     return (
         <div className="faq" id="faq">
            
-               <div className="SoleHeader">
-
-                    {/* <div className='mylogo'>
-                        <img src={logo} style={{pointerEvents:'none'}}/>
-                    </div> */}
-                    <div className='myTitle'>
-                        <br/>
-                        <span>FAQ</span>
-                    </div>
-
-                </div>
+           <div className='titleOffer'>FAQ</div>
+            <div className='titleTextOffer'>
+            Below we’ve provided a bit of information regarding our brand and operations. If you have any other questions, please get in touch.
+            </div>
 
             <div className="faq-resp">
-                {/* <Accordion>
-                    <Accordion.Item eventKey="0" >
-                        <Accordion.Header>1. What does SS mean?</Accordion.Header>
-                        <Accordion.Body style={{textAlign:'left'}}>
-                        SS means Squireling Squirrels, which is the name of our project.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                        <Accordion.Header>2. What is NFT?</Accordion.Header>
-                        <Accordion.Body style={{textAlign:'left'}}>
-                         An NFT is a ‘non fungible token’, a unique digital asset, that can be verified on the blockchain.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="2">
-                        <Accordion.Header>What is SS build on?</Accordion.Header>
-                        <Accordion.Body style={{textAlign:'left'}}>
-                        We build SS to live on the Ethereum Blockchain and hosted on IPFS.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="3">
-                        <Accordion.Header>Pre sale and public sale date?</Accordion.Header>
-                        <Accordion.Body style={{textAlign:'left'}}>
-                            <span>Pre sale date is 22 Jan 2022</span><br/>
-                            <span>Public sale date is 23 Jan 2022</span>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion> */}
-
-                {/* <Collapsible trigger="Start here">
-                    <p>
-                        This is the collapsible content. It can be any element or React
-                        component you like.
-                    </p>
-                    <p>
-                        It can even be another Collapsible component. Check out the next
-                        section!
-                    </p>
-                </Collapsible> */}
-                <div className='faq-question'>
+               
+                <div className={isOpenEvent6 ? 'faq-question faq-question-height':'faq-question'}>
                     <div className='faq-title' onClick={()=>{_handleOpen('event6')}}>  
                     1.	&nbsp; What virtual currencies will be available on Jupit when it launches?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent6 ? <MdArrowDropUp size={25} color='#fff' onClick={()=>{_handleOpen('event6')}}/>:<RiArrowDropDownFill size={25} color='#fff' onClick={()=>{_handleOpen('event6')}}/> }
+                    {isOpenEvent6 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event6')}}/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event6')}}/> }
                     </div>
                     <div>
-                        {isOpenEvent6&& 
+                        {isOpenEvent6 && 
                             <div className='faq-answer'>
                                      <p> 
                                       {/* Squirreling Squirrels will be comprised of 6,600 unique NFT’s on the Ethereum Blockchain. */}
                                       {/* Squirreling Squirrels will be comprised of 6,600 unique NFT’s on the Ethereum Blockchain & hosted on IPFS. */}
-                                      Ans - With Jupit, you'll only be able to transact Bitcoin, USDT and Virtual Redeemable Cards.
+                                      With Jupit, you'll only be able to transact Bitcoin, USDT and Virtual Redeemable Cards.
                                     </p>
                                    
                             </div> 
@@ -163,18 +120,18 @@ const Index=()=>{
                     
                 </div>
 
-                <div className='faq-question'>
+                <div className={isOpenEvent7 ? 'faq-question faq-question-height':'faq-question'}>
                     <div className='faq-title' onClick={()=>{_handleOpen('event7')}}>  
                     2.	&nbsp; Will I be able to own a crypto-wallet?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent7 ? <MdArrowDropUp size={25} color='#fff' onClick={()=>{_handleOpen('event7')}}/>:<RiArrowDropDownFill size={25} color='#fff' onClick={()=>{_handleOpen('event7')}}/> }
+                    {isOpenEvent7 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event7')}}/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event7')}}/> }
                     </div>
                     <div>
                         {isOpenEvent7&& 
                             <div className='faq-answer'>
                                      <p> 
-                                     Ans - Yes! With Jupit, you will be able to create a virtual wallet that’ll allow you send, receive and store your virtual asset.
+                                     Yes! With Jupit, you will be able to create a virtual wallet that’ll allow you send, receive and store your virtual asset.
                                      </p>
                                      
                             </div> 
@@ -185,34 +142,34 @@ const Index=()=>{
 
 
 
-                <div className='faq-question'>
+                <div className={isOpenEvent1 ? 'faq-question faq-question-height':'faq-question'}>
                     <div className='faq-title' onClick={()=>{_handleOpen('event1')}}>  
                         3. &nbsp;	What region will Jupit offer its service?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent1 ? <MdArrowDropUp size={25} color='#fff' onClick={()=>{_handleOpen('event1')}}/>:<RiArrowDropDownFill size={25} color='#fff' onClick={()=>{_handleOpen('event1')}}/> }
+                    {isOpenEvent1 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event1')}}/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event1')}}/> }
                     </div>
                     <div>
                         {isOpenEvent1 && 
                             <div className='faq-answer'>
-                                   <p>Ans - Jupit service will only available to Nigeria users at Launch. However, we anticipate to expand our service band across Africa afterwards.</p>
+                                   <p>Jupit service will only available to Nigeria users at Launch. However, we anticipate to expand our service band across Africa afterwards.</p>
                                    
                             </div> 
                         }
                     </div>
                     
                 </div>
-                <div className='faq-question'>
+                <div className={isOpenEvent2 ? 'faq-question faq-question-height':'faq-question'}>
                     <div className='faq-title' onClick={()=>{_handleOpen('event2')}}>  
                         4. &nbsp;	How can I trade with Jupit before its application launch?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent2 ? <MdArrowDropUp size={25} color='#fff' onClick={()=>{_handleOpen('event2')}}/>:<RiArrowDropDownFill size={25} color='#fff' onClick={()=>{_handleOpen('event2')}}/> }
+                    {isOpenEvent2 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event2')}}/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event2')}}/> }
                     </div>
                     <div>
                         {isOpenEvent2 && 
                             <div className='faq-answer'>
-                                  <p>Ans - Our trading operations are currently done through our Business WhatsApp and our Instagram Page.</p>
+                                  <p>Our trading operations are currently done through our Business WhatsApp and our Instagram Page.</p>
                                   
                                  
                             </div> 
@@ -221,19 +178,19 @@ const Index=()=>{
                     
                 </div>
 
-                <div className='faq-question'>
+                <div className={isOpenEvent3 ? 'faq-question faq-question-height':'faq-question'}>
                     <div className='faq-title' onClick={()=>{_handleOpen('event3')}}>  
                         5. &nbsp;	When will Jupit launch its trading application? 
                     </div>
                     <div className='faq-icon'> 
-                        {isOpenEvent3 ? <MdArrowDropUp size={25} color='#fff' onClick={()=>{_handleOpen('event3')}}/>:<RiArrowDropDownFill size={25} color='#fff' onClick={()=>{_handleOpen('event3')}}/> }
+                        {isOpenEvent3 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event3')}}/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event3')}}/> }
                     </div>
                     <div>
                         {isOpenEvent3 && 
                             <div className='faq-answer'>
                                     <p>
                                         {/* Squirreling Squirrels launch date is still TBA. We will be revealing the pre-launch date soon as well.! */}
-                                        Ans - We’re doing a few exceptionally curious things to ensure our platform is develop with the safest components and that of course takes time by its stages. However, our PWA trading platform will be ready for public use by Q3 of 2022.
+                                         We’re doing a few exceptionally curious things to ensure our platform is develop with the safest components and that of course takes time by its stages. However, our PWA trading platform will be ready for public use by Q3 of 2022.
                                     </p>
                                     
                             </div> 
