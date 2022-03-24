@@ -5,7 +5,7 @@ import CTO from '../../../assets/images/team/member4.png'
 import CCO from '../../../assets/images/team/member3.png'
 const Index = ()=>{
     return(
-        <div className="aboutusNew" >
+        <div className="aboutusNew" id="what_defines_us" >
            <div className='newTitleOffer'>What Defines Us</div>
           
            <div className='underline'><hr/></div>

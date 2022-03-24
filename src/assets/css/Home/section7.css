@@ -7,16 +7,15 @@
 
 
 .section7{
+    position: relative;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    height: 150vh;
-    padding: 100px;
-    background: url('../../images/about-banner.png');
+    height: 80vh;
+    background-image: linear-gradient(to right top, #0079d9, #0063ca, #004db9, #0d36a7, #1c1c93);
+    /* background: url('../../images/about-banner.png');
     background-position:center;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size:cover; */
     text-align: center;
     
     
@@ -26,7 +25,7 @@
     font-family: 'Jura',sans-serif;
     font-size: 36px;
     color: #fff; 
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .newsletter{
@@ -70,7 +69,7 @@
     width: 80%;
     color:#fff;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 30px;
 }
 .aboutusbtn{
@@ -81,7 +80,18 @@
     font-size: 14px;
 }
 
+.path_curve_x{
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    background:url('../../images/section11/Path 4.3.png');
+    top:55%
+   
+}
 
+.curve svg{
+    display: block;
+}
 
 @media only screen 
 and (min-device-width: 200px) 
