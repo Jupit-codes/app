@@ -15,22 +15,34 @@ const Index = ()=>{
             <div className='contactDiv'>
                 <div className='contactInfor'>
                     <div className="spaceOut">
-                        <ImLocation2 size={30}/>
-                        <div>Ajah Lagos, Nigeria</div>
+                       
+                        <div className='iconBox'>
+                            <ImLocation2 size={20} color="#fff"/>
+                        </div>
+                        <div className='timeFrame'>Ajah Lagos, Nigeria</div>
                     </div>
                     <div className="spaceOut">
-                        <BiTimeFive size={30}/>
-                        <div>Mon- Fri (8am-6pm)</div>
+                        <div className='iconBox'>
+                            <BiTimeFive size={20} color="#fff"/>
+                        </div>
+                        
+                        <div className='timeFrame'>Mon- Fri (8am-6pm)</div>
                     </div>
 
                     <div className="spaceOut">
-                        <MdOutlineMail size={30} color="#003300"/>
-                        <div>hello@jupitapp.co</div>
+                        
+                        <div className='iconBox'>
+                            <MdOutlineMail size={20} color="#fff"/>
+                        </div>
+                        <div className='timeFrame'>hello@jupitapp.co</div>
                     </div>
 
                     <div className="spaceOut">
-                        <IoMdCall size={30}/>
-                        <div>(+234) 808 821 3177</div>
+                        
+                        <div className='iconBox'>
+                            <IoMdCall size={20} color="#fff"/>
+                        </div>
+                        <div className='timeFrame'>(+234) 808 821 3177</div>
                     </div>
 
                     
@@ -48,8 +60,8 @@ const Index = ()=>{
                            
                         </textarea>
                     </div>
-                    <div className='controlInput'>
-                        <input type="submit" className='form-control submit' value="Send Message" />
+                    <div className='submitDiv'>
+                        <input type="submit" className=' submit' value="Send Message" />
                     </div>
                 </div>
             </div>

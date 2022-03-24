@@ -8,9 +8,9 @@ const Index = ()=>{
                   <div className='socialmedias-icons'>
                         {/* <AiFillLinkedin size={30} color="#fff"/>
                         <AiFillFacebook  size={30} color="#fff"/>
-                        <AiFillTwitterSquare  size={30} color="#fff"/> 
-                         <AiFillInstagram  size={30} color="#fff"/>
-                        */}
+                        <AiFillTwitterSquare  size={30} color="#fff"/>  */}
+                         <AiFillInstagram  size={50} color="#fff"/><div style={{color:'#fff',cursor:'pointer'}}>Instagram</div>
+                       
                        
 
                   </div>
@@ -26,27 +26,27 @@ const Index = ()=>{
                     
                 </div>
                 <div className="link">
-                    <div>
+                    {/* <div>
                         <h1>Products</h1>
                         <p>BTC</p>
                         <p>USDT</p>
                         <p>Gift Card</p>
                         <p>Perfect Money</p>
-                    </div>
+                    </div> */}
                     <div>
                         <h1>Links</h1>
                         <p>About Us</p>
-                        <p>Wallet</p>
-                        <p>Get Started</p>
-                        <p>How It Works</p>
+                        <p>Products</p>
+                        <p>What Defines Us</p>
+                        <p>Our Core</p>
                         
                     </div>
                     <div>
                         <h1>Links</h1>
-                        <p>How It Works</p>
-                        <p>What We are Known For</p>
                         <p>Faq</p>
-                        <p>Learn</p>
+                        <p>Roadmap</p>
+                        <p>Team</p>
+                        <p>Contact Form</p>
                     </div>
                     <div>
                         <h1>Contact</h1>

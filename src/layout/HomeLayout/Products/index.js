@@ -27,12 +27,13 @@ const Index = ()=>{
     }
     const _renderContent = ()=>{
         if(type === "p2p"){
-            return <div className='tab-content'>We are in the business of simplifying your daily exchanges. Although the goal post has changed more times than we can count but our goal to help you seamlessly and consistently convert your crypto to cash remains as same</div>
+            return <div className='tab-content'>We are in the business of simplifying your daily exchanges. Although the goal post has changed more times than we can count but our goal to help you seamlessly and consistently convert your crypto to cash remains as same.</div>
         }
         
         if(type === "giftcard"){
             return <div className='tab-content'>
                         Gift cards are no exception in the world of transactions and exchanges, the global market for gift cards keeps ballooning and is expected to reach an estimated $238 billion in 2025. It’s an established fact that about 7 out of every 10 birthday gift or retail incentive is a gift card.<br/>
+                        <br/>
                         Howbeit, for those gift cards to satisfy its spendable value, it needs to be converted to real cash and that’s where we positioned ourself at Jupit to help you seamlessly and securely trade your cards.
                     </div>
         }
