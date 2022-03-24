@@ -59,7 +59,7 @@ const Index=()=>{
             <HeroNew/>
             <Section7/>
             <Products/>
-            <NextGen/>
+            {/* <NextGen/> */}
             <WhatDefinesus/>
             <OurMission/>
             <OurVision/>
