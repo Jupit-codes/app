@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Index = ()=>{
     return(
         <section className="section7" id="aboutus">
-            <h1>About Us</h1>
+            <h1>About Jupit</h1>
             <div className="aboutUsText">
                 {/* At Jupit, we get it that advanced digital currency can be adopted with fair facilitate channel and that's why we've done a few exceptionally curiously things as a group, from community vibes to work ethics that engage improvement. Jupit has preeminent astonishing values. */}
                 <p>We're all about simplifying your daily exchange.<br/>

@@ -73,11 +73,11 @@ const Index = ()=>{
 
            </div> */}
            <div className='cardText'>
-               <div className='cardTextTitle'>Jupit BlockChain</div>
+               <div className='cardTextTitle'>Jupit</div>
                 <div className='typewriterEffect'>
                     <Typewriter
                         onInit={(typewriter) => {
-                            typewriter.typeString(" We 're all about simplifying your exchange.")
+                            typewriter.typeString("Simplifying your exchange.")
                             .pauseFor(10)
                             .deleteChars(9)
                             .typeString('<strong>daily exchange.</strong>')
