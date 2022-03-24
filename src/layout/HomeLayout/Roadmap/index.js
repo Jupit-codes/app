@@ -2,7 +2,7 @@ import '../../../assets/css/Roadmap/roadmap.css'
 const Index = ()=>{
     return(
         <div className="roadmap" id="roadmap">
-            <div className='titleOffer'>Roadmap</div>
+            <div className='newTitleOffer'>Roadmap</div>
             <div className='titleTextOffer'>
                 Below we’ve provided a bit of information regarding our brand and operations. If you have any other questions, please get in touch.
             </div>

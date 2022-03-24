@@ -74,9 +74,9 @@
     width: 90%;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 15px;
+    padding: 15px 15px;
     color: #fff;
-    border:2px solid #1c1c93;
+    border:2px solid #0079D9;
     border-radius: 15px;
     background-color: #fff;
     
@@ -86,7 +86,7 @@
 }
 
 .faq-question-height{
-  height: 100px;
+  height: 120px;
   overflow-y: hidden;
   transition: height 0.4s linear;
   
@@ -94,9 +94,9 @@
 
 .faq-title{
     font-size: 18px;
-    font-family: candara;
+    font-family: 'Roboto',sans-serif;
     flex:1 1 90%;
-    font-weight: bold;
+    
     
     text-align: start;
     color:#000 ;
@@ -131,17 +131,22 @@
     flex-direction: column;
     text-align: left;
     padding-top: 10px;
+   
     
     
 }
 .faq-answer >p{
     text-align: justify;
     font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+    padding: 0px 20px;
     
-    font-family: candara;
-    margin-left: 20px;
+    
 }
-
+.titleOffer{
+  font-family: 'Jura'sans-serif;
+  font-size: 36px;
+}
 @media only screen 
 and (min-device-width: 500px) 
 and (max-device-width: 699px)

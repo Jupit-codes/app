@@ -19,11 +19,12 @@
 
 .lightTextTouch{
     width:100%;
-    margin-top: 5px;
-    color: #9DA8b6;
-    
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+    display: flex;
+    justify-content: center;
+     margin-top: 5px;
+     color: #9DA8b6;
+     font-family: 'Jura',sans-serif;
+     font-size: 16px;
 }
 
 .TitleGetInTouch{
@@ -49,11 +50,11 @@
 }
 
 .contactInfor{
-    width: 20%;
+    flex:1 1 calc(50%-20px);
     margin: 10px;
 }
 .contactForm{
-    flex:1 1 calc(90%-20px);
+    flex:1 1 calc(50%-20px);
     margin: 10;
     padding-right: 20px;
   
@@ -142,8 +143,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
        justify-content: center;
         margin-top: 5px;
         color: #9DA8b6;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 12px;
+        font-family: 'Jura',sans-serif;
+        font-size: 14px;
     }
     .contactDiv{
         flex-direction: column;

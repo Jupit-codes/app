@@ -91,7 +91,7 @@ const Index=()=>{
     return (
         <div className="faq" id="faq">
            
-           <div className='titleOffer'>Faq</div>
+           <div className='newTitleOffer'>Faq</div>
             <div className='titleTextOffer'>
             Below we’ve provided a bit of information regarding our brand and operations. If you have any other questions, please get in touch.
             </div>
@@ -103,7 +103,7 @@ const Index=()=>{
                     1.	&nbsp; What virtual currencies will be available on Jupit when it launches?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent6 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event6')}} className='rotate'/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event6')}} /> }
+                    {isOpenEvent6 ? <AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event6')}} className='rotate'/>:<AiOutlinePlus size={25} color='#0079D9' onClick={()=>{_handleOpen('event6')}} /> }
                     </div>
                     <div>
                         {isOpenEvent6 && 
@@ -125,7 +125,7 @@ const Index=()=>{
                     2.	&nbsp; Will I be able to own a crypto-wallet?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent7 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event7')}} className='rotate'/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event7')}}/> }
+                    {isOpenEvent7 ? <AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event7')}} className='rotate'/>:<AiOutlinePlus size={25} color='#0079D9' onClick={()=>{_handleOpen('event7')}}/> }
                     </div>
                     <div>
                         {isOpenEvent7&& 
@@ -147,7 +147,7 @@ const Index=()=>{
                         3. &nbsp;	What region will Jupit offer its service?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent1 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event1')}} className='rotate'/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event1')}}/> }
+                    {isOpenEvent1 ? <AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event1')}} className='rotate'/>:<AiOutlinePlus size={25} color='#0079D9' onClick={()=>{_handleOpen('event1')}}/> }
                     </div>
                     <div>
                         {isOpenEvent1 && 
@@ -164,7 +164,7 @@ const Index=()=>{
                         4. &nbsp;	How can I trade with Jupit before its application launch?
                     </div>
                     <div className='faq-icon'> 
-                    {isOpenEvent2 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event2')}} className='rotate'/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event2')}}/> }
+                    {isOpenEvent2 ? <AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event2')}} className='rotate'/>:<AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event2')}}/> }
                     </div>
                     <div>
                         {isOpenEvent2 && 
@@ -183,7 +183,7 @@ const Index=()=>{
                         5. &nbsp;	When will Jupit launch its trading application? 
                     </div>
                     <div className='faq-icon'> 
-                        {isOpenEvent3 ? <AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event3')}} className='rotate'/>:<AiOutlinePlus size={25} color='#1c1c93' onClick={()=>{_handleOpen('event3')}}/> }
+                        {isOpenEvent3 ? <AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event3')}} className='rotate'/>:<AiOutlinePlus size={25} color='#0079d9' onClick={()=>{_handleOpen('event3')}}/> }
                     </div>
                     <div>
                         {isOpenEvent3 && 
