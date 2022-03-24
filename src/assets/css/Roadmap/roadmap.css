@@ -54,8 +54,9 @@ li p{
     transform: translateY(-10px);
     padding: 0 20px;
     transition: 1.5s;
-    font-size: 12px;
+    font-size: 15px;
     width: 170px;
+    font-family: 'Roboto',sans-serif;
     
     
     
