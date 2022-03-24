@@ -18,12 +18,12 @@ const Index = ()=>{
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q2 2021</span>
-                            <p>Development of user interface, Deployment of Testnet environment.</p>
+                            <p>Development of user interface, Deployment of Testnet environment.<br/><br/></p>
                         </li>
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q3 2021</span>
-                            <p>Project Viability Research<br/><br/><br/></p>
+                            <p>Project Viability Research<br/><br/><br/><br/><br/></p>
                         </li>
                         <li>
                             <span className='timeline-point'></span>
@@ -33,18 +33,18 @@ const Index = ()=>{
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q1 2022</span>
-                            <p>Development of trading platform and the system’s core elements</p>
+                            <p>Development of trading platform and the system’s core elements<br/><br/><br/></p>
                         </li>
                         
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q3 2022</span>
-                            <p>Deployment of PWA Trading Website<br/><br/><br/></p>
+                            <p>Deployment of PWA Trading Website<br/><br/><br/><br/></p>
                         </li>
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q1 2023</span>
-                            <p>Development of IOS and Android Mobile Applications<br/><br/></p>
+                            <p>Development of IOS and Android Mobile Applications<br/><br/><br/></p>
                         </li>
                     </ul>
                 </section>
