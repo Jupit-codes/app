@@ -1,4 +1,4 @@
-import '../../../assets/css/Ourteam/ourteam.css'
+import '../../../assets/css/About/abouthero.css'
 import CEO from '../../../assets/images/team/member6.png'
 import AMD from '../../../assets/images/team/member5.png'
 import CTO from '../../../assets/images/team/member4.png'
@@ -6,7 +6,7 @@ import CCO from '../../../assets/images/team/member3.png'
 const Index = ()=>{
     return(
         <div className="aboutusNew" >
-           <h1 className='titleOffer'>What Defines Us</h1>
+           <div className='titleOffer'>What Defines Us</div>
           
            <div className='underline'><hr/></div>
            <div className='welcome-aboutus mission-main'>

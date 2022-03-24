@@ -48,6 +48,7 @@ const Index = ()=>{
         <div className='product' id="product">
             {/* <h1>Our Products</h1> */}
             <div className='titleOffer'>Our Products</div>
+            <div className='underline'><hr/></div>
             {/* <div className='titleTextOffer'>
                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
             </div> */}

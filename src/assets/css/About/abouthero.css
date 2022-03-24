@@ -28,6 +28,11 @@
     font-size: 30px;
 }
 
+.titleOffer{
+    font-family: 'Jura',sans-serif;
+    font-size: 36px;
+}
+
 .overlay{
     width: 100%;
     height: 80vh;

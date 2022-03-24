@@ -6,7 +6,7 @@
     align-items: center;
     background-color: #fff;
     min-height: 110vh;
-    padding: 0px;
+    padding: 0px 40px;
    
     
 }
@@ -17,9 +17,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 35px;
+    font-size: 36px;
     color: #000;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Jura', sans-serif;
 }
 
 .titleBig{
@@ -28,8 +28,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   font-size: 40px;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+   font-size: 36px;
+   font-family: 'Jura', sans-serif
     
 }
 
@@ -38,7 +38,7 @@
     margin-top: 20px;
     color: #9DA8B6;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto',sans-serif;
     font-size: 16px;
 }
 
@@ -53,18 +53,22 @@
 }
 
 .coreChild{
-    flex:1 1 calc(25% - 20px);
-    margin: 10px;
-    text-align: center;
+    flex:1 1 calc(20% - 20px);
+    margin: 20px;
+    
     min-height: 330px;
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow:         1px 2px 3px 3px #ccc;
     background-color: #fff;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
     height: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -89,6 +93,7 @@
     font-family: Candara;
     font-size: 14px;
     margin-bottom: 50px;
+    text-align: center;
     
 }
 .buttonNextGen{
@@ -207,6 +212,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     color: #9DA8B6;
     font-family: Poppins;
     font-size: 14px;
+    text-align: center;
 }
 .buttonNextGen{
     width: 90%;

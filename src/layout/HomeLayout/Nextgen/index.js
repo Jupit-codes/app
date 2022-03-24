@@ -82,12 +82,13 @@ const Index = ()=>{
                 
                     <div className='titleSmall'>The Next Generation Digital</div>
                     <div className='titleBig'>Currency Exchange</div>
-
+                    <div className='underline'><hr/></div>
                     <div className='lightText'>
                     {/* Despite all resistance, the global economy is gradually embracing a computerized eco-framework. From investment to settlement, everything is going paperless. The freshest and most encouraging expansion to the payment infrastructure is cryptographic money. */}
                     The global economy is gradually embracing a virtual eco-framework, despite many resistances.<br/>
                     From investment to settlement, everything is going digital. The emerging and innovative expansion to the payment infrastructure is <b>cryptographic money</b>
                     </div>
+                    
 
                     <div className='core'>
                             <div className='coreChild'>
