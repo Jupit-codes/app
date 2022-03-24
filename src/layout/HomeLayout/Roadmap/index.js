@@ -17,33 +17,34 @@ const Index = ()=>{
                     <ul>
                         <li>
                             <span className='timeline-point'></span>
+                            <span className='date'>Q2 2021</span>
+                            <p>Development of user interface, Deployment of Testnet environment.</p>
+                        </li>
+                        <li>
+                            <span className='timeline-point'></span>
                             <span className='date'>Q3 2021</span>
-                            <p>Project Viability Research</p>
+                            <p>Project Viability Research<br/><br/><br/></p>
                         </li>
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q4 2021</span>
-                            <p>Project Viability Research</p>
+                            <p>Project start-up, Product conception, System architecture development</p>
                         </li>
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q1 2022</span>
-                            <p>Project Viability Research</p>
+                            <p>Development of trading platform and the system’s core elements</p>
                         </li>
-                        <li>
-                            <span className='timeline-point'></span>
-                            <span className='date'>Q2 2022</span>
-                            <p>Project Viability Research</p>
-                        </li>
+                        
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q3 2022</span>
-                            <p>Project Viability Research</p>
+                            <p>Deployment of PWA Trading Website<br/><br/><br/></p>
                         </li>
                         <li>
                             <span className='timeline-point'></span>
                             <span className='date'>Q1 2023</span>
-                            <p>Project Viability Research</p>
+                            <p>Development of IOS and Android Mobile Applications<br/><br/></p>
                         </li>
                     </ul>
                 </section>
