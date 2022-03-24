@@ -1,6 +1,7 @@
 .productSection{
     width: 100%;
     height: 100%;
+    min-height: 80vh;
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
@@ -21,6 +22,10 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+    background: url('../../images/landingpage/bg/podium.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    
    
   
 }
@@ -36,13 +41,12 @@
 
 .ImageProd{
     
-    background: url('../../images/landingpage/bg/podium.jpg');
+    background: url('../../images/landingpage/bg/podium.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 250px;
-    height: 250px;
-    border-radius: 5% 80% 5% 5%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +73,6 @@
 }
 .p2p{
     background-color: #fff;
-    
     height: 45px;
     text-align: center;
     justify-content: center;
@@ -79,18 +82,22 @@
     border-radius: 5px;
     color:#1c1c93;
     font-weight: bold;
+    font-family: 'Jura',sans-serif;
+    font-size: 40px;
     
 }
 .tab-content{
     width:100%;
     text-align: justify;
-    padding-left: 5px;
+    padding:0px 5px;
     margin-top: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 
 }
-
+.normalTab{
+    display: none;
+}
 .product{
     display: flex;
     flex-direction: column;

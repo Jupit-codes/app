@@ -55,16 +55,13 @@ const Index = ()=>{
                 
                 <div className="productFlex1">
                     
-                    <div className='ImageProd'>
-                        
-                            <img src={logo}/>
-                    </div>
+                    
                 </div>
                 <div className="productFlex2">
                     <div className='tabs-products'>
-                            <div className={tabClick && type==="p2p" ? 'p2p':''} onClick={()=>_handleClick('p2p')}>Crypto to Cash</div>
-                            <div className={tabClick && type==="giftcard" ? 'p2p':''} onClick={()=>_handleClick('giftcard')}>Gift Cards to Cash</div>
-                            <div className={tabClick && type==="otc" ? 'p2p':''} onClick={()=>_handleClick('otc')}>OTC </div>
+                            <div className={tabClick && type==="p2p" ? 'p2p':'normalTab'} onClick={()=>_handleClick('p2p')}>Crypto to Cash</div>
+                            <div className={tabClick && type==="giftcard" ? 'p2p':'normalTab'} onClick={()=>_handleClick('giftcard')}>Gift Cards to Cash</div>
+                            <div className={tabClick && type==="otc" ? 'p2p':'normalTab'} onClick={()=>_handleClick('otc')}>OTC </div>
                     </div>
                     <div className='tab-content'>
                     {
