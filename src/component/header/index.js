@@ -108,12 +108,12 @@ const Index=({ActivePath,getscroll})=>{
                                 <div className='tagName'>Product</div>
                             </div>
                         </Link>
-                        <Link  to="nextgen" spy={true} smooth={true} onClick={handleClose}>
+                        <Link  to="what_defines_us" spy={true} smooth={true} onClick={handleClose}>
                             <div className='tag'>
                                 <div className='tagIcon'>
                                      <MdPayments color='#fff' size={20} />
                                 </div>
-                                <div className='tagName'>Next Generation</div>
+                                <div className='tagName'>What Defines Us</div>
                             </div>
                         </Link>
                         <Link  to="faq" spy={true} smooth={true} onClick={handleClose}>
