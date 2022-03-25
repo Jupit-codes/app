@@ -6,9 +6,9 @@ import CCO from '../../../assets/images/team/member3.png'
 const Index = ()=>{
     return(
         <div className="ourteam" id="ourteam">
-           <h1 className='mission-title'>Our Team</h1>
-           <div className='teamText'>
-                <p>We are proud of our great team. He is one of the most motivated and is always ready and willing to help out where needed.</p>
+           <div className='newTitleOffer'>Our Team</div>
+           <div className='titleTextOffer'>
+                We are proud of our great team. He is one of the most motivated and is always ready and willing to help out where needed.
            </div>
            <div className='underline'><hr/></div>
            <div className='pictureDiv'>
