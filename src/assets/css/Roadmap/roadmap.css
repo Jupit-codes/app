@@ -35,53 +35,103 @@
    
 }
 
-.timeliner{
-    margin: 100px 0;
-    
-}
-ul{
+.timeliner {
+    margin-top: 35px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 40% auto;
+    justify-content: center;
+  }
+  
+  ul {
     margin-top: 30px;
     display: flex;
-    list-style: none;
-    padding: 0;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-li{
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin-top: 30px;
     position: relative;
-}
-li p{
-    transform: translateY(-10px);
+    padding: 25px;
+  }
+  li p {
+    transform: translateY(-65px);
     padding: 0 20px;
     transition: 1.5s;
     font-size: 15px;
-    width: 170px;
+    width: 200px;
     font-family: 'Roboto',sans-serif;
     
+
     
+  }
+  
+  .date {
     
-}
-.date{
-    font-weight: bold;
-    font-family: 'Jura', sans-serif;
-    transition:1.5s;
+    /* transition:1.5s;
     font-size: 14px;
     position: absolute;
     top:-70px;
-    left: 10%;
-}
+    left: 10%; */
 
-.timeline-point{
-    /* border: none; */
+    font-weight: bold;
+    font-family: 'Jura', sans-serif;
+    position: absolute;
+    top: -38px;
+    left: -65px;
+    transition: 1.5s;
+    font-size: 12px;
+  }
+  .timeline-line {
+    background: rgb(228, 228, 228);
+    width: 4px;
+    border-radius: 12px;
+    position: relative;
+    justify-self: end;
+  }
+  
+  .timeline-point {
     background:#fff;
     position: absolute;
     border-radius: 50%;
     width: 20px;
     height: 20px;
     top:-40px;
-    left: 10%;
+    left: -6%;
     transition: 1.5s ease;
     border: 4px solid #0079D9 ;
+
+
+
+    
+  }
+  .timeline-innerline {
+    position: absolute;
+    background: blue;
+    width: 4px;
+    height: 0%;
+  
+    top: 0%;
+    left: 0%;
+  
+    transition: 1s linear;
+  }
+
+
+.buttonRoadMap{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #1c1c93, #0d36a7, #004db9, #0063ca, #0079d9);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    align-self: center;
 }
 
 li:nth-child(1) .timeline-point{
@@ -97,35 +147,81 @@ li:nth-child(3) .timeline-point{
 li:nth-child(4) .timeline-point{
     background-color: #1c1c93;
 }
-.timeline-line{
-    /* background-color: #003300; */
-    background-image: linear-gradient(to right top, #0079d9, #0063ca, #004db9, #0d36a7, #1c1c93);
-    width: 100%;
-    height: 4px;
-    border-radius: 12px;
-    position: relative;
-}
 
-.timeline-line-innerline{
-    position: absolute;
-    background-color:#1c1c93;
-    width: 0%;
-    height: 4px;
-    top: 0%;
-    left:0%;
-    transition: 1s linear;
-    border-radius: 999px;
-}
 
-.buttonRoadMap{
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-    background-image: linear-gradient(to right top, #1c1c93, #0d36a7, #004db9, #0063ca, #0079d9);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    align-self: center;
-}
+@media screen and (min-width: 728px) {
+    .timeliner {
+      display: block;
+    }
+    ul {
+      flex-direction: row;
+    }
+    li {
+      margin-top: 0px;
+      position: relative;
+      width: 100%;
+      padding: 0px;
+    }
+    li p {
+        transform: translateY(-10px);
+        padding: 0 20px;
+        transition: 1.5s;
+        font-size: 15px;
+        width: 170px;
+        font-family: 'Roboto',sans-serif;
+    }
+  
+    .date {
+     
+        font-weight: bold;
+        font-family: 'Jura', sans-serif;
+        transition:1.5s;
+        font-size: 14px;
+        position: absolute;
+        top:-70px;
+        left: 10%;
+    }
+  
+    .timeline-point {
+        
+        transition: 1.5s ease;
+        border: 4px solid #0079D9 ;
+        width: 15px;
+        height: 15px;
+        top: -40px;
+        left: 20%;
+        transition: 1.5s ease;
+    }
+  
+    .timeline-line {
+      width: 100%;
+      height: 4px;
+    }
+  
+    .timeline-innerline {
+      position: absolute;
+      background: blue;
+      width: 0%;
+      height: 4px;
+  
+      top: 0%;
+      left: 0%;
+  
+      transition: 1s linear;
+      border-radius: 999px;
+    }
+    li:nth-child(1) .timeline-point{
+        background-color: #1c1c93;
+    }
+    
+    li:nth-child(2) .timeline-point{
+        background-color: #1c1c93;
+    }
+    li:nth-child(3) .timeline-point{
+        background-color: #1c1c93;
+    }
+    li:nth-child(4) .timeline-point{
+        background-color: #1c1c93;
+    }
+  }
+  
