@@ -176,7 +176,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	}
 	
 	.logo  img {
-		width: 50%;
+		width: 25%;
 	}
 	.mynav{
 		display: none;
@@ -226,6 +226,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	  color: #fff;
 	  
 	}
+
+
   
 	
 }

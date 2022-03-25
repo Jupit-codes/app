@@ -61,7 +61,7 @@ const Index=({ActivePath,getscroll})=>{
                
                     <div className={scroll != 0 ? 'mynav-item-scroll':'mynav-item'}><Link to="aboutus" spy={true} smooth={true}  activeClass ='activeClass'>About Us</Link></div>
                     <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="product" spy={true} smooth={true}  activeClass ='activeClass'>Products</Link></div>
-                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="nextgen" spy={true} smooth={true} activeClass ='activeClass'>Next Generation</Link></div>
+                    <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="what_defines_us" spy={true} smooth={true} activeClass ='activeClass'>What Defines Us</Link></div>
                     <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="faq" spy={true} smooth={true} activeClass ='activeClass'>Faq</Link></div>
                     <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="roadmap" spy={true} smooth={true} activeClass ='activeClass'>Roadmap</Link></div>
                     <div className={scroll != 0  ? 'mynav-item-scroll':'mynav-item'}><Link to="getIntouch" spy={true} smooth={true} activeClass ='activeClass' >Contact</Link></div>

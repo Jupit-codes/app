@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+   
     
     
 }
@@ -193,10 +194,14 @@ and (-webkit-min-device-pixel-ratio: 2) {
         margin: 10px;
     }
     .mission-text{
-        color: #ffce00;
+        color: #1c1c93;
         font-size: 13px;
     }
     .mission{
        padding: 20px;
+    }
+    .welcome-aboutus{
+        width: 100%;
+        text-align: center;
     }
 }

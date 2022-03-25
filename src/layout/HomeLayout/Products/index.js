@@ -56,8 +56,11 @@ const Index = ()=>{
             <div className="productSection">
                 
                 <div className="productFlex1">
-                    
-                    
+                    <div className='extend'>
+
+                        <br/><br/><br/><br/><br/><br/>
+                    </div>    
+                                   
                 </div>
                 <div className="productFlex2">
                     <div className='tabs-products'>

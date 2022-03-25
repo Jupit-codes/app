@@ -99,7 +99,7 @@ const Index=()=>{
             <div className="faq-resp">
                
                 <div className={isOpenEvent6 ? 'faq-question faq-question-height':'faq-question'}>
-                    <div className='faq-title' onClick={()=>{_handleOpen('event6')}}>  
+                    <div className='faq-titlex' onClick={()=>{_handleOpen('event6')}}>  
                     1.	&nbsp; What virtual currencies will be available on Jupit when it launches?
                     </div>
                     <div className='faq-icon'> 
@@ -121,7 +121,7 @@ const Index=()=>{
                 </div>
 
                 <div className={isOpenEvent7 ? 'faq-question faq-question-height':'faq-question'}>
-                    <div className='faq-title' onClick={()=>{_handleOpen('event7')}}>  
+                    <div className='faq-titlex' onClick={()=>{_handleOpen('event7')}}>  
                     2.	&nbsp; Will I be able to own a crypto-wallet?
                     </div>
                     <div className='faq-icon'> 
@@ -143,7 +143,7 @@ const Index=()=>{
 
 
                 <div className={isOpenEvent1 ? 'faq-question faq-question-height':'faq-question'}>
-                    <div className='faq-title' onClick={()=>{_handleOpen('event1')}}>  
+                    <div className='faq-titlex' onClick={()=>{_handleOpen('event1')}}>  
                         3. &nbsp;	What region will Jupit offer its service?
                     </div>
                     <div className='faq-icon'> 
@@ -160,7 +160,7 @@ const Index=()=>{
                     
                 </div>
                 <div className={isOpenEvent2 ? 'faq-question faq-question-height':'faq-question'}>
-                    <div className='faq-title' onClick={()=>{_handleOpen('event2')}}>  
+                    <div className='faq-titlex' onClick={()=>{_handleOpen('event2')}}>  
                         4. &nbsp;	How can I trade with Jupit before its application launch?
                     </div>
                     <div className='faq-icon'> 
@@ -179,7 +179,7 @@ const Index=()=>{
                 </div>
 
                 <div className={isOpenEvent3 ? 'faq-question faq-question-height':'faq-question'}>
-                    <div className='faq-title' onClick={()=>{_handleOpen('event3')}}>  
+                    <div className='faq-titlex' onClick={()=>{_handleOpen('event3')}}>  
                         5. &nbsp;	When will Jupit launch its trading application? 
                     </div>
                     <div className='faq-icon'> 
