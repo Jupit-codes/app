@@ -6,7 +6,7 @@ const Index =()=>{
     return(
         <div className="mission">
             <div>
-               <div className='mission-title'>Providing Convenience</div> 
+               <div className='mission-title'>Providing Reliable Solution</div> 
                <div className='mission-main'>
                     Our platform is intended mainly to simplify your daily exchange in a most reliable and secured way.
                </div>
