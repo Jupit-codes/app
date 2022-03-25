@@ -85,6 +85,10 @@
     border-bottom: 1px solid #3bb9ff; */
 }
 
+.faq-question:last-child{
+  flex: 0 0 calc(50% - 20px);
+}
+
 .faq-question-height{
   height: 120px;
   overflow-y: hidden;
