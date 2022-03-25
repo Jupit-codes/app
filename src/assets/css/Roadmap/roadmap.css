@@ -121,9 +121,11 @@
   }
 
 
+
+
 .buttonRoadMap{
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     border-radius: 20px;
     background-image: linear-gradient(to right top, #1c1c93, #0d36a7, #004db9, #0063ca, #0079d9);
     color: #fff;
@@ -132,8 +134,9 @@
     align-items: center;
     cursor: pointer;
     align-self: center;
+    font-size: 12px;
+    font-family: 'Roboto',sans-serif;
 }
-
 li:nth-child(1) .timeline-point{
     background-color: #1c1c93;
 }
@@ -223,5 +226,22 @@ li:nth-child(4) .timeline-point{
     li:nth-child(4) .timeline-point{
         background-color: #1c1c93;
     }
+
+    
+.buttonRoadMap{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #1c1c93, #0d36a7, #004db9, #0063ca, #0079d9);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    align-self: center;
+    font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+}
+    
   }
   
