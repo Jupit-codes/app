@@ -18,6 +18,9 @@ const Index = ()=>{
     const [CapturedImage,setCapturedImage] = useState();
     const [cardType,setcardType] = useState();
     const [cardNumber,setcardNumber] = useState('');
+    const [firstname,setfirstname] = useState('');
+    const [lastname,setlastname] = useState('');
+    const [dob,setdob] = useState('');
     const {idCardState:{idcardVerification:{idcard_loading,idcard_data,idcard_error}},idCardDispatch} = useContext(GlobalContext)
 
     console.log(idcard_loading)
@@ -37,6 +40,16 @@ const Index = ()=>{
     const _handleNumber = (e)=>{
         setcardNumber(e.target.value)
     }
+    const _handleFirstname = (e)=>{
+        setfirstname(e.target.value)
+    }
+    const _handleLastname = (e)=>{
+        setlastname(e.target.value)
+    }
+    const _handledob = (e)=>{
+        setdob(e.target.value)
+    }
+
 
     const saveImageVerification = ()=>{
        
@@ -55,6 +68,9 @@ const Index = ()=>{
         const item = {
             CapturedImage:CapturedImage,
             cardNumber:cardNumber,
+            firstname:firstname,
+            lastname:lastname,
+            dob:dob,
             cardType:cardType,
             userid:reactLocalStorage.getObject('user')._id
         }
@@ -156,16 +172,16 @@ const Index = ()=>{
 
             <div className="formAccount_form">
                 <label>First Name</label>
-                <input type="text" className="form-control" placeholder="First Name" value={cardNumber} onChange={_handleNumber}/>
+                <input type="text" className="form-control" placeholder="First Name" value={firstname} onChange={_handleFirstname}/>
             </div>
 
             <div className="formAccount_form">
                 <label>Last Name</label>
-                <input type="text" className="form-control" placeholder="Last Name" value={cardNumber} onChange={_handleNumber}/>
+                <input type="text" className="form-control" placeholder="Last Name" value={lastname} onChange={_handleLastname}/>
             </div>
             <div className="formAccount_form">
                 <label>Date Of Birth</label>
-                <input type="date" className="form-control" placeholder="" value={cardNumber} onChange={_handleNumber}/>
+                <input type="date" className="form-control" placeholder="" value={dob} onChange={_handledob}/>
             </div>
 
             <div className="formAccount_form">
