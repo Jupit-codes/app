@@ -142,9 +142,10 @@ import {MdFileDownloadDone} from 'react-icons/md'
 import {BsCheckCircle} from 'react-icons/bs'
 import { reactLocalStorage } from 'reactjs-localstorage';
 import axios from 'axios';
+import Loader from '../../utils/loader/loader.js'
 export default function ColorTabs() {
-  const [value, setValue] = React.useState('two');
-  const [content,setContent] = useState('IDverification')
+  const [value, setValue] = React.useState('one');
+  const [content,setContent] = useState('')
   const [firstLevel, setfirstLevel] = useState();
   const [secondLevel, setsecondLevel] = useState();
 
@@ -152,11 +153,21 @@ export default function ColorTabs() {
   const[disableSecondLevel,setdisableSecondLevel] = useState(true);
   const[disableThirdLevel,setdisableThirdLevel] = useState(true);
   const [docAccount,setdocAccount] = useState({})
+  const [loaderState, setloaderState] = useState(true)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setContent(newValue)
+    
   };
+  React.useEffect(()=>{
+    getLatestUpdate();
+    
+    
+  
+    
+    
+  },[])
  const getLatestUpdate = async ()=>{
   const Base_url = process.env.REACT_APP_BACKEND_URL;
   
@@ -172,10 +183,28 @@ export default function ColorTabs() {
       })
     .then(res=>{
         
-
+        
         setfirstLevel(res.data.level1[0].status)
         setsecondLevel(res.data.level2[0].event_status);
         setdocAccount(res.data);
+        setloaderState(false)
+       
+        
+        if(res.data.level1[0].status === "Verified"){
+          setdisableSecondLevel(false);
+          setValue('two');
+          setContent('two')
+        }
+        if(res.data.level2[0].event_status === "customeridentification.success"){
+            
+          setdisableThirdLevel(false)
+          setValue('four');
+          setContent('four')
+            
+        }
+
+       
+
         
 
 
@@ -200,23 +229,7 @@ export default function ColorTabs() {
   //   }
   // })
 
-  React.useEffect(()=>{
-    getLatestUpdate();
-    console.log('I am here')
-    if(firstLevel === "Verified"){
-            setdisableSecondLevel(false);
-      }
-    if(secondLevel === "customeridentification.success"){
-          
-        setdisableThirdLevel(false)
-          
-    }
-
-    console.log(docAccount)
- 
-    
-    
-  },[])
+  
   
 
     const _renderComponentTab = ()=>{
@@ -226,7 +239,7 @@ export default function ColorTabs() {
             return <Email/>
             break;        
             case 'two':
-              return <AddAccount />
+              return <AddAccount status={secondLevel} />
                 break;
             // case 'three':
             //     return <AddressVerification/> 
@@ -244,6 +257,7 @@ export default function ColorTabs() {
     }
   return (
     <Box sx={{ width: '100%', marginTop:3,borderRadius:10 }}>
+      {loaderState && <Loader/>}
       <Tabs
         value={value}
         onChange={handleChange}

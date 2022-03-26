@@ -155,7 +155,21 @@ const Index = ()=>{
             </div>
 
             <div className="formAccount_form">
-                <label>Unique Number</label>
+                <label>First Name</label>
+                <input type="text" className="form-control" placeholder="First Name" value={cardNumber} onChange={_handleNumber}/>
+            </div>
+
+            <div className="formAccount_form">
+                <label>Last Name</label>
+                <input type="text" className="form-control" placeholder="Last Name" value={cardNumber} onChange={_handleNumber}/>
+            </div>
+            <div className="formAccount_form">
+                <label>Date Of Birth</label>
+                <input type="date" className="form-control" placeholder="" value={cardNumber} onChange={_handleNumber}/>
+            </div>
+
+            <div className="formAccount_form">
+                <label>Number</label>
                 <input type="text" className="form-control" placeholder="ID Card Number" value={cardNumber} onChange={_handleNumber}/>
             </div>
 

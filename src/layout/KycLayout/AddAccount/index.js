@@ -17,15 +17,14 @@ const Index = ()=>{
     const [disable,setdisabled] = useState(true)
     const [banklist,setbanklist] = useState();
     const [loading, setloading] = useState(false)
+    const [TextDisable,setTextDisable] = useState(false)
     const {validationState:{validation:{validation_loading,validation_error,validation_data}},validationDispatch} = useContext(GlobalContext)
-
+  
     useEffect(()=>{
         AccountLinked();
     },[])
 
-    // useEffect(()=>{
-        
-    // },[])
+    
     
  const AccountLinked = async ()=>{
     const Base_url = process.env.REACT_APP_BACKEND_URL;
@@ -43,7 +42,15 @@ const Index = ()=>{
       .then(res=>{
           
   
-         console.log(res.data)
+        
+         if(res.data.status === "customeridentification.success"){
+              
+                setbank(res.data.bank_code)
+                setaccountName(res.data.account_name);
+                setaccountNumber(res.data.account_number);
+                setBvn(res.data.bvn)
+                setTextDisable(true)
+         }
           
   
   
@@ -136,13 +143,20 @@ const Index = ()=>{
         setBvn(e.target.value)
     }
     const sendValidation = ()=>{
-        const item={
-            bank:bank,
-            accountNumber:accountNumber,
-            accountName:accountName,
-            bvn:bvn
+
+        if(TextDisable){
+            setTextDisable(false);
         }
-        Validation(item)(validationDispatch)
+        else{
+            const item={
+                bank:bank,
+                accountNumber:accountNumber,
+                accountName:accountName,
+                bvn:bvn
+            }
+            Validation(item)(validationDispatch)
+        }
+        
         
     }
 
@@ -239,7 +253,7 @@ const Index = ()=>{
             <div className="formAccount_form">
                 <label>Select Bank</label>
                 
-                <select className="form-control" onChange={_handleBank} value={bank}>
+                <select className="form-control" onChange={_handleBank} value={bank} disabled={TextDisable}>
                 <option value="">Select Bank</option>
                     <option value="044">Access Bank</option>
 
@@ -248,22 +262,22 @@ const Index = ()=>{
 
             <div className="formAccount_form">
                 <label>Account Number</label>
-                <input type="text" className="form-control" placeholder="Account Number" onChange={_handleAccount} onBlur={_handleBlur} value={accountNumber}/>
+                <input type="text"  disabled={TextDisable} className="form-control" placeholder="Account Number" onChange={_handleAccount} onBlur={_handleBlur} value={accountNumber}/>
             </div>
 
            
             <div className="formAccount_form">
                 <label>Account Name</label>
-                <input type="text" className="form-control" placeholder="Account Name" value={accountName} disabled/>
+                <input type="text"  className="form-control" placeholder="Account Name" value={accountName} disabled/>
             </div>
 
             <div className="formAccount_form">
                 <label>Bank Verification Number</label>
-                <input type="number" className="form-control" placeholder="Bank Verification Number" onChange={_handleBVN} value={bvn}/>
+                <input type="number" disabled={TextDisable} className="form-control" placeholder="Bank Verification Number" onChange={_handleBVN} value={bvn}/>
             </div>
             <div className="formAccount_form">
                 
-                <input type="submit" className={`form-control ${accountName && accountNumber && bank & bvn ? 'btn btn-primary': 'disable'}` } value="Submit" onClick={sendValidation}/>
+                <input type="submit" className={`form-control ${accountName && accountNumber && bank & bvn ? 'btn btn-primary': 'disable'}` } value={TextDisable ? 'Edit':'Submit'} onClick={sendValidation}/>
             </div>
             
         </div>
