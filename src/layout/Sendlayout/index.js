@@ -151,7 +151,7 @@ const Index =()=>{
             let wallet_type = "BTC"
             GetAutoFee(wallet_type)(autofeeDispatch)
                 if(dataAutofee){
-                    
+                    toast.success('Select NetworkFee',"SUCCESS")
                     dataAutofee.message.auto_fees.forEach((d)=>{
                         
                         if(d.block_num === 1){
@@ -166,9 +166,14 @@ const Index =()=>{
                     })
                     setMount(true)
             }
+
+            if(errorAutofee){
+                toast.error('NetworkFee Unavailable..Pls try after sometime',"ERROR")
+                console.log("errorAutoFee",errorAutofee)
+            }
         }
         
-    },[dataAutofee])
+    },[dataAutofee,errorAutofee])
 
     useEffect(()=>{
         
@@ -319,8 +324,14 @@ const Index =()=>{
         }
         
         // console.log(items)
+        if(_addAmount > Balance){
+            toast.error("Insufficent Wallet Balance","ERROR")
+        }
+        else{
+            ProcessCoin(items)(sendcoinDispatch);
+        }
 
-        ProcessCoin(items)(sendcoinDispatch);
+       
 
         // toast('Coin Successfully Sent');
 
@@ -374,7 +385,7 @@ const Index =()=>{
                         </div>
                     </div>
                     <div>
-                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && _selectFee()}
+                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && dataAutofee && _selectFee()}
                         {/* <small>{loadingAutofee && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small> */}
                         {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
                        

@@ -141,6 +141,7 @@ import Email from './Email'
 import {MdFileDownloadDone} from 'react-icons/md'
 import {BsCheckCircle} from 'react-icons/bs'
 import { reactLocalStorage } from 'reactjs-localstorage';
+import axios from 'axios';
 export default function ColorTabs() {
   const [value, setValue] = React.useState('two');
   const [content,setContent] = useState('IDverification')
@@ -150,24 +151,72 @@ export default function ColorTabs() {
   const[disableFirstLevel,setdisableFirstLevel] = useState(true);
   const[disableSecondLevel,setdisableSecondLevel] = useState(true);
   const[disableThirdLevel,setdisableThirdLevel] = useState(true);
+  const [docAccount,setdocAccount] = useState({})
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setContent(newValue)
   };
-  React.useEffect(()=>{
-    // let level1 = reactLocalStorage.getObject('kyc').level1[0].status;
-    // let level2 = reactLocalStorage.getObject('kyc').leve2[0].event_status;
-    setfirstLevel(reactLocalStorage.getObject('kyc').level1[0].status)
-    setsecondLevel(reactLocalStorage.getObject('kyc').level2[0].event_status);
+ const getLatestUpdate = async ()=>{
+  const Base_url = process.env.REACT_APP_BACKEND_URL;
+  
+      await axios({
+        method: "POST",
+        url: `${Base_url}/users/kyc`,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization":`Bearer ${reactLocalStorage.get('token')}`
 
+        },
+        data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
+      })
+    .then(res=>{
+        
+
+        setfirstLevel(res.data.level1[0].status)
+        setsecondLevel(res.data.level2[0].event_status);
+        setdocAccount(res.data);
+        
+
+
+    })
+    .catch(err=>{
+        console.log(err.response)
+    })
+ }
+
+  // React.useEffect(()=>{
+   
+  //   setfirstLevel(reactLocalStorage.getObject('kyc').level1[0].status)
+  //   setsecondLevel(reactLocalStorage.getObject('kyc').level2[0].event_status);
+
+  //   if(firstLevel === "Verified"){
+  //       setdisableSecondLevel(false);
+  //   }
+  //   if(secondLevel === "customeridentification.success"){
+      
+  //     setdisableThirdLevel(false)
+      
+  //   }
+  // })
+
+  React.useEffect(()=>{
+    getLatestUpdate();
+    console.log('I am here')
     if(firstLevel === "Verified"){
-        setdisableSecondLevel(false);
+            setdisableSecondLevel(false);
+      }
+    if(secondLevel === "customeridentification.success"){
+          
+        setdisableThirdLevel(false)
+          
     }
-    else if(secondLevel === "Verified"){
-      setdisableThirdLevel(false)
-    }
-  })
+
+    console.log(docAccount)
+ 
+    
+    
+  },[])
   
 
     const _renderComponentTab = ()=>{
@@ -177,7 +226,7 @@ export default function ColorTabs() {
             return <Email/>
             break;        
             case 'two':
-              return <AddAccount/>
+              return <AddAccount />
                 break;
             // case 'three':
             //     return <AddressVerification/> 
@@ -205,8 +254,8 @@ export default function ColorTabs() {
       >
         
          <Tab icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
-         <Tab icon={secondLevel === "Verified" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
-         <Tab  label="Verify Id Card" aria-label="phone"   value="four" />
+         <Tab icon={secondLevel === "customeridentification.success" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
+         <Tab  label="Verify Id Card" aria-label="phone" disabled={disableThirdLevel}   value="four" />
       </Tabs>
 
         <div className="tab_content">

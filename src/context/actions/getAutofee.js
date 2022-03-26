@@ -22,7 +22,7 @@ export default (item)=>(dispatch)=>{
         type:AUTO_FEE_SUCCESS,
         payload:res.data
     })
-    // console.log(res.data)
+    console.log(res.data)
    
    
 })
@@ -32,6 +32,7 @@ export default (item)=>(dispatch)=>{
         type:AUTO_FEE_ERROR,
         payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
     })
+    console.log(err.response)
     
 })
 

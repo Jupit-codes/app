@@ -15,7 +15,7 @@ export default (item)=>(dispatch)=>{
             "Content-Type": "application/json",
             "Authorization":`Bearer ${reactLocalStorage.get('token')}`
             },
-            data:JSON.stringify({account_number:item.accountNumber,bankcode:item.bank,bvn:item.bvn,email:reactLocalStorage.getObject('user').email})
+            data:JSON.stringify({account_name:item.accountName,account_number:item.accountNumber,bankcode:item.bank,bvn:item.bvn,email:reactLocalStorage.getObject('user').email})
         })
         .then(res=>{
             

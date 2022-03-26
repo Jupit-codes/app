@@ -19,11 +19,51 @@ const Index = ()=>{
     const [loading, setloading] = useState(false)
     const {validationState:{validation:{validation_loading,validation_error,validation_data}},validationDispatch} = useContext(GlobalContext)
 
+    useEffect(()=>{
+        AccountLinked();
+    },[])
+
+    // useEffect(()=>{
+        
+    // },[])
     
+ const AccountLinked = async ()=>{
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+    
+        await axios({
+          method: "POST",
+          url: `${Base_url}/users/bank`,
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+  
+          },
+          data:JSON.stringify({email:reactLocalStorage.getObject('user').email})
+        })
+      .then(res=>{
+          
+  
+         console.log(res.data)
+          
+  
+  
+      })
+      .catch(err=>{
+  
+      
+      console.log(err.response)
+  
+      })
+   }
+  
+
+
     const _handleAccount = (e)=>{
         
         setaccountNumber(e.target.value);
     }
+
+   
 
     const _handleBlur = ()=>{
         if(accountNumber.length === 10 && bank){
@@ -40,6 +80,8 @@ const Index = ()=>{
         }
            
     }
+    
+
 
     const ValidateAccountNumber = async ()=>{
         setaccountName('')
