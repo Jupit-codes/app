@@ -136,6 +136,9 @@ const Index = ()=>{
                     setCapturedImage('')
                     setcardNumber('')
                     setcardType('')
+                    setfirstname('')
+                    setlastname('')
+                    setdob('')
             }
     },[idcard_data,idcard_error,idcard_loading])
 

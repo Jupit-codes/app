@@ -256,7 +256,8 @@ const Index = ()=>{
                 <select className="form-control" onChange={_handleBank} value={bank} disabled={TextDisable}>
                 <option value="">Select Bank</option>
                     <option value="044">Access Bank</option>
-
+                    <option value="057">Zenith Bank</option>
+                    <option value="011">First Bank</option>
                 </select>
             </div>
 
