@@ -1,7 +1,8 @@
 import '../../../assets/css/Ourteam/ourteam.css'
-import CEO from '../../../assets/images/team/member6.png'
-import AMD from '../../../assets/images/team/member5.png'
-import CTO from '../../../assets/images/team/member4.png'
+import CEO from '../../../assets/images/team/MD.png'
+import AMD from '../../../assets/images/team/MD2.png'
+import CTO from '../../../assets/images/team/DEV.png'
+import CTOII from '../../../assets/images/team/DEV2.png'
 import CCO from '../../../assets/images/team/member3.png'
 const Index = ()=>{
     return(
@@ -45,7 +46,7 @@ const Index = ()=>{
                         <div>TEMILOLUWA ODEWUMI</div>
                         <div>Developer</div>
                         <img src={CTO} className="show" />
-                        <img src={CCO} className="onHover" />
+                        <img src={CTOII} className="onHover" />
 
                     </div>
                 </div>
