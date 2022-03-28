@@ -3,7 +3,8 @@ import CEO from '../../../assets/images/team/MD.png'
 import AMD from '../../../assets/images/team/MD2.png'
 import CTO from '../../../assets/images/team/DEV.png'
 import CTOII from '../../../assets/images/team/DEV2.png'
-import CCO from '../../../assets/images/team/member3.png'
+import CCO from '../../../assets/images/team/SM.png'
+import CCOII from '../../../assets/images/team/SM2.png'
 const Index = ()=>{
     return(
         <div className="ourteam" id="ourteam">
@@ -38,7 +39,7 @@ const Index = ()=>{
                         <div>PEACE ORIOLA</div>
                         <div>SM Campaign Manager</div>
                         <img src={CCO} className="show" />
-                        <img src={CEO} className="onHover" />
+                        <img src={CCOII} className="onHover" />
                     </div>
                 </div>
                 <div>
