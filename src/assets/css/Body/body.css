@@ -1,9 +1,9 @@
-.bodyClass{
-  
+/* .bodyClass{
     min-height: 100vh;
     height: 100%;
-    width: 80%;
-    margin-left: 260px;
+    width: 100%;
+    background-color: blue;
+    margin-left: 200px;
     padding: 20px;
     
 }
@@ -13,4 +13,12 @@
     margin-left: 100px;
     padding: 20px;
     
+} */
+
+.bodyOpen{
+    width: 100%;
+    
+    margin-top: 40px;
+    padding-left: 200px;
+
 }

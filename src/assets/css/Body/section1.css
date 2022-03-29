@@ -1,0 +1,45 @@
+.body_section1{
+    width:100%;
+    padding: 20px;
+    display: flex;
+    
+    
+}
+
+.cardSection1{
+    flex:0 0 24%;
+    margin: 10px;
+    height: 150px;
+    border-radius: 25px;
+    background-color: #fff;
+    text-align: left;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.asset-to-usd span{
+    font-size: 12px;
+    font-family: 'Jura',sans-serif;
+}
+
+.asset-to-usd >span> img{
+    margin: 3px;
+}
+.asset-value{
+    font-family: 'Jura',sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+.trend-div span{
+    font-family: 'Jura',sans-serif;
+    font-size: 12px;
+    margin-left: 3px;
+}
+.trend{
+   text-align: center;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+}

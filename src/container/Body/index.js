@@ -6,6 +6,7 @@ import Section_1 from '../../layout/BodyLayout/Section_1';
 import Section_2 from '../../layout/BodyLayout/Section_2';
 import Section_3 from '../../layout/BodyLayout/Section_3';
 import Footer from '.././../layout/BodyLayout/Footer'
+import Section1 from '../../layout/BodyLayout/Section1'
 import { GlobalContext } from "../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
@@ -56,13 +57,16 @@ const kyc = reactLocalStorage.getObject('kyc')
    },[])
 
     return (
-        <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
+        <div className={openClose ? 'bodyOpen':'bodyClose'}>
            {/* <WelcomeNote/> */}
-           <Section_1/>
-           <Section_2/>
+           {/* <Section_1/> */}
+           {/* <Section_2/>
            <Section_3/>
-           <Footer/>
+           <Footer/> */}
             {/* <ImportantNotice/> */}
+
+            <Section1/>
+
         </div>
     )
 }
