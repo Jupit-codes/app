@@ -2,7 +2,12 @@ import '../../../assets/css/Body/section2.css'
 const Index = ()=>{
     return(
         <div className="body_section2">
-            Temiloluwa
+            <div className='marketTransaction'>
+                
+            </div>
+            <div className='walletbalance'>
+
+            </div>
         </div>
     )
 }

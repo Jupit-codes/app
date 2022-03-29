@@ -6,3 +6,12 @@
     
     
 }
+
+
+.marketTransaction{
+    flex: 1 1 70%;
+}
+
+.walletbalance{
+    flex: 1 1 30%;
+}
