@@ -3,12 +3,35 @@ import {IoIosNotificationsOutline} from 'react-icons/io'
 import {BiSupport} from 'react-icons/bi'
 import {IoIosChatbubbles} from 'react-icons/io'
 import ProfileImage from '../../assets/images/utility/profile-pic.png'
+import {reactLocalStorage} from 'reactjs-localstorage';
+import { useEffect,useState } from 'react'
 const Index = ()=>{
+    const [salutation, setsalutation] = useState();
+    const[userInfor,setUserInfor] = useState();
+    
+    useEffect(()=>{
+        let x = reactLocalStorage.getObject('user');
+        
+        setUserInfor(x.username.toUpperCase())
+        
+        let hour = new Date().getHours();
+        console.log(hour)
+        if(hour < 12){
+            setsalutation('Good Morning')
+        }
+        else if(hour < 18 ){
+            setsalutation('Good Afternoon')
+        }
+        else {
+            setsalutation('Good Evening')
+        }
+        
+    },[])
     return (
         <div className="xtitle">
                 <div className='WelcomeClass'>
                     <div className='Hello'>
-                        Good Morning, Geoffrey.
+                        {salutation}, {userInfor}.
                     </div>
                     <div className='dateHello'>
                         12:22pm, 29 March 2022.

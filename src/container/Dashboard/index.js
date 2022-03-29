@@ -65,7 +65,7 @@ const Index=()=>{
               
                 {/* <Sidebar openClose={open} notify={x}/> */}
                 
-                {/* {_renderBodyComponent()} */}
+                {_renderBodyComponent()}
         </div>
     )
 }

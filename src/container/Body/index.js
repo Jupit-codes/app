@@ -57,7 +57,7 @@ const kyc = reactLocalStorage.getObject('kyc')
 
     return (
         <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
-           <WelcomeNote/>
+           {/* <WelcomeNote/> */}
            <Section_1/>
            <Section_2/>
            <Section_3/>
