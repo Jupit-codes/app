@@ -3,7 +3,27 @@ import '../../assets/css/xtitlebar/xtitlebar.css'
 const Index = ()=>{
     return (
         <div className="xtitle">
-                <h1>Temiloluwa Odewumi</h1>
+                <div className='WelcomeClass'>
+                    <div className='Hello'>
+                        Good Morning, Temiloluwa Odewumi
+                    </div>
+                    <div className='dateHello'>
+                        12:22pm, 29 March 2022.
+                    </div>
+
+                </div>
+
+               
+
+                <div className='profilesection'>
+                    <div>
+                        logout
+                    </div>
+                    <div>
+                        12:22pm, 29 March 2022.
+                    </div>
+
+                </div>
         </div>
     )
 }

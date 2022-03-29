@@ -62,6 +62,7 @@ const Index=()=>{
         <div className="dashboard">
                 <Sidebar openClose={open} notify={x}/>
                 <TitleBar  handle={setOpen} currentHandle={open}/>
+              
                 {/* <Sidebar openClose={open} notify={x}/> */}
                 
                 {/* {_renderBodyComponent()} */}

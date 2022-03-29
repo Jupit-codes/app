@@ -1,0 +1,30 @@
+.xtitle{
+    display: block;
+    padding-left: 200px;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.xtitle div{
+    flex:1 1 50%
+}
+.Hello{
+    font-family: 'Roboto',sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.dateHello{
+    font-size: 12px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: bold;
+    color: #000;
+}
+
+.WelcomeClass{
+    padding-left: 20px;
+}
