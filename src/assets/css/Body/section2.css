@@ -9,9 +9,13 @@
 
 
 .marketTransaction{
-    flex: 1 1 70%;
+    flex: 1 1 80%;
+    margin: 10px;
+    background-color: black;
 }
 
 .walletbalance{
     flex: 1 1 30%;
+    margin: 10px;
+    background-color: blue;
 }
