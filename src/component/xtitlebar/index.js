@@ -5,7 +5,7 @@ const Index = ()=>{
         <div className="xtitle">
                 <div className='WelcomeClass'>
                     <div className='Hello'>
-                        Good Morning, Temiloluwa Odewumi
+                        Good Morning, Geoffrey.
                     </div>
                     <div className='dateHello'>
                         12:22pm, 29 March 2022.
