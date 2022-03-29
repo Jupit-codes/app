@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
-import TitleBar from '../../component/titleBar'
-import Sidebar from '../../component/sidebar'
+import TitleBar from '../../component/xtitlebar'
+import Sidebar from '../../component/xsidebar'
 import Start from '../../container/Body'
 import KYC from  '../../container/Kyc'
 import Transactions from  '../../container/Transactions'
@@ -60,9 +60,11 @@ const Index=()=>{
 
     return (
         <div className="dashboard">
-                <TitleBar  handle={setOpen} currentHandle={open}/>
                 <Sidebar openClose={open} notify={x}/>
-                {_renderBodyComponent()}
+                <TitleBar  handle={setOpen} currentHandle={open}/>
+                {/* <Sidebar openClose={open} notify={x}/> */}
+                
+                {/* {_renderBodyComponent()} */}
         </div>
     )
 }
