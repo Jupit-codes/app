@@ -1,13 +1,14 @@
 .body_section1{
     width:100%;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     
     
 }
 
 .cardSection1{
-    flex:0 0 24%;
+    flex:0 0 26%;
     margin: 10px;
     height: 150px;
     border-radius: 25px;
@@ -17,13 +18,17 @@
     display: flex;
     justify-content: space-between;
 }
+.asset-to-usd{
+    width: 100%;
+    
+}
 .asset-to-usd span{
     font-size: 12px;
     font-family: 'Jura',sans-serif;
 }
 
 .asset-to-usd >span> img{
-    margin: 3px;
+    margin: 5px;
 }
 .asset-value{
     font-family: 'Jura',sans-serif;
@@ -42,4 +47,8 @@
    justify-content: center;
    align-items: center;
   
+}
+.imagepart{
+    
+    width: 100%;
 }
