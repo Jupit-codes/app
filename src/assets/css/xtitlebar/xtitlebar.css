@@ -10,8 +10,20 @@
     padding-top: 30px;
 }
 
-.xtitle div{
-    flex:1 1 50%
+.WelcomeClass{
+    flex:1 1 30%;
+    justify-content: flex-end;
+    align-items: center;
+}
+.profilesection{
+    flex:1 1 80%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
 }
 .Hello{
     font-family: 'Roboto',sans-serif;
@@ -28,4 +40,27 @@
 
 .WelcomeClass{
     padding-left: 20px;
+}
+.profileImage{
+    width: 49px;
+    height: 49px;
+    border-radius: 5px;
+    
+    text-align: center;
+    cursor: pointer;
+}
+.ProfileName{
+    font-family: 'Jura',sans-serif;
+    font-size: 14px;
+
+}
+.xcode{
+    width: 30%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: #fff; */
+    padding: 0px 10px;
+    cursor: pointer;
 }
