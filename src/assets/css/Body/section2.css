@@ -1,5 +1,6 @@
 .body_section2{
     width:100%;
+    
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
@@ -15,7 +16,102 @@
 }
 
 .walletbalance{
-    flex: 1 1 30%;
+    flex: 0 0 30%;
+    border-radius: 15px;
     margin: 10px;
-    background-color: blue;
+    background-color: #fff;
+    padding: 20px;
+    height: 100%;
+}
+
+.walletBalanceTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balanceWallet{
+    font-family: 'Jura',sans-serif;
+    font-size: 18px;
+    
+}
+
+.marketTitle{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Jura',sans-serif;
+    font-size: 18px;
+}
+
+.trans{
+    width: 45px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 5px;
+    font-family: 'Jura',sans-serif;
+    font-size:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.transFlex{
+    border: 1px solid #00DEA3;
+    background-color: #00DEA3;
+}
+
+
+.transXflex{
+    border: 2px solid #f2f2f2;
+    
+}
+.walletAmount{
+    font-size: 18px;
+    font-family: 'Jura',sans-serif;
+}
+
+
+
+.transDiv{
+    display: flex;
+}
+
+
+.walletAmount span{
+    font-size: 25px;
+}
+
+.amountWallet{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.amountWallet img{
+    width:8%
+}
+.amountWallet div{
+    font-family: 'Jura',sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+.amoutInWallet{
+    margin-top: 10px;
+    font-family: 'Jura',sans-serif;
+    font-size: 34px;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.walletCard{
+    margin-top: 10px;
+    
+}
+.walletCard img{
+    width: 100%;
 }

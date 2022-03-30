@@ -8,6 +8,7 @@ import Section_3 from '../../layout/BodyLayout/Section_3';
 import Footer from '.././../layout/BodyLayout/Footer'
 import Section1 from '../../layout/BodyLayout/Section1'
 import Section2 from '../../layout/BodyLayout/Section2'
+import Section3 from '../../layout/BodyLayout/Section3'
 import { GlobalContext } from "../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
@@ -68,6 +69,7 @@ const kyc = reactLocalStorage.getObject('kyc')
 
             <Section1/> 
             <Section2/>
+            <Section3/>
 
         </div>
     )
