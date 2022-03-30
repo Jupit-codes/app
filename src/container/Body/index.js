@@ -67,7 +67,7 @@ const kyc = reactLocalStorage.getObject('kyc')
             {/* <ImportantNotice/> */}
 
             <Section1/> 
-             {/* <Section2/> */}
+            <Section2/>
 
         </div>
     )
