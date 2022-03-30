@@ -1,4 +1,5 @@
 import { Line } from 'react-chartjs-2';
+import '../../assets/css/Body/chartx.css'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -22,25 +23,34 @@ import {
 const Index = ()=>{
 
     return(
-        <div>
+        <div className='chartx'>
            
             <Line
-            datasetIdKey='id'
-            data={{
-                labels: ['Jun', 'Jul', 'Aug'],
-                datasets: [
-                {
-                    id: 1,
-                    label: '',
-                    data: [5, 6, 7],
-                },
-                {
-                    id: 2,
-                    label: '',
-                    data: [3, 2, 1],
-                },
-                ],
-            }}
+                datasetIdKey='id'
+               
+                options={{maintainAspectRatio: true}}
+                data={{
+                    labels: ['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'],
+                    datasets: [
+                    {
+                        id: 1,
+                        label: 'Buy',
+                        data: [0.5, 0.005,0.01,0.1,0.2,0.3,0.5,0.8,0.4,0.3,0.1,0.5],
+                        backgroundColor: '#00DEA3',
+                        borderColor: '#00DEA3',
+                    },
+                    {
+                        id: 2,
+                        label: 'Sell',
+                        data: [0.8, 0.003,0.08,0.5,0.4,0.3,0.5,0.4,0.2,0.3,0.1,0.005],
+                        backgroundColor: '#5A55D2',
+                        borderColor: '#0071bd',
+                        
+                    },
+                    ],
+                   
+                }}
+                
             />
         </div>
     )
