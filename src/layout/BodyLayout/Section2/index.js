@@ -6,8 +6,6 @@ import Naira from '../../../assets/images/utility/naira.png'
 import Illustrator from '../../../assets/images/utility/Illustration.png'
 const Index = ()=>{
   
-    
-    
     return(
         <div className="body_section2">
 
