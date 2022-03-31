@@ -4,6 +4,8 @@
     padding-right: 20px;
     display: flex;
     margin-top: 20px;
+    margin-bottom: 10px;
+    
 }
 
 .marketTitle_Session3{
@@ -16,15 +18,78 @@
     background-color: black;
 }
 
-.marketTransaction{
+.marketTransaction-list{
     flex: 1 1 80%;
-    min-height: 50vh;
+    height: 250px;
     margin: 10px;
     background-color: #fff;
     border-radius: 15px;
     padding: 20px;
     font-size: 20px;
     font-family: 'Jura',sans-serif;
+ 
+}
 
+.recent-transactions{
+    display: flex;
+    margin-top: 10px;
+
+}
+
+.recent-transactions div{
+    flex:1 1 calc(20% -20px);
+    margin: 10px;
+    font-family: 'Roboto',sans-serif;
+    font-size: 15px;
+    text-align: center;
     
 }
+
+.status{
+    color: #00DEA3;
+}
+.date-recent-transaction{
+   color: #707EAE;
+}
+.coin-recent-transaction{
+    color: #707EAE;
+}
+.recent-amount{
+    color: #707EAE;
+}
+.asset-logo img{
+    width: 30%;
+}
+
+.marketTRansaction-title{
+   padding: 10px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.walletbalance-list{
+    flex: 0 0 40%;
+    border-radius: 15px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 20px;
+    height: 250px;
+}
+
+.viewmore{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Jura',sans-serif;
+    font-size:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #1c1c93;
+    background-color: #1c1c93;
+    color: #fff;
+}
+

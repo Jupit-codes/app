@@ -10,19 +10,22 @@
 
 
 .marketTransaction{
-    flex: 1 1 80%;
+    flex: 1 1 60%;
     margin: 10px;
     background-color: #fff;
+    height: 450px;
 }
 
 .walletbalance{
-    flex: 0 0 30%;
+    flex: 0 0 40%;
     border-radius: 15px;
     margin: 10px;
     background-color: #fff;
     padding: 20px;
-    height: 100%;
+    height: 450px;
+    position: relative;
 }
+
 
 .walletBalanceTitle{
     display: flex;
@@ -114,4 +117,54 @@
 }
 .walletCard img{
     width: 100%;
+}
+.designcover{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDesign{
+    width: 100%;
+    
+    
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    
+}
+.cardBTC{
+    width: 100px;
+    min-height: 100%;
+    height: 220px;
+    background-color: #db2db3;
+}
+
+.cardUSDT{
+    width: 100px;
+    min-height: 100%;
+    height: 220px;
+    background-color: #2e98e5;
+}
+
+.cardNairaCover{
+   position: absolute;
+   z-index: 1;
+   
+   width: 100%;
+   height: 60%;
+  
+   padding-left: 40px;
+   padding-right: 40px;
+   
+   
+}
+
+.cardNaira{
+    width: 100%;
+    height: 100%;
+    background-color: #6218c5;
 }

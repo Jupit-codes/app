@@ -41,7 +41,7 @@ const Index = ()=>{
                         </div>
                     </div>
 
-                    <div className='walletAmount'>
+                    {/* <div className='walletAmount'>
                        <div className='amountWallet'>
                             <img src={Naira}/><div>Naira</div>
                         </div>
@@ -50,6 +50,22 @@ const Index = ()=>{
                         </div>
                         <div className='walletCard'>
                             <img src={Illustrator}/>
+                        </div>
+                    </div> */}
+   
+                    <div className='designcover'>
+                    <div className='cardNairaCover'>
+                        <div className='cardNaira'>
+
+                        </div>
+                    </div>
+                        <div className='cardDesign'>
+                            <div className='cardBTC'>
+                                    
+                            </div>
+                            <div className='cardUSDT'>
+                                    
+                            </div>
                         </div>
                     </div>
             </div>
