@@ -1,7 +1,7 @@
 .newWalletDiv{
     display: flex;
     width: 97%;
-    min-height: 100vh;
+    min-height: 80vh;
     margin-left: 20px;
     margin-right: 20px;
     height: 100%;
@@ -162,3 +162,14 @@
     font-size: 12px;
     font-family: 'Jura',sans-serif;
 }
+
+.liner{
+    width: 100%;
+    
+}
+
+
+
+
+
+
