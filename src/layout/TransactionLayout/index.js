@@ -85,8 +85,8 @@ const Index = ()=>{
     ]
     
     return (
-        <div className="transaction">
-            <h4>Wallet Transaction</h4>
+        <div className="transactions">
+            <h4>Wallet Transactions</h4>
                 {Loading && <img src={Spinner}/>}
                 {/* {data && data.length === 0 && 
                 <div>
@@ -99,7 +99,7 @@ const Index = ()=>{
                         </div>
                 </div>
                 } */}
-            {data .length > 0 && <Table  column={columns} data={data}/>}
+            {/* {data .length > 0 && <Table  column={columns} data={data}/>} */}
                 
        
         </div>
