@@ -7,9 +7,11 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Table from './Table';
 import Spinner from '../../assets/images/spinner.gif'
 import './table.css'
-import '../../assets/css/Body/body.css';
+// import { Table } from 'react-bootstrap';
+// import DataTable from 'react-data-table-component';
 
-const Index = ({openClose})=>{
+
+const Index = ()=>{
     const [data,setdata] = useState([]);
     const [error,seterror] = useState();
     const[Loading,setLoading] = useState(true)
@@ -39,11 +41,65 @@ const Index = ({openClose})=>{
 
 
 
-    useEffect(()=>{
-        getTransaction();
-    })
+        useEffect(()=>{
+            getTransaction();
+        })
 
-    
+        // const columns = [
+        //     {
+        //         name: 'TransactionID',
+        //         selector: row => row.title,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'Date',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'FromAddress',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'ToAddress',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'Coin',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'Amount',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'Note',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        //     {
+        //         name: 'Status',
+        //         selector: row => row.year,
+        //         sortable: true,
+        //     },
+        // ];
+        
+        // const datarep = [
+        //     {
+        //         id: 1,
+        //         title: 'Beetlejuice',
+        //         year: '1988',
+        //     },
+        //     {
+        //         id: 2,
+        //         title: 'Ghostbusters',
+        //         year: '1984',
+        //     },
+        // ]
 
 
     const columns = [
@@ -86,8 +142,8 @@ const Index = ({openClose})=>{
     ]
     
     return (
-        <div className={openClose ? 'bodyOpen':'bodyClose'}>
-            <h4>Wallet Transactions</h4>
+        <div className='history'>
+            
                 {Loading && <img src={Spinner}/>}
                 {/* {data && data.length === 0 && 
                 <div>
@@ -100,9 +156,17 @@ const Index = ({openClose})=>{
                         </div>
                 </div>
                 } */}
-            {/* {data .length > 0 && <Table  column={columns} data={data}/>} */}
+                <div className='tableDiv'>
+                    {data .length > 0 && <Table  column={columns} data={data}/>}
+                </div>
+           
                 
-       
+                {/* <div>
+                        <DataTable
+                            columns={columns}
+                            data={datarep}
+                        />
+                </div> */}
         </div>
     )
 }

@@ -2,16 +2,18 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    border: 0px;
   }
   th{
-    background-color: #ccc;
+    /* background-color: #ccc; */
   }
   
   td, th {
     border: 1px solid #dddddd;
     text-align: center;
-    padding: 5px;
-    font-size: 12px;
+    padding: 10px;
+    font-size: 13px;
+    font-family: 'Jura',sans-serif;
   }
   
   tr:nth-child(even) {
@@ -21,25 +23,28 @@ table {
     display: flex;
     align-items: center;
     height: 50px;
-    font-size: 14px;
-    font-family: Acme;
+    font-size: 16px;
+    font-family: 'Jura',sans-serif;
+    
     
   }
   .searchTable{
     padding: 5px;
     width: 200px;
     height: 30px;
-    font-size: 14px;
-    font-family: Acme;
+    font-size: 15px;
+    font-family: 'Jura',sans-serif;
     line-height: 25px;
     border-radius: 10px;
     margin-left: 5px;
+    
   }
   .globalClass{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-right: 20px; 
+  
     
   }
   .buttonNextPrev{
