@@ -7,8 +7,9 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Table from './Table';
 import Spinner from '../../assets/images/spinner.gif'
 import './table.css'
+import '../../assets/css/Body/body.css';
 
-const Index = ()=>{
+const Index = ({openClose})=>{
     const [data,setdata] = useState([]);
     const [error,seterror] = useState();
     const[Loading,setLoading] = useState(true)
@@ -85,7 +86,7 @@ const Index = ()=>{
     ]
     
     return (
-        <div className="transactions">
+        <div className={openClose ? 'bodyOpen':'bodyClose'}>
             <h4>Wallet Transactions</h4>
                 {Loading && <img src={Spinner}/>}
                 {/* {data && data.length === 0 && 
