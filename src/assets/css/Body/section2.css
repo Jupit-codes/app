@@ -169,7 +169,7 @@
     width: 100px;
     min-height: 100%;
     height: 200px;
-    background-color: #ffcc40;
+    background-color: #000;
     border-radius: 5px;
 
 }
@@ -183,7 +183,7 @@
 }
 
 .cardNAIRA{
-    background-color: #6218c5;
+    background-color: #1c1c93;
     width: 100px;
     min-height: 100%;
     height: 200px;
@@ -203,7 +203,7 @@
 .cardNaira{
     width: 100%;
     height: 100%;
-    background-color: #6218c5;
+    background-color: #1c1c93;
     padding: 20px;
     display: flex;
     flex-direction: column;
