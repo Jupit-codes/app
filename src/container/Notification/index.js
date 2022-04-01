@@ -3,9 +3,9 @@ import Footer from '.././../layout/BodyLayout/Footer'
 import NotificationLayout from '../../layout/NotificationLayout'
 const Index = ({openClose})=>{
     return (
-        <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
+        <div className={openClose ? 'bodyOpen':'bodyClose'}>
            <NotificationLayout/>
-           <Footer/>
+           
         </div>
     )
 }

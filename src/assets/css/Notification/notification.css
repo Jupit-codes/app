@@ -28,6 +28,9 @@
     flex-direction: row;
    margin-top: 10px;
 }
+.vNotification{
+    padding: 20px;
+}
 
 .notifyDiv div{
     font-family: Acme;

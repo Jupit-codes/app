@@ -136,11 +136,14 @@ const Index = ()=>{
 
     return (
         
-            <div className="transaction">
+            <div className="history">
                 {modal && <Details closeModal={setmodal} userid={userid}/>}
                 <div className='notifyTitle'>NOTIFICATION</div>
                {myLoader && <img src={Spinner}/>}
-               {!myLoader && state && _renderNotification()}
+               <div className='vNotification'>
+                    {!myLoader && state && _renderNotification()}       
+            
+                </div>
                
                 
 
