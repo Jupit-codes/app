@@ -7,7 +7,7 @@ const Index = ()=>{
                                 <div className='overlay'>
 
                                 </div>
-                                <div className='cardNaira'>
+                                <div className='cardNairaUSDT'>
                                     <div className='card_section_a'>
                                         <div>
                                             <img src={jupit}/>
@@ -48,7 +48,7 @@ const Index = ()=>{
                                 <div className='cardBTC'>
                                         
                                 </div>
-                                <div className='cardUSDT'>
+                                <div className='cardNAIRA'>
                                         
                                 </div>
                             </div>
