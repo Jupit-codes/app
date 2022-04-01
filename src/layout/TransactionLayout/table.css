@@ -4,9 +4,9 @@ table {
     width: 100%;
     border: 0px;
   }
-  th{
-    /* background-color: #ccc; */
-  }
+  /* th{
+    background-color: #ccc;
+  } */
   
   td, th {
     border: 1px solid #dddddd;

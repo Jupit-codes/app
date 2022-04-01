@@ -2,7 +2,7 @@ import { useEffect, useState ,useContext} from 'react'
 import '../../assets/css/Wallet/walletdefault.css'
 import Marketprice from '../../context/actions/marketprice'
 import { GlobalContext } from "../../context/Provider";
-
+import Newdefault from './newDefault'
 import Default from './default'
 import NairaMore from './niaraViewMore'
 import BTCMore from './btcViewMore'
@@ -22,7 +22,7 @@ const Index = ()=>{
         const _renderWalletDetails = ()=>{
             switch(walletTab){
                 case 'Default':
-                    return <Default Screen={getMoreDetails}/>
+                    return <Newdefault Screen={getMoreDetails}/>
                     break;
                 case 'NairaMore':
                     return <NairaMore Screen={getMoreDetails}/>

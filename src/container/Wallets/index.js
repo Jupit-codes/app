@@ -5,10 +5,10 @@ import WalletDefault from '../../layout/WalletLayout'
 import Footer from '.././../layout/BodyLayout/Footer'
 const Index = ({openClose})=>{
     return(
-        <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
-            <WelcomeNote/>
+        <div className={openClose ? 'bodyOpen':'bodyClose'}>
+            
             <WalletDefault/>
-            <Footer/>
+            
          {/* <ImportantNotice/> */}
      </div>
     )
