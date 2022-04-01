@@ -23,7 +23,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            $12,000,000
+                                        &#8358;12,000,000
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
