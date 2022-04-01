@@ -4,7 +4,16 @@ const Index = ()=>{
     return(
         <div className="newWalletDiv">
            <div>
-               Card
+                <div className='cardClassTab'>
+                    <div>
+                        Wallet Transaction
+                    </div>
+                    <div>
+                        
+                       
+                    </div>
+                </div>
+
            </div>
 
            <div>
