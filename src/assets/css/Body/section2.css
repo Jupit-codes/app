@@ -24,6 +24,8 @@
     padding: 20px;
     height: 450px;
     position: relative;
+    
+
 }
 
 
@@ -256,3 +258,39 @@
     font-size: 18px;
     font-family: 'Jura',sans-serif;
 }
+
+.rendercomponent{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.slideCardLeft{
+    animation: 1s slide-right;
+    overflow: hidden;
+    
+  }
+.slideCardRight{
+    animation: 1s slide-left;
+}
+
+
+
+  @keyframes slide-right {
+    from {
+      margin-left: -50%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+  
+
+  @keyframes slide-left {
+    from {
+      margin-right: -50%;
+    }
+    to {
+      margin-right: 0%;
+    }
+  }
