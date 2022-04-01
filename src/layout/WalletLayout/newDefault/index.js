@@ -4,9 +4,14 @@ import '../../../assets/css/Body/section2.css'
 import Naira from '../../BodyLayout/Section2/NAIRA.js'
 import Btc from '../../BodyLayout/Section2/BTC'
 import Usdt from '../../BodyLayout/Section2/USDT'
+import jupit from '../../../assets/images/utility/jupit.png'
+import cardType from '../../../assets/images/utility/mastercard.png'
+import { ProgressBar } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Index = ()=>{
 
     const [component,setComponent] = useState('Naira')
+    const now = 80;
     const _renderComponent = ()=>{
         switch (component) {
             case 'Naira':
@@ -37,15 +42,82 @@ const Index = ()=>{
                         </svg>
                     </div>
                 </div>
-                    <div className='rendercomponent'>
-                        
+                    <div className='xClass'>
+                   
+                        <div className='VerveCover'>
+                            <div className='verve cardBTC'>
+                                Verve
+                            </div>
+                            <div className='master'>
+                                <div class="master-child">
+                                <div className='card_section_a'>
+                                        <div>
+                                            <img src={jupit}/>
+                                        </div>
+                                        <div>
+                                            **** **** **** 0808
+                                        </div>
+
+                                    </div>
+                                    <div className='card_section_b'>
+                                        <div className='card_section_main'>
+                                            Btc Balance
+
+                                        </div>
+                                        <div className='card_section_balance'>
+                                            $12,000,000
+                                        </div>
+                                    </div>
+                                    <div className='card_section_c'>
+                                        <div>
+                                            VALID THRU<br/>
+                                            03/09
+                                        </div>
+                                        <div>
+                                            CARD HOLDER<br/>
+                                            ODEWUMI TEMILOLUWA
+                                        </div>
+                                        <div>
+                                            <img src={cardType} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='visa cardUSDT'>
+                                Visa
+                            </div>
+                        </div>
+
+                        <div class="btn_open_more">
+                            <div>
+                                View More
+                            </div>
+                        </div>
                         
                     </div>
+                    <div className='YClass'>
+                        <div className='myKyc'>
+                            <div>
+                                Transaction Limit
+                            </div>
+                            <div>
+                                KYC LEVEL
+                            </div>
+                        </div>
+                        <div className='progressbar'>
+                                <div className='progressValue'></div>
+                        </div>
+                    </div>
+                    
+                    
 
            </div>
 
            <div>
                Transaction
+               <div className='progressbar'>
+                    <ProgressBar variant="success" now={40} />
+                </div>
            </div>
         </div>
     )
