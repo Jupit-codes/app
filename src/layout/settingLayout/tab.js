@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../../assets/css/settings/tab.css'
 export const Tab = ({Active,currentActiveState})=>{
 
-   console.log('currentActiveState',currentActiveState)
+//    console.log('currentActiveState',currentActiveState)
     
     return(
         <div className="tabSettings">
