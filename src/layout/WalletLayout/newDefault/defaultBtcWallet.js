@@ -93,6 +93,16 @@ const Index = ({comp})=>{
 
     return(
         <div>
+                <div className='newRate'>
+                    <div>
+                        <Icon name="btc" size={25} /> <span>Bitcoin Wallet</span>
+                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice}&nbsp;(USD/BTC)</span></div>
+                    </div>
+                    <div>
+                        {_renderRate()}
+                    </div>
+                </div>
+                
              <div className='VerveCover'>
                             <div className='verve cardNairaReplace' onClick={()=>{comp('Naira')}}>
                             

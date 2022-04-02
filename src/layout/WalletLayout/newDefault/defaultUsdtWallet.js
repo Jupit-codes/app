@@ -1,5 +1,6 @@
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
+import { reactLocalStorage } from 'reactjs-localstorage'
 const Index = ()=>{
     return(
         <div>
@@ -34,7 +35,7 @@ const Index = ()=>{
                                         </div>
                                         <div>
                                             CARD HOLDER<br/>
-                                            ODEWUMI TEMILOLUWA
+                                            {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
                                         <div>
                                             <img src={cardType} />

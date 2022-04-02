@@ -302,7 +302,15 @@
     
 }
 
-
-
-
+.newRate{
+    display: flex;
+    justify-content: space-between;
+}
+.newRate div{
+    font-family: 'Jura',sans-serif;
+}
+.newRating{
+    font-size: 12px;
+    margin-left: 30px;
+}
 
