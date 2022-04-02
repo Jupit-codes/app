@@ -9,7 +9,12 @@ import cardType from '../../../assets/images/utility/mastercard.png'
 import { ProgressBar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NairaWalletChart from '../../../utils/Charts/nairawalletChart'
+import BtcWalletChart from '../../../utils/Charts/btcwalletchart'
+import UsdtWalletChart from '../../../utils/Charts/usdtwalletchart'
 import {BsArrowUpSquare,BsArrowDownSquare} from 'react-icons/bs'
+import NairaWallet from './defaultNairaWallet.js'
+import UsdtWallet from './defaultUsdtWallet.js'
+import BtcWallet from './defaultBtcWallet.js'
 const Index = ()=>{
 
     const [component,setComponent] = useState('Naira')
@@ -17,13 +22,29 @@ const Index = ()=>{
     const _renderComponent = ()=>{
         switch (component) {
             case 'Naira':
-                return <Naira comp={setComponent}/>
+                return <NairaWallet comp={setComponent}/>
                 break;
             case 'Btc':
-                return <Btc comp={setComponent}/>
+                return <BtcWallet comp={setComponent}/>
                 break;
             case 'Usdt':
-                return <Usdt comp={setComponent}/>
+                return <UsdtWallet comp={setComponent}/>
+                break;
+        
+            default:
+                break;
+        }
+    }
+    const _renderChartComponent = ()=>{
+        switch (component) {
+            case 'Naira':
+                return <NairaWalletChart comp={setComponent}/>
+                break;
+            case 'Btc':
+                return <BtcWalletChart comp={setComponent}/>
+                break;
+            case 'Usdt':
+                return <UsdtWalletChart comp={setComponent}/>
                 break;
         
             default:
@@ -46,55 +67,7 @@ const Index = ()=>{
                 </div>
                     <div className='xClass'>
                    
-                        <div className='VerveCover'>
-                            <div className='verve cardBTC'>
-                                Verve
-                            </div>
-                            <div className='master'>
-                                <div class="master-child">
-                                <div className='card_section_a'>
-                                        <div>
-                                            <img src={jupit}/>
-                                        </div>
-                                        <div>
-                                            **** **** **** 0808
-                                        </div>
-
-                                    </div>
-                                    <div className='card_section_b'>
-                                        <div className='card_section_main'>
-                                            Btc Balance
-
-                                        </div>
-                                        <div className='card_section_balance'>
-                                            $12,000,000
-                                        </div>
-                                    </div>
-                                    <div className='card_section_c'>
-                                        <div>
-                                            VALID THRU<br/>
-                                            03/09
-                                        </div>
-                                        <div>
-                                            CARD HOLDER<br/>
-                                            ODEWUMI TEMILOLUWA
-                                        </div>
-                                        <div>
-                                            <img src={cardType} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='visa cardUSDT'>
-                                Visa
-                            </div>
-                        </div>
-
-                        <div class="btn_open_more">
-                            <div>
-                                View More
-                            </div>
-                        </div>
+                       {_renderComponent()}
                         
                     </div>
                     <div className='YClass'>
@@ -147,7 +120,8 @@ const Index = ()=>{
                     </div>
                 </div>
                 <div>
-                    <NairaWalletChart/>
+                    {_renderChartComponent()}
+                    
                 </div>
                
            </div>

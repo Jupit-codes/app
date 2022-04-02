@@ -34,17 +34,17 @@ const Index = ()=>{
                     datasets: [
                     {
                         id: 1,
-                        label: 'Buy',
+                        label: 'Receive',
                         data: [0.5, 0.005,0.01,0.1,0.2,0.3,0.5,0.8,0.4,0.3,0.5,0.5],
                         backgroundColor: '#00DEA3',
                         borderColor: '#00DEA3',
                     },
                     {
                         id: 2,
-                        label: 'Sell',
+                        label: 'Send',
                         data: [1, 0.003,0.08,0.5,0.4,0.3,0.5,0.4,0.2,0.3,0.1,0.005],
-                        backgroundColor: '#5A55D2',
-                        borderColor: '#0071bd',
+                        backgroundColor: '#fff',
+                        borderColor: '#ff0000',
                         
                     },
                     ],

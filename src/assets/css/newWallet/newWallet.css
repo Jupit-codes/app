@@ -65,7 +65,7 @@
 }
 .verve{
     flex: 0 0 20%;
-    background-color: #f39321;
+    background-color: #d4af37;
     height: 200px;
     border-radius: 5px;
 
@@ -102,6 +102,10 @@
     justify-content: space-between;
 }
 
+.master-child-btc{
+    background-color: #d4af37;
+}
+
 .xClass{
     width: 100%;
     padding:20px
@@ -115,11 +119,11 @@
     align-items: center;
 }
 
-.btn_open_more > div{
+.btn_open_moreBTN{
     width: 50%;
     height: 40px;
     font-family: 'Jura',sans-serif;
-    background-color: #4444c5;
+    background-color: #1c1c93;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -245,6 +249,16 @@
     font-size: 10px;
     color: #cecece;
     font-family: 'Jura',sans-serif;
+}
+
+.cardNairaReplace{
+    background-color: #1c1c93;
+}
+.cardBtcReplace{
+    background-color: #d4af37;
+}
+.cardUsdtReplace{
+    background-color: #259c77;
 }
 
 
