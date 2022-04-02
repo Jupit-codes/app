@@ -8,6 +8,8 @@ import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
 import { ProgressBar } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NairaWalletChart from '../../../utils/Charts/nairawalletChart'
+import {BsArrowUpSquare,BsArrowDownSquare} from 'react-icons/bs'
 const Index = ()=>{
 
     const [component,setComponent] = useState('Naira')
@@ -116,10 +118,38 @@ const Index = ()=>{
            </div>
 
            <div>
-               Transaction
-               <div className='progressbar'>
-                    <ProgressBar variant="success" now={40} />
+               <div className='Transaction-TopUp'>
+                    <div className='TopUp'>
+                        <div>
+                            TopUp<br/>
+                            <span>Click To Top up your account.</span>
+                        </div>
+                        <div className='TopupIcon'>
+                            <BsArrowUpSquare color='#fff' size={20}/>
+                        </div>
+                    </div>
+                    <div className='Withdrawal'>
+                        <div>
+                            Withdrawal<br/>
+                            <span>Click to withdraw fund to your registered account.</span>
+                        </div>
+
+                        <div className='TopupIcon'>
+                            <BsArrowDownSquare color='#fff' size={20}/>
+                        </div>
+
+                    </div>
                 </div>
+                <div className='overviewMarket'>
+                    <div>
+                        Overview Balance<br/>
+                        <span>Wallet Transaction processed on monthly basis</span>
+                    </div>
+                </div>
+                <div>
+                    <NairaWalletChart/>
+                </div>
+               
            </div>
         </div>
     )

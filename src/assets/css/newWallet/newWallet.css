@@ -65,7 +65,7 @@
 }
 .verve{
     flex: 0 0 20%;
-    background-color: #000;
+    background-color: #f39321;
     height: 200px;
     border-radius: 5px;
 
@@ -168,6 +168,84 @@
     
 }
 
+.Transaction-TopUp{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    
+    
+    
+}
+
+.Transaction-TopUp >div{
+    flex:1 1 50%;
+}
+
+.TopUp{
+    background-color: #4444c5;
+    font-size: 12px;
+    font-family: 'Jura',sans-serif;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.TopUp >div > {
+    font-family: 'Jura',sans-serif;
+    font-size: 12px
+}
+
+.TopUp >div > span{
+    font-family: 'Jura',sans-serif;
+    font-size: 10px
+}
+
+.Withdrawal{
+    background-color: #1c1c94;
+    font-size: 12px;
+    font-family: 'Jura',sans-serif;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+}
+.Withdrawal >div >{
+    font-size: 12px;
+    font-family: 'Jura',sans-serif;
+}
+
+.Withdrawal >div > span{
+    font-family: 'Jura',sans-serif;
+    font-size: 10px
+}
+
+
+.TopupIcon{
+    display: flex;
+    justify-content: flex-end;
+   
+    align-items: center;
+    width: 20%;
+    cursor: pointer;
+    
+}
+.overviewMarket{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+}
+
+.overviewMarket > div{
+    font-size: 16px;
+    font-family: 'Jura',sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.overviewMarket > div> span{
+    font-size: 10px;
+    color: #cecece;
+    font-family: 'Jura',sans-serif;
+}
 
 
 
