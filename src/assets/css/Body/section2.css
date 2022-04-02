@@ -22,7 +22,9 @@
     margin: 10px;
     background-color: #fff;
     padding: 20px;
-    height: 450px;
+    height: 100%;
+    width: 100%;
+    min-height: 450px;
     position: relative;
     
 
@@ -33,6 +35,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    padding: 20px;
 }
 
 .balanceWallet{
@@ -139,8 +147,10 @@
     padding-right: 5px;
     cursor: pointer;
     position:absolute;
-    z-index: 1;
+    z-index: 2;
     display: none;
+    margin-top: 30px;
+    
     
     
 }
@@ -311,11 +321,33 @@
     height: 100%;
     overflow:hidden;
     position: absolute;
-    
-    
-    
+    margin-top: -40px;
+    z-index: 1;
+ 
 }
 
+.ViewAllAsset{
+    position: absolute;
+    z-index: 3;
+    bottom: 10%;
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ViewAllAsset > div{
+    width: 200px;
+    height: 50px;
+    color: #fff;
+    border-radius: 15px;
+    background-color: #1c1c93;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
 .slideCardLeft{
     animation: 1s slide-right;
     overflow: hidden;
@@ -323,6 +355,12 @@
   }
 .slideCardRight{
     animation: 1s slide-left;
+}
+
+.card_section_balance_equivalent{
+    font-family: 'Jura',sans-serif;
+    color: #000;
+    font-size: 12px;
 }
 
 

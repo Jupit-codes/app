@@ -17,7 +17,8 @@ import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
 const Index = ()=>{
 
-    const [component,setComponent] = useState('Naira')
+    const [component,setComponent] = useState('Naira');
+    const[showButton,setshowButton]=useState(false)
     const now = 80;
     const _renderComponent = ()=>{
         switch (component) {
@@ -57,14 +58,19 @@ const Index = ()=>{
            <div>
                 <div className='cardClassTab'>
                     <div className='cardClassTab-flex1'>
-                        Wallet Transactions
+                        Wallet Assets
                     </div>
                     <div className='cardClassTab-flex2'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1c1c93" class="bi bi-three-dots-vertical" viewBox="0 0 16 16" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1c1c93" class="bi bi-three-dots-vertical" viewBox="0 0 16 16" onClick={()=>{setshowButton(!showButton)}} >
                             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                         </svg>
                     </div>
                 </div>
+                <div className={showButton ? 'type showtype':'type'} >
+                        <div onClick={()=>{setComponent('Btc');setshowButton(!showButton)}}>BTC WALLET</div>
+                        <div onClick={()=>{setComponent('Usdt');setshowButton(!showButton)}}>USDT WALLET</div>
+                        <div onClick={()=>{setComponent('Naira');setshowButton(!showButton)}}>NAIRA WALLET</div>
+                    </div>
                     <div className='xClass'>
                    
                        {_renderComponent()}

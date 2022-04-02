@@ -1,11 +1,101 @@
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
-const Index = ()=>{
+import { useState,useContext,useEffect } from 'react';
+import {BsArrowLeftCircle} from 'react-icons/bs'
+import '../../../assets/css/Wallet/walletdefault.css'
+import empty from '../../../assets/images/empty.png'
+import Marketprice from '../../../context/actions/marketprice'
+import { GlobalContext } from "../../../context/Provider";
+import Icon from "react-crypto-icons";
+import { reactLocalStorage } from "reactjs-localstorage";
+import ReceiveModal from '../../../utils/modal/customModal'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import axios from 'axios';
+
+const Index = ({comp})=>{
+
+    const history = useHistory();
+    const [userBtc ,setuserBtc]= useState();
+    const [rate, setrate]=useState([])
+    const [btcprice, setbtcprice]= useState()
+    const [percentageBTC, setpercentageBTC]= useState()
+    const [usdtprice, setusdtprice]= useState()
+    const [percentageUSDT ,setpercentageUSDT]= useState()
+    const [openModal, setopenModal] = useState(false);
+    const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
+  
+    const _renderRate =()=>{
+        if(percentageBTC <0){
+            return <div className='bullish'><span>{percentageBTC}%</span></div>
+        }
+        else if(percentageBTC == 0){
+            return <div className='neutral'><span>{percentageBTC}%</span></div>
+        }
+        else if(percentageBTC > 0){
+            return <div className='bearish'><span>{percentageBTC}%</span></div>
+        }
+    }
+
+    useEffect(()=>{
+        let x = reactLocalStorage.getObject('user');
+        
+        // setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
+        Marketprice()(priceDispatch);
+        if(data){
+            let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
+            let xUSDT = ((data.USDT.USD.PRICE - data.USDT.USD.OPEN24HOUR) / data.USDT.USD.OPEN24HOUR) * 100
+            
+            setpercentageBTC(parseFloat(xBTC).toFixed(5));
+            setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
+            setbtcprice(data.BTC.USD.PRICE);
+            setusdtprice(data.USDT.USD.PRICE);
+        }
+        
+
+   },[data])
+
+   const getbalance = (_id)=>{
+        
+    axios({
+        method: "POST",
+        url: `https://myjupit.herokuapp.com/users/refresh`,
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':reactLocalStorage.get('token')
+        },
+        data:JSON.stringify({_id:_id})
+    })
+    .then((res)=>{
+        
+        setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+        
+      
+    })
+    .catch((err)=>{
+    
+        console.log(err.response)
+        
+    })
+}
+ useEffect(()=>{
+     let _id = reactLocalStorage.getObject('user')._id;
+     getbalance(_id)
+ },[userBtc])
+
+
+   
+
+//   const SendBTC = ()=>{
+//       history.push('/client/sendbtc')
+//   }
+
+
+
     return(
         <div>
              <div className='VerveCover'>
-                            <div className='verve cardNairaReplace'>
-                                
+                            <div className='verve cardNairaReplace' onClick={()=>{comp('Naira')}}>
+                            
                             </div>
                             <div className='master'>
                                 <div class="master-child master-child-btc">
@@ -20,21 +110,24 @@ const Index = ()=>{
                                     </div>
                                     <div className='card_section_b'>
                                         <div className='card_section_main'>
-                                            Btc Balance
+                                            BTC Balance
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            $12,000,000
+                                        {userBtc}BTC
+                                        </div>
+                                        <div className='card_section_balance_equivalent'>
+                                            USD EQUIVALENT:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3)}
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
                                         <div>
                                             VALID THRU<br/>
-                                            03/09
+                                            00/00
                                         </div>
                                         <div>
                                             CARD HOLDER<br/>
-                                            ODEWUMI TEMILOLUWA
+                                            {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
                                         <div>
                                             <img src={cardType} />
@@ -42,7 +135,7 @@ const Index = ()=>{
                                     </div>
                                 </div>
                             </div>
-                            <div className='visa cardNaira'>
+                            <div className='visa cardNaira' onClick={()=>{comp('Usdt')}}>
                                 Visa
                             </div>
                         </div>

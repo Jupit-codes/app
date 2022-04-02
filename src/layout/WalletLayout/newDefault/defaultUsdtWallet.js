@@ -5,7 +5,7 @@ const Index = ()=>{
         <div>
              <div className='VerveCover'>
                             <div className='verve cardBtcReplace'>
-                                
+                               
                             </div>
                             <div className='master'>
                                 <div class="master-child cardUsdtReplace">
@@ -42,8 +42,8 @@ const Index = ()=>{
                                     </div>
                                 </div>
                             </div>
-                            <div className='visa cardNairaReplace'>
-                                Visa
+                            <div className='visa cardNairaReplace coat'>
+                                
                             </div>
                         </div>
 

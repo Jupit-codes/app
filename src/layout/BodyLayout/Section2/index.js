@@ -52,6 +52,11 @@ const Index = ()=>{
                     <div className='rendercomponent'>
                         {_renderComponent()}
                     </div>
+                    <div className='ViewAllAsset'>
+                        <div>
+                            All Assets
+                        </div>
+                    </div>
                     
 
             </div>
