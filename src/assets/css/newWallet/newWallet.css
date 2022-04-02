@@ -305,6 +305,7 @@
 .newRate{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 .newRate div{
     font-family: 'Jura',sans-serif;

@@ -15,8 +15,10 @@ import {BsArrowUpSquare,BsArrowDownSquare} from 'react-icons/bs'
 import NairaWallet from './defaultNairaWallet.js'
 import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 const Index = ()=>{
-
+//    const location =  useLocation()
+   
     const [component,setComponent] = useState('Naira');
     const[showButton,setshowButton]=useState(false)
     const now = 80;

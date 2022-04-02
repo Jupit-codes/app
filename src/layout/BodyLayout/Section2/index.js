@@ -1,7 +1,7 @@
 import '../../../assets/css/Body/section2.css'
 import { Chart, LineAdvance} from 'bizcharts';
 import LineChart from '../lineChart.js'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Naira from '../../../assets/images/utility/naira.png'
 import Illustrator from '../../../assets/images/utility/Illustration.png'
 import Ornament from '../../../assets/images/utility/Ornament.png'
@@ -10,10 +10,15 @@ import { DropdownButton,Dropdown } from 'react-bootstrap';
 import Btc from './BTC.js'
 import NairaWallet from './NAIRA.js'
 import Usdt from './USDT.js'
+import Marketprice from '../../../context/actions/marketprice'
+import { GlobalContext } from "../../../context/Provider";
+import { reactLocalStorage } from 'reactjs-localstorage';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const Index = ()=>{
     const [showButton,setshowButton] = useState(false)
     const [component,setComponent] = useState('Naira')
-    const _renderComponent = ()=>{
+    const history = useHistory();
+        const _renderComponent = ()=>{
         switch (component) {
             case 'Naira':
                 return <NairaWallet comp={setComponent}/>
@@ -28,6 +33,14 @@ const Index = ()=>{
             default:
                 break;
         }
+    }
+
+    const _handleWallet = ()=>{
+        history.push({
+            pathname: '/client/wallet',
+            state: { wallettype: component }
+        });
+        
     }
     return(
         <div className="body_section2">
@@ -44,7 +57,7 @@ const Index = ()=>{
                         </div>
                         
                     </div>
-                    <div className={showButton ? 'type showtype':'type'} >
+                    <div className={showButton ? 'typeBody showtype':'typeBody'} >
                         <div onClick={()=>{setComponent('Btc');setshowButton(!showButton)}}>BTC</div>
                         <div onClick={()=>{setComponent('Usdt');setshowButton(!showButton)}}>USDT</div>
                         <div onClick={()=>{setComponent('Naira');setshowButton(!showButton)}}>NAIRA</div>
@@ -53,7 +66,7 @@ const Index = ()=>{
                         {_renderComponent()}
                     </div>
                     <div className='ViewAllAsset'>
-                        <div>
+                        <div className={component} onClick={()=>_handleWallet()}>
                             All Assets
                         </div>
                     </div>

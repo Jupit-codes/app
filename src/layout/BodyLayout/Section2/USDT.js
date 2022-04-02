@@ -1,5 +1,6 @@
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
+import { reactLocalStorage } from 'reactjs-localstorage'
 const Index = ()=>{
     return (
         <div className='designcover slideCardLeft'>
@@ -19,21 +20,21 @@ const Index = ()=>{
                                     </div>
                                     <div className='card_section_b'>
                                         <div className='card_section_main'>
-                                            Usdt Balance
+                                            USDT Balance
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            $12,000,000
+                                        {reactLocalStorage.getObject('user').usdt_wallet[0].balance.$numberDecimal}&nbsp;TETHER
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
                                         <div>
                                             VALID THRU<br/>
-                                            03/09
+                                            00/00
                                         </div>
                                         <div>
                                             CARD HOLDER<br/>
-                                            ODEWUMI TEMILOLUWA
+                                            {reactLocalStorage.getObject('user').username}
                                         </div>
                                         <div>
                                             <img src={cardType} />
