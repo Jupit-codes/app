@@ -264,7 +264,7 @@ export default function ColorTabs() {
         textColor="primary"
         indicatorColor='primary'
         aria-label="secondary tabs example"
-        style={{backgroundColor:'#fff'}}
+        style={{backgroundColor:'#fff',marginLeft:20}}
       >
         
          <Tab icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />

@@ -57,6 +57,48 @@ const Index = ()=>{
 
         return kycprogress
     }
+    const kycProgressBarVariant = ()=>{
+        let kycprogress = 0
+        if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+            
+            kycprogress += 25
+        }
+
+        if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+            kycprogress += 30
+        }
+
+        switch(kycprogress){
+            case 25:
+                return 'info'
+            case 55:
+                return 'warning'
+            case 100:
+                return 'success'
+        }
+    }
+
+    const kycTransaction = ()=>{
+        let kycprogress = 0
+        if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+            
+            kycprogress += 25
+        }
+
+        if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+            kycprogress += 30
+        }
+
+        switch(kycprogress){
+            case 25:
+                return '100 USD'
+            case 55:
+                return '500 USD'
+            case 100:
+                return 'Limitless'
+        }
+    }
+
     useEffect(()=>{
         if(location.state){
             if(location.state.wallettype != "undefined"){
@@ -125,14 +167,14 @@ const Index = ()=>{
                     <div className='YClass'>
                         <div className='myKyc'>
                             <div>
-                                Transaction Limit
+                                Transaction Limit <span><b>({kycTransaction()})</b></span>
                             </div>
                             <div>
                                 KYC LEVEL({kycProgressBar()}%)
                             </div>
                         </div>
                         
-                         <ProgressBar now={now} label={`${now}%`} style={{height:40,width:'100%'}} variant="secondary" />
+                         <ProgressBar now={kycProgressBar()} label={`${kycProgressBar()}%`} style={{height:40,width:'100%'}} variant={kycProgressBarVariant()} />
                         {/* <div className='progressbar'>
                              
                             

@@ -10,8 +10,8 @@ import KYC from '../../layout/KycLayout'
 const Index=({openClose})=>{
    
     return (
-        <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
-            <WelcomeNote/>
+        <div className={openClose ? 'bodyOpen':'bodyClose'}>
+           
             <KYC/>
            {/* <Footer/> */}
             {/* <ImportantNotice/> */}
