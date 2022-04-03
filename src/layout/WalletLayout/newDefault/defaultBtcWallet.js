@@ -85,9 +85,9 @@ const Index = ({comp})=>{
 
    
 
-//   const SendBTC = ()=>{
-//       history.push('/client/sendbtc')
-//   }
+  const SendBTC = ()=>{
+      history.push('/client/sendbtc')
+  }
 
 
 
@@ -151,7 +151,7 @@ const Index = ({comp})=>{
                         </div>
 
                         <div class="btn_open_more ">
-                            <div className='btn_open_moreBTN cardBtcReplace'>
+                            <div className='btn_open_moreBTN cardBtcReplace' onClick={SendBTC}>
                                 View More
                             </div>
                         </div>

@@ -86,7 +86,7 @@ const Index = ()=>{
 
    //1 SUN = 0.199
 
-  const SendBTC = ()=>{
+  const SendUSDT = ()=>{
       history.push('/client/sendusdt')
   }
 
@@ -146,7 +146,7 @@ const Index = ()=>{
                         </div>
 
                         <div class="btn_open_more">
-                            <div className='btn_open_moreBTN cardUsdtReplace'>
+                            <div className='btn_open_moreBTN cardUsdtReplace' onClick={SendUSDT}>
                                 View More
                             </div>
                         </div>
