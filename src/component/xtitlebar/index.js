@@ -5,9 +5,19 @@ import {IoIosChatbubbles} from 'react-icons/io'
 import ProfileImage from '../../assets/images/utility/profile-pic.png'
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useEffect,useState } from 'react'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 const Index = ()=>{
+    const history = useHistory();
     const [salutation, setsalutation] = useState();
     const[userInfor,setUserInfor] = useState();
+
+    const logout =()=>{
+        reactLocalStorage.remove('user');
+        reactLocalStorage.remove('token');
+        reactLocalStorage.remove('kyc');
+        reactLocalStorage.remove('2fa');
+        history.push('/client/login')
+     }
     
     useEffect(()=>{
         let x = reactLocalStorage.getObject('user');
@@ -27,6 +37,13 @@ const Index = ()=>{
         }
         
     },[])
+    const dateandtime = ()=>{
+       let date =  new Date();
+       const actualtime = date.toLocaleTimeString(); 
+       const actualDate =  date.toDateString();
+
+       return actualDate +`(${actualtime})`
+    }
     return (
         <div className="xtitle">
                 <div className='WelcomeClass'>
@@ -34,7 +51,7 @@ const Index = ()=>{
                         {salutation}, {userInfor}.
                     </div>
                     <div className='dateHello'>
-                        12:22pm, 29 March 2022.
+                        {dateandtime()}
                     </div>
 
                 </div>
@@ -57,7 +74,7 @@ const Index = ()=>{
                             Geoffrey
                         </div> */}
                         
-                        <div className='profileImage'>
+                        <div className='profileImage' onClick={logout}>
                            <img src={ProfileImage}/>
                         </div>
 

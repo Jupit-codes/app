@@ -16,6 +16,7 @@ const Index=({handle,currentHandle})=>{
     const logout =()=>{
        reactLocalStorage.remove('user');
        reactLocalStorage.remove('token');
+       reactLocalStorage.remove('kyc');
        history.push('/client/login')
     }
     

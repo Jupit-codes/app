@@ -8,9 +8,17 @@ import { useEffect } from 'react';
 import { toast,ToastContainer } from 'react-toastify'
 
 import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const Index = ({Next,close})=>{
-   
-
+    const history = useHistory();
+    const closeButton = ()=>{
+        close(false);
+        reactLocalStorage.remove('user');
+        reactLocalStorage.remove('token');
+        reactLocalStorage.remove('kyc');
+        history.push('/client/login')
+      
+    }
   
     return(
         <div>
@@ -24,8 +32,8 @@ const Index = ({Next,close})=>{
                     Going Forward, you will need your Authenticator as used for the activation to login to your profile.
                 </p>
             </div>
-            <div className='TabInput SubmitModal mt-4' onClick={()=>close(false)}>
-                    2FA SUCCESSFULLY ACTIVATED...
+            <div className='TabInput SubmitModal mt-4' onClick={closeButton}>
+                    FINALIZE SETUP
             </div>
 
             

@@ -72,7 +72,7 @@ const Index = ()=>{
             case 25:
                 return 'info'
             case 55:
-                return 'warning'
+                return 'secondary'
             case 100:
                 return 'success'
         }
