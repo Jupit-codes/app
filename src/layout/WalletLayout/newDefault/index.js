@@ -16,12 +16,47 @@ import NairaWallet from './defaultNairaWallet.js'
 import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { reactLocalStorage } from 'reactjs-localstorage'
 const Index = ()=>{
    const location =  useLocation()
    
     const [component,setComponent] = useState('Naira');
     const[showButton,setshowButton]=useState(false)
+    console.log(reactLocalStorage.getObject('kyc'))
+    const [kycLevel1,setkycLevel1] = useState('');
+    const [kycLevel2,setkycLevel2] = useState('');
+    const [kycLevel3,setkycLevel3] = useState('');
+    const [progressbar,setprogressbar] = useState('')
     const now = 80;
+    
+    // useEffect(()=>{
+       
+    //     if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+            
+    //         kycprogress += 25
+    //     }
+
+    //     if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+    //         kycprogress += 30
+    //     }
+
+    //     setprogressbar(kycprogress);
+    //     console.log(kycprogress)
+        
+    // },[kycprogress])
+    const kycProgressBar = ()=>{
+        let kycprogress = 0
+        if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+            
+            kycprogress += 25
+        }
+
+        if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+            kycprogress += 30
+        }
+
+        return kycprogress
+    }
     useEffect(()=>{
         if(location.state){
             if(location.state.wallettype != "undefined"){
@@ -30,6 +65,7 @@ const Index = ()=>{
         }
         
     },[location])
+    
     const _renderComponent = ()=>{
         switch (component) {
             case 'Naira':
@@ -92,12 +128,15 @@ const Index = ()=>{
                                 Transaction Limit
                             </div>
                             <div>
-                                KYC LEVEL
+                                KYC LEVEL({kycProgressBar()}%)
                             </div>
                         </div>
-                        <div className='progressbar'>
-                                <div className='progressValue'></div>
-                        </div>
+                        
+                         <ProgressBar now={now} label={`${now}%`} style={{height:40,width:'100%'}} variant="secondary" />
+                        {/* <div className='progressbar'>
+                             
+                            
+                        </div> */}
                     </div>
 
                    
