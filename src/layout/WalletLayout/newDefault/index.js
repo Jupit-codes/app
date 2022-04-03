@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../../assets/css/newWallet/newWallet.css'
 import '../../../assets/css/Body/section2.css'
 import Naira from '../../BodyLayout/Section2/NAIRA.js'
@@ -17,11 +17,19 @@ import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 const Index = ()=>{
-//    const location =  useLocation()
+   const location =  useLocation()
    
     const [component,setComponent] = useState('Naira');
     const[showButton,setshowButton]=useState(false)
     const now = 80;
+    useEffect(()=>{
+        if(location.state){
+            if(location.state.wallettype != "undefined"){
+                setComponent(location.state.wallettype)
+            }
+        }
+        
+    },[location])
     const _renderComponent = ()=>{
         switch (component) {
             case 'Naira':

@@ -15,9 +15,15 @@ const Index = ()=>{
     const getMoreDetails = (ScreenName)=>{
         setwalletTab(ScreenName)
     }
+    console.log(location.state.wallettype)
     
     useEffect(()=>{
-        location.state && setwalletTab(location.state.currentPage)
+        if(location.state){
+            if(location.state.wallettype != "undefined"){
+                setwalletTab(location.state.wallettype)
+            }
+        }
+        console.log(walletTab)
     },[location])
         const _renderWalletDetails = ()=>{
             switch(walletTab){
