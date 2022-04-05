@@ -17,12 +17,15 @@ import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { reactLocalStorage } from 'reactjs-localstorage'
+import ReceiveModal from '../../../utils/modal/customModal.js'
+import ReceiveModalUsdt from '../../../utils/modal/usdtreceivemodal.js'
 const Index = ()=>{
    const location =  useLocation()
    const history = useHistory();
     const [component,setComponent] = useState('Naira');
     const[showButton,setshowButton]=useState(false)
-
+    const [openModal,setopenModal] = useState(false);
+    const [openModalUsdt,setopenModalUsdt] = useState(false);
     
     // console.log(reactLocalStorage.getObject('kyc'))
     const [kycLevel1,setkycLevel1] = useState('');
@@ -211,9 +214,52 @@ const Index = ()=>{
     const sendUsdt = ()=>{
         history.push('/client/sendusdt')
     }
+    const _showWithdrawal = ()=>{
+
+        if(component === "Usdt"){
+            return      <div className='TopUpSpace'>
+                        <div>
+                            Receive USDT<br/>
+                            <span>Click to Receive USDT</span>
+                        </div>
+
+                        <div className='TopupIcon'>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModalUsdt(true)}/>
+                        </div>
+                    </div>
+        }
+        else if(component === "Btc"){
+            return  <div className='TopUpSpace'>
+                        <div>
+                            Withdrawal<br/>
+                            <span>Click to Receive BTC</span>
+                        </div>
+
+                        <div className='TopupIcon'>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModal(true)}/>
+                        </div>
+                    </div>
+        }
+        else if(component === "Naira"){
+            return  <div className='TopUpSpace'>
+                        <div>
+                            Withdrawal<br/>
+                            <span>Withdrawal To Your Bank Acct</span>
+                        </div>
+
+                    <div className='TopupIcon'>
+                        <BsArrowDownSquare color='#fff' size={20}/>
+                    </div>
+                     </div>
+        }
+        
+    }
     return(
         <div className="newWalletDiv">
+            
            <div>
+           {openModal && <ReceiveModal closeModal={setopenModal}/>}
+           {openModalUsdt && <ReceiveModalUsdt closeModal={setopenModal}/>}
                 <div className='cardClassTab'>
                     <div className='cardClassTab-flex1'>
                         Wallet Assets
@@ -263,14 +309,7 @@ const Index = ()=>{
                         {_showTopUP()}
                     </div>
                     <div className={_selectClassWithdrawal()}>
-                        <div>
-                            Withdrawal<br/>
-                            <span>Click to withdraw fund to your registered account.</span>
-                        </div>
-
-                        <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20}/>
-                        </div>
+                        {_showWithdrawal()}
 
                     </div>
                 </div>

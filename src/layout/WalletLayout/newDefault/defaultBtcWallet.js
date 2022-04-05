@@ -8,15 +8,16 @@ import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import Icon from "react-crypto-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
-import ReceiveModal from '../../../utils/modal/customModal'
+// import ReceiveModal from '../../../utils/modal/customModal'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
+import ReceiveModal from '../../../utils/modal/receiveModal.js'
 
 const Index = ({comp})=>{
 
     const history = useHistory();
     const [userBtc ,setuserBtc]= useState();
-    const [rate, setrate]=useState([])
+    const [rate, setrate]=useState([]);
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
     const [usdtprice, setusdtprice]= useState()
@@ -93,7 +94,9 @@ const Index = ({comp})=>{
 
     return(
         <div>
+            
                 <div className='newRate'>
+                    
                     <div>
                         <Icon name="btc" size={25} /> <span>Bitcoin Wallet</span>
                         <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice}&nbsp;(USD/BTC)</span></div>
