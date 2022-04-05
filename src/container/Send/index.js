@@ -4,10 +4,10 @@ import WelcomeNote from '../../layout/BodyLayout/WelcomeNote';
 import Footer from '.././../layout/BodyLayout/Footer'
 const Index =({openClose})=>{
     return (
-        <div className={openClose ? 'bodyClass':'bodyClass-collapse'}>
-            <WelcomeNote/>
+        <div className={openClose ? 'bodyOpen':'bodyClose'}>
+            
             <SendLayout/>
-            <Footer/>
+           
 
         </div>
     )

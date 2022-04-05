@@ -191,7 +191,7 @@ const Index =()=>{
     const handleSend = ()=>{
         history.push({
             pathname:'/client/wallet',
-            state:{currentPage:'BTCMore'}
+            state:{wallettype:'Btc'}
         })
     }
     const handleChangeFee = (e)=>{

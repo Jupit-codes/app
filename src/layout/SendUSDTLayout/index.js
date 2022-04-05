@@ -188,7 +188,7 @@ const Index =()=>{
     const handleSend = ()=>{
         history.push({
             pathname:'/client/wallet',
-            state:{currentPage:'USDTMore'}
+            state:{wallettype:'Usdt'}
         })
     }
     const handleChangeFee = (e)=>{

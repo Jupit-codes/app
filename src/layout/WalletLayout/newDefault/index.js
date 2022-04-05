@@ -15,14 +15,16 @@ import {BsArrowUpSquare,BsArrowDownSquare} from 'react-icons/bs'
 import NairaWallet from './defaultNairaWallet.js'
 import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { reactLocalStorage } from 'reactjs-localstorage'
 const Index = ()=>{
    const location =  useLocation()
-   
+   const history = useHistory();
     const [component,setComponent] = useState('Naira');
     const[showButton,setshowButton]=useState(false)
-    console.log(reactLocalStorage.getObject('kyc'))
+
+    
+    // console.log(reactLocalStorage.getObject('kyc'))
     const [kycLevel1,setkycLevel1] = useState('');
     const [kycLevel2,setkycLevel2] = useState('');
     const [kycLevel3,setkycLevel3] = useState('');
@@ -101,6 +103,7 @@ const Index = ()=>{
 
     useEffect(()=>{
         if(location.state){
+            console.log(location.state)
             if(location.state.wallettype != "undefined"){
                 setComponent(location.state.wallettype)
             }
@@ -179,11 +182,11 @@ const Index = ()=>{
         else if(component === "Btc"){
             return  <div className='TopUpSpace'>
                          <div>
-                            Send<br/>
+                            Send BTC<br/>
                             <span>Click To Send Funds.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20}/>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={sendBtc}/>
                         </div>
                     </div>
                    
@@ -195,11 +198,18 @@ const Index = ()=>{
                             <span>Click To Send funds.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20}/>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={sendUsdt}/>
                         </div>
                     </div>
                    
         }
+    }
+
+    const sendBtc = ()=>{
+        history.push('/client/sendbtc')
+    }
+    const sendUsdt = ()=>{
+        history.push('/client/sendusdt')
     }
     return(
         <div className="newWalletDiv">

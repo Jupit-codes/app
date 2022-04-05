@@ -342,11 +342,15 @@
 .TopUpSpace{
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
-    font-family: 'Jura',sans-serif;
+    
     width: 100%;
 }
-.TopUpSpace > span{
-    font-size: 9px;
+.TopUpSpace > div > span{
+    font-size: 10px;
+}
+
+.TopUpSpace >div{
+    font-size: 12px;
+    font-family: 'Jura',sans-serif;
 }
 
