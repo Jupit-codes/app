@@ -12,7 +12,7 @@ const Index =()=>{
             <div>
                <div className='mission-title'>Borderless Freedom</div> 
                <div className='mission-main'>
-               Our vision to advance the use of borderless currency within the Africa communities. We want to make sure anyone and everyone who wants to engage in borderless payments gets prompt and clear access in their transactions.
+               Our vision is to advance the use of borderless currency within the Africa communities. We want to make sure anyone and everyone who wants to engage in borderless payments gets prompt and clear access in their transactions.
                </div>
                <div className='mission-text'>
                    Vision
