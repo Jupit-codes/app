@@ -189,7 +189,7 @@
 }
 
 .TopUp{
-    background-color: #4444c5;
+    
     font-size: 12px;
     font-family: 'Jura',sans-serif;
     color: #fff;
@@ -197,6 +197,31 @@
     display: flex;
     justify-content: space-between;
 }
+
+.NairaTopUp{
+    background-color: #4444c5;
+}
+
+.UsdtTopUp{
+    background-color: #36b68d;
+}
+
+.BtcWithdrawal{
+    background-color: #a78d37;
+}
+
+.NairaWithdrawal{
+    background-color: #1c1c94;
+}
+
+.UsdtWithdrawal{
+    background-color: #259c77;
+}
+
+.BtcTopUp{
+    background-color: #d4af37;
+}
+
 .TopUp >div > {
     font-family: 'Jura',sans-serif;
     font-size: 12px
@@ -208,7 +233,7 @@
 }
 
 .Withdrawal{
-    background-color: #1c1c94;
+   
     font-size: 12px;
     font-family: 'Jura',sans-serif;
     color: #fff;

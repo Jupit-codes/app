@@ -140,7 +140,67 @@ const Index = ()=>{
                 break;
         }
     }
+    const _selectClass=()=>{
+        if(component === "Naira"){
+            return 'TopUp NairaTopUp';
+        }
+        else if(component === "Btc"){
+            return 'TopUp BtcTopUp';
+        }
+        else if(component === "Usdt"){
+            return 'TopUp UsdtTopUp';
+        }
+    }
 
+    const _selectClassWithdrawal=()=>{
+        if(component === "Naira"){
+            return 'TopUp NairaWithdrawal';
+        }
+        else if(component === "Btc"){
+            return 'TopUp BtcWithdrawal';
+        }
+        else if(component === "Usdt"){
+            return 'TopUp UsdtWithdrawal';
+        }
+    }
+    const _showTopUP = ()=>{
+        if(component === "Naira"){
+            return  <div>
+                         <div>
+                            TopUp<br/>
+                            <span>Click To Top up your account.</span>
+                        </div>
+                        <div className='TopupIcon'>
+                            <BsArrowUpSquare color='#fff' size={20}/>
+                        </div>
+                    </div>
+                   
+        }
+        else if(component === "Btc"){
+            return  <div>
+                         <div>
+                            Send<br/>
+                            <span>Click To Send Funds.</span>
+                        </div>
+                        <div className='TopupIcon'>
+                            <BsArrowUpSquare color='#fff' size={20}/>
+                        </div>
+                    </div>
+                   
+        }
+        else if(component === "Usdt"){
+            return  <div>
+                         <div>
+                            Send<br/>
+                            <span>Click To Send funds.</span>
+                        </div>
+                        <div className='TopupIcon'>
+                            <BsArrowUpSquare color='#fff' size={20}/>
+                        </div>
+                    </div>
+                   
+        }
+    }
     return(
         <div className="newWalletDiv">
            <div>
@@ -189,16 +249,10 @@ const Index = ()=>{
 
            <div>
                <div className='Transaction-TopUp'>
-                    <div className='TopUp'>
-                        <div>
-                            TopUp<br/>
-                            <span>Click To Top up your account.</span>
-                        </div>
-                        <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20}/>
-                        </div>
+                    <div className={_selectClass()}>
+                        {_showTopUP()}
                     </div>
-                    <div className='Withdrawal'>
+                    <div className={_selectClassWithdrawal()}>
                         <div>
                             Withdrawal<br/>
                             <span>Click to withdraw fund to your registered account.</span>
