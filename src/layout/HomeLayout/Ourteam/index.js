@@ -5,6 +5,7 @@ import CTO from '../../../assets/images/team/DEV.png'
 import CTOII from '../../../assets/images/team/DEV2.png'
 import CCO from '../../../assets/images/team/SM.png'
 import CCOII from '../../../assets/images/team/SM2.png'
+import LEKAN from '../../../assets/images/team/lekan.png'
 const Index = ()=>{
     return(
         <div className="ourteam" id="ourteam">
@@ -29,8 +30,8 @@ const Index = ()=>{
                     <div className='TeamMember'>
                         <div>OLALEKAN AKINOLA</div>
                         <div>Brand Strategist</div>
-                        <img src={AMD} className="show" />
-                        <img src={CTO} className="onHover" />
+                        <img src={LEKAN} className="show" />
+                        <img src={LEKAN} className="onHover" />
 
                     </div>
                 </div>

@@ -90,21 +90,22 @@ const Index = ()=>{
            <div className='cardHero'>
                <div className='heroCard'>
                         <div className='jupitIco'>
-                            Jupit ICO:
+                            {/* Jupit ICO: */}
+                            Something Awesome Is In The Work
                         </div>
                         <div className='discount'>
-                            Discount 33% from final price
+                            {/* Discount 33% from final price */}
                         </div>
                         
                         <div className='heroFlex'>
-                        <div className='counter'>
+                        {/* <div className='counter'>
                                 <div className='rulerI'>
                                     <BiCheckCircle size={15} color="green" /><span>900K</span>
                                 </div>
                                 <div className='rulerII'>
                                     <BiCheckCircle size={15} color="green" /><span>5M</span>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='fixedprogressbar'>
                                     
                                      <ProgressBar animated now={75}  variant='#1c1c93' style={{height:50,backgroundColor:'transparent'}}/>
@@ -126,16 +127,20 @@ const Index = ()=>{
                                     
                             </div> */}
                             <div className='fixedtoken'>
-                                Fixed token edition 3,000.000BITS
+                                {/* Fixed token edition 3,000.000BITS */}
+                                Our exchange infrastructure is still under development. <br/><br/>
+                                For business and enquiries, please reach out to us through the WhatsApp or Instagram link below.
                                 
                             </div>
-                            <div className='token'>
+                            {/* <div className='token'>
                                     Buy Token
-                            </div>
-                            <div className='mastercard'>
+                                    
+                            </div> */}
+                            {/* <div className='mastercard'>
+                            
                                     <FaCcVisa size={25} color="#9da8b6"/><FaCcMastercard size={25} color="#9da8b6"/><BsPaypal size={25} color="#9da8b6" />
 
-                            </div>
+                            </div> */}
                         </div>
                         
                         {/* <div class="demo-container">
