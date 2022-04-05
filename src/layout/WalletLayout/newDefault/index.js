@@ -165,7 +165,7 @@ const Index = ()=>{
     }
     const _showTopUP = ()=>{
         if(component === "Naira"){
-            return  <div>
+            return  <div className='TopUpSpace'>
                          <div>
                             TopUp<br/>
                             <span>Click To Top up your account.</span>
@@ -177,7 +177,7 @@ const Index = ()=>{
                    
         }
         else if(component === "Btc"){
-            return  <div>
+            return  <div className='TopUpSpace'>
                          <div>
                             Send<br/>
                             <span>Click To Send Funds.</span>
@@ -189,7 +189,7 @@ const Index = ()=>{
                    
         }
         else if(component === "Usdt"){
-            return  <div>
+            return  <div className='TopUpSpace'>
                          <div>
                             Send<br/>
                             <span>Click To Send funds.</span>

@@ -254,7 +254,6 @@
 .TopupIcon{
     display: flex;
     justify-content: flex-end;
-   
     align-items: center;
     width: 20%;
     cursor: pointer;
@@ -338,5 +337,16 @@
 .newRating{
     font-size: 12px;
     margin-left: 30px;
+}
+
+.TopUpSpace{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-family: 'Jura',sans-serif;
+    width: 100%;
+}
+.TopUpSpace > span{
+    font-size: 9px;
 }
 
