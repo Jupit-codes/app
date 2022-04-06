@@ -259,7 +259,7 @@ const Index = ()=>{
             
            <div>
            {openModal && <ReceiveModal closeModal={setopenModal}/>}
-           {openModalUsdt && <ReceiveModalUsdt closeModal={setopenModal}/>}
+           {openModalUsdt && <ReceiveModalUsdt closeModal={setopenModalUsdt}/>}
                 <div className='cardClassTab'>
                     <div className='cardClassTab-flex1'>
                         Wallet Assets
