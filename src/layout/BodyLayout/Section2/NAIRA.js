@@ -1,5 +1,6 @@
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
+import { reactLocalStorage } from 'reactjs-localstorage'
 const Index = ({comp})=>{
     return (
         <div className='designcover slideCardLeft'>
@@ -23,7 +24,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;12,000,000
+                                        &#8358;{reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal}&nbsp;TETHER
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
