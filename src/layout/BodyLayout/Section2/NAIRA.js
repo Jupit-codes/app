@@ -24,7 +24,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;{reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal}&nbsp;TETHER
+                                        &#8358;{reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal}&nbsp;
                                         </div>
                                     </div>
                                     <div className='card_section_c'>

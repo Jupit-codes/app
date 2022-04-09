@@ -52,6 +52,9 @@ const Index =()=>{
     const [mountBalance,setMountBalance] = useState(false)
     const isMounted = useRef(false);
     const history = useHistory();
+    const [kycLevel1,setkycLevel1] = useState('')
+    const [kycLevel2,setkycLevel2] = useState('')
+    const [kycLevel3,setkycLevel3] = useState('')
     
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
@@ -97,9 +100,34 @@ const Index =()=>{
         })
     }
 
+    const _getKyc = (_id)=>{
+        
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/kyc`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({userid:_id})
+        })
+        .then((res)=>{
+            setkycLevel1(res.data.level1[0].status);
+            setkycLevel2(res.data.level2[0].event_status);
+        })
+        .catch((err)=>{
+            
+            console.log('error',err.response)
+            
+        })
+    }
+
     useEffect(()=>{
         const _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id);
+        _getKyc(_id);
+
     },[Balance])
    
 
@@ -249,6 +277,7 @@ const Index =()=>{
         
     }
     const USDAmount=(e)=>{
+        console.log('Test',kycLevel1)
         setusdamount(e.target.value);
         let pat = e.target.value / currentRate 
         setbtcamount(pat)
@@ -322,10 +351,25 @@ const Index =()=>{
             senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
 
         }
+
+        let kycprogress = 0
+        if(kycLevel1 === "Verified"){
+            
+            kycprogress += 25
+        }
+
+        if(kycLevel2 === "customeridentification.success"){
+            kycprogress += 30
+        }
+
+       
+
+
+        alert(kycprogress)
         
-        // console.log(items)
         if(_addAmount > Balance){
             toast.error("Insufficent Wallet Balance","ERROR")
+            return false;
         }
         else{
             ProcessCoin(items)(sendcoinDispatch);

@@ -197,7 +197,7 @@ const Index = ()=>{
         else if(component === "Usdt"){
             return  <div className='TopUpSpace'>
                          <div>
-                            Send<br/>
+                            Send USDT<br/>
                             <span>Click To Send funds.</span>
                         </div>
                         <div className='TopupIcon'>
@@ -231,7 +231,7 @@ const Index = ()=>{
         else if(component === "Btc"){
             return  <div className='TopUpSpace'>
                         <div>
-                            Withdrawal<br/>
+                            Receive BTC<br/>
                             <span>Click to Receive BTC</span>
                         </div>
 
