@@ -20,6 +20,7 @@ import { USER_DETAILS_LOADING } from '../../constants/actionTypes';
 import { useRef } from 'react';
 import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
+import { fabClasses } from '@mui/material';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -362,10 +363,16 @@ const Index =()=>{
             kycprogress += 30
         }
 
-       
+       if(kycprogress === 25 && usdamount > 100){
+        toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
+        return false;
+       }
+       if(kycprogress === 55 && usdamount > 500){
+        toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
+        return false;
+       }
 
-
-        alert(kycprogress)
+        
         
         if(_addAmount > Balance){
             toast.error("Insufficent Wallet Balance","ERROR")
