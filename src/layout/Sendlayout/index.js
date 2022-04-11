@@ -21,6 +21,7 @@ import { useRef } from 'react';
 import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
 import { fabClasses } from '@mui/material';
+import CreatePinModal from '../../utils/modal/CREATE_PIN'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -56,6 +57,8 @@ const Index =()=>{
     const [kycLevel1,setkycLevel1] = useState('')
     const [kycLevel2,setkycLevel2] = useState('')
     const [kycLevel3,setkycLevel3] = useState('')
+    const[createPin,setcreatePin] =  useState()
+    const [openModal,setopenModal] = useState(false);
     
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
@@ -65,9 +68,13 @@ const Index =()=>{
             if(USER_data ){
                 if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                    setcreatePin(USER_data.Pin_Created);
+                    
                 }
                     
-                setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                // setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                // setcreatePin(USER_data.Pin_Created);
+                // console.log('jhjkhj',USER_data.Pin_Created)
                 // reactLocalStorage.setObject('user',USER_data)
                 
             }
@@ -379,19 +386,28 @@ const Index =()=>{
             return false;
         }
         else{
-            ProcessCoin(items)(sendcoinDispatch);
+             
+            if(createPin){
+
+            }
+            else{
+                setopenModal(true);
+                
+            }
+                
+           // ProcessCoin(items)(sendcoinDispatch);
         }
 
-       
-
+    
         // toast('Coin Successfully Sent');
-
-
         
     }
+
+    
     return (
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
+            {openModal && <CreatePinModal closeModal={setopenModal}/>}
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
