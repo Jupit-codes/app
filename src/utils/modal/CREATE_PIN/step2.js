@@ -26,10 +26,9 @@ const [error, setserror] = useState('')
         
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/refresh`,
+            url: `https://myjupit.herokuapp.com/sendOTP/wallet/pin/creation`,
             headers:{
                 'Content-Type':'application/json',
-                
                 'Authorization':reactLocalStorage.get('token')
             },
             data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,email:reactLocalStorage.getObject('user').email})
@@ -55,7 +54,7 @@ const [error, setserror] = useState('')
     
     return (
         <div className='PinInputDiv'>
-                 {error && <div>{error}</div>}       
+                {error && <div className="pinerror">{error}</div>}       
             <input type="number"  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN}/>
             <input type="submit" value="Next" onClick={checkpin} className="buttonNext" />
         </div>
