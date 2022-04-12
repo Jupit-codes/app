@@ -4,14 +4,14 @@ import axios from "axios"
 const Index=({pageContent,createdpin,seterror})=>{
 const [confirmpin,setconfirmpin] = useState('')
 const [error, setserror] = useState('')
+const [loss_focus, set_loss_focus] = useState(true)
     const _handleConfirmCreatePIN = (e)=>{
         setconfirmpin(e.target.value)
     }
 
     const checkpin = ()=>{
         if(createdpin !== confirmpin){
-            console.log('c',createdpin)
-            console.log('x',confirmpin)
+            
             seterror('Pin not corresponding');
             pageContent('step1');
         }
@@ -56,7 +56,7 @@ const [error, setserror] = useState('')
         <div className='PinInputDiv'>
                 {error && <div className="pinerror">{error}</div>}       
             <input type="number"  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN}/>
-            <input type="submit" value="Next" onClick={checkpin} className="buttonNext" />
+            <input type="submit" value="Next" onClick={checkpin} className="buttonNext" disabled={loss_focus} />
         </div>
     )
 }
