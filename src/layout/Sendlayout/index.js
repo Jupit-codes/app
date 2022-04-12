@@ -62,7 +62,7 @@ const Index =()=>{
     const [openModal,setopenModal] = useState(false);
     const [success,setsuccess] = useState(false)
     const [InputwalletPIn,setInputwalletPIn] = useState(false)
-    
+    const [mywallet,setmywallet] = useState('')
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -75,6 +75,7 @@ const Index =()=>{
                     
                 }
                 setcreatePin(USER_data.Pin_Created);
+                setmywallet(USER_data.wallet_pin);
                     
                 
                 
@@ -417,7 +418,7 @@ const Index =()=>{
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
             {openModal && <CreatePinModal closeModal={setopenModal} callback={setsuccess}/>}
-            { InputwalletPIn && <EnterPinModal closeModal={setopenModal}/> }
+            { InputwalletPIn && <EnterPinModal closeModal={setInputwalletPIn} mywalletpin={mywallet} callback={setsuccess} /> }
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

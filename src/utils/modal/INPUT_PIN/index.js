@@ -5,12 +5,30 @@ import {IoClose} from 'react-icons/io5'
 import { reactLocalStorage } from 'reactjs-localstorage'
 
 import WALLETPIN from './walletpin.js'
-const Index = ({closeModal})=>{
+import { toast } from 'react-toastify'
+const Index = ({closeModal,mywalletpin,callback})=>{
 
     const [page,setpage]= useState('step1');
     const [pin,setpin]= useState('');
     const [error,seterror] = useState('');
-   
+    const [walletpin,setwalletpin] =useState('')
+
+    const handleWalletPin = (e)=>{
+        setwalletpin(e.target.value)
+    }
+
+    const pincheck = ()=>{
+        if(walletpin){
+            if(walletpin === mywalletpin){
+                toast.success('PIN accepted','SUCCESS')
+                callback(true);
+                closeModal(false)
+            }
+            else{
+                toast.error('INVALID PIN','ERROR')
+            }
+        }
+    }
 
 
     return (
@@ -30,8 +48,15 @@ const Index = ({closeModal})=>{
                 
                 <div className='modalbodyPin'>
                    
+                <div className='PinInputDiv'>
+                    <div className='pin-info'>
+                            <strong> Enter Your Wallet PIN</strong>
 
-                    <WALLETPIN/>
+                    </div>
+                    <input type="number"  className='form-control' placeholder='Wallet PIN' value={walletpin} onChange={handleWalletPin} max={4}/>
+                    <input type="submit" value="Confirm"  className="buttonNext" onClick={pincheck} />
+                </div>
+                    
                    
 
                 
