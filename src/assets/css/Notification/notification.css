@@ -36,6 +36,16 @@
     font-family: Acme;
    
 }
+.notifyMessage{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.notifyMessage >div{
+    color: #1c1c93;
+    font-size: 25px;
+}
 
 .notifyAmount{
     color: #1c1c93;
@@ -72,6 +82,10 @@
 }
 .green{
     color: #003300;
+}
+
+.infor{
+    color: #1c1c93;
 }
 .notifyTitle{
     font-size: 25px;

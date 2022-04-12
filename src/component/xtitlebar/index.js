@@ -6,7 +6,7 @@ import ProfileImage from '../../assets/images/utility/profile-pic.png'
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useEffect,useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import {Badge} from 'react-bootstrap'
+import {Badge,Dropdown} from 'react-bootstrap'
 import axios from 'axios'
 const Index = ()=>{
     const history = useHistory();
@@ -20,6 +20,10 @@ const Index = ()=>{
         reactLocalStorage.remove('kyc');
         reactLocalStorage.remove('2fa');
         history.push('/client/login')
+     }
+
+     const notify = ()=>{
+         history.push('/client/notification');
      }
     
     useEffect(()=>{
@@ -96,7 +100,7 @@ const Index = ()=>{
                     <div className='xcode'>  
 
                         <div className='Notification'>
-                            <IoIosNotificationsOutline size={20} color="#1c1c93"/> 
+                            <IoIosNotificationsOutline size={20} color="#1c1c93" onClick={notify}/> 
                             <Badge pill bg="danger" className='notify'>{notification}</Badge>
                         </div>
                         <div className='Notification'>
@@ -109,8 +113,18 @@ const Index = ()=>{
                             Geoffrey
                         </div> */}
                         
-                        <div className='profileImage' onClick={logout}>
-                           <img src={ProfileImage}/>
+                        <div className='profileImage' >
+                           {/* <img src={ProfileImage}/> */}
+                           <Dropdown>
+                            <Dropdown.Toggle id="dropdown-basic">
+                                 <img src={ProfileImage}/>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                               
+                            </Dropdown.Menu>
+                            </Dropdown>
                         </div>
 
                     </div>

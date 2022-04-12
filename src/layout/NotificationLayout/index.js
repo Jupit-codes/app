@@ -11,6 +11,7 @@ import Details from '../../utils/modal/notification_details'
 import moment from 'moment'
 import axios from 'axios'
 import { IoCompassOutline } from 'react-icons/io5'
+import {IoIosMail} from 'react-icons/io'
 const Index = ()=>{
 
     const [notificationData,setnotificationData] = useState()
@@ -30,8 +31,6 @@ const Index = ()=>{
             all_ids.push(d._id)
         })
 
-        
-      
         await axios({
            method: "POST",
            url: `${Base_url}/threshold/update/read`,
@@ -58,6 +57,7 @@ const Index = ()=>{
 
     const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
     const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
+    const email = reactLocalStorage.getObject('user').email
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     await axios({
             method: "POST",
@@ -66,7 +66,7 @@ const Index = ()=>{
             "Content-Type": "application/json",
             "Authorization":`Bearer ${reactLocalStorage.get('token')}`
             },
-            data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT})
+            data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email})
         })
         .then(res=>{
             setState(res.data)
@@ -101,13 +101,37 @@ const Index = ()=>{
     }   
 
     const _renderNotification =()=>{
+        console.log(state)
         if(state && state.length > 0){
             console.log(state)
             
             return state.map((d,index)=>{
-               
-                return (    
+
+                if(d.type === "3"){
+                    return (    
                         <div key={index} className="notifyDiv">
+
+ 
+                            <div className='notify-flex-1'>
+                                <div className='info'>Message Alert</div>
+                                <div className="notifyMessage"><IoIosMail color={d.transfertype === "customeridentification.success"? 'green':'red'} size={20}/><div>KYC LEVEL (ACCOUNT VERIFICATION)</div></div>
+                                <small>Your KYC AccountLinkage Verification was <span className={d.transfertype === "customeridentification.success"? 'green':'red'} >{d.transfertype === "customeridentification.success"? 'Successful':'Unsuccessful'}</span></small>
+                                <div>{moment(d.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
+                            </div>
+                            {/* <div className='notify-flex-2'>
+                                <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                            </div> */}
+
+                        </div>
+                    
+                    
+                    )
+                }
+                else{
+
+                    return (    
+                        <div key={index} className="notifyDiv">
+
  
                             <div className='notify-flex-1'>
                                 <div className={d.type === "2" ? 'red' : 'green'}>{d.type === "2" ? 'Withdrawal Alert': 'Deposit Alert'}</div>
@@ -122,7 +146,11 @@ const Index = ()=>{
                         </div>
                     
                     
-                        )
+                    )
+                }
+
+               
+                
                    
            })
         }

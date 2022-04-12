@@ -29,6 +29,7 @@
     justify-content: flex-end;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 20px;
     /* background-color: blue; */
     
 }
@@ -50,12 +51,12 @@
     padding-left: 20px;
 }
 .profileImage{
-    width: 49px;
-    height: 49px;
+    width: 29px;
+    height: 29px;
     border-radius: 5px;
-    
     text-align: center;
     cursor: pointer;
+    margin-right: 20px;
 }
 .ProfileName{
     font-family: 'Jura',sans-serif;
