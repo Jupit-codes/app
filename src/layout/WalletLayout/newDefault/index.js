@@ -19,6 +19,7 @@ import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.m
 import { reactLocalStorage } from 'reactjs-localstorage'
 import ReceiveModal from '../../../utils/modal/customModal.js'
 import ReceiveModalUsdt from '../../../utils/modal/usdtreceivemodal.js'
+import axios from 'axios'
 const Index = ()=>{
    const location =  useLocation()
    const history = useHistory();
@@ -33,6 +34,7 @@ const Index = ()=>{
     const [kycLevel3,setkycLevel3] = useState('');
     const [progressbar,setprogressbar] = useState('')
     const now = 80;
+
     
     // useEffect(()=>{
        
@@ -49,14 +51,23 @@ const Index = ()=>{
     //     console.log(kycprogress)
         
     // },[kycprogress])
+
+    useEffect(()=>{
+        setkycLevel1(reactLocalStorage.getObject('kyc').level1[0].status);
+        setkycLevel2(reactLocalStorage.getObject('kyc').level2[0].event_status)
+       
+    },[])
+
+
+
     const kycProgressBar = ()=>{
         let kycprogress = 0
-        if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+        if(kycLevel1 === "Verified"){
             
             kycprogress += 25
         }
 
-        if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+        if(kycLevel1 === "customeridentification.success"){
             kycprogress += 30
         }
 
@@ -64,12 +75,12 @@ const Index = ()=>{
     }
     const kycProgressBarVariant = ()=>{
         let kycprogress = 0
-        if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+        if(kycLevel1 === "Verified"){
             
             kycprogress += 25
         }
 
-        if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+        if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
         }
 
@@ -85,12 +96,12 @@ const Index = ()=>{
 
     const kycTransaction = ()=>{
         let kycprogress = 0
-        if(reactLocalStorage.getObject('kyc').level1[0].status === "Verified"){
+        if(kycLevel1 === "Verified"){
             
             kycprogress += 25
         }
 
-        if(reactLocalStorage.getObject('kyc').level2[0].event_status === "customeridentification.success"){
+        if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
         }
 
@@ -103,6 +114,41 @@ const Index = ()=>{
                 return 'Limitless'
         }
     }
+
+    const loadKYC = async ()=>{
+        let _id = reactLocalStorage.getObject('user')._id;
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/kyc`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({userid:_id})
+        })
+        .then((res)=>{
+            console.log(res.data)
+            setkycLevel1(res.data.level1[0].status);
+            setkycLevel2(res.data.level2[0].event_status)
+            
+
+            
+            
+        })
+        .catch((err)=>{
+
+            console.log(err)
+            
+            
+        })
+
+    }
+
+    useEffect(()=>{
+        loadKYC();
+    })
+    
 
     useEffect(()=>{
         if(location.state){
