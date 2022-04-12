@@ -68,19 +68,17 @@ const Index =()=>{
             if(USER_data ){
                 if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
-                    setcreatePin(USER_data.Pin_Created);
+                    
                     
                 }
+                setcreatePin(USER_data.Pin_Created);
                     
-                // setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
-                // setcreatePin(USER_data.Pin_Created);
-                // console.log('jhjkhj',USER_data.Pin_Created)
-                // reactLocalStorage.setObject('user',USER_data)
+                
                 
             }
             // console.log('TestServer',USER_data)
 
-   },[])
+   },[Balance])
 
     const getbalance = (_id)=>{
         
@@ -97,7 +95,7 @@ const Index =()=>{
         .then((res)=>{
             if(Balance !== res.data.btc_wallet[0].balance.$numberDecimal ){
                 setBalance(res.data.btc_wallet[0].balance.$numberDecimal);
-                console.log(Balance)
+                
             }
             
         })

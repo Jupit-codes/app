@@ -197,9 +197,11 @@
 
 }
 .pinerror{
-    color:#ff0000;
-    font-size: 10px;
-    font-family: 'Roboto',sans-serif;
+    color:#003300;
+    font-size: 9px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Jura',sans-serif;
 
 }
 
