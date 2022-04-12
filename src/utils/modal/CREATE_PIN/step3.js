@@ -2,7 +2,7 @@ import { useState } from "react"
 import axios from "axios"
 import { reactLocalStorage } from "reactjs-localstorage"
 import { ToastContainer, toast } from 'react-toastify';
-const Index=({pageContent,createdpin,closeModal})=>{
+const Index=({pageContent,createdpin,closeModal,callback})=>{
 const [otp,setotp] = useState('');
 const [error,seterror] = useState('')
 
@@ -28,7 +28,9 @@ const [disable,setdisable] = useState(false)
            
             if(res.data.status){
                 toast.success(res.data.message,"SUCCESS")
+                callback(true)
                 closeModal(false)
+
             }
    
         })

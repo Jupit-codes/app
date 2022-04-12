@@ -21,6 +21,7 @@ import { useRef } from 'react';
 import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
 import Tether from '../../assets/images/tether.png'
+import CreatePinModal from '../../utils/modal/CREATE_PIN'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -53,6 +54,12 @@ const Index =()=>{
     const [mountBalance,setMountBalance] = useState(false)
     const isMounted = useRef(false);
     const history = useHistory();
+    const [kycLevel1,setkycLevel1] = useState('')
+    const [kycLevel2,setkycLevel2] = useState('')
+    const [kycLevel3,setkycLevel3] = useState('')
+    const[createPin,setcreatePin] =  useState()
+    const [openModal,setopenModal] = useState(false);
+    const [success,setsuccess] = useState(false)
     
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
@@ -64,7 +71,8 @@ const Index =()=>{
                     setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
                 }
                     
-                setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                // setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                setcreatePin(USER_data.Pin_Created);
                 // reactLocalStorage.setObject('user',USER_data)
                 
             }
@@ -98,9 +106,36 @@ const Index =()=>{
         })
     }
 
+    const _getKyc = (_id)=>{
+        
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/kyc`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({userid:_id})
+        })
+        .then((res)=>{
+            setkycLevel1(res.data.level1[0].status);
+            setkycLevel2(res.data.level2[0].event_status);
+        })
+        .catch((err)=>{
+            
+            console.log('error',err.response)
+            
+        })
+    }
+
+
+
+
     useEffect(()=>{
         const _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id);
+        _getKyc(_id);
     },[Balance])
    
 
@@ -309,30 +344,74 @@ const Index =()=>{
     //     }
     // },[dataAddr])
     const sendCoin = ()=>{
-        const items={
-            ReceipentAddress:ReceipentAddress,
-            networkFee:networkFee,
-            userid:reactLocalStorage.getObject('user')._id,
-            amount:btcamount,
-            block_average:blockaverage,
-            wallet_type:"USDT",
-            transferType:dataAddr,
-            senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
 
+        let kycprogress = 0
+        if(kycLevel1 === "Verified"){
+            
+            kycprogress += 25
         }
+
+        if(kycLevel2 === "customeridentification.success"){
+            kycprogress += 30
+        }
+
+       if(kycprogress === 25 && usdamount > 100){
+        toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
+        return false;
+       }
+       if(kycprogress === 55 && usdamount > 500){
+        toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
+        return false;
+       }
+
+       
+       if(_addAmount > Balance){
+        toast.error("Insufficent Wallet Balance","ERROR")
+        return false;
+        }
+        else{
+            
+            if(createPin){
+                    alert('Okay')
+            }
+            else{
+                setopenModal(true);
+                
+            }
+                
         
-        // console.log(items)
-
-        ProcessCoin(items)(sendcoinDispatch);
-
-        // toast('Coin Successfully Sent');
-
+        }
 
         
     }
+
+    
+    useEffect(()=>{
+        if(success){
+            const items={
+                ReceipentAddress:ReceipentAddress,
+                networkFee:networkFee,
+                userid:reactLocalStorage.getObject('user')._id,
+                amount:btcamount,
+                block_average:blockaverage,
+                wallet_type:"USDT",
+                transferType:dataAddr,
+                senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
+    
+            }
+            console.log(success)
+            
+            ProcessCoin(items)(sendcoinDispatch);
+        }
+
+    },[success])
+
+
+
     return (
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
+            {openModal && <CreatePinModal closeModal={setopenModal} callback={setsuccess}/>}
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

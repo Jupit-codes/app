@@ -22,6 +22,7 @@ import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
 import { fabClasses } from '@mui/material';
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
+import EnterPinModal from '../../utils/modal/INPUT_PIN/'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -59,6 +60,8 @@ const Index =()=>{
     const [kycLevel3,setkycLevel3] = useState('')
     const[createPin,setcreatePin] =  useState()
     const [openModal,setopenModal] = useState(false);
+    const [success,setsuccess] = useState(false)
+    const [InputwalletPIn,setInputwalletPIn] = useState(false)
     
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
@@ -346,17 +349,7 @@ const Index =()=>{
     //     }
     // },[dataAddr])
     const sendCoin = ()=>{
-        const items={
-            ReceipentAddress:ReceipentAddress,
-            networkFee:networkFee,
-            userid:reactLocalStorage.getObject('user')._id,
-            amount:btcamount,
-            block_average:blockaverage,
-            wallet_type:"BTC",
-            transferType:dataAddr,
-            senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
-
-        }
+        
 
         let kycprogress = 0
         if(kycLevel1 === "Verified"){
@@ -386,14 +379,14 @@ const Index =()=>{
         else{
              
             if(createPin){
-                    alert('Okay')
+                    setInputwalletPIn(true)
             }
             else{
                 setopenModal(true);
                 
             }
                 
-           // ProcessCoin(items)(sendcoinDispatch);
+           
         }
 
     
@@ -401,11 +394,30 @@ const Index =()=>{
         
     }
 
+        useEffect(()=>{
+            if(success){
+                const items={
+                    ReceipentAddress:ReceipentAddress,
+                    networkFee:networkFee,
+                    userid:reactLocalStorage.getObject('user')._id,
+                    amount:btcamount,
+                    block_average:blockaverage,
+                    wallet_type:"BTC",
+                    transferType:dataAddr,
+                    senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
+        
+                }
+                console.log(success)
+                ProcessCoin(items)(sendcoinDispatch);
+            }
+
+        },[success])
     
     return (
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
-            {openModal && <CreatePinModal closeModal={setopenModal}/>}
+            {openModal && <CreatePinModal closeModal={setopenModal} callback={setsuccess}/>}
+            { InputwalletPIn && <EnterPinModal closeModal={setopenModal}/> }
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
