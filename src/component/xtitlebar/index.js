@@ -6,10 +6,13 @@ import ProfileImage from '../../assets/images/utility/profile-pic.png'
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useEffect,useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import {Badge} from 'react-bootstrap'
+import axios from 'axios'
 const Index = ()=>{
     const history = useHistory();
     const [salutation, setsalutation] = useState();
     const[userInfor,setUserInfor] = useState();
+    const [notification,setnotification] = useState()
 
     const logout =()=>{
         reactLocalStorage.remove('user');
@@ -37,6 +40,37 @@ const Index = ()=>{
         }
         
     },[])
+
+    const NotificationCount = ()=>{
+        let _id = reactLocalStorage.getObject('user')._id;
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/threshold/notification/fetch`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({addressBTC:reactLocalStorage.getObject('user').btc_wallet[0].address,addressUSDT:reactLocalStorage.getObject('user').usdt_wallet[0].address,userid:_id,email:reactLocalStorage.getObject('user').email})
+        })
+        .then((res)=>{
+            console.log(res.data)
+            if(notification != res.data.length){
+                setnotification(res.data.length)
+            }
+            
+        })
+        .catch((err)=>{
+
+            setnotification(0)
+            
+            
+        })
+    }
+
+    useEffect(()=>{
+        NotificationCount();
+    },[notification])
     const dateandtime = ()=>{
        let date =  new Date();
        const actualtime = date.toLocaleTimeString(); 
@@ -62,7 +96,8 @@ const Index = ()=>{
                     <div className='xcode'>  
 
                         <div className='Notification'>
-                            <IoIosNotificationsOutline size={20} color="#1c1c93"/>
+                            <IoIosNotificationsOutline size={20} color="#1c1c93"/> 
+                            <Badge pill bg="danger" className='notify'>{notification}</Badge>
                         </div>
                         <div className='Notification'>
                             <BiSupport size={20} color="#1c1c93"/>

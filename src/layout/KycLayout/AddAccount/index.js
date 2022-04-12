@@ -285,7 +285,7 @@ const banks = [
                 <option value="">Select Bank</option>
                 
                    {banks.map((d,index)=>{
-                        return <option key ={index} value={d.code}>{d.code}</option>
+                        return <option key ={index} value={d.code}>{d.name}</option>
                        
                    })}
                 </select>

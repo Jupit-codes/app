@@ -9,6 +9,12 @@
     align-items: center;
     padding-top: 30px;
 }
+.notify{
+   position: absolute;
+   top:20px;
+   
+  
+}
 
 .WelcomeClass{
     flex:1 1 40%;
