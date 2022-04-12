@@ -46,7 +46,7 @@ const [error, setserror] = useState('')
         .catch((err)=>{
             
             seterror(err.response)
-            console.log('error',err.response)
+            console.log('error',err)
             
         })
     }

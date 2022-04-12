@@ -32,7 +32,7 @@ const Index = ({closeModal})=>{
             break;
 
             case 'step3':
-                return <Step3 pageContent={setpage}/>
+                return <Step3 pageContent={setpage} createdpin={pin} closeModal={closeModal}  />
                 break;
         }
 
