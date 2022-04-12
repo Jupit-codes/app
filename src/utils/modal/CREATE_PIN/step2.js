@@ -11,16 +11,19 @@ const [btn_name, set_btn_name] = useState('Next')
     }
 
     const checkpin = ()=>{
-        if(createdpin !== confirmpin){
+        if(confirmpin){
+            if(createdpin !== confirmpin){
             
-            seterror('Pin not corresponding');
-            pageContent('step1');
+                seterror('Pin not corresponding');
+                pageContent('step1');
+            }
+            else{
+    
+                _sendmail();
+               
+            }
         }
-        else{
-
-            _sendmail();
-           
-        }
+        
     }
 
     const _sendmail = ()=>{
