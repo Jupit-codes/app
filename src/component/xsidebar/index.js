@@ -3,16 +3,23 @@ import logo from '../../assets/images/utility/logo.png'
 import Dashboard from '../../assets/images/utility/dashboard.png'
 import Exchange from '../../assets/images/utility/exchange.png'
 import Settings from '../../assets/images/utility/settings.png'
-import Library from '../../assets/images/utility/library.png'
-import Schedule from '../../assets/images/utility/schedule.png'
+import Library from '../../assets/images/utility/kyc.png'
+import Schedule from '../../assets/images/utility/transaction.png'
+
+import DashboardActive from '../../assets/images/utility/active/dashboard-active.png'
+import ExchangeActive from '../../assets/images/utility/active/exchange-active.png'
+import SettingsActive from '../../assets/images/utility/active/settings-active.png'
+import LibraryActive from '../../assets/images/utility/active/kyc-active.png'
+import ScheduleActive from '../../assets/images/utility/active/transaction-active.png'
 import Payout from '../../assets/images/utility/payout.png'
 import Security from '../../assets/images/utility/security.png'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { Dash } from 'react-bootstrap-icons'
 const Index = ()=>{
     const location = useLocation();
     const pathname = location.pathname.split('/');
-    console.log(pathname[2])
+    console.log('check',pathname[2])
     
     return (
         <div className="xsidebar">
@@ -22,27 +29,27 @@ const Index = ()=>{
             <div className='navigationContainer'>
                 <Link to="/client">
                     <div className='navigation'>
-                        <div className='navigationIcon'> <img src={Dashboard}/> </div> <div className='navigationText'>Dashboard</div>
+                        <div className='navigationIcon'> <img src={!pathname[2] ? DashboardActive: Dashboard}/> </div> <div className={ !pathname[2] ? 'navigationText active': 'navigationText nonactive'}>Dashboard</div>
                     </div>
                 </Link>
                 <Link to='/client/wallet'>
                     <div className='navigation'>
-                    <div className='navigationIcon'> <img src={Exchange}/> </div> <div className='navigationText'>Exchange</div>
+                        <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Exchange</div>
                     </div>
                 </Link>
                 <Link to='/client/kyc'>
                     <div className='navigation'>
-                    <div className='navigationIcon'> <img src={Library}/> </div> <div className='navigationText'>Kyc</div>
+                    <div className='navigationIcon'> <img src={pathname[2]=== "kyc"? LibraryActive : Library}/> </div> <div  className={pathname[2]=== "kyc" ? 'navigationText active': 'navigationText nonactive'} >Kyc</div>
                     </div>
                 </Link>
                 <Link to='/client/transactions-history'>
                     <div className='navigation'>
-                    <div className='navigationIcon'> <img src={Schedule}/> </div> <div className='navigationText'>Transactions</div>
+                    <div className='navigationIcon'> <img src={pathname[2] === "transactions-history" ? ScheduleActive :Schedule}/> </div> <div  className={pathname[2]=== "transactions-history" ? 'navigationText active': 'navigationText nonactive'}>Transactions</div>
                     </div>
                 </Link>
                 <Link to="/client/settings">
                     <div className='navigation'>
-                    <div className='navigationIcon'> <img src={Settings}/> </div> <div className='navigationText'>Settings</div>
+                    <div className='navigationIcon'> <img src={pathname[2]=== "settings" ? SettingsActive : Settings}/> </div> <div  className={pathname[2]=== "settings" ? 'navigationText active': 'navigationText nonactive'}>Settings</div>
                     </div>
                 </Link>
                 {/* <div className='navigation'>

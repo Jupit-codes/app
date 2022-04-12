@@ -116,14 +116,14 @@ const Index = ()=>{
                         <div className='profileImage' >
                            {/* <img src={ProfileImage}/> */}
                            <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic">
-                                 <img src={ProfileImage}/>
-                            </Dropdown.Toggle>
+                                <Dropdown.Toggle id="dropdown-basic" variant=''>
+                                    <img src={ProfileImage}/>
+                                </Dropdown.Toggle>
 
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
-                               
-                            </Dropdown.Menu>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                                
+                                </Dropdown.Menu>
                             </Dropdown>
                         </div>
 
