@@ -57,7 +57,7 @@ const [disable,setdisable] = useState(false)
                 />
             <span><i>A code has been sent to your registered email address</i></span>
             <input type="number"  className='form-control' placeholder='Enter OTP Code' value={otp} onChange={_handleOTPPIN}/>
-            <input type="submit" className="buttonNext" value="Submits" onClick={savepin} />
+            <input type="submit" className="buttonNext" value="Submit" onClick={savepin} />
         </div>
     )
 }

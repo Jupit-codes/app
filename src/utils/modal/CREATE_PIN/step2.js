@@ -4,7 +4,8 @@ import axios from "axios"
 const Index=({pageContent,createdpin,seterror})=>{
 const [confirmpin,setconfirmpin] = useState('')
 const [error, setserror] = useState('')
-const [loss_focus, set_loss_focus] = useState(true)
+const [loss_focus, set_loss_focus] = useState(false)
+const [btn_name, set_btn_name] = useState('Next')
     const _handleConfirmCreatePIN = (e)=>{
         setconfirmpin(e.target.value)
     }
@@ -23,7 +24,8 @@ const [loss_focus, set_loss_focus] = useState(true)
     }
 
     const _sendmail = ()=>{
-        
+        set_loss_focus(true)
+        set_btn_name('Please Wait..');
         axios({
             method: "POST",
             url: `https://myjupit.herokuapp.com/sendOTP/wallet/pin/creation`,
@@ -36,9 +38,11 @@ const [loss_focus, set_loss_focus] = useState(true)
         .then((res)=>{
 
             console.log(res.data.status)
-
+            set_btn_name('Completed');
             if(res.data.status){
+                
                 pageContent('step3');
+                set_loss_focus(false)
             }
             
             
@@ -56,7 +60,7 @@ const [loss_focus, set_loss_focus] = useState(true)
         <div className='PinInputDiv'>
                 {error && <div className="pinerror">{error}</div>}       
             <input type="number"  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN}/>
-            <input type="submit" value="Next" onClick={checkpin} className="buttonNext" disabled={loss_focus} />
+            <input type="submit" value={btn_name} onClick={checkpin} className="buttonNext" disabled={loss_focus} />
         </div>
     )
 }
