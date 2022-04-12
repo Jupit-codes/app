@@ -196,13 +196,13 @@
     font-family: Acme;
 
 }
-.pinerror{
-    color:#003300;
-    font-size: 9px;
+
+.PinInputDiv .pinerror{
     width: 100%;
+    font-size: 14px;
     text-align: center;
     font-family: 'Jura',sans-serif;
-
+    color: #ff0000;
 }
 
 .buttonNext{
