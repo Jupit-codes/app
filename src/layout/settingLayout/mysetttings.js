@@ -77,6 +77,8 @@ const Index=()=>{
            setKyc('Level 3')
        }
 
+     
+
        
     },[])
 
