@@ -7,9 +7,14 @@ import { Tab } from './tab'
 import AccountSettings from './AccountSettings'
 import NotificationSettings from './NotificationSettings'
 import SecuritySetting from './SecuritySettings'
+import axios from 'axios'
+
 const Index=()=>{
     const [Kyc,setKyc] = useState();
     const [active,setactive] = useState('Account-Settings');
+    const [kycLevel1,setkycLevel1] = useState('');
+    const [kycLevel2,setkycLevel2] = useState('');
+    const [kycLevel3,setkycLevel3] = useState('');
     // console.log('Active',active)
     const _renderComponent = ()=>{
         switch(active){
@@ -24,21 +29,59 @@ const Index=()=>{
                 break;
         }
     }
+
+    const loadKYC = async ()=>{
+        let _id = reactLocalStorage.getObject('user')._id;
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/kyc`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({userid:_id})
+        })
+        .then((res)=>{
+            console.log(res.data)
+            setkycLevel1(res.data.level1[0].status);
+            setkycLevel2(res.data.level2[0].event_status)
+            
+
+            
+            
+        })
+        .catch((err)=>{
+
+            console.log(err)
+            
+            
+        })
+
+    }
+
     
 
     useEffect(()=>{
-       var kyc_level1 =  reactLocalStorage.getObject('kyc').level1[0].status;
-       var kyc_level2 =  reactLocalStorage.getObject('kyc').level2[0].event_status;
-       var kyc_level3 =  "Undefined"
-       if(kyc_level1 === "Verified"){
+       setkycLevel1(reactLocalStorage.getObject('kyc').level1[0].status);
+       setkycLevel2(reactLocalStorage.getObject('kyc').level2[0].event_status);
+       setkycLevel3(reactLocalStorage.getObject('kyc').level3[0].status);
+       
+       if(kycLevel1 === "Verified"){
            setKyc('Level 1')
        }
-       else if(kyc_level1 === "Verified" && kyc_level2 === "Verified" ){
+       if(kycLevel1 === "Verified" && kycLevel2 === "customeridentification.success" ){
            setKyc('Level 2')
        }
-       else if(kyc_level1 === "Verified" && kyc_level2 === "Verified" && kyc_level3 === "Verified"){
+       if(kycLevel1 === "Verified" && kycLevel2 === "customeridentification.success" && kycLevel3 === "Verified"){
            setKyc('Level 3')
        }
+
+       
+    },[])
+
+    useEffect(()=>{
+        loadKYC();
     },[])
     return (
         <div className="settings-profile">

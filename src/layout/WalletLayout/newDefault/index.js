@@ -62,12 +62,13 @@ const Index = ()=>{
 
     const kycProgressBar = ()=>{
         let kycprogress = 0
+        
         if(kycLevel1 === "Verified"){
             
             kycprogress += 25
         }
 
-        if(kycLevel1 === "customeridentification.success"){
+        if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
         }
 
