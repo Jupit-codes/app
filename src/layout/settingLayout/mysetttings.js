@@ -15,6 +15,9 @@ const Index=()=>{
     const [kycLevel1,setkycLevel1] = useState('');
     const [kycLevel2,setkycLevel2] = useState('');
     const [kycLevel3,setkycLevel3] = useState('');
+    const [primaryAcctname,setprimaryAcctname] = useState("NULL");
+    const [primaryAcctnum,setprimaryAcctnum] = useState("NULL");
+    const [bank,setbank] = useState("NULL");
     // console.log('Active',active)
     const _renderComponent = ()=>{
         switch(active){
@@ -43,7 +46,7 @@ const Index=()=>{
             data:JSON.stringify({userid:_id})
         })
         .then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
             setkycLevel1(res.data.level1[0].status);
             setkycLevel2(res.data.level2[0].event_status)
             
@@ -60,12 +63,41 @@ const Index=()=>{
 
     }
 
-    
+    const loadBank = async ()=>{
+        let email = reactLocalStorage.getObject('user').email;
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/bank`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({email:email})
+        })
+        .then((res)=>{
+            // console.log(res.data)
+            setprimaryAcctname(res.data.account_name);
+            setprimaryAcctnum(res.data.account_number)
+            setbank(res.data.bank_code)
+            
+
+            
+            
+        })
+        .catch((err)=>{
+
+            console.log(err)
+            
+            
+        })
+
+    }
 
     useEffect(()=>{
        setkycLevel1(reactLocalStorage.getObject('kyc').level1[0].status);
        setkycLevel2(reactLocalStorage.getObject('kyc').level2[0].event_status);
-       setkycLevel3(reactLocalStorage.getObject('kyc').level3[0].status);
+    //    setkycLevel3(reactLocalStorage.getObject('kyc').level3[0].status);
        
        if(kycLevel1 === "Verified"){
            setKyc('Level 1')
@@ -77,13 +109,11 @@ const Index=()=>{
            setKyc('Level 3')
        }
 
-     
-
-       
-    },[])
+    },[kycLevel1])
 
     useEffect(()=>{
         loadKYC();
+        loadBank();
     },[])
     return (
         <div className="settings-profile">
@@ -102,11 +132,11 @@ const Index=()=>{
                 <div className="kyc-level"> KYC LEVEL :{Kyc}</div>
 
                 <div className="acct"> PRIMARY BANK ACCOUNT :
-                    <span>Bank:NULL </span>
-                    <span>Account Number:NULL </span>
+                    <span>Bank:{bank} </span>
+                    <span>Account Number:{primaryAcctnum} </span>
                 </div>
-                <div className="acct"> ALTERNATE BANK ACCOUNT :
-                    <span>NULL </span>
+                <div className="acct"> Account Name :
+                    <span>{primaryAcctname} </span>
                     {/* <span>NULL </span> */}
                 </div>
             </div>
