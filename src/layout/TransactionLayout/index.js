@@ -7,6 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Table from './Table';
 import Spinner from '../../assets/images/spinner.gif'
 import './table.css'
+
 // import { Table } from 'react-bootstrap';
 // import DataTable from 'react-data-table-component';
 
@@ -140,6 +141,13 @@ const Index = ()=>{
         
 
     ]
+
+    const _renderEmpty = ()=>{
+        return   <div className='empty'>
+                            <h1>NO RECORD FOUND</h1>
+                            <img src={empty}/>
+                     </div>
+    }
     
     return (
         <div className='history'>
@@ -157,7 +165,8 @@ const Index = ()=>{
                 </div>
                 } */}
                 <div className='tableDiv'>
-                    {data .length > 0 && <Table  column={columns} data={data}/>}
+                    {data.length > 0 && <Table  column={columns} data={data}/>}
+                    {data.length === 0 && _renderEmpty()}
                 </div>
            
                 

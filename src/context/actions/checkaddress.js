@@ -45,7 +45,7 @@ export default (items)=>(dispatch)=>{
         type:CHECK_ADDRESS_ERROR,
         payload:err.response && err.response.data 
     })
-    console.log('REs',err.response)
+    // console.log('REs',err.response)
    
 })
 

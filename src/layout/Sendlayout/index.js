@@ -10,7 +10,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Loader from '../../assets/images/loader.svg'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Marketprice from '../../context/actions/marketprice.js'
-import GetAutoFee from '../../context/actions/getAutofee.js'
+// import GetAutoFee from '../../context/actions/getAutofee.js'
 import { ToastContainer, toast } from 'react-toastify';
 import ProcessCoin from '../../context/actions/sendcoin'
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,7 +43,7 @@ const Index =()=>{
     const[currentRate,setcurrentRate]=useState('');
     const {checkaddressState:{checkaddress:{loading,dataAddr,error}},checkaddressDispatch} = useContext(GlobalContext);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
-    const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
+    //const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
     const {sendcoinState:{sendcoin:{SEND_COIN_loading,SEND_COIN_data,SEND_COIN_error}},sendcoinDispatch} = useContext(GlobalContext);
     const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
     const {getnotificationState,getnotificationDispatch} = useContext(GlobalContext)
@@ -63,6 +63,7 @@ const Index =()=>{
     const [success,setsuccess] = useState(false)
     const [InputwalletPIn,setInputwalletPIn] = useState(false)
     const [mywallet,setmywallet] = useState('')
+    const [dataAutofee,setdataAutofee] = useState();
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -83,6 +84,59 @@ const Index =()=>{
             // console.log('TestServer',USER_data)
 
    },[Balance])
+
+
+   const retrieveAutoFee = ()=>{
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+    axios({
+        method: "POST",
+        url: `${Base_url}/threshold/getautofee`,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+
+        },
+        data:JSON.stringify({walletType:'BTC'})
+      })
+    .then(res=>{
+    // dispatch({
+    //     type:AUTO_FEE_SUCCESS,
+    //     payload:res.data
+    // })
+    console.log(res.data)
+
+    res.data.message.auto_fees.forEach((d)=>{
+                        
+        if(d.block_num === 1){
+            sethighFeeRate(d.auto_fee)
+        }
+        else if(d.block_num === 50){
+            setmediumFeeRate(d.auto_fee)
+        }
+        else if(d.block_num === 100){
+            setlowFeeRate(d.auto_fee)
+        }
+    })
+
+    setdataAutofee(true)
+   
+   
+})
+.catch(err=>{
+    console.log(err.response)
+    {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
+    
+    // toast.error(err.response,'Error')
+    // dispatch({
+    //     type:AUTO_FEE_ERROR,
+    //     payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
+    // })
+    // console.log(err.response)
+
+    
+})
+
+   }
 
     const getbalance = (_id)=>{
         
@@ -185,33 +239,9 @@ const Index =()=>{
 
     useEffect(()=>{
         
-        if(!mount){
-            let wallet_type = "BTC"
-            GetAutoFee(wallet_type)(autofeeDispatch)
-                if(dataAutofee){
-                    toast.success('Select NetworkFee',"SUCCESS")
-                    dataAutofee.message.auto_fees.forEach((d)=>{
-                        
-                        if(d.block_num === 1){
-                            sethighFeeRate(d.auto_fee)
-                        }
-                        else if(d.block_num === 50){
-                            setmediumFeeRate(d.auto_fee)
-                        }
-                        else if(d.block_num === 100){
-                            setlowFeeRate(d.auto_fee)
-                        }
-                    })
-                    setMount(true)
-            }
-
-            if(errorAutofee){
-                toast.error('NetworkFee Unavailable..Pls try after sometime',"ERROR")
-                console.log("errorAutoFee",errorAutofee)
-            }
-        }
+       retrieveAutoFee();
         
-    },[dataAutofee,errorAutofee])
+    },[])
 
     useEffect(()=>{
         
@@ -269,7 +299,7 @@ const Index =()=>{
         }
         setbtcamount('');
         setusdamount('')
-        // CheckAddress(items)(checkaddressDispatch)
+        CheckAddress(items)(checkaddressDispatch)
         // setcustomdiasble(!customdisable)
         
     }
