@@ -104,8 +104,10 @@ const Index=()=>{
         .then((res)=>{
             console.log(res.data)
             setprimaryAcctname(res.data.account_name);
-            setprimaryAcctnum(res.data.account_number)
-            setbank(res.data.bank_code)
+            setprimaryAcctnum(res.data.account_number);
+            
+            getBank(res.data.bank_code)
+            
             
 
             
@@ -138,11 +140,15 @@ const Index=()=>{
     },[kycLevel1])
 
     const getBank = (code)=>{
-       return  banks.map((d)=>{
-            if(d.code == code){
-                return d.name
-            }
-        })
+
+        //   banks.map((d)=>{
+        //     if(d.code === code.toString()){
+        //         setbank(d.name)
+        //     }
+        //     else{
+        //         setbank('unknown');
+        //     }
+        // })
     }
 
     useEffect(()=>{
