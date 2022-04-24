@@ -105,8 +105,8 @@ const Index=()=>{
             console.log(res.data)
             setprimaryAcctname(res.data.account_name);
             setprimaryAcctnum(res.data.account_number);
-            
-            getBank(res.data.bank_code)
+
+            getBank(res.data.bank_code);
             
             
 
