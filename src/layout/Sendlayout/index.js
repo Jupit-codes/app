@@ -438,8 +438,9 @@ const Index =()=>{
                     senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
         
                 }
-                console.log(success)
+                
                 ProcessCoin(items)(sendcoinDispatch);
+                setsuccess(false);
             }
 
         },[success])

@@ -40,14 +40,18 @@ export default (item)=>(dispatch)=>{
             type:SEND_COIN_SUCCESS,
             payload:res.data
         })
+
+        console.log(res.data)
         
       
     })
     .catch((err)=>{
         dispatch({
             type:SEND_COIN_ERROR,
-            payload:err.response ? err.response : 'CONNECTION FAULT'
+            payload:err.response ? err.response.error : 'CONNECTION FAULT'
         })
+
+        console.log(err.response.error)
        
     })
 }

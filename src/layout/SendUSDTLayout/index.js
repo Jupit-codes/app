@@ -65,7 +65,9 @@ const Index =()=>{
     const [userrefresh,setUserRefresh] = useState();
   
     const [InputwalletPIn,setInputwalletPIn] = useState(false)
-    const [mywallet,setmywallet] = useState('')
+    const [mywallet,setmywallet] = useState()
+
+    
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -74,10 +76,12 @@ const Index =()=>{
             if(USER_data ){
                 if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
-                    console.log('fetech',USER_data)
+                    
                     setcreatePin(USER_data.Pin_Created);
+                    setmywallet(USER_data.wallet_pin);
                 }
                
+                    
                     
                
                 
@@ -202,6 +206,7 @@ const retrieveAutoFee = ()=>{
         .then((res)=>{
             // console.log('Temiloluwa',res.data);
             setcreatePin(res.data.Pin_Created)
+            setmywallet(res.data.wallet_pin);
             
         })
         .catch((err)=>{
@@ -237,7 +242,7 @@ const retrieveAutoFee = ()=>{
         if(SEND_COIN_error){
             ReceipentAddress && btcamount && toast.error(SEND_COIN_error.Message,'ERROR')
             console.log(SEND_COIN_error.Message);
-            // toast.error(SEND_COIN_error.Message,"ERROR")
+            toast.error(SEND_COIN_error,"ERROR")
         }
 
     },[SEND_COIN_data,SEND_COIN_error])
@@ -440,7 +445,10 @@ const retrieveAutoFee = ()=>{
         else{
             
             if(createPin){
-                    setInputwalletPIn(true)
+                // console.log('PIN',createPin);
+                // console.log('WALLET',mywallet);
+                // return false;
+                    setInputwalletPIn(true);
             }
             else{
                 setopenModal(true);
@@ -468,8 +476,10 @@ const retrieveAutoFee = ()=>{
     
             }
             console.log(success)
-            
+    
             ProcessCoin(items)(sendcoinDispatch);
+            setsuccess(false);
+            
         }
 
     },[success])
