@@ -63,7 +63,9 @@ const Index =()=>{
     const [success,setsuccess] = useState(false)
     const [dataAutofee,setdataAutofee] = useState();
     const [userrefresh,setUserRefresh] = useState();
-    
+  
+    const [InputwalletPIn,setInputwalletPIn] = useState(false)
+    const [mywallet,setmywallet] = useState('')
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -72,7 +74,7 @@ const Index =()=>{
             if(USER_data ){
                 if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
-                    console.log('fetech',createPin)
+                    console.log('fetech',USER_data)
                     setcreatePin(USER_data.Pin_Created);
                 }
                
@@ -198,7 +200,9 @@ const retrieveAutoFee = ()=>{
             data:JSON.stringify({_id:reactLocalStorage.getObject('user')._id})
         })
         .then((res)=>{
-            setUserRefresh(res.data.Pin_Created);
+            // console.log('Temiloluwa',res.data);
+            setcreatePin(res.data.Pin_Created)
+            
         })
         .catch((err)=>{
             
@@ -214,7 +218,7 @@ const retrieveAutoFee = ()=>{
         const _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id);
         _getKyc(_id);
-        _checkuser(_id);
+        _checkuser();
     },[Balance])
    
 
@@ -436,7 +440,7 @@ const retrieveAutoFee = ()=>{
         else{
             
             if(createPin){
-                    alert('Okay')
+                    setInputwalletPIn(true)
             }
             else{
                 setopenModal(true);
@@ -476,7 +480,7 @@ const retrieveAutoFee = ()=>{
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
             {openModal && <CreatePinModal closeModal={setopenModal} callback={setsuccess}/>}
-            
+            { InputwalletPIn && <EnterPinModal closeModal={setInputwalletPIn} mywalletpin={mywallet} callback={setsuccess} /> }
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
