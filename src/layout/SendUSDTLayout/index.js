@@ -43,7 +43,7 @@ const Index =()=>{
     const[currentRate,setcurrentRate]=useState('');
     const {checkaddressState:{checkaddress:{loading,dataAddr,error}},checkaddressDispatch} = useContext(GlobalContext);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
-    const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
+    //const {autofeeState:{autofee:{loadingAutofee,dataAutofee,errorAutofee}},autofeeDispatch} = useContext(GlobalContext);
     const {sendcoinState:{sendcoin:{SEND_COIN_loading,SEND_COIN_data,SEND_COIN_error}},sendcoinDispatch} = useContext(GlobalContext);
     const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
     const {getnotificationState,getnotificationDispatch} = useContext(GlobalContext)
@@ -61,6 +61,8 @@ const Index =()=>{
     const[createPin,setcreatePin] =  useState()
     const [openModal,setopenModal] = useState(false);
     const [success,setsuccess] = useState(false)
+    const [dataAutofee,setdataAutofee] = useState();
+    const [userrefresh,setUserRefresh] = useState();
     
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
@@ -70,14 +72,15 @@ const Index =()=>{
             if(USER_data ){
                 if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                    console.log('fetech',createPin)
+                    setcreatePin(USER_data.Pin_Created);
                 }
+               
                     
-                // setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
-                setcreatePin(USER_data.Pin_Created);
-                // reactLocalStorage.setObject('user',USER_data)
+               
                 
             }
-            // console.log('TestServer',USER_data)
+          
 
    },[])
 
@@ -107,6 +110,58 @@ const Index =()=>{
         })
     }
 
+    
+const retrieveAutoFee = ()=>{
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
+        axios({
+            method: "POST",
+            url: `${Base_url}/threshold/getautofee`,
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+
+            },
+            data:JSON.stringify({walletType:'BTC'})
+        })
+        .then(res=>{
+        // dispatch({
+        //     type:AUTO_FEE_SUCCESS,
+        //     payload:res.data
+        // })
+        console.log(res.data)
+
+        res.data.message.auto_fees.forEach((d)=>{
+                            
+            if(d.block_num === 1){
+                sethighFeeRate(d.auto_fee)
+            }
+            else if(d.block_num === 50){
+                setmediumFeeRate(d.auto_fee)
+            }
+            else if(d.block_num === 100){
+                setlowFeeRate(d.auto_fee)
+            }
+        })
+
+        setdataAutofee(true)
+    
+    
+    })
+    .catch(err=>{
+        console.log(err.response)
+        {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
+        
+        // toast.error(err.response,'Error')
+        // dispatch({
+        //     type:AUTO_FEE_ERROR,
+        //     payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
+        // })
+        // console.log(err.response)
+
+        
+    })
+
+   }
     const _getKyc = (_id)=>{
         
         axios({
@@ -130,6 +185,28 @@ const Index =()=>{
         })
     }
 
+    const _checkuser = ()=>{
+        
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:reactLocalStorage.getObject('user')._id})
+        })
+        .then((res)=>{
+            setUserRefresh(res.data.Pin_Created);
+        })
+        .catch((err)=>{
+            
+            console.log('error',err.response)
+            
+        })
+    }
+
 
 
 
@@ -137,6 +214,7 @@ const Index =()=>{
         const _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id);
         _getKyc(_id);
+        _checkuser(_id);
     },[Balance])
    
 
@@ -182,32 +260,17 @@ const Index =()=>{
 
     },[error,data])
 
+
+
     useEffect(()=>{
+        retrieveAutoFee();
         
-        if(!mount){
-            let wallet_type = "USDT"
-            GetAutoFee(wallet_type)(autofeeDispatch)
-                if(dataAutofee){
-                    
-                    dataAutofee.message.auto_fees.forEach((d)=>{
-                        
-                        if(d.block_num === 1){
-                            sethighFeeRate(d.auto_fee)
-                        }
-                        else if(d.block_num === 50){
-                            setmediumFeeRate(d.auto_fee)
-                        }
-                        else if(d.block_num === 100){
-                            setlowFeeRate(d.auto_fee)
-                        }
-                    })
-                    setMount(true)
-            }
-        }
-        
-    },[dataAutofee])
+    },[])
 // 1 TRX = 1,000,000 SUN
 // xtrx = 9,8000,000SUN
+
+
+
     useEffect(()=>{
         
         if(ReceipentAddress){
@@ -413,6 +476,7 @@ const Index =()=>{
         <div className="sendBTC">
             { SEND_COIN_loading && <LoaderOverlay/>}
             {openModal && <CreatePinModal closeModal={setopenModal} callback={setsuccess}/>}
+            
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

@@ -88,53 +88,53 @@ const Index =()=>{
 
    const retrieveAutoFee = ()=>{
     const Base_url = process.env.REACT_APP_BACKEND_URL;
-    axios({
-        method: "POST",
-        url: `${Base_url}/threshold/getautofee`,
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+        axios({
+            method: "POST",
+            url: `${Base_url}/threshold/getautofee`,
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization":`Bearer ${reactLocalStorage.get('token')}`
 
-        },
-        data:JSON.stringify({walletType:'BTC'})
-      })
-    .then(res=>{
-    // dispatch({
-    //     type:AUTO_FEE_SUCCESS,
-    //     payload:res.data
-    // })
-    console.log(res.data)
+            },
+            data:JSON.stringify({walletType:'BTC'})
+        })
+        .then(res=>{
+        // dispatch({
+        //     type:AUTO_FEE_SUCCESS,
+        //     payload:res.data
+        // })
+        console.log(res.data)
 
-    res.data.message.auto_fees.forEach((d)=>{
-                        
-        if(d.block_num === 1){
-            sethighFeeRate(d.auto_fee)
-        }
-        else if(d.block_num === 50){
-            setmediumFeeRate(d.auto_fee)
-        }
-        else if(d.block_num === 100){
-            setlowFeeRate(d.auto_fee)
-        }
+        res.data.message.auto_fees.forEach((d)=>{
+                            
+            if(d.block_num === 1){
+                sethighFeeRate(d.auto_fee)
+            }
+            else if(d.block_num === 50){
+                setmediumFeeRate(d.auto_fee)
+            }
+            else if(d.block_num === 100){
+                setlowFeeRate(d.auto_fee)
+            }
+        })
+
+        setdataAutofee(true)
+    
+    
     })
+    .catch(err=>{
+        console.log(err.response)
+        {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
+        
+        // toast.error(err.response,'Error')
+        // dispatch({
+        //     type:AUTO_FEE_ERROR,
+        //     payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
+        // })
+        // console.log(err.response)
 
-    setdataAutofee(true)
-   
-   
-})
-.catch(err=>{
-    console.log(err.response)
-    {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
-    
-    // toast.error(err.response,'Error')
-    // dispatch({
-    //     type:AUTO_FEE_ERROR,
-    //     payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
-    // })
-    // console.log(err.response)
-
-    
-})
+        
+    })
 
    }
 
