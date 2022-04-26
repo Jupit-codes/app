@@ -338,7 +338,8 @@ const Index =()=>{
         CheckAddress(items)(checkaddressDispatch)
     }
     const _addAmount = ()=>{
-        return parseFloat(btcamount) + parseFloat(networkFee)
+        let x = btcamount + networkFee
+        return x;
     }
     const _selectFee = ()=>{
         // getAutoFee()()0.00000001
@@ -401,9 +402,11 @@ const Index =()=>{
         return false;
        }
 
+        let x = btcamount + networkFee;
+
         
         
-        if(_addAmount > Balance){
+        if(x > Balance){
             toast.error("Insufficent Wallet Balance"+_addAmount,"ERROR")
             return false;
         }
