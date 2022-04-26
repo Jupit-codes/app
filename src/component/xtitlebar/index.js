@@ -49,7 +49,7 @@ const Index = ()=>{
         let _id = reactLocalStorage.getObject('user')._id;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/threshold/notification/fetch`,
+            url: `https://myjupit.herokuapp.com/threshold/notification/fetch/title`,
             headers:{
                 'Content-Type':'application/json',
                 

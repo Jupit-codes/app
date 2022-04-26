@@ -10,6 +10,9 @@ import {
     Tooltip,
     Legend,
   } from 'chart.js';
+import { useEffect } from 'react';
+import { reactLocalStorage } from 'reactjs-localstorage';
+import axios from 'axios';
   
   ChartJS.register(
     CategoryScale,
@@ -21,6 +24,44 @@ import {
     Legend
   );
 const Index = ()=>{
+
+    const getData = ()=>{
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+    axios({
+        method: "POST",
+        url: `${Base_url}/threshold/chart/data`,
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":reactLocalStorage.get('token')
+        },
+        data:JSON.stringify({
+            wallet_type:'BTC',
+            userid:reactLocalStorage.getObject('user')._id
+  
+        })
+    })
+    .then((res)=>{
+        
+
+        console.log(res.data)
+        
+      
+    })
+    .catch((err)=>{
+       
+        console.log(err.response)
+       
+    })
+    }
+
+
+
+        useEffect(()=>{
+
+        },[])
+
+
+
 
     return(
         <div className='chartx'>
