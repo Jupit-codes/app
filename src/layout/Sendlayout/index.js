@@ -64,6 +64,7 @@ const Index =()=>{
     const [InputwalletPIn,setInputwalletPIn] = useState(false)
     const [mywallet,setmywallet] = useState('')
     const [dataAutofee,setdataAutofee] = useState();
+    const [addamount,setaddamount] = useState();
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -411,7 +412,7 @@ const Index =()=>{
             return false;
         }
         else{
-             
+             console.log(createPin)
             if(createPin){
                     setInputwalletPIn(true)
             }
@@ -531,8 +532,8 @@ const Index =()=>{
                             <div className='sendBTCFrom'>Total Fee (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {dataAddr && dataAddr === "Internal Transfer" && btcamount && _addAmount()}
-                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee && _addAmount()}
+                                {dataAddr && dataAddr === "Internal Transfer" && btcamount}
+                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee }
                             </div>
                     </div>
                 </div>

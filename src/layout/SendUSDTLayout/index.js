@@ -519,7 +519,7 @@ const retrieveAutoFee = ()=>{
                     <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
-                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} />
+                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Receipent USDT Address' value={ReceipentAddress} />
                             <small>{ReceipentAddress && loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
                             {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
                             {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
