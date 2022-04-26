@@ -407,7 +407,7 @@ const Index =()=>{
         
         
         if(x > Balance){
-            toast.error("Insufficent Wallet Balance"+_addAmount,"ERROR")
+            toast.error("Insufficent Wallet Balance","ERROR")
             return false;
         }
         else{
