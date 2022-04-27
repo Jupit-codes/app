@@ -23,7 +23,7 @@ import getNotification from '../../context/actions/getNotification';
 import Tether from '../../assets/images/tether.png'
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
 import EnterPinModal from '../../utils/modal/INPUT_PIN/'
-const Index =()=>{
+const Index =({manageTrigger,realTrigger})=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();

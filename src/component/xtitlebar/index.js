@@ -50,9 +50,9 @@ const Index = ({handletrigger})=>{
         
     },[])
 
-    const NotificationCount = ()=>{
+    const NotificationCount = async ()=>{
         let _id = reactLocalStorage.getObject('user')._id;
-        axios({
+        await axios({
             method: "POST",
             url: `https://myjupit.herokuapp.com/threshold/notification/fetch/title`,
             headers:{
