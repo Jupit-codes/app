@@ -437,8 +437,8 @@ const retrieveAutoFee = ()=>{
         return false;
        }
 
-       
-       if(_addAmount > Balance){
+       let x = btcamount + networkFee
+       if(x > Balance){
         toast.error("Insufficent Wallet Balance","ERROR")
         return false;
         }
@@ -555,23 +555,23 @@ const retrieveAutoFee = ()=>{
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Amount(In BTC)</div>
+                            <div className='sendBTCFrom'>Amount(In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 {btcamount}
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Network Fee ( In BTC)</div>
+                            <div className='sendBTCFrom'>Network Fee ( In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 {networkFee}
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Total Fee (In BTC)</div>
+                            <div className='sendBTCFrom'>Total Fee (In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {dataAddr && dataAddr === "Internal Transfer" && btcamount && _addAmount()}
-                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee && _addAmount()}
+                                {dataAddr && dataAddr === "Internal Transfer" && btcamount }
+                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee }
                             </div>
                     </div>
                 </div>
