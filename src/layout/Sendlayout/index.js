@@ -23,7 +23,7 @@ import getNotification from '../../context/actions/getNotification';
 import { fabClasses } from '@mui/material';
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
 import EnterPinModal from '../../utils/modal/INPUT_PIN/'
-const Index =()=>{
+const Index =({manageTrigger,realTrigger})=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();
@@ -65,6 +65,9 @@ const Index =()=>{
     const [mywallet,setmywallet] = useState('')
     const [dataAutofee,setdataAutofee] = useState();
     const [addamount,setaddamount] = useState();
+
+    
+
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -445,6 +448,7 @@ const Index =()=>{
                 
                 ProcessCoin(items)(sendcoinDispatch);
                 setsuccess(false);
+                manageTrigger(!realTrigger)
             }
 
         },[success])

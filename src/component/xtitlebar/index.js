@@ -8,12 +8,13 @@ import { useEffect,useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import {Badge,Dropdown} from 'react-bootstrap'
 import axios from 'axios'
-const Index = ()=>{
+const Index = ({handletrigger})=>{
     const history = useHistory();
     const [salutation, setsalutation] = useState();
     const[userInfor,setUserInfor] = useState();
     const [notification,setnotification] = useState()
 
+    console.log('Formal',handletrigger)
     const logout =()=>{
         reactLocalStorage.remove('user');
         reactLocalStorage.remove('token');
@@ -59,9 +60,10 @@ const Index = ()=>{
         })
         .then((res)=>{
             console.log(res.data)
-            if(notification != res.data.length){
-                setnotification(res.data.length)
-            }
+            // if(notification != res.data.length){
+            //     setnotification(res.data.length)
+            // }
+            setnotification(res.data.length)
             
         })
         .catch((err)=>{
@@ -74,7 +76,9 @@ const Index = ()=>{
 
     useEffect(()=>{
         NotificationCount();
-    },[notification])
+    },[handletrigger])
+
+    
     const dateandtime = ()=>{
        let date =  new Date();
        const actualtime = date.toLocaleTimeString(); 

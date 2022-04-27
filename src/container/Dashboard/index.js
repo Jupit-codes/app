@@ -18,6 +18,7 @@ const Index=()=>{
     const location = useLocation();
     const path = location.pathname;
     const [open, setOpen] = useState(true);
+    const [trigger, settrigger] = useState(false);
     const [navigation, setNavigation] = useState('');
     const handleCallback =(value)=>{
         setOpen(value)
@@ -28,28 +29,28 @@ const Index=()=>{
         let component;
         switch(path){
             case '/client':
-                return <Start openClose={open}/>
+                return <Start openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/kyc':
-                return <KYC openClose={open}/>
+                return <KYC openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/transactions-history':
-                return <Transactions openClose={open}/>
+                return <Transactions openClose={open} trigger={settrigger}settrigger={settrigger}/>
                 break;
             case '/client/settings':
-                return <Settings openClose={open}/>
+                return <Settings openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/notification':
-                return <Notification openClose={open}/>
+                return <Notification openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/wallet':
-                return <Wallets openClose={open}/>
+                return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sendbtc':
-                return <Send openClose={open}/>
+                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sendusdt':
-                return <SendUSDT openClose={open}/>
+                return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
 
             default:
@@ -61,7 +62,7 @@ const Index=()=>{
     return (
         <div className="dashboard">
                 <Sidebar openClose={open} notify={x}/>
-                <TitleBar  handle={setOpen} currentHandle={open}/>
+                <TitleBar  handle={setOpen} currentHandle={open} handletrigger={trigger}/>
               
                 {/* <Sidebar openClose={open} notify={x}/> */}
                 
