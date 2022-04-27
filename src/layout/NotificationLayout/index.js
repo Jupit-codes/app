@@ -18,6 +18,7 @@ const Index = ()=>{
     const [modal,setmodal] = useState(false)
     const [userid,setuserid] = useState('')
     const [state, setState] = useState();
+    const[id,setid] = useState();
     const [myLoader, setmyLoader] = useState(true);
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     const all_ids=[];
@@ -27,7 +28,7 @@ const Index = ()=>{
 
     const updateRead =  async () =>{
       
-        state.map((d)=>{
+        id.map((d)=>{
             all_ids.push(d._id)
         })
 
@@ -38,6 +39,7 @@ const Index = ()=>{
                'Content-Type':'application/json',
                'Authorization':reactLocalStorage.get('token')
            },
+        //    data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
            data:all_ids
        })
        .then((res)=>{
@@ -69,6 +71,7 @@ const Index = ()=>{
             data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email})
         })
         .then(res=>{
+            console.log('test',res.data)
             setState(res.data)
             setmyLoader(false)
 
@@ -83,15 +86,49 @@ const Index = ()=>{
   
     }
 
+    const getIds =  async () =>{
 
+        const addressBTC = reactLocalStorage.getObject('user').btc_wallet[0].address;
+        const addressUSDT = reactLocalStorage.getObject('user').usdt_wallet[0].address
+        const email = reactLocalStorage.getObject('user').email
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+                method: "POST",
+                url: `${Base_url}/threshold/notification/fetch/title`,
+                headers: {
+                "Content-Type": "application/json",
+                "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+                },
+                data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email})
+            })
+            .then(res=>{
+                
+                setid(res.data)
+                
+    
+                // console.log('Best',res.data)
+                // console.log('State',state.length)
+        
+            })
+            .catch(err=>{
+                console.log("err",err)
+            })
+        
+      
+        }
+
+
+
+    
     useEffect(()=>{
 
         myNotification();
+        getIds();
        
     },[])
     useEffect(()=>{
-       state && updateRead();
-    },[state])
+       id && updateRead();
+    },[id])
 
     const handleModal =(id)=>{
 
