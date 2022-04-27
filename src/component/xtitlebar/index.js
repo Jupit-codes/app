@@ -27,6 +27,10 @@ const Index = ({handletrigger})=>{
          history.push('/client/notification');
      }
     
+     useEffect(()=>{
+        NotificationCount();
+    },[handletrigger])
+
     useEffect(()=>{
         let x = reactLocalStorage.getObject('user');
         
@@ -59,10 +63,12 @@ const Index = ({handletrigger})=>{
             data:JSON.stringify({addressBTC:reactLocalStorage.getObject('user').btc_wallet[0].address,addressUSDT:reactLocalStorage.getObject('user').usdt_wallet[0].address,userid:_id,email:reactLocalStorage.getObject('user').email})
         })
         .then((res)=>{
-            console.log(res.data)
+            
+            
             // if(notification != res.data.length){
             //     setnotification(res.data.length)
             // }
+            console.log(res.data)
             setnotification(res.data.length)
             
         })
@@ -74,11 +80,9 @@ const Index = ({handletrigger})=>{
         })
     }
 
-    useEffect(()=>{
-        NotificationCount();
-    },[handletrigger])
-
     
+
+
     const dateandtime = ()=>{
        let date =  new Date();
        const actualtime = date.toLocaleTimeString(); 
