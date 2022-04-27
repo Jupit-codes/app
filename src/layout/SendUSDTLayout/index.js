@@ -479,6 +479,7 @@ const retrieveAutoFee = ()=>{
     
             ProcessCoin(items)(sendcoinDispatch);
             setsuccess(false);
+            manageTrigger(!realTrigger);
             
         }
 
