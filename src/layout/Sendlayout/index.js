@@ -444,6 +444,7 @@ const Index =()=>{
                 
                 ProcessCoin(items)(sendcoinDispatch);
                 setsuccess(false);
+                getbalance();
                 
             }
 

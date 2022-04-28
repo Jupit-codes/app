@@ -475,6 +475,7 @@ const retrieveAutoFee = ()=>{
     
             ProcessCoin(items)(sendcoinDispatch);
             setsuccess(false);
+            getbalance();
            
             
         }
