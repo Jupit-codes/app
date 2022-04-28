@@ -27,6 +27,7 @@ const Index = ()=>{
     const[showButton,setshowButton]=useState(false)
     const [openModal,setopenModal] = useState(false);
     const [openModalUsdt,setopenModalUsdt] = useState(false);
+    const [activeButton,setActivebutton] = useState('Naira')
     
     // console.log(reactLocalStorage.getObject('kyc'))
     const [kycLevel1,setkycLevel1] = useState('');
@@ -156,6 +157,7 @@ const Index = ()=>{
            
             if(location.state.wallettype != "undefined"){
                 setComponent(location.state.wallettype)
+                setActivebutton(location.state.wallettype)
             }
         }
         
@@ -301,6 +303,11 @@ const Index = ()=>{
         }
         
     }
+    const changeTransTo = (trans)=>{
+        setActivebutton(trans);
+        setComponent(trans)
+    }
+
     return(
         <div className="newWalletDiv">
             
@@ -312,9 +319,19 @@ const Index = ()=>{
                         Wallet Assets
                     </div>
                     <div className='cardClassTab-flex2'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1c1c93" class="bi bi-three-dots-vertical" viewBox="0 0 16 16" onClick={()=>{setshowButton(!showButton)}} >
+                        <div className={activeButton === 'Naira'? 'trans transFlexNAIRA':'trans'} onClick={()=>{changeTransTo('Naira')}}>
+                                    NAIRA WALLET
+                        </div>
+                        <div className={activeButton === 'Btc'? 'trans transFlexBTC':'trans'} onClick={()=>{changeTransTo('Btc')}}>
+                                    BTC WALLET
+                        </div>
+                        <div className={activeButton === 'Usdt'? 'trans transFlexUSDT':'trans'} onClick={()=>{changeTransTo('Usdt')}} >
+                                    USDT WALLET 
+                        </div>
+                        
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1c1c93" class="bi bi-three-dots-vertical" viewBox="0 0 16 16" onClick={()=>{setshowButton(!showButton)}} >
                             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                        </svg>
+                        </svg> */}
                     </div>
                 </div>
                 <div className={showButton ? 'type showtype':'type'} >
