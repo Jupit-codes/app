@@ -44,7 +44,7 @@ const Index = ()=>{
 
         useEffect(()=>{
             getTransaction();
-        })
+        },[])
 
         // const columns = [
         //     {

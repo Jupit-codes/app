@@ -192,7 +192,7 @@ const Index =()=>{
         getbalance(_id);
         _getKyc(_id);
 
-    },[Balance])
+    },[])
    
 
     useEffect(()=>{

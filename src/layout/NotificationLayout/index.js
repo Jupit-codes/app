@@ -164,6 +164,49 @@ const Index = ()=>{
                     
                     )
                 }
+                else if(d.type === "4"){
+                    if(d.status === "Processing"){
+                        return (    
+                            <div key={index} className="notifyDiv">
+    
+     
+                                <div className='notify-flex-1'>
+                                    <div className='info'>Incoming Deposit Alert</div>
+                                    <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>INCOMING DEPOSIT ALERT</div></div>
+                                    <small>A sum amount of {parseFloat(d.initiator) / 100000000} {d.transfertype} has been initiated on blockchain from wallet_address {d.from_address}.<br/> The current status is <span class="warning">{d.status}</span></small>
+                                    <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                </div>
+                               
+    
+                            </div>
+                        
+                        
+                        )
+                    }
+
+                    if(d.status === "Transaction Completed"){
+                        return (    
+                            <div key={index} className="notifyDiv">
+    
+     
+                                <div className='notify-flex-1'>
+                                    <div className='info'>Deposit Alert (BlockChain)</div>
+                                    <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>DEPOSIT ALERT (BLOCKCHAIN)</div></div>
+                                    <small>A sum amount of {parseFloat(d.initiator) / 100000000} {d.transfertype} was received from wallet address {d.from_address} processed from Blockchain.<br/> The current status is <span class="warning">{d.status}</span></small>
+                                    <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                </div>
+                               
+    
+                            </div>
+                        
+                        
+                        )
+                    }
+
+
+                   
+                }
+
                 else{
 
                     return (    
