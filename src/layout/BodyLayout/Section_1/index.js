@@ -12,7 +12,7 @@ const Index=()=>{
         setUserInfor(x.username.toUpperCase())
         
         let hour = new Date().getHours();
-        console.log(hour)
+        
         if(hour < 12){
             setsalutation('Good Morning')
         }

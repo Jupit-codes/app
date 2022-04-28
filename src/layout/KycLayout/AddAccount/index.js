@@ -131,7 +131,7 @@ const banks = [
             data:JSON.stringify({account_number:accountNumber,bank_code:bank})
         })
         .then((res)=>{
-                console.log(res.data.data)
+                
                 setaccountName(res.data.data.data.account_name)
                 setloading(false)
                 // toast.success(res.data.Message,"SUCCESS")

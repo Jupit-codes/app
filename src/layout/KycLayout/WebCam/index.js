@@ -26,7 +26,7 @@ const WebcamCapture = ({captured}) => {
 
         const _handleFileInput = (e)=>{
             e.preventDefault()
-            console.log(fileInput.current.files[0])
+            // console.log(fileInput.current.files[0])
         }
 
         

@@ -19,7 +19,7 @@ import { Dash } from 'react-bootstrap-icons'
 const Index = ()=>{
     const location = useLocation();
     const pathname = location.pathname.split('/');
-    console.log('check',pathname[2])
+ 
     
     return (
         <div className="xsidebar">

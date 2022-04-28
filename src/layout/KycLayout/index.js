@@ -163,10 +163,7 @@ export default function ColorTabs() {
   React.useEffect(()=>{
     getLatestUpdate();
     
-    
   
-    
-    
   },[])
  const getLatestUpdate = async ()=>{
   const Base_url = process.env.REACT_APP_BACKEND_URL;

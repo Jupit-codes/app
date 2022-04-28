@@ -23,7 +23,7 @@ const Index = ()=>{
     const [dob,setdob] = useState('');
     const {idCardState:{idcardVerification:{idcard_loading,idcard_data,idcard_error}},idCardDispatch} = useContext(GlobalContext)
 
-    console.log(idcard_loading)
+    
     const _handleIDCard = (e)=>{
         setcardType(e.target.value)
     }

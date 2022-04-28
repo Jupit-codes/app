@@ -8,13 +8,13 @@ import { useEffect,useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import {Badge,Dropdown} from 'react-bootstrap'
 import axios from 'axios'
-const Index = ({handletrigger})=>{
+const Index = ()=>{
     const history = useHistory();
     const [salutation, setsalutation] = useState();
     const[userInfor,setUserInfor] = useState();
     const [notification,setnotification] = useState()
 
-    console.log('Formal',handletrigger)
+    
     const logout =()=>{
         reactLocalStorage.remove('user');
         reactLocalStorage.remove('token');
@@ -29,7 +29,14 @@ const Index = ({handletrigger})=>{
     
      useEffect(()=>{
         NotificationCount();
-    },[handletrigger])
+
+       const interval =  setInterval(()=>{
+            NotificationCount();
+        },10000);
+
+        return ()=>clearInterval(interval);
+
+    },[])
 
     useEffect(()=>{
         let x = reactLocalStorage.getObject('user');
@@ -37,7 +44,7 @@ const Index = ({handletrigger})=>{
         setUserInfor(x.username.toUpperCase())
         
         let hour = new Date().getHours();
-        console.log(hour)
+        
         if(hour < 12){
             setsalutation('Good Morning')
         }
@@ -68,11 +75,12 @@ const Index = ({handletrigger})=>{
             // if(notification != res.data.length){
             //     setnotification(res.data.length)
             // }
-            console.log(res.data)
+            
             setnotification(res.data.length)
             
         })
         .catch((err)=>{
+            console.log(err.response);
 
             setnotification(0)
             

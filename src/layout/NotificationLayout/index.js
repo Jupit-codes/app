@@ -22,8 +22,7 @@ const Index = ()=>{
     const [myLoader, setmyLoader] = useState(true);
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     const all_ids=[];
-    // console.log('loader',loadingNotification);
-    // console.log('dataNotificationwww',dataNotification);
+    
     const Base_url = process.env.REACT_APP_BACKEND_URL;
 
     const updateRead =  async () =>{
@@ -45,7 +44,7 @@ const Index = ()=>{
        .then((res)=>{
          
          
-          console.log('notify',"Updated")
+        
          
        })
        .catch((err)=>{
@@ -138,9 +137,9 @@ const Index = ()=>{
     }   
 
     const _renderNotification =()=>{
-        console.log(state)
+        
         if(state && state.length > 0){
-            console.log(state)
+            
             
             return state.map((d,index)=>{
 
@@ -153,7 +152,8 @@ const Index = ()=>{
                                 <div className='info'>Message Alert</div>
                                 <div className="notifyMessage"><IoIosMail color={d.transfertype === "customeridentification.success"? 'green':'red'} size={20}/><div>KYC LEVEL (ACCOUNT VERIFICATION)</div></div>
                                 <small>Your KYC AccountLinkage Verification was <span className={d.transfertype === "customeridentification.success"? 'green':'red'} >{d.transfertype === "customeridentification.success"? 'Successful':'Unsuccessful'}</span></small>
-                                <div>{moment(d.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                
+                                <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
                             {/* <div className='notify-flex-2'>
                                 <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
@@ -174,7 +174,7 @@ const Index = ()=>{
                                 <div className={d.type === "2" ? 'red' : 'green'}>{d.type === "2" ? 'Withdrawal Alert': 'Deposit Alert'}</div>
                                 <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
                                 <small>{d.initiator === "sender" ? ` You have Initiated Transfer of ${d.amount}${d.asset} to ${d.to_address} Address `: `You have received a transfer of ${d.amount}${d.asset} from ${d.from_address} Address` }</small>
-                                <div>{moment(d.updated).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
                             <div className='notify-flex-2'>
                             <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>

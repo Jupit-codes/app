@@ -23,7 +23,7 @@ import getNotification from '../../context/actions/getNotification';
 import Tether from '../../assets/images/tether.png'
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
 import EnterPinModal from '../../utils/modal/INPUT_PIN/'
-const Index =({manageTrigger,realTrigger})=>{
+const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
     const [highFee, sethighFee]= useState();
@@ -130,11 +130,7 @@ const retrieveAutoFee = ()=>{
             data:JSON.stringify({walletType:'BTC'})
         })
         .then(res=>{
-        // dispatch({
-        //     type:AUTO_FEE_SUCCESS,
-        //     payload:res.data
-        // })
-        console.log(res.data)
+        
 
         res.data.message.auto_fees.forEach((d)=>{
                             
@@ -479,7 +475,7 @@ const retrieveAutoFee = ()=>{
     
             ProcessCoin(items)(sendcoinDispatch);
             setsuccess(false);
-            manageTrigger(!realTrigger);
+           
             
         }
 

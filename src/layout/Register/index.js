@@ -5,7 +5,7 @@ import { GlobalContext } from "../../context/Provider";
 import { Alert } from "react-bootstrap";
 const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
     const {registerDispatch,registerState:{registerAuth:{error,email_error}}} = useContext(GlobalContext)
-    console.log('error',email_error)
+
     
     return (
                 <form className="form-input" >

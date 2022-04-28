@@ -129,7 +129,7 @@ const Index = ()=>{
             data:JSON.stringify({userid:_id})
         })
         .then((res)=>{
-            console.log(res.data)
+           
             setkycLevel1(res.data.level1[0].status);
             setkycLevel2(res.data.level2[0].event_status)
             
@@ -153,7 +153,7 @@ const Index = ()=>{
 
     useEffect(()=>{
         if(location.state){
-            console.log(location.state)
+           
             if(location.state.wallettype != "undefined"){
                 setComponent(location.state.wallettype)
             }
