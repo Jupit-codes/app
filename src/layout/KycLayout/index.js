@@ -207,6 +207,7 @@ export default function ColorTabs() {
 
     })
     .catch(err=>{
+      setloaderState(false)
         console.log(err.response)
     })
  }
