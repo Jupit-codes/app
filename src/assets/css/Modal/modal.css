@@ -327,6 +327,7 @@
   .iconoff{
       position: absolute;
       left: 90%;
+      cursor: pointer;
   }
  
 

@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { reactLocalStorage } from "reactjs-localstorage"
 import axios from "axios"
+import {FiEye,FiEyeOff} from 'react-icons/fi'
 const Index=({pageContent,createdpin,seterror})=>{
 const [confirmpin,setconfirmpin] = useState('')
 const [error, setserror] = useState('')
-const [loss_focus, set_loss_focus] = useState(false)
-const [btn_name, set_btn_name] = useState('Next')
+const [loss_focus, set_loss_focus] = useState(false);
+const [btn_name, set_btn_name] = useState('Next');
+const [visibility,setvisibility] =useState(false);
     const _handleConfirmCreatePIN = (e)=>{
         setconfirmpin(e.target.value)
     }
@@ -57,12 +59,18 @@ const [btn_name, set_btn_name] = useState('Next')
             
         })
     }
-
+    const makeVisible = ()=>{
+        setvisibility(!visibility)
+    }
     
     return (
         <div className='PinInputDiv'>
-                {error && <div className="pinerror">{error}</div>}       
-            <input type="password"  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN} maxLength={6}/>
+                {error && <div className="pinerror">{error}</div>}  
+                <div className="myInput">
+                <input type={visibility? 'text': 'password'}  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN} maxLength={6}/>
+                    {visibility ? <FiEye  className="iconoff" onClick={makeVisible}/> : <FiEyeOff  className="iconoff" onClick={makeVisible}/> }
+                </div>     
+           
             <input type="submit" value={btn_name} onClick={checkpin} className="buttonNext" disabled={loss_focus} />
         </div>
     )
