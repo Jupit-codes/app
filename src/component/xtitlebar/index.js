@@ -2,6 +2,7 @@ import '../../assets/css/xtitlebar/xtitlebar.css'
 import {IoIosNotificationsOutline} from 'react-icons/io'
 import {BiSupport} from 'react-icons/bi'
 import {IoIosChatbubbles} from 'react-icons/io'
+import {IoLogoWhatsapp} from 'react-icons/io'
 import ProfileImage from '../../assets/images/utility/profile-pic.png'
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useEffect,useState } from 'react'
@@ -98,6 +99,9 @@ const Index = ()=>{
 
        return actualDate +`(${actualtime})`
     }
+    const whatsapChat = ()=>{
+        window.open('https://wa.me/2348088213177');
+    }
     return (
         <div className="xtitle">
                 <div className='WelcomeClass'>
@@ -119,11 +123,11 @@ const Index = ()=>{
                             <IoIosNotificationsOutline size={20} color="#1c1c93"/> 
                             <Badge pill bg="danger" className='notify'>{notification}</Badge>
                         </div>
-                        <div className='Notification'>
+                        {/* <div className='Notification'>
                             <BiSupport size={20} color="#1c1c93"/>
-                        </div>
+                        </div> */}
                         <div className='Notification'>
-                            <IoIosChatbubbles size={20} color="#1c1c93"/>
+                            <IoLogoWhatsapp size={20} color="#25D366" onClick={whatsapChat}/>
                         </div>
                         {/* <div className='ProfileName'>
                             Geoffrey
