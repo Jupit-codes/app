@@ -188,11 +188,10 @@ const Index = ()=>{
                         return (    
                             <div key={index} className="notifyDiv">
     
-     
                                 <div className='notify-flex-1'>
                                     <div className='info'>Deposit Alert (BlockChain)</div>
                                     <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>DEPOSIT ALERT (BLOCKCHAIN)</div></div>
-                                    <small>A sum amount of {parseFloat(d.initiator) / 100000000} {d.transfertype} was received from wallet address {d.from_address} processed from Blockchain.<br/> The current status is <span class="warning">{d.status}</span></small>
+                                    <small>A sum amount of {d.initiator} {d.transfertype} was received from wallet address {d.from_address} processed from Blockchain.<br/> The current status is <span class="warning">{d.status}</span></small>
                                     <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                                 </div>
                                
@@ -206,32 +205,94 @@ const Index = ()=>{
 
                    
                 }
-
-                else{
-
-                    return (    
-                        <div key={index} className="notifyDiv">
-
- 
-                            <div className='notify-flex-1'>
-                                <div className={d.type === "2" ? 'red' : 'green'}>{d.type === "2" ? 'Withdrawal Alert': 'Deposit Alert'}</div>
-                                <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
-                                <small>{d.initiator === "sender" ? ` You have Initiated Transfer of ${d.amount}${d.asset} to ${d.to_address} Address `: `You have received a transfer of ${d.amount}${d.asset} from ${d.from_address} Address` }</small>
-                                <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
-                            </div>
-                            <div className='notify-flex-2'>
-                            <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
-                            </div>
-
-                        </div>
+                else if(d.type === "12"){
+                    if(d.asset === "BTC"){
+                        if(d.from_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
+                            return (    
+                                <div key={index} className="notifyDiv">
+        
+         
+                                    <div className='notify-flex-1'>
+                                        <div className='red'>Withdrawal Alert</div>
+                                        <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
+                                        <small>You have successfully transferred the sum amount of {d.amount} {d.asset} to {d.to_address} Address </small>
+                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                    </div>
+                                    <div className='notify-flex-2'>
+                                    <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                                    </div>
+        
+                                </div>
+                            
+                            
+                            )
+                        }
+                        else if(d.to_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
+                            return (    
+                                <div key={index} className="notifyDiv">
+        
+         
+                                    <div className='notify-flex-1'>
+                                        <div className='green'>Deposit Alert</div>
+                                        <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
+                                        <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address </small>
+                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                    </div>
+                                    <div className='notify-flex-2'>
+                                    <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                                    </div>
+        
+                                </div>
+                            
+                            
+                            )
+                        }
+                    }
+                    if(d.asset === "USDT"){
+                        if(d.from_address === reactLocalStorage.getObject('user').usdt_wallet[0].address){
+                            return (    
+                                <div key={index} className="notifyDiv">
+        
+         
+                                    <div className='notify-flex-1'>
+                                        <div className='red'>Withdrawal Alert</div>
+                                        <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
+                                        <small>You have successfully transferred the sum amount of {d.amount} {d.asset} to {d.to_address} Address </small>
+                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                    </div>
+                                    <div className='notify-flex-2'>
+                                    <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                                    </div>
+        
+                                </div>
+                            
+                            
+                            )
+                        }
+                        else if(d.to_address === reactLocalStorage.getObject('user').usdt_wallet[0].address){
+                            return (    
+                                <div key={index} className="notifyDiv">
+        
+         
+                                    <div className='notify-flex-1'>
+                                        <div className='green'>Deposit Alert</div>
+                                        <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
+                                        <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address </small>
+                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                    </div>
+                                    <div className='notify-flex-2'>
+                                    <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                                    </div>
+        
+                                </div>
+                            
+                            
+                            )
+                        }
+                    }
                     
-                    
-                    )
                 }
-
-               
-                
-                   
+    
            })
         }
         else{
