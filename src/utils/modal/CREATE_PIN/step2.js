@@ -62,7 +62,7 @@ const [btn_name, set_btn_name] = useState('Next')
     return (
         <div className='PinInputDiv'>
                 {error && <div className="pinerror">{error}</div>}       
-            <input type="number"  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN}/>
+            <input type="password"  className='form-control' placeholder='Confirm PIN' onChange={_handleConfirmCreatePIN} maxLength={6}/>
             <input type="submit" value={btn_name} onClick={checkpin} className="buttonNext" disabled={loss_focus} />
         </div>
     )

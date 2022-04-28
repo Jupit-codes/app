@@ -86,6 +86,15 @@ const Index = ()=>{
                     <Si1Password size={20} style={{marginRight:10}}/>{status ? 'Disable 2FA': ' Enable 2FA'}
                 </div>
             </div>
+
+            <div className='CoverDIvSecurity'>
+                <div className='reset'>{status ? 'Disable 2FA': ' Enable 2FA'}</div>
+                <small>Click on the Button Below</small>
+                <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} >
+                 
+                    <RiLockPasswordFill size={20} style={{marginRight:10}}/> Change Pin
+                </div>
+            </div>
            
              
         </div>

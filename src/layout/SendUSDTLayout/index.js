@@ -468,7 +468,7 @@ const retrieveAutoFee = ()=>{
                 block_average:blockaverage,
                 wallet_type:"USDT",
                 transferType:dataAddr,
-                senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
+                senderAddress:reactLocalStorage.getObject('user').usdt_wallet[0].address
     
             }
             console.log(success)

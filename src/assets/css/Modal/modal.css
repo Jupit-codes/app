@@ -313,6 +313,23 @@
       
   }
 
+  .myInput{
+    display: flex;
+    align-items: center;
+    position: relative;
+     
+  }
+  .myInput > input{
+      text-align: center;
+    
+  }
+
+  .iconoff{
+      position: absolute;
+      left: 90%;
+  }
+ 
+
   @media only screen 
 and (min-device-width: 200px) 
 and (max-device-width: 400px)

@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import {FiEye,FiEyeOff} from 'react-icons/fi'
 
 
 const Index=({pageContent,pin,geterror})=>{
@@ -23,7 +23,11 @@ const Index=({pageContent,pin,geterror})=>{
     return (
         <div className='PinInputDiv'>
                 {geterror && <div className="pinerror">{geterror}</div>}
-            <input type="number"  className='form-control' placeholder='Enter Your Wallet PIN' value={createdpin} onChange={_handleCreatePIN} max={4}/>
+                <div className="myInput">
+                    <input type="password"  className='form-control' placeholder='Enter Your Wallet PIN' value={createdpin} onChange={_handleCreatePIN} maxLength={6}/>
+                    <FiEyeOff  className="iconoff"/>
+                </div>
+            {/* <input type="password"  className='form-control' placeholder='Enter Your Wallet PIN' value={createdpin} onChange={_handleCreatePIN} maxLength={6}/> */}
             <input type="submit" value="Next" onClick={handlenext} className="buttonNext" />
         </div>
     )
