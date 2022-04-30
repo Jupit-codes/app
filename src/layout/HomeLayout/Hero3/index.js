@@ -74,7 +74,7 @@ const Index = ()=>{
         }
         else{
             return (<div className='textParent'>
-                    <div className='textI'>The Next-Generation Digital<br/> Currency Exchange</div>
+                    <div className='textI'>The Next-Generation Digital<br/> <span>Currency Exchange</span></div>
                     {/* <div className='textSmall'>
                         You cannot discover new oceans unless you have the courage to lose the sight of the shore...and move on.
                     </div> */}

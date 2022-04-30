@@ -155,9 +155,15 @@
 @keyframes slide {
     0%{
         background: url('../../images/landingpage/bg/slider-2.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     67%{
         background: url('../../images/landingpage/bg/slider-3.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     /* 67%{
         background: url('../../images/landingpage/bg/slider-3.jpg');

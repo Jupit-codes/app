@@ -146,7 +146,9 @@
 	flex-shrink: 1;
 	flex-basis: 30%;
 	display: flex;
-	justify-content: end;
+	justify-content: center;
+	padding: 10px;
+
 	
   }
                   
@@ -161,13 +163,18 @@
 	flex-grow: 1;
 	flex-shrink: 1;
 	flex-basis: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+	
   }
 
   .hamburg{
 	display: none;
 }
 .logoX{
-	width: 25%;
+	width: 80%;
 	
 }
 
