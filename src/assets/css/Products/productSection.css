@@ -14,6 +14,7 @@
     font-family: 'Jura',sans-serif;
     font-size: 36px;
     color: #000; 
+    margin-top: 100px;
 }
 
 
@@ -33,7 +34,8 @@
 }
 .productFlex1 > h1{
     font-size: 38px;
-    font-family: Acme;   
+    font-family: Acme; 
+     
 }
 
 .productFlex2{

@@ -1,5 +1,6 @@
 import {AiFillLinkedin,AiFillFacebook,AiFillTwitterSquare,AiFillInstagram} from 'react-icons/ai'
 import {IoMdSend} from 'react-icons/io'
+import { Link } from 'react-scroll'
 import '../../assets/css/xfooter/xfooter.css'
 const Index = ()=>{
 
@@ -40,25 +41,26 @@ const Index = ()=>{
                     </div> */}
                     <div>
                         <h1>Links</h1>
-                        <p>About Us</p>
-                        <p>Products</p>
-                        <p>What Defines Us</p>
-                        <p>Our Core</p>
+                        <Link to='aboutus' spy={true} smooth={true} ><p className='xfooterLink'>About Us</p></Link>
+                        <Link to='product' spy={true} smooth={true} ><p className='xfooterLink'>Products</p></Link>
+                        <Link to='what_defines_us' spy={true} smooth={true} ><p className='xfooterLink'>What Defines Us</p></Link>
+                        <Link to='aboutus' spy={true} smooth={true} ><p className='xfooterLink'>Our Core</p></Link>
                         
                     </div>
                     <div>
                         <h1>Links</h1>
-                        <p>Faq</p>
-                        <p>Roadmap</p>
-                        <p>Team</p>
-                        <p>Contact Form</p>
+                        <Link to='faq' spy={true} smooth={true} ><p className='xfooterLink'>Faq</p></Link>
+                        <Link to='roadmap' spy={true} smooth={true} ><p className='xfooterLink'>Roadmap</p></Link>
+                        <Link to='ourteam' spy={true} smooth={true} ><p className='xfooterLink'>Our Team</p></Link>
+                        <Link to='getIntouch' spy={true} smooth={true} ><p className='xfooterLink'>Contact Form</p></Link>
+                        
                     </div>
                     <div>
                         <h1>Contact</h1>
-                        <p>
+                        <p className='xfooterLink'>
                             Address: Ajah, Lagos Nigeria.
                         </p>
-                        <p>
+                        <p className='xfooterLink'>
                            <a href='tel:2348088213177'>
                             Contact Number: +2348088213177 
                             </a> 

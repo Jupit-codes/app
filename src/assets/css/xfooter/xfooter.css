@@ -108,10 +108,12 @@
     color: #fff;
     font-family:'Jura',sans-serif;
 }
-.link > div > p{
+.xfooterLink{
     font-size: 14px;
     color: #fff;
     font-family:'Roboto',sans-serif;
+    cursor: pointer;
+    
 }
 .link > div > p > a{
    color: #fff;
