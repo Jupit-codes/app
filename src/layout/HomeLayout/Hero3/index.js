@@ -19,6 +19,7 @@ const Index = ()=>{
    
     const [animateImg, setanimateImg] = useState(0)
     const [stateComponent,setstateComponent] = useState();
+    const [textChanger,settextChanger] = useState(true)
     
     // useEffect(()=>{
     //     const intervalId = setInterval(changeHero,10000)
@@ -50,20 +51,36 @@ const Index = ()=>{
                 </span>
     }   
 
-    // useEffect(()=>{
-    //     setInterval(()=>{
-    //         _renderTextComponent('secure')
-    //     },1000)
-        
-    // })
+    useEffect(()=>{
+        let interval = setInterval(()=>{
+            settextChanger(!textChanger)
+            _renderTextComponent(textChanger)
+        },7000)
 
-    const _renderTextComponent = ()=>{
-        return (<div className='textParent'>
+        return ()=>clearInterval(interval);
+        
+        
+    })
+
+    const _renderTextComponent = (text)=>{
+
+        if(text){
+            return (<div className='textParent'>
                     <div className='textI'><span>Secure</span> and <span>Easy</span> Way <br/>TO <span>TRADE</span></div>
                     <div className='textSmall'>
                         You cannot discover new oceans unless you have the courage to lose the sight of the shore...and move on.
                     </div>
                 </div>)
+        }
+        else{
+            return (<div className='textParent'>
+                    <div className='textI'>The Next-Generation Digital<br/> Currency Exchange</div>
+                    {/* <div className='textSmall'>
+                        You cannot discover new oceans unless you have the courage to lose the sight of the shore...and move on.
+                    </div> */}
+                </div>)
+        }
+        
     }
 
     return (
@@ -101,7 +118,7 @@ const Index = ()=>{
                         }}
                 />
                 </div> */}
-                {_renderTextComponent()}
+                {_renderTextComponent(textChanger)}
            </div>
            <div className='cardHero'>
                <div className='heroCard'>
