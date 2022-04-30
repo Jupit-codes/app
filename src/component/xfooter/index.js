@@ -2,6 +2,11 @@ import {AiFillLinkedin,AiFillFacebook,AiFillTwitterSquare,AiFillInstagram} from 
 import {IoMdSend} from 'react-icons/io'
 import '../../assets/css/xfooter/xfooter.css'
 const Index = ()=>{
+
+    const openInstagram = ()=>{
+        window.open('https://www.instagram.com/jupit.app')
+    }
+
     return(
         <div className="xfooter">
                 <div className="socialmedias">
@@ -9,7 +14,7 @@ const Index = ()=>{
                         {/* <AiFillLinkedin size={30} color="#fff"/>
                         <AiFillFacebook  size={30} color="#fff"/>
                         <AiFillTwitterSquare  size={30} color="#fff"/>  */}
-                         <AiFillInstagram  size={50} color="#fff"/><div style={{color:'#fff',cursor:'pointer'}}>Instagram</div>
+                         <AiFillInstagram  size={50} color="#fff" onClick={openInstagram} style={{cursor:'pointer'}}/><div style={{color:'#fff',cursor:'pointer'}}>Instagram</div>
                        
                        
 
@@ -51,11 +56,11 @@ const Index = ()=>{
                     <div>
                         <h1>Contact</h1>
                         <p>
-                            Address:Ajah, Lagos Nigeria.
+                            Address: Ajah, Lagos Nigeria.
                         </p>
                         <p>
                            <a href='tel:2348088213177'>
-                            Contact Number:+2348088213177 
+                            Contact Number: +2348088213177 
                             </a> 
                         </p>
                     </div>

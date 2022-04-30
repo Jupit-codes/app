@@ -47,7 +47,7 @@ const Index=({ActivePath,getscroll})=>{
              {loadModal && <Modal closeModal={setloadModal}/>}
             <div className="my-nav-container">
                 <div className="logo">
-                    <NewLink to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white}/></NewLink>
+                    <NewLink to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white} className="logoX"/></NewLink>
                 </div>
                 <div className="hamburg">
                     <GiHamburgerMenu  color={scroll === 0 ? '#fff':'#000'} size={35} className="hamburger" onClick={()=>setshow(true)}/>

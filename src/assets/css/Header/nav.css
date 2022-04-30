@@ -56,7 +56,9 @@
 	flex-direction: row;
 	justify-content: space-between;
   
-	padding:15px;
+	padding-left:30px;
+	padding-right:30px;
+	
 	
   }
   
@@ -64,11 +66,14 @@
 	/* background-color: #61dafb; */
 	flex-grow: 1;
 	flex-shrink: 1;
-	flex-basis: 40%;
+	flex-basis: 70%;
 	text-align: left;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	align-items: center;
+	
+	margin-top: 25px;
   }
   .mynav-item{
 	font-family: Inter;
@@ -161,6 +166,10 @@
   .hamburg{
 	display: none;
 }
+.logoX{
+	width: 25%;
+	
+}
 
 
 
@@ -175,8 +184,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		
 	}
 	
+	
 	.logo  img {
 		width: 40%;
+		
 	}
 	.mynav{
 		display: none;

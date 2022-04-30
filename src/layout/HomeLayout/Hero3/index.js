@@ -129,7 +129,7 @@ const Index = ()=>{
                             <div className='fixedtoken'>
                                 {/* Fixed token edition 3,000.000BITS */}
                                 Our exchange infrastructure is still under development. <br/><br/>
-                                For business and enquiries, please reach out to us through the WhatsApp or Instagram link below.
+                                For business and enquiries, please reach out to us through the WhatsApp link below.
                                 
                             </div>
                             {/* <div className='token'>

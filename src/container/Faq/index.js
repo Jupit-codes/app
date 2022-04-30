@@ -8,7 +8,7 @@ const Index=()=>{
     const [scroll,setscroll] = useState(0)
 
     return(
-        <div>
+        <div id="faq">
             <Header getscroll={setscroll}/>
                 <HeroFAQ/>
                 <ContentFAQ/>

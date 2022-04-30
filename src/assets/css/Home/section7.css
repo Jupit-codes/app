@@ -12,7 +12,8 @@
     flex-direction: column;
     min-height: 80vh;
 height: 100%;
-    background-image: linear-gradient(to right top, #0079d9, #0063ca, #004db9, #0d36a7, #1c1c93);
+    /* background-image: linear-gradient(to right top, #0079d9, #0063ca, #004db9, #0d36a7, #1c1c93); */
+    background-image: linear-gradient(to right top, #0050c2, #0050c2, #0050c2, #0050c2, #0050c2, #0057c6, #005fca, #0066cd, #0075d3, #0083d8, #0091da, #009edb);
     /* background: url('../../images/about-banner.png');
     background-position:center;
     background-repeat: no-repeat;
