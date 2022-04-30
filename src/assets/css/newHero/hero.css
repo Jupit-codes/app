@@ -17,6 +17,29 @@
     
  
 }
+.textI{
+  color:#fff;
+  letter-spacing: 3px;
+}
+.textParent{
+
+  width: 80%;
+  
+  font-size: 25px;
+  font-family: 'Jura'
+}
+.textSmall{
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: 'Roboto';
+  color:#fff;
+  font-weight: bold;
+}
+.textI > span{
+  font-family: 'Roboto';
+  font-size: 45px;
+  font-weight: bold;
+}
 
 .content{
    width: 100%;

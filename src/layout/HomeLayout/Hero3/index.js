@@ -48,8 +48,23 @@ const Index = ()=>{
                     />
             
                 </span>
-    }
+    }   
 
+    // useEffect(()=>{
+    //     setInterval(()=>{
+    //         _renderTextComponent('secure')
+    //     },1000)
+        
+    // })
+
+    const _renderTextComponent = ()=>{
+        return (<div className='textParent'>
+                    <div className='textI'><span>Secure</span> and <span>Easy</span> Way <br/>TO <span>TRADE</span></div>
+                    <div className='textSmall'>
+                        You cannot discover new oceans unless you have the courage to lose the sight of the shore...and move on.
+                    </div>
+                </div>)
+    }
 
     return (
         <div className='hero' id='hero'>
@@ -73,7 +88,7 @@ const Index = ()=>{
 
            </div> */}
            <div className='cardText'>
-               <div className='cardTextTitle'>Jupit</div>
+               {/* <div className='cardTextTitle'>Jupit</div>
                 <div className='typewriterEffect'>
                     <Typewriter
                         onInit={(typewriter) => {
@@ -85,7 +100,8 @@ const Index = ()=>{
                             
                         }}
                 />
-                </div>
+                </div> */}
+                {_renderTextComponent()}
            </div>
            <div className='cardHero'>
                <div className='heroCard'>
