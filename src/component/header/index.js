@@ -40,13 +40,17 @@ const Index=({ActivePath,getscroll})=>{
             window.removeEventListener('scroll', handleScroll);
         };
     },[])
+    const homepage = ()=>{
+        
+        window.scroll(0,0);
+    }
 
     return (
         
         <div className={scroll != 0 || ActivePath === 'contact-us'  ? 'HeaderScroll': 'Header'}>
              {loadModal && <Modal closeModal={setloadModal}/>}
             <div className="my-nav-container">
-                <div className="logo">
+                <div className="logo" onClick={homepage}>
                     <NewLink to='/'><img src={scroll != 0 || ActivePath === 'contact-us' ? logo :  logo_white} className="logoX"/></NewLink>
                 </div>
                 <div className="hamburg">

@@ -190,7 +190,7 @@ const Index=()=>{
                             <div className='faq-answer'>
                                     <p>
                                         {/* Squirreling Squirrels launch date is still TBA. We will be revealing the pre-launch date soon as well.! */}
-                                         We’re doing a few exceptionally curious things to ensure our platform is develop with the safest components and that of course takes time by its stages. However, our PWA trading platform will be ready for public use by Q3 of 2022.
+                                         We’re doing a few exceptionally curious things to ensure our platform is develop with the safest components and that of course takes time by its stages. However, our PWA trading platform will be ready for public use by Q2 of 2022.
                                     </p>
                                     
                             </div> 
