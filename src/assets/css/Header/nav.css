@@ -180,7 +180,7 @@
 
 @media only screen 
 and (min-device-width: 200px) 
-and (max-device-width: 400px)
+and (max-device-width: 700px)
 and (-webkit-min-device-pixel-ratio: 2) {
 	.my-nav-container{
 		display: flex;
@@ -191,7 +191,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	
 	
 	.logo  img {
-		width: 40%;
+		width: 80%;
 		
 	}
 	.mynav{
