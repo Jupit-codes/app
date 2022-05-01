@@ -179,6 +179,34 @@
 
 
 @media only screen 
+and (min-device-width: 701px) 
+and (max-device-width: 899px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+	.mynav{
+		display: none;
+	}
+	.my-buttons{
+		display: none;
+	}
+	.hamburg{
+		display: block;
+		width: 50%;
+		margin-right: 20px;
+		text-align: center;
+		
+	}
+	.logo{
+		
+		justify-content: flex-start;
+		align-items: center;
+		padding: 20px;
+		
+	  }
+}
+
+
+@media only screen 
 and (min-device-width: 200px) 
 and (max-device-width: 899px)
 and (-webkit-min-device-pixel-ratio: 2) {
@@ -188,6 +216,14 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		flex-direction: row;
 		
 	}
+	.logo{
+		
+		justify-content: flex-start;
+		align-items: center;
+		padding: 20px;
+		
+	  }
+	
 	
 	
 	.logo  img {
@@ -203,6 +239,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.hamburg{
 		display: block;
 		width: 50%;
+		margin-right: 20px;
 		text-align: end;
 		
 	}
