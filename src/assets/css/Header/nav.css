@@ -180,7 +180,7 @@
 
 @media only screen 
 and (min-device-width: 200px) 
-and (max-device-width: 700px)
+and (max-device-width: 899px)
 and (-webkit-min-device-pixel-ratio: 2) {
 	.my-nav-container{
 		display: flex;
