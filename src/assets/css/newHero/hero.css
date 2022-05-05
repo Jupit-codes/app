@@ -339,6 +339,8 @@
 and (min-device-width: 200px) 
 and (max-device-width: 600px)
 and (-webkit-min-device-pixel-ratio: 2) {
+
+  
   .hero{
     width: 100%;
     height: 100%;
@@ -346,6 +348,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: url('../../images/landingpage/bg/slider-2.jpg');
+    animation: none;
   }
 
   .cardText{
