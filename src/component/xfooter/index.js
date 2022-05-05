@@ -51,7 +51,7 @@ const Index = ()=>{
                         <h1>Links</h1>
                         <Link to='faq' spy={true} smooth={true} ><p className='xfooterLink'>Faq</p></Link>
                         {/* <Link to='roadmap' spy={true} smooth={true} ><p className='xfooterLink'>Roadmap</p></Link> */}
-                        <Link to='ourteam' spy={true} smooth={true} ><p className='xfooterLink'>Our Team</p></Link>
+                        {/* <Link to='ourteam' spy={true} smooth={true} ><p className='xfooterLink'>Our Team</p></Link> */}
                         <Link to='getIntouch' spy={true} smooth={true} ><p className='xfooterLink'>Contact Form</p></Link>
                         
                     </div>
