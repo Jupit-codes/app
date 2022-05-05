@@ -66,7 +66,7 @@ const Index=()=>{
             {/* <Innovative myscroll={scroll}/> */}
             {/* <HowItWorks/> */}
             {/* <Roadmap/> */}
-            <OurTeam/>
+            {/* <OurTeam/> */}
             <Faq/>
             
             {/* <OurOffer/> */}
