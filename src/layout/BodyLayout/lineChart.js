@@ -10,9 +10,10 @@ import {
     Tooltip,
     Legend,
   } from 'chart.js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import axios from 'axios';
+import {BiLoaderCircle} from 'react-icons/bi'
   
   ChartJS.register(
     CategoryScale,
@@ -24,7 +25,7 @@ import axios from 'axios';
     Legend
   );
 const Index = ()=>{
-
+    const [loader,setloader] = useState(true)
     const getData = ()=>{
         const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
@@ -54,10 +55,33 @@ const Index = ()=>{
     })
     }
 
-
+    const fetchChart = async()=>{
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+            method: "POST",
+            url: `${Base_url}/verify/getChart/data`,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    
+            },
+            data:{btcaddress:reactLocalStorage.getObject('user').btc_wallet[0].address}
+          })
+        .then(res=>{
+            console.log(res);
+            setloader(false)
+        
+        })
+        .catch(err=>{
+            console.log(err)
+            setloader(false)
+            //seterror(err.response ? err.response.data : 'Internal Server Error...Pls Try Again')
+            
+        })
+    }
 
         useEffect(()=>{
-
+                fetchChart();
         },[])
 
 
@@ -65,8 +89,9 @@ const Index = ()=>{
 
     return(
         <div className='chartx'>
-           
-            <Line
+            {
+                loader ? <div className='Chartloader'> </div> : 
+                <Line
                 datasetIdKey='id'
                
                 options={{maintainAspectRatio: true}}
@@ -75,14 +100,14 @@ const Index = ()=>{
                     datasets: [
                     {
                         id: 1,
-                        label: 'Buy',
+                        label: 'Send',
                         data: [0.5, 0.005,0.01,0.1,0.2,0.3,0.5,0.8,0.4,0.3,0.5,0.5],
                         backgroundColor: '#00DEA3',
                         borderColor: '#00DEA3',
                     },
                     {
                         id: 2,
-                        label: 'Sell',
+                        label: 'Receive',
                         data: [1, 0.003,0.08,0.5,0.4,0.3,0.5,0.4,0.2,0.3,0.1,0.005],
                         backgroundColor: '#5A55D2',
                         borderColor: '#0071bd',
@@ -92,7 +117,10 @@ const Index = ()=>{
                    
                 }}
                 
-            />
+            /> 
+            }
+           
+            
         </div>
     )
 }

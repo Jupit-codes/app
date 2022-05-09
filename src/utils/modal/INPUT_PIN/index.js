@@ -53,7 +53,7 @@ const Index = ({closeModal,mywalletpin,callback})=>{
                             <strong> Enter Your Wallet PIN</strong>
 
                     </div>
-                    <input type="number"  className='form-control' placeholder='Wallet PIN' value={walletpin} onChange={handleWalletPin} max={4}/>
+                    <input type="password"  className='form-control' placeholder='Wallet PIN' value={walletpin} onChange={handleWalletPin} max={4}/>
                     <input type="submit" value="Confirm"  className="buttonNext" onClick={pincheck} />
                 </div>
                     
