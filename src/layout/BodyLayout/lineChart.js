@@ -68,12 +68,12 @@ const Index = ()=>{
             data:{btcaddress:reactLocalStorage.getObject('user').btc_wallet[0].address}
           })
         .then(res=>{
-            console.log(res);
+            console.log(res.data);
             setloader(false)
         
         })
         .catch(err=>{
-            console.log(err)
+            console.log(err.response)
             setloader(false)
             //seterror(err.response ? err.response.data : 'Internal Server Error...Pls Try Again')
             
