@@ -33,11 +33,22 @@ const Index = ({getClicked})=>{
 
     const [testData,settestData] = useState([]);
     
-    
+    // console.log('Host',getClicked);
 
     const fetchChart = async()=>{
         const Base_url = process.env.REACT_APP_BACKEND_URL;
 
+        let address = "";
+
+        if(getClicked === "BTC"){
+            address = reactLocalStorage.getObject('user').btc_wallet[0].address
+        }
+        else if(getClicked === "USDT"){
+            address = reactLocalStorage.getObject('user').usdt_wallet[0].address
+        }
+
+      
+        setloader(true)
         
         await axios({
             method: "POST",
@@ -47,12 +58,15 @@ const Index = ({getClicked})=>{
               "Authorization":`Bearer ${reactLocalStorage.get('token')}`
     
             },
-            data:{btcaddress:reactLocalStorage.getObject('user').btc_wallet[0].address}
+            data:{btcaddress:address}
           })
         .then(res=>{
             console.log(res.data);
             let sumRecieve = 0;
             let sumSend = 0
+
+            setlabel([]);
+            setreceiveData([]);
             res.data.forEach((d)=>{
                 console.log('year',d._id)
 
@@ -64,10 +78,10 @@ const Index = ({getClicked})=>{
                    setlabel(mylabel =>[...mylabel,SwitchMonth(x.month)])
                     x.dailyusage.forEach((y)=>{
                         console.log('Data',y.totalTransaction)
-                        if(y.Send === reactLocalStorage.getObject('user').btc_wallet[0].address){
+                        if(y.Send === address){
                             sumSend += y.totalTransaction;
                         }
-                        if(y.Receive === reactLocalStorage.getObject('user').btc_wallet[0].address){
+                        if(y.Receive === address){
                             sumRecieve += y.totalTransaction
                         }
                         
@@ -139,7 +153,7 @@ const Index = ({getClicked})=>{
 
         useEffect(()=>{
                 fetchChart();
-        },[])
+        },[getClicked])
 
         
 

@@ -18,6 +18,8 @@ const Index = ()=>{
     const [showButton,setshowButton] = useState(false)
     const [component,setComponent] = useState('Naira')
     const [clickChart,setClickChart] =  useState('BTC')
+    const [activeBTC,setactiveBTC] = useState(true)
+    const [activeUSDT,setactiveUSDT] = useState(false)
     const history = useHistory();
         const _renderComponent = ()=>{
         switch (component) {
@@ -44,7 +46,16 @@ const Index = ()=>{
         
     }
     const handleChart = (clicked)=>{
+        
         setClickChart(clicked)
+        if(clicked === "BTC"){
+            setactiveBTC(true);
+            setactiveUSDT(false)
+        }
+        if(clicked === "USDT"){
+            setactiveUSDT(true);
+            setactiveBTC(false)
+        }
     }
     return(
         <div className="body_section2">
@@ -84,10 +95,10 @@ const Index = ()=>{
                         Transaction Overview
                     </div>
                     <div className='transDiv'>
-                        <div className='trans transFlex' onClick={handleChart('BTC')}>
+                        <div className='trans transFlex activeX' onClick={()=>handleChart('BTC')}>
                                     BTC
                         </div>
-                        <div className='trans transXflex' onClick={handleChart('USDT')}>
+                        <div className='trans transFlex' onClick={()=>handleChart('USDT')}>
                                     USDT
                         </div>
                         {/* <div className='trans transXflex' onClick={handleChart('BTC')}>
