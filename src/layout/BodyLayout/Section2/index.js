@@ -17,6 +17,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const Index = ()=>{
     const [showButton,setshowButton] = useState(false)
     const [component,setComponent] = useState('Naira')
+    const [clickChart,setClickChart] =  useState('BTC')
     const history = useHistory();
         const _renderComponent = ()=>{
         switch (component) {
@@ -41,6 +42,9 @@ const Index = ()=>{
             state: { wallettype: component }
         });
         
+    }
+    const handleChart = (clicked)=>{
+        setClickChart(clicked)
     }
     return(
         <div className="body_section2">
@@ -80,19 +84,19 @@ const Index = ()=>{
                         Transaction Overview
                     </div>
                     <div className='transDiv'>
-                        <div className='trans transFlex'>
+                        <div className='trans transFlex' onClick={handleChart('BTC')}>
                                     BTC
                         </div>
-                        <div className='trans transXflex'>
+                        <div className='trans transXflex' onClick={handleChart('USDT')}>
                                     USDT
                         </div>
-                        <div className='trans transXflex'>
+                        {/* <div className='trans transXflex' onClick={handleChart('BTC')}>
                                     ALL
-                        </div>
+                        </div> */}
                       
                     </div>
                 </div>
-               <LineChart/>
+               <LineChart getClicked = {clickChart}/>
             </div>
             
         </div>

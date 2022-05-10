@@ -24,7 +24,7 @@ import {BiLoaderCircle} from 'react-icons/bi'
     Tooltip,
     Legend
   );
-const Index = ()=>{
+const Index = ({getClicked})=>{
     const [loader,setloader] = useState(true);
     const [mylabel,setlabel] = useState([]);
 
@@ -33,37 +33,12 @@ const Index = ()=>{
 
     const [testData,settestData] = useState([]);
     
-    const getData = ()=>{
-        const Base_url = process.env.REACT_APP_BACKEND_URL;
-    axios({
-        method: "POST",
-        url: `${Base_url}/threshold/chart/data`,
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":reactLocalStorage.get('token')
-        },
-        data:JSON.stringify({
-            wallet_type:'BTC',
-            userid:reactLocalStorage.getObject('user')._id
-  
-        })
-    })
-    .then((res)=>{
-        
-
-        // console.log(res.data)
-        
-      
-    })
-    .catch((err)=>{
-       
-        console.log(err.response)
-       
-    })
-    }
+    
 
     const fetchChart = async()=>{
         const Base_url = process.env.REACT_APP_BACKEND_URL;
+
+        
         await axios({
             method: "POST",
             url: `${Base_url}/verify/getChart/data`,
