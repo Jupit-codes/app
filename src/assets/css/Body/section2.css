@@ -77,16 +77,21 @@
     background-color: #00DEA3;
 }
 
+.activeX{
+    background-color: #00DEA3;
+    
+}
+
 
 .transXflex{
     border: 2px solid #f2f2f2;
+    
     
 }
 .walletAmount{
     font-size: 18px;
     font-family: 'Jura',sans-serif;
 }
-
 
 
 .transDiv{
