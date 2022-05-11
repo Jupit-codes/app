@@ -32,16 +32,32 @@
 
 .recent-transactions{
     display: flex;
+    justify-content: space-between;
     margin-top: 10px;
 
 }
+.GifttCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.GifttCard > img{
+    width: 80%;
+}
 
 .recent-transactions div{
-    flex:1 1 calc(20% -20px);
+    /* flex:1 1 calc(20% -20px); */
+    display: flex;
+    align-items: center;
+    width: 100%;
     margin: 10px;
     font-family: 'Roboto',sans-serif;
-    font-size: 15px;
-    text-align: center;
+    font-size: 13px;
+    text-align: left;
+    
     
 }
 

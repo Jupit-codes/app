@@ -95,10 +95,10 @@ const Index = ()=>{
                         Transaction Overview
                     </div>
                     <div className='transDiv'>
-                        <div className='trans transFlex activeX' onClick={()=>handleChart('BTC')}>
+                        <div className={activeBTC ? 'trans transFlex active':'trans transFlex'} onClick={()=>handleChart('BTC')}>
                                     BTC
                         </div>
-                        <div className='trans transFlex' onClick={()=>handleChart('USDT')}>
+                        <div className={activeUSDT ? 'trans transFlex active':'trans transFlex'} onClick={()=>handleChart('USDT')}>
                                     USDT
                         </div>
                         {/* <div className='trans transXflex' onClick={handleChart('BTC')}>

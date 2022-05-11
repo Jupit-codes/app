@@ -74,11 +74,11 @@
 
 .transFlex{
     border: 1px solid #00DEA3;
-    background-color: #00DEA3;
+    
 }
 
 .activeX{
-    background-color: #00DEA3;
+    display: none;
     
 }
 
@@ -96,6 +96,7 @@
 
 .transDiv{
     display: flex;
+    
 }
 
 
