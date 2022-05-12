@@ -9,6 +9,7 @@ import Settings from  '../../container/Settings'
 import Wallets from  '../../container/Wallets'
 import Send from '../../container/Send'
 import SendUSDT from '../../container/SendUsdt'
+import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
 import { useLocation } from "react-router";
 import { reactLocalStorage } from "reactjs-localstorage";
@@ -51,6 +52,9 @@ const Index=()=>{
                 break;
             case '/client/sendusdt':
                 return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+                case '/client/tradegiftcard':
+                    return <GiftCard openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
 
             default:

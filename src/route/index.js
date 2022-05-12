@@ -109,6 +109,13 @@ const route = [
 
     },
     {
+        path:'/client/tradegiftcard',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
+
+    },
+    {
         path:'/client',
         title:'Client Dashboard | Jupit',
         isAuthenticated:true,
