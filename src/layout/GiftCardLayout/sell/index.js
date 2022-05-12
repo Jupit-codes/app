@@ -8,13 +8,13 @@ const Index = ()=>{
     const [loader, setloader] = useState(false)
     const [cardname,setcardname] = useState([])
     // console.log(Countries)
-    console.log("Countries",countries)
+    // console.log("Countries",countries)
     const getCard =async()=>{
 
         // hasFlag('US') === true
         // hasFlag('ZZ') === false
 
-        console.log(hasFlag('us'));
+        console.log(hasFlag('US'));
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         
         await axios({
@@ -30,7 +30,12 @@ const Index = ()=>{
         .then(res=>{
             setloader(false)
             
-            console.log(res.data)
+            console.log(res.data);
+
+            res.data.map((d)=>{
+                setcardname(cardname=>[...cardname,d.cardname])
+            })
+            
            
         })
         .catch(err=>{
@@ -47,6 +52,10 @@ const Index = ()=>{
     useEffect(()=>{
         getCard();
     },[])
+
+    const optionDetails=()=>{
+        
+    }
     return(
         <div className="sellbody">
             <div className="formProgress">
@@ -58,6 +67,7 @@ const Index = ()=>{
                             <option>
                                 Select Gift Card Type
                             </option>
+                            {optionDetails()}
                         </select>
                        
                 </div>
