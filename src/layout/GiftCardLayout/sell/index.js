@@ -7,6 +7,10 @@ import { countries,hasFlag  } from 'country-flag-icons'
 const Index = ()=>{
     const [loader, setloader] = useState(false)
     const [cardname,setcardname] = useState([])
+    const [countryType,setcountryType] = useState([]);
+    const [data,setdata] = useState([]);
+    const [cardType,setcardType] = useState([])
+    const [rate,setrate] = useState([])
     // console.log(Countries)
     // console.log("Countries",countries)
     const getCard =async()=>{
@@ -28,14 +32,17 @@ const Index = ()=>{
             
           })
         .then(res=>{
+
+            console.log(res.data)
             setloader(false)
             
-            console.log(res.data);
-
-            res.data.map((d)=>{
+            setdata(res.data)
+            setcardname([]);
+            res.data.length > 0 && res.data.map((d)=>{
                 setcardname(cardname=>[...cardname,d.cardname])
             })
             
+           
            
         })
         .catch(err=>{
@@ -55,19 +62,50 @@ const Index = ()=>{
 
     const optionDetails=()=>{
         
+       return  cardname.length > 0 && cardname.map((d,index)=>{
+           
+            return <option key={index} value={d} className="optionX">{d}</option>
+        })
+    }
+    const optionCountry=()=>{
+        console.log(countryType)
+        // return  countryType.length > 0 && countryType.map((d,index)=>{
+            
+        //      return <option key={index} value={d} className="optionX">{d}</option>
+        //  })
+     }
+
+    const handleCardType = (e)=>{
+        alert(e.target.value);
+        data.map((d)=>{
+            if(d.cardname === e.target.value){
+                setcountryType(d.currency);
+                setcardType(d.cardType);
+                setrate(d.rate)
+            }
+        })
     }
     return(
         <div className="sellbody">
             <div className="formProgress">
-                    <h1>Progress</h1>
+                   
             </div>
             <div className="FormDiv">
                 <div className="form-group myformSell">
-                        <select className="form-control">
+                        <select className="form-control" onChange={handleCardType}>
                             <option>
                                 Select Gift Card Type
                             </option>
                             {optionDetails()}
+                        </select>
+                       
+                </div>
+                <div className="form-group myformSell">
+                        <select className="form-control">
+                            <option>
+                                Select Country
+                            </option>
+                            {optionCountry()}
                         </select>
                        
                 </div>

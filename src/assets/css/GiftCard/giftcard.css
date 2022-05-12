@@ -49,11 +49,19 @@
 }
 .FormDiv{
     flex:1 1 80%;
+    
+    
 }
 
 .myformSell{
     display: flex;
     height: 50px;
     width:100%;
+    margin-top: 20px;
    
+}
+
+
+.optionX{
+    height: 50px;
 }
