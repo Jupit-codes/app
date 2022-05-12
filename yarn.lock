@@ -5394,7 +5394,7 @@
     "isobject" "^3.0.0"
     "static-extend" "^0.1.1"
 
-"classnames@^2.2.6", "classnames@^2.3.1":
+"classnames@^2.3.1":
   "integrity" "sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA=="
   "resolved" "https://registry.npmjs.org/classnames/-/classnames-2.3.1.tgz"
   "version" "2.3.1"
@@ -5840,6 +5840,11 @@
     "parse-json" "^5.0.0"
     "path-type" "^4.0.0"
     "yaml" "^1.10.0"
+
+"country-flag-icons@^1.4.26":
+  "integrity" "sha512-fUBQ58zfQsSL12ErkFSfBxnQZapzdC8+5ZKqhD1z0EHqPnOuiFl7nZTv8Gqpms+jvweP+pbCYGp7G4aiO9eiMw=="
+  "resolved" "https://registry.npmjs.org/country-flag-icons/-/country-flag-icons-1.4.26.tgz"
+  "version" "1.4.26"
 
 "create-ecdh@^4.0.0":
   "integrity" "sha512-mf+TCx8wWc9VpuxfP2ht0iSISLZnt0JgWlrOKZiNqyUZWnjIaCIVNQArMHnCZKfEYRg6IM7A+NeJoN8gf/Ws0A=="
@@ -7540,11 +7545,6 @@
   dependencies:
     "locate-path" "^5.0.0"
     "path-exists" "^4.0.0"
-
-"flag-icon-css@^3.2.1":
-  "integrity" "sha512-pgJnJLrtb0tcDgU1fzGaQXmR8h++nXvILJ+r5SmOXaaL/2pocunQo2a8TAXhjQnBpRLPtZ1KCz/TYpqeNuE2ew=="
-  "resolved" "https://registry.npmjs.org/flag-icon-css/-/flag-icon-css-3.5.0.tgz"
-  "version" "3.5.0"
 
 "flat-cache@^3.0.4":
   "integrity" "sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg=="
@@ -12720,7 +12720,7 @@
     "shell-quote" "^1.6.1"
     "ws" "^7"
 
-"react-dom@*", "react-dom@^0.14 || ^15.0 || ^16.0", "react-dom@^15.5.4 || ^16.0.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>= 16.8.0", "react-dom@>=15.3.0", "react-dom@>=16", "react-dom@>=16.14.0", "react-dom@>=16.6.0", "react-dom@>=16.8.0", "react-dom@~15 || ~16 || ~17", "react-dom@17.x":
+"react-dom@*", "react-dom@^15.5.4 || ^16.0.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>= 16.8.0", "react-dom@>=15.3.0", "react-dom@>=16", "react-dom@>=16.14.0", "react-dom@>=16.6.0", "react-dom@>=16.8.0", "react-dom@~15 || ~16 || ~17", "react-dom@17.x":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -12764,15 +12764,6 @@
   "integrity" "sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA=="
   "resolved" "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
   "version" "3.2.0"
-
-"react-flag-icon-css@^1.0.25":
-  "integrity" "sha512-UJll3zpmbZvkwZvu4HI00iGF8ya4OdFzMR5k3cAluIwdHn8l5cB3CPYt+hw0tt7fLKaYIfncxNEO/qTtvBw2qw=="
-  "resolved" "https://registry.npmjs.org/react-flag-icon-css/-/react-flag-icon-css-1.0.25.tgz"
-  "version" "1.0.25"
-  dependencies:
-    "classnames" "^2.2.6"
-    "flag-icon-css" "^3.2.1"
-    "prop-types" "^15.6.2"
 
 "react-icons@^4.3.1":
   "integrity" "sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ=="
@@ -13076,7 +13067,7 @@
   "resolved" "https://registry.npmjs.org/react-webcam/-/react-webcam-6.0.1.tgz"
   "version" "6.0.1"
 
-"react@*", "react@^0.14 || ^15.0 || ^16.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^15.5.4 || ^16.0.0 || ^17.0.0", "react@^16.3.0 || ^17.0.0-0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0-rc.1", "react@^16.8.3 || ^17.0.0-0", "react@^16.8.6 || ^17", "react@^17.0.2", "react@>= 16", "react@>= 16.8.0", "react@>= 16.8.3", "react@>=0.14.0", "react@>=15", "react@>=15.0.0", "react@>=15.3.0", "react@>=15.4", "react@>=16", "react@>=16.14.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x.x", "react@~15 || ~16 || ~17", "react@17.0.2", "react@17.x":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^15.5.4 || ^16.0.0 || ^17.0.0", "react@^16.3.0 || ^17.0.0-0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0-rc.1", "react@^16.8.3 || ^17.0.0-0", "react@^16.8.6 || ^17", "react@^17.0.2", "react@>= 16", "react@>= 16.8.0", "react@>= 16.8.3", "react@>=0.14.0", "react@>=15", "react@>=15.0.0", "react@>=15.3.0", "react@>=15.4", "react@>=16", "react@>=16.14.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x.x", "react@~15 || ~16 || ~17", "react@17.0.2", "react@17.x":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
