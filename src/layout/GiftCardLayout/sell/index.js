@@ -4,115 +4,59 @@ import { reactLocalStorage } from "reactjs-localstorage";
 
 import Countries from '../countries.js'
 import { countries,hasFlag  } from 'country-flag-icons'
+import Flags from 'country-flag-icons/react/3x2'
+import Step1 from './step1.js'
+import Step2 from './step2.js'
+import Step3 from './step3.js'
+import { findRenderedComponentWithType } from "react-dom/test-utils";
 const Index = ()=>{
-    const [loader, setloader] = useState(false)
-    const [cardname,setcardname] = useState([])
-    const [countryType,setcountryType] = useState([]);
-    const [data,setdata] = useState([]);
-    const [cardType,setcardType] = useState([])
-    const [rate,setrate] = useState([])
-    // console.log(Countries)
-    // console.log("Countries",countries)
-    const getCard =async()=>{
 
-        // hasFlag('US') === true
-        // hasFlag('ZZ') === false
-
-        console.log(hasFlag('US'));
-        const Base_url = process.env.REACT_APP_BACKEND_URL;
-        
-        await axios({
-            method: "GET",
-            url: `${Base_url}/verify/get/allgiftcards`,
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    const [page,setpage] = useState('Step1')
+    const [checkedOne,setcheckedOne] = useState(false);
+    const [checkedTwo,setcheckedTwo] = useState(false)
+    const [checkedThree,setcheckedThree] = useState(false)
     
-            }
-            
-          })
-        .then(res=>{
 
-            console.log(res.data)
-            setloader(false)
-            
-            setdata(res.data)
-            setcardname([]);
-            res.data.length > 0 && res.data.map((d)=>{
-                setcardname(cardname=>[...cardname,d.cardname])
-            })
-            
-           
-           
-        })
-        .catch(err=>{
-            console.log(err.response)
-            setloader(false)
-            
-            
-        })
-
-
-    }
-
-
-    useEffect(()=>{
-        getCard();
-    },[])
-
-    const optionDetails=()=>{
-        
-       return  cardname.length > 0 && cardname.map((d,index)=>{
-           
-            return <option key={index} value={d} className="optionX">{d}</option>
-        })
-    }
-    const optionCountry=()=>{
-        console.log(countryType)
-        // return  countryType.length > 0 && countryType.map((d,index)=>{
-            
-        //      return <option key={index} value={d} className="optionX">{d}</option>
-        //  })
-     }
-
-    const handleCardType = (e)=>{
-        alert(e.target.value);
-        data.map((d)=>{
-            if(d.cardname === e.target.value){
-                setcountryType(d.currency);
-                setcardType(d.cardType);
-                setrate(d.rate)
-            }
-        })
+    const renderComponent = ()=>{
+        switch(page){
+            case 'Step1':
+                
+                return <Step1 stepPage={setpage} checked={setcheckedOne}/>
+                break;
+            case 'Step2':
+                
+                return <Step2 stepPage={setpage} checked={setcheckedTwo}/>
+                break;
+            case 'Step3':
+                
+                return <Step3 stepPage={setpage} checked={setcheckedThree}/>
+                break;
+        }
     }
     return(
         <div className="sellbody">
             <div className="formProgress">
-                   
+                    <div className="progressLine">
+                        <div className={checkedOne ? "progressCircle dot" :"progressCircle"}></div>
+                        <div className="progressStep">Step One</div>
+                    </div>
+                    <div className="progressLine">
+                        <div className={checkedTwo ? "progressCircle dot" :"progressCircle"}></div>
+                        <div className="progressStep">Step Two</div>
+                    </div>
+                    <div className="progressLine">
+                        <div className={checkedThree? "progressCircle dot" :"progressCircle"}></div>
+                        <div className="progressStep">Step Three</div>
+                    </div>
             </div>
             <div className="FormDiv">
-                <div className="form-group myformSell">
-                        <select className="form-control" onChange={handleCardType}>
-                            <option>
-                                Select Gift Card Type
-                            </option>
-                            {optionDetails()}
-                        </select>
-                       
-                </div>
-                <div className="form-group myformSell">
-                        <select className="form-control">
-                            <option>
-                                Select Country
-                            </option>
-                            {optionCountry()}
-                        </select>
-                       
-                </div>
+                
+                {renderComponent()}
             </div>
 
 
-        </div>
+    </div>
+       
     )
 }
 
