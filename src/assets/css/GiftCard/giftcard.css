@@ -88,11 +88,18 @@ label{
 
 .Selectrate{
     flex: 1 1 70%;
+
     height: 150px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
+    
+}
+.calculator{
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
@@ -152,4 +159,10 @@ label{
 }
 .sum{
     font-size: 20px;
+}
+.cartplus{
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
 }
