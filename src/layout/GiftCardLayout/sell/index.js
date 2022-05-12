@@ -13,7 +13,7 @@ const Index = ()=>{
 
         // hasFlag('US') === true
         // hasFlag('ZZ') === false
-        
+
         console.log(hasFlag('us'));
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         
@@ -59,9 +59,7 @@ const Index = ()=>{
                                 Select Gift Card Type
                             </option>
                         </select>
-                        <div>
-                            <FlagIcon code="us" size="3x" />
-                        </div>
+                       
                 </div>
             </div>
 
