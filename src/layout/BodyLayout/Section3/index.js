@@ -43,6 +43,10 @@ const Index = ()=>{
         getRecentTransactions();
     },[])
 
+    const opengiftcard = ()=>{
+        window.location='/client/tradegiftcard'
+    }
+
     const displayTransactions = ()=>{
         return !loader && transactions.length > 0 ?
         transactions.map((d,index)=>{
@@ -140,7 +144,7 @@ const Index = ()=>{
             <div className='walletbalance-list'>
                     <div className='GifttCard'>
                         <img src={GIFTCARD} />
-                        <button className='btn btn-secondary mt-2'>
+                        <button className='btn btn-secondary mt-2' onClick={()=>opengiftcard()}>
                             Trade Your Gift Card with us.
                         </button>
                     </div>
