@@ -17,6 +17,7 @@ const Index = ()=>{
     const [checkedThree,setcheckedThree] = useState(false)
     const [rate,setrate] = useState()
     const [allgiftcard, setallgiftcard] = useState([]);
+    const [selectbrand,setselectbrand] = useState(false)
     
     var options = [
         { value: 'one', label: 'One' },
@@ -37,7 +38,7 @@ const Index = ()=>{
           })
         .then(res=>{
 
-            console.log(res.data)
+           
             setallgiftcard(res.data.brands)
             
            
@@ -53,7 +54,7 @@ const Index = ()=>{
 
       useEffect(()=>{
           GiftCard();
-      })
+      },[])
 
     const renderComponent = ()=>{
         switch(page){
@@ -72,12 +73,33 @@ const Index = ()=>{
         }
     }
 
+    const handleSelect = (e)=>{
+      
+      if(e.target.textContent === "Select"){
+        var x = e.target.parentElement
+      
+        var y = x.parentElement;
+        
+        for(let i=0;i<y.children.length;i++){
+            if(y.children[i].classList.contains('activeClicked')){
+                y.children[i].classList.remove('activeClicked');
+            }
+        }
+        x.classList.add('activeClicked');
+       
+      }
+        
+        
+
+        
+
+    }
 
 
     const _renderComponent = ()=>{
         
             return allgiftcard && allgiftcard.map((d)=>{
-                return <div className="displayCard">
+                return <div className="displayCard" onClick={(e)=>handleSelect(e)}>
                             <img src={d.image_url}/>
                             <div>{d.name}</div>
                             <div className="selectbutton">Select</div>
@@ -86,17 +108,33 @@ const Index = ()=>{
         
     }
 
-    const _displayCard = ()=>{
+    const _displayNullCard = ()=>{
         return (
-            <div className="brandselectederror">
-                No Brand Selected
+            <div>
+                    <div className="brandselectederror">
+                        No Brand Selected
+                    </div>
+                    <div className="brandselectedSpan">Kindly select one of the brand</div>
+            </div>
+            
+
+        )
+    }
+
+    const _displayCard =()=>{
+        return(
+            <div>
+                Card Selected
             </div>
         )
     }
     return(
         <div className="sellbody">
             <div className="giftCardDiv">
+                    <div className="form-group searchBrand">
+                        <input type='text' className="form-control" placeholder="Search for Brand"/>
 
+                    </div>
                     {_renderComponent()}
 
             
@@ -117,7 +155,8 @@ const Index = ()=>{
             <div className="FormDiv">
                 
                 {/* {renderComponent()} */}
-                {_displayCard()}
+               
+                {selectbrand ?_displayCard() : _displayNullCard()}
 
                 
 

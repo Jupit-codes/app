@@ -59,9 +59,8 @@
     min-height: 40vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-right: 10px
    
-
-
 }
 .FormDiv{
     flex:1 1 80%;
@@ -224,4 +223,22 @@ label{
     width: 150px;
     height: 20px;
     text-align: center;
+}
+
+.brandselectedSpan{
+    font-size: 13px;
+    color:#000;
+    text-align: center;
+    width: 100%;
+}
+.searchBrand{
+    margin-bottom: 10px;
+}
+.searchBrand > input{
+    font-size: 14px;
+    font-family: 'Roboto';
+}
+.activeClicked{
+background-color: #1c1c93;
+color:#fff
 }
