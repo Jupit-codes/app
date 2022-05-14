@@ -76,7 +76,11 @@ const Index = ()=>{
         console.log(allgiftcard)
         
             return allgiftcard && allgiftcard.map((d)=>{
-                return <div className="displayCard"><img src={d.image_url}/><div>{d.name}</div></div>
+                return <div className="displayCard">
+                            <img src={d.image_url}/>
+                            <div>{d.name}</div>
+                            <div className="selectbutton">Select</div>
+                        </div>
             })
         
     }

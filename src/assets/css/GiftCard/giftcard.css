@@ -40,7 +40,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
+    height: 80vh;
     
 }
 
@@ -55,7 +56,7 @@
 }
 .giftCardDiv{
     flex:1 1 20%;
-    min-height: 50vh;
+    min-height: 40vh;
     overflow-y: scroll;
     overflow-x: hidden;
    
@@ -64,11 +65,16 @@
 }
 .FormDiv{
     flex:1 1 80%;
-    min-height: 50vh;
+    min-height: 30vh;
     background-color: #fff;
     
 }
 
+
+.selectbutton{
+    color: #009EDB;
+    font-size: 14px;
+}
 .myformSell{
     display: flex;
     height: 70px;
@@ -200,7 +206,8 @@ label{
 .displayCard > div{
     padding-left: 10px;
     flex: 1 1 80%;
-    font-size: 14px;
+    font-size: 13px;
     font-family: 'Roboto';
     text-align: left;
+
 }
