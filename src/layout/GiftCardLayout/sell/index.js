@@ -72,8 +72,9 @@ const Index = ()=>{
         }
     }
 
+
+
     const _renderComponent = ()=>{
-        console.log(allgiftcard)
         
             return allgiftcard && allgiftcard.map((d)=>{
                 return <div className="displayCard">
@@ -85,6 +86,13 @@ const Index = ()=>{
         
     }
 
+    const _displayCard = ()=>{
+        return (
+            <div className="brandselectederror">
+                No Brand Selected
+            </div>
+        )
+    }
     return(
         <div className="sellbody">
             <div className="giftCardDiv">
@@ -109,6 +117,10 @@ const Index = ()=>{
             <div className="FormDiv">
                 
                 {/* {renderComponent()} */}
+                {_displayCard()}
+
+                
+
             </div>
 
 

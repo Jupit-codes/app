@@ -67,6 +67,9 @@
     flex:1 1 80%;
     min-height: 30vh;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 
@@ -197,6 +200,7 @@ label{
     border-radius: 5px;
     border: 1px solid #dedede;
     padding: 7px;
+    cursor: pointer;
 }
 .displayCard > img{
     flex:1 1 10%;
@@ -210,4 +214,14 @@ label{
     font-family: 'Roboto';
     text-align: left;
 
+}
+.brandselectederror{
+    border-radius: 10px;
+    background-color: #009EDB;
+    color:#fff;
+    font-family: 'Roboto';
+    font-size: 13px;
+    width: 150px;
+    height: 20px;
+    text-align: center;
 }
