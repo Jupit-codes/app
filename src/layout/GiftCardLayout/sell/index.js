@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { reactLocalStorage } from "reactjs-localstorage";
-
+import Select from 'react-select'
 import Countries from '../countries.js'
 import { countries,hasFlag  } from 'country-flag-icons'
 import Flags from 'country-flag-icons/react/3x2'
@@ -15,17 +15,22 @@ const Index = ()=>{
     const [checkedOne,setcheckedOne] = useState(false);
     const [checkedTwo,setcheckedTwo] = useState(false)
     const [checkedThree,setcheckedThree] = useState(false)
+    const [rate,setrate] = useState()
     
+    var options = [
+        { value: 'one', label: 'One' },
+        { value: 'two', label: 'Two' }
+      ];
 
     const renderComponent = ()=>{
         switch(page){
             case 'Step1':
                 
-                return <Step1 stepPage={setpage} checked={setcheckedOne}/>
+                return <Step1 stepPage={setpage} checked={setcheckedOne} rateSet={setrate}/>
                 break;
             case 'Step2':
                 
-                return <Step2 stepPage={setpage} checked={setcheckedTwo}/>
+                return <Step2 stepPage={setpage} checked={setcheckedTwo} acceptRate={rate} />
                 break;
             case 'Step3':
                 
@@ -35,8 +40,9 @@ const Index = ()=>{
     }
     return(
         <div className="sellbody">
-            <div className="formProgress">
-                    <div className="progressLine">
+            <div className="">
+            <p>Temiloluwa</p>
+                    {/* <div className="progressLine">
                         <div className={checkedOne ? "progressCircle dot" :"progressCircle"}></div>
                         <div className="progressStep">Step One</div>
                     </div>
@@ -45,13 +51,14 @@ const Index = ()=>{
                         <div className="progressStep">Step Two</div>
                     </div>
                     <div className="progressLine">
-                        <div className={checkedThree? "progressCircle dot" :"progressCircle"}></div>
+                        <div className={checkedThree ? "progressCircle dot" :"progressCircle"}></div>
                         <div className="progressStep">Step Three</div>
-                    </div>
+                    </div> */}
+                    
             </div>
             <div className="FormDiv">
                 
-                {renderComponent()}
+                {/* {renderComponent()} */}
             </div>
 
 

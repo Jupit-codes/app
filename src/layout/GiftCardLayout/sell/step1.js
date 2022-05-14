@@ -5,7 +5,7 @@ import { reactLocalStorage } from "reactjs-localstorage";
 import Countries from '../countries.js'
 import { countries,hasFlag  } from 'country-flag-icons'
 import Flags from 'country-flag-icons/react/3x2'
-const Index = ({stepPage,checked})=>{
+const Index = ({stepPage,checked,rateSet})=>{
     const [loader, setloader] = useState(false)
     const [cardname,setcardname] = useState([])
     const [countryType,setcountryType] = useState([]);
@@ -118,6 +118,7 @@ const Index = ({stepPage,checked})=>{
 
     const proceed = ()=>{
         stepPage('Step2');
+        rateSet(rate)
     }
     return(
         

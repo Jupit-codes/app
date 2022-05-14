@@ -2,7 +2,7 @@ import { getStepButtonUtilityClass } from '@mui/material';
 import { useEffect, useState } from 'react';
 import {BsArrowLeftCircle,BsCartPlusFill} from 'react-icons/bs'
 
-const Index = ({stepPage,checked})=>{
+const Index = ({stepPage,checked,acceptRate})=>{
 
     const [quantity,setquantity] = useState(0)
     const [Select,setSelect] = useState()
@@ -32,6 +32,7 @@ useEffect(()=>{
             setTotal(x)
         }
     }
+    console.log('acceptedRate',acceptRate)
     return (
         
             <div className="">
