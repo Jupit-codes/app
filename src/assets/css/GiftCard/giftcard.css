@@ -53,9 +53,18 @@
     align-items: baseline;
     
 }
+.giftCardDiv{
+    flex:1 1 20%;
+    min-height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+}
 .FormDiv{
     flex:1 1 80%;
-    
+    min-height: 50vh;
+    background-color: #fff;
     
 }
 
@@ -171,4 +180,26 @@ label{
     display: flex;
     justify-content: flex-end;
     padding: 20px;
+}
+
+.displayCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    padding: 7px;
+}
+.displayCard > img{
+    flex:1 1 10%;
+    width: 30%;
+    border-radius: 10px;
+}
+.displayCard > div{
+    padding-left: 10px;
+    flex: 1 1 80%;
+    font-size: 14px;
+    font-family: 'Roboto';
+    text-align: left;
 }

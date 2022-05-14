@@ -16,11 +16,44 @@ const Index = ()=>{
     const [checkedTwo,setcheckedTwo] = useState(false)
     const [checkedThree,setcheckedThree] = useState(false)
     const [rate,setrate] = useState()
+    const [allgiftcard, setallgiftcard] = useState([]);
     
     var options = [
         { value: 'one', label: 'One' },
         { value: 'two', label: 'Two' }
       ];
+
+      const GiftCard = async ()=>{
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+            method: "GET",
+            url: `${Base_url}/verify/giftCardApi`,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    
+            }
+            
+          })
+        .then(res=>{
+
+            console.log(res.data)
+            setallgiftcard(res.data.brands)
+            
+           
+           
+        })
+        .catch(err=>{
+            console.log(err.response)
+            
+            
+            
+        })
+      }
+
+      useEffect(()=>{
+          GiftCard();
+      })
 
     const renderComponent = ()=>{
         switch(page){
@@ -38,10 +71,23 @@ const Index = ()=>{
                 break;
         }
     }
+
+    const _renderComponent = ()=>{
+        console.log(allgiftcard)
+        
+            return allgiftcard && allgiftcard.map((d)=>{
+                return <div className="displayCard"><img src={d.image_url}/><div>{d.name}</div></div>
+            })
+        
+    }
+
     return(
         <div className="sellbody">
-            <div className="">
-            <p>Temiloluwa</p>
+            <div className="giftCardDiv">
+
+                    {_renderComponent()}
+
+            
                     {/* <div className="progressLine">
                         <div className={checkedOne ? "progressCircle dot" :"progressCircle"}></div>
                         <div className="progressStep">Step One</div>
