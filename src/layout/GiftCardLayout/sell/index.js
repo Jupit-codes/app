@@ -18,6 +18,7 @@ const Index = ()=>{
     const [rate,setrate] = useState()
     const [allgiftcard, setallgiftcard] = useState([]);
     const [selectbrand,setselectbrand] = useState(false)
+    const [loader,setloader] = useState(false);
     
     var options = [
         { value: 'one', label: 'One' },
@@ -77,7 +78,7 @@ const Index = ()=>{
       
       if(e.target.textContent === "Select"){
         var x = e.target.parentElement
-      
+        
         var y = x.parentElement;
         
         for(let i=0;i<y.children.length;i++){
@@ -86,13 +87,43 @@ const Index = ()=>{
             }
         }
         x.classList.add('activeClicked');
+        setselectbrand(true);
+        setloader(true);
+        loadBrandDetails(x.children[1].textContent)
+        
        
       }
         
-        
 
-        
+    }
 
+    const loadBrandDetails = async (brandname)=>{
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+            method: "POST",
+            url: `${Base_url}/verify/giftCardApi/brandname`,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    
+            },
+            data:JSON.stringify({brandname:brandname})
+            
+          })
+        .then(res=>{
+
+           
+            setallgiftcard(res.data.brands)
+            
+           
+           
+        })
+        .catch(err=>{
+            console.log(err.response)
+            
+            
+            
+        })
     }
 
 
@@ -156,7 +187,8 @@ const Index = ()=>{
                 
                 {/* {renderComponent()} */}
                
-                {selectbrand ?_displayCard() : _displayNullCard()}
+                {!selectbrand && _displayNullCard()}
+                {loader && <div className='Chartloader'></div>}
 
                 
 

@@ -48,7 +48,7 @@
     width: 80%;
 }
 
-.recent-transactions div{
+.recent-transactions {
     /* flex:1 1 calc(20% -20px); */
     display: flex;
     align-items: center;
