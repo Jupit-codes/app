@@ -9,6 +9,7 @@ import Step1 from './step1.js'
 import Step2 from './step2.js'
 import Step3 from './step3.js'
 import { findRenderedComponentWithType } from "react-dom/test-utils";
+
 const Index = ()=>{
 
     const [page,setpage] = useState('Step1')
@@ -19,12 +20,14 @@ const Index = ()=>{
     const [allgiftcard, setallgiftcard] = useState([]);
     const [selectbrand,setselectbrand] = useState(false)
     const [loader,setloader] = useState(false);
+    const [brandlist,setbrandlist] = useState([]);
+    const [SelectOption,setSelectOption] = useState()
     
-    var options = [
-        { value: 'one', label: 'One' },
-        { value: 'two', label: 'Two' }
+    const options = [
+        { value: '100USD', label: '100USD @ N215' },
+        { value: '50USD', label: '50USD @ N200' },
+        { value: '25USD', label: '25USD @ 180' },
       ];
-
       const GiftCard = async ()=>{
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
@@ -39,10 +42,7 @@ const Index = ()=>{
           })
         .then(res=>{
 
-           
             setallgiftcard(res.data.brands)
-            
-           
            
         })
         .catch(err=>{
@@ -89,7 +89,7 @@ const Index = ()=>{
         x.classList.add('activeClicked');
         setselectbrand(true);
         setloader(true);
-        loadBrandDetails(x.children[1].textContent)
+        loadBrandDetails(x.children[1].value)
         
        
       }
@@ -97,7 +97,9 @@ const Index = ()=>{
 
     }
 
-    const loadBrandDetails = async (brandname)=>{
+    const loadBrandDetails = async (mybrand)=>{
+       
+        
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
@@ -107,15 +109,15 @@ const Index = ()=>{
               "Authorization":`Bearer ${reactLocalStorage.get('token')}`
     
             },
-            data:JSON.stringify({brandname:brandname})
+            data:JSON.stringify({mybrand:mybrand})
             
           })
         .then(res=>{
 
-           
-            setallgiftcard(res.data.brands)
+            setbrandlist(res.data.brand);
+            console.log(res.data)
+            setloader(false)
             
-           
            
         })
         .catch(err=>{
@@ -131,7 +133,9 @@ const Index = ()=>{
         
             return allgiftcard && allgiftcard.map((d)=>{
                 return <div className="displayCard" onClick={(e)=>handleSelect(e)}>
+                            
                             <img src={d.image_url}/>
+                            <input type='hidden' value={d.brand_code}/>
                             <div>{d.name}</div>
                             <div className="selectbutton">Select</div>
                         </div>
@@ -158,6 +162,44 @@ const Index = ()=>{
                 Card Selected
             </div>
         )
+    }
+    const handleChange = (e)=>{
+        console.log(e.target)
+        setSelectOption(e.target.value);
+    }
+    const _displayBrand = ()=>{
+        console.log(brandlist)
+                    return brandlist && 
+                    <div className="brandFlex">
+                        <div className="brandTitle">
+                            <div className="imgBrand">
+                                <div style={{width:'100%'}}> 
+                                    <img src={brandlist.image_url} className="imgBrandDetails"/>
+                                </div>
+                                <div className="brandlistname">
+                                    {brandlist.name}
+                                </div>
+                            </div>
+                            
+
+                            <div className="currency">
+                                {brandlist.fund_currencyisocode}
+                            </div>
+
+
+                            
+                        </div>
+                        <div className="selectTool">
+                        <Select
+                                defaultValue={SelectOption}
+                                onChange={setSelectOption}
+                                options={options}
+                                isMulti={true}
+                                isSearchable={true}
+                                placeholder='Type/click to select'
+                        />
+                        </div>
+                    </div>                    
     }
     return(
         <div className="sellbody">
@@ -189,6 +231,7 @@ const Index = ()=>{
                
                 {!selectbrand && _displayNullCard()}
                 {loader && <div className='Chartloader'></div>}
+                {selectbrand && !loader && _displayBrand()}
 
                 
 

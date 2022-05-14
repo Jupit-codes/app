@@ -242,3 +242,44 @@ label{
 background-color: #1c1c93;
 color:#fff
 }
+.brandFlex{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+}
+
+.imgBrand{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+}
+.imgBrandDetails{
+    width: 100%;
+    margin-right: 20px;
+}
+.brandTitle{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+
+}
+.currency{
+    display: flex;
+    align-items: center;
+}
+.brandlistname{
+   
+   width:100%;
+   display: flex;
+ 
+   font-size: 14px;
+   font-family: 'Roboto';
+}
+
+.selectTool{
+    margin-top: 20px;
+}
