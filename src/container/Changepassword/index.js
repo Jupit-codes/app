@@ -8,7 +8,7 @@ const Index = ()=>{
         <div className='changepassword'>
             <Header changepassword={5}/>
             <div className='passwordResetFormDiv'>
-                <AiFillUnlock size={30}/>
+                <AiFillUnlock size={30} style={{marginBottom:20}}/>
                 <div className='form'>
                     <div className='form-group'>
                                 <input type='password' className='form-control' placeholder='New Password'/>
