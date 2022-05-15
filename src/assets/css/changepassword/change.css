@@ -27,3 +27,14 @@
     background-color: #fff;
     border-radius: 10px;
 }
+
+.circularPassword{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
