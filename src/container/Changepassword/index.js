@@ -21,7 +21,7 @@ const Index = ()=>{
                         </div>
 
                         <div className='form-group'>
-                            <input type='submit' className='form-control'/>
+                            <input type='submit' className='form-control btn-primary'/>
                         </div>
                 </div>
                    
