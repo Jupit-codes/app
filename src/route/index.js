@@ -9,6 +9,7 @@ import Dashboard from '../container/Dashboard'
 import Test from '../container/Test'
 import KYC from '../container/Kyc'
 import Send from '../container/Send'
+import ChangePassword from '../container/Changepassword'
 const route = [
     {
         path:'/aboutus',
@@ -36,6 +37,13 @@ const route = [
         title:'Contact Us | Jupit',
         isAuthenticated:false,
         component:Contact,
+
+    },
+    {
+        path:'/user/changepassword',
+        title:'Reset Password | Jupit',
+        isAuthenticated:false,
+        component:ChangePassword,
 
     },
     {
