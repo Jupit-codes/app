@@ -1,12 +1,14 @@
 import Header from '../../component/changeHeader'
 import '../../assets/css/changepassword/change.css'
 import Cookies from 'js-cookie';
+import {AiFillUnlock} from 'react-icons/ai'
 const Index = ()=>{
     console.log(Cookies.get('item'))
     return(
         <div className='changepassword'>
             <Header changepassword={5}/>
             <div className='passwordResetFormDiv'>
+                <AiFillUnlock size={30}/>
                 <div className='form'>
                     <div className='form-group'>
                                 <input type='password' className='form-control' placeholder='New Password'/>
