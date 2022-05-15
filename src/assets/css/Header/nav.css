@@ -5,6 +5,9 @@
 	color:#000;
 }
 
+.bgColor{
+	background-color: #1c1c93;
+}
 .whatsappIcon{
 	position: fixed;
 		top: 85%;
@@ -204,6 +207,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		
 	  }
 }
+
 
 
 @media only screen 
