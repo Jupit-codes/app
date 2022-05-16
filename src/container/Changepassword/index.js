@@ -14,7 +14,6 @@ const Index = ()=>{
         await axios({
             method: "GET",
             url: `${Base_url}/user/getSession/data`,
-            withCredentials:true,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
