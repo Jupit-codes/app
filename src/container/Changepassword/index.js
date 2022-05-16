@@ -12,13 +12,13 @@ const Index = ()=>{
     const Base_url = process.env.REACT_APP_BACKEND_URL
     const getSession=async ()=>{
         await axios({
-            method: "GET",
+            method: "POST",
             url: `${Base_url}/user/getSession/data`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
             },
-           // data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
+           data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
         })
         .then((res)=>{
             
@@ -36,7 +36,7 @@ const Index = ()=>{
     }
 
     useEffect(()=>{
-        getSession();
+        
     },[])
     return(
         <div className='changepassword'>
