@@ -7,7 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import axios from 'axios';
 
 const Index = ()=>{
-    console.log(Cookies.get('item'))
+    
     const [myloader,setmyloader] = useState(false)
     const Base_url = process.env.REACT_APP_BACKEND_URL
     const getSession=async ()=>{
