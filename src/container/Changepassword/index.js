@@ -85,6 +85,7 @@ const Index = ()=>{
                         icon: 'success',
                         confirmButtonText: 'ok'
                       })
+                      reactLocalStorage.clear();
                       window.location='/client/signin'
                 }
                 
