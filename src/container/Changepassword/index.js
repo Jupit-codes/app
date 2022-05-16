@@ -86,7 +86,7 @@ const Index = ()=>{
                             <input type='submit' className='form-control btn-primary' onClick={()=>changePassword()} disabled={mydisable}/>
                         </div>
 
-                        {error && <div className='errorChangepwd'>{error}</div>}
+                        {error && <div className ='errorChangepwd'>{error}</div>}
                 </div>
                    
             </div> }
