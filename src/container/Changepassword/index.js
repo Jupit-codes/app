@@ -18,8 +18,10 @@ const Index = ()=>{
     const [mydisable,setmydisable]=useState(false);
     const [submitbutton,setsubmitbutton] = useState('Change')
     const Base_url = process.env.REACT_APP_BACKEND_URL
-
+    //const MySwal = withReactContent(Swal)
     const changePassword=async ()=>{
+
+       
         if(submitbutton === "Password Successfully Updated"){
             toast.info('This Link Has Already Been Used', {
                 position: "top-right",
@@ -75,7 +77,15 @@ const Index = ()=>{
                 
                 console.log(res.data)
                 setmydisable(true);
-                setsubmitbutton(res.data.message)
+                setsubmitbutton(res.data.message);
+                if(res.data.status){
+                    Swal.fire({
+                        title: 'Password Update!',
+                        text: 'Password Successfully Updated',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                      })
+                }
                 
               
             })
