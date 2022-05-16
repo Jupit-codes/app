@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const Index = ()=>{
     
-    const [myloader,setmyloader] = useState(false)
+    const [myloader,setmyloader] = useState(true)
     const Base_url = process.env.REACT_APP_BACKEND_URL
     const getSession=async ()=>{
         await axios({
@@ -41,13 +41,14 @@ const Index = ()=>{
     return(
         <div className='changepassword'>
             <Header changepassword={5}/>
-            <div className='passwordResetFormDiv'>
+            { myloader ? <div className='Chartloader'> </div>: <div className='passwordResetFormDiv'>
                 <div className='circularPassword'>
                     <AiFillUnlock size={30}/>
                 </div>
                 
                 <div className='form'>
-                    <div className='form-group'>
+
+                        <div className='form-group'>
                                 <input type='password' className='form-control' placeholder='New Password' required/>
                         </div>
                         <div className='form-group'>
@@ -59,7 +60,8 @@ const Index = ()=>{
                         </div>
                 </div>
                    
-            </div>
+            </div> }
+            
 
             
         </div>
