@@ -76,7 +76,7 @@ const RenderRouter = (route)=>{
         const expiration = new Date(decodedJwt.exp * 1000);
         const now = new Date();
         const fiveMinutes = 1000 * 60 * 5;
-
+        console.log(expiration)
         if( expiration.getTime() - now.getTime() < fiveMinutes ){
             console.log('Expired');
           
