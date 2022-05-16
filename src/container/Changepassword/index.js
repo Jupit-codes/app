@@ -85,6 +85,7 @@ const Index = ()=>{
                         icon: 'success',
                         confirmButtonText: 'ok'
                       })
+                      window.location='/client/signin'
                 }
                 
               
