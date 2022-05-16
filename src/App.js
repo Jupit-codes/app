@@ -74,11 +74,26 @@ const RenderRouter = (route)=>{
   
 }
 
-const payload = () =>{
-  let token = reactLocalStorage.get('token')
-  return atob(token.split(".")[1])
+function getPayload(jwt){
+  // A JWT has 3 parts separated by '.'
+  // The middle part is a base64 encoded JSON
+  // decode the base64 
+  console.log('jwt',jwt)
+  return atob(jwt.split(".")[1])
 }
 
+const payload = getPayload(reactLocalStorage.get('token'));
+console.log('xtra',payload.exp)
+const expiration = new Date(payload.exp);
+const now = new Date();
+const fiveMinutes = 1000 * 60 * 5;
+console.log(expiration);
+console.log(now)
+if( expiration.getTime() - now.getTime() < fiveMinutes ){
+  console.log("JWT has expired or will expire soon");
+} else {
+  console.log("JWT is valid for more than 5 minutes", payload);
+}
 console.log(payload);
 
 
