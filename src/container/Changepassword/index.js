@@ -5,8 +5,8 @@ import {AiFillUnlock} from 'react-icons/ai'
 import { useEffect, useState } from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
+import { toast,ToastContainer } from 'react-toastify';
 const Index = ()=>{
     
     const [myloader,setmyloader] = useState(false)
@@ -14,18 +14,52 @@ const Index = ()=>{
     const [error,setError] = useState();
     const [confirmpassword,setconfirmpassword] = useState('')
     const [mydisable,setmydisable]=useState(false);
+    const [submitbutton,setsubmitbutton] = useState('Change')
     const Base_url = process.env.REACT_APP_BACKEND_URL
 
     const changePassword=async ()=>{
+        if(submitbutton === "Password Successfully Updated"){
+            toast.info('This Link Has Already Been Used', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+            return false;
+        }
+
         if(!password){
-            alert('Password Cannot Be NULL');
+            //alert('Password Cannot Be NULL');
+            toast.info('Password cannot be Empty', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             return false;
         }
         if(!confirmpassword){
-            alert('Confirm Password Cannot Be NULL');
+            
+            toast.info('Confirm Password cannot be Empty', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             return false;
         }
         if(password === confirmpassword){
+            setmydisable(true);
+            setsubmitbutton('Please Wait...')
             await axios({
                 method: "POST",
                 url: `${Base_url}/user/changepassword/data`,
@@ -37,14 +71,15 @@ const Index = ()=>{
             })
             .then((res)=>{
                 
-                setmyloader(false)
                 console.log(res.data)
+                setmydisable(true);
+                setsubmitbutton(res.data.message)
                 
               
             })
             .catch((err)=>{
-                setmyloader(false)
-                console.log(err.response)
+                setmydisable(false);
+                
                 //setErr(err.response? err.response.data:'NO Connecetion')
                 
             })
@@ -67,6 +102,7 @@ const Index = ()=>{
     },[])
     return(
         <div className='changepassword'>
+                <ToastContainer/>
             <Header changepassword={5}/>
             { myloader ? <div className='Chartloader'> </div>: <div className='passwordResetFormDiv'>
                 <div className='circularPassword'>
@@ -83,7 +119,7 @@ const Index = ()=>{
                         </div>
 
                         <div className='form-group'>
-                            <input type='submit' className='form-control btn-primary' onClick={()=>changePassword()} disabled={mydisable}/>
+                            <input type='submit' className='form-control btn-primary' value={submitbutton} onClick={()=>changePassword()} disabled={mydisable}/>
                         </div>
 
                         {error && <div className ='errorChangepwd'>{error}</div>}

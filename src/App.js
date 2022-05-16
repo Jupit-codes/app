@@ -74,6 +74,15 @@ const RenderRouter = (route)=>{
   
 }
 
+const payload = () =>{
+  let token = reactLocalStorage.get('token')
+  return atob(token.split(".")[1])
+}
+
+console.log(payload);
+
+
+
   return (
     <div className="App">
       <GlobalProvider>
