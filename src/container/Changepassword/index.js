@@ -5,6 +5,8 @@ import {AiFillUnlock} from 'react-icons/ai'
 import { useEffect, useState } from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 import { toast,ToastContainer } from 'react-toastify';
 const Index = ()=>{
