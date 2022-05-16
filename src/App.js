@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import { GlobalProvider } from './context/Provider';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { toast,ToastContainer } from 'react-toastify';
+import SweetAlert2 from 'react-sweetalert2';
 function App() {
 
   const [isLoading, setLoading] = useState(true);
@@ -42,20 +44,75 @@ function App() {
      return false
    }
   }
+  function getPayload(jwt){
+    // A JWT has 3 parts separated by '.'
+    // The middle part is a base64 encoded JSON
+    // decode the base64 
+    console.log('jwt',jwt)
+    return atob(jwt.split(".")[1])
+  }
 
+  const parseJwt = (token) => {
+    try {
+      return JSON.parse(atob(token.split(".")[1]));
+    } catch (e) {
+      return null;
+    }
+  };
 
 const RenderRouter = (route)=>{
   
   document.title = route.title || 'Jupit App';
- 
+  const  swal= {
+                            show: true,
+                            title: 'Basic Usage',
+                            text: 'Hello World'
+  }
     if(route.isAuthenticated){
       if(reactLocalStorage.get('token')){
+
+        const decodedJwt = parseJwt(reactLocalStorage.get('token'));
+
+        const expiration = new Date(decodedJwt.exp * 1000);
+        const now = new Date();
+        const fiveMinutes = 1000 * 60 * 5;
+
+        if( expiration.getTime() - now.getTime() < fiveMinutes ){
+            console.log('Expired');
+          
+            reactLocalStorage.clear();
+            window.location='/client/signin';
+            
+        }
+        else{
+          console.log(expiration.getTime())
+          console.log(expiration.getTime() - now.getTime())
+          console.log(fiveMinutes);
+
+            return <Route 
+              path={route.path}
+              exact={true}
+              render={(props)=><route.component {...props}/>}
+          />
+        }
+
+
+        // if (decodedJwt.exp * 1000 < Date.now()) {
         
-        return <Route 
-          path={route.path}
-          exact={true}
-          render={(props)=><route.component {...props}/>}
-        />
+        //  console.log(new Date(decodedJwt.exp * 1000))
+        //  console.log('Expired',decodedJwt)
+        // }
+        // else{
+            
+          
+        //     return <Route 
+        //       path={route.path}
+        //       exact={true}
+        //       render={(props)=><route.component {...props}/>}
+        //     />
+        // }
+      
+        
       }
       else{
         // console.log('Not Authenticated',reactLocalStorage.get('token'));
@@ -74,32 +131,12 @@ const RenderRouter = (route)=>{
   
 }
 
-function getPayload(jwt){
-  // A JWT has 3 parts separated by '.'
-  // The middle part is a base64 encoded JSON
-  // decode the base64 
-  console.log('jwt',jwt)
-  return atob(jwt.split(".")[1])
-}
-
-const payload = getPayload(reactLocalStorage.get('token'));
-console.log('xtra',payload.exp)
-const expiration = new Date(payload.exp);
-const now = new Date();
-const fiveMinutes = 1000 * 60 * 5;
-console.log(expiration);
-console.log(now)
-if( expiration.getTime() - now.getTime() < fiveMinutes ){
-  console.log("JWT has expired or will expire soon");
-} else {
-  console.log("JWT is valid for more than 5 minutes", payload);
-}
-console.log(payload);
-
 
 
   return (
     <div className="App">
+      <ToastContainer/>
+      
       <GlobalProvider>
         <BrowserRouter>
         
