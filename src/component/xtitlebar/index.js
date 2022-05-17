@@ -83,7 +83,8 @@ const Index = ()=>{
         .catch((err)=>{
             console.log(err.response);
 
-            setnotification(0)
+            setnotification(0);
+            
             
             
         })
