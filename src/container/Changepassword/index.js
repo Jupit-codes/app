@@ -40,7 +40,7 @@ const Index = ()=>{
         })
         .catch(err=>{
             console.log(err.response)
-            setError(err.response)
+            setError(err.response.data)
 
         })
     }
