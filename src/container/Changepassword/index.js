@@ -16,12 +16,42 @@ const Index = ()=>{
     const [error,setError] = useState();
     const [confirmpassword,setconfirmpassword] = useState('')
     const [mydisable,setmydisable]=useState(false);
-    const [submitbutton,setsubmitbutton] = useState('Change')
+    const [submitbutton,setsubmitbutton] = useState('Change');
+    const [code,setcode] = useState('')
     const Base_url = process.env.REACT_APP_BACKEND_URL
     //const MySwal = withReactContent(Swal)
-    const changePassword=async ()=>{
+    const getCode = async()=>{
+        await axios({
+            method: "POST",
+            url: `${Base_url}/getCode/password`,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    
+            },
+            data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
+          })
+        .then(res=>{
+            
+            console.log('code',res.data)
+            setcode(res.data)
+           
+           
+        })
+        .catch(err=>{
+            console.log(err.response)
+            setError(err.response)
 
-       
+        })
+    }
+
+
+    useEffect(()=>{
+        getCode();
+    },[])
+
+    const changePassword = async ()=>{
+
         if(submitbutton === "Password Successfully Updated"){
             toast.info('This Link Has Already Been Used', {
                 position: "top-right",
@@ -71,7 +101,7 @@ const Index = ()=>{
                     'Content-Type':'application/json',
                     'Authorization':reactLocalStorage.get('token')
                 },
-               data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,password:password})
+               data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,password:password,code:code})
             })
             .then((res)=>{
                 
@@ -111,9 +141,7 @@ const Index = ()=>{
     const handlePassword =(e)=>{
         setpassword(e.target.value)
     }
-    useEffect(()=>{
-        
-    },[])
+   
     return(
         <div className='changepassword'>
                 <ToastContainer/>
@@ -122,9 +150,10 @@ const Index = ()=>{
                 <div className='circularPassword'>
                     <AiFillUnlock size={30}/>
                 </div>
-                
-                <div className='form'>
-
+                {
+                    code && 
+                    <div className='form'>
+                        
                         <div className='form-group'>
                                 <input type='password' className='form-control' placeholder='New Password' value={password} onChange={handlePassword} required/>
                         </div>
@@ -135,9 +164,12 @@ const Index = ()=>{
                         <div className='form-group'>
                             <input type='submit' className='form-control btn-primary' value={submitbutton} onClick={()=>changePassword()} disabled={mydisable}/>
                         </div>
-
                         {error && <div className ='errorChangepwd'>{error}</div>}
-                </div>
+                    
+                    </div>
+                }
+                {error && <div className ='errorChangepwd'>{error}</div>}
+                
                    
             </div> }
             
