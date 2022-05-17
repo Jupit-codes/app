@@ -4,12 +4,14 @@ import Cookies from 'js-cookie';
 import {AiFillUnlock} from 'react-icons/ai'
 import { useEffect, useState } from 'react';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 import { toast,ToastContainer } from 'react-toastify';
 const Index = ()=>{
+    const { userid,codeid } = useParams();
     
     const [myloader,setmyloader] = useState(false)
     const [password,setpassword] = useState('');
@@ -20,35 +22,34 @@ const Index = ()=>{
     const [code,setcode] = useState('')
     const Base_url = process.env.REACT_APP_BACKEND_URL
     //const MySwal = withReactContent(Swal)
-    const getCode = async()=>{
-        await axios({
-            method: "POST",
-            url: `${Base_url}/getCode/password`,
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    // const getCode = async()=>{
+    //     await axios({
+    //         method: "POST",
+    //         url: `${Base_url}/getCode/password`,
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //           "Authorization":`Bearer ${reactLocalStorage.get('token')}`
     
-            },
-            data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
-          })
-        .then(res=>{
+    //         },
+    //         data:JSON.stringify({userid:userid})
+    //       })
+    //     .then(res=>{
             
-            console.log('code',res.data)
-            setcode(res.data)
+    //         console.log('code',res.data)
+    //         setcode(res.data)
            
            
-        })
-        .catch(err=>{
-            console.log(err.response)
-            setError(err.response.data)
+    //     })
+    //     .catch(err=>{
+    //         console.log(err.response)
+    //         setError(err.response.data)
 
-        })
-    }
+    //     })
+    // }
 
+   
 
-    useEffect(()=>{
-        getCode();
-    },[])
+   
 
     const changePassword = async ()=>{
 
@@ -99,9 +100,9 @@ const Index = ()=>{
                 url: `${Base_url}/user/changepassword/data`,
                 headers:{
                     'Content-Type':'application/json',
-                    'Authorization':reactLocalStorage.get('token')
+                    
                 },
-               data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,password:password,code:code})
+               data:JSON.stringify({userid:userid,password:password,code:codeid})
             })
             .then((res)=>{
                 

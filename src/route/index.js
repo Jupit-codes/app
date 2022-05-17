@@ -40,7 +40,7 @@ const route = [
 
     },
     {
-        path:'/user/changepassword',
+        path:'/user/changepassword/:codeid/:userid',
         title:'Reset Password | Jupit',
         isAuthenticated:false,
         component:ChangePassword,
