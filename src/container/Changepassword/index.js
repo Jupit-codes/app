@@ -151,8 +151,8 @@ const Index = ()=>{
                 <div className='circularPassword'>
                     <AiFillUnlock size={30}/>
                 </div>
-                {
-                    code && 
+                
+                    
                     <div className='form'>
                         
                         <div className='form-group'>
@@ -168,7 +168,7 @@ const Index = ()=>{
                         {error && <div className ='errorChangepwd'>{error}</div>}
                     
                     </div>
-                }
+                
                 {error && <div className ='errorChangepwd'>{error}</div>}
                 
                    
