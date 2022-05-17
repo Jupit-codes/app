@@ -48,7 +48,7 @@ const Index = ()=>{
     // }
 
    
-
+   
    
 
     const changePassword = async ()=>{
@@ -94,7 +94,8 @@ const Index = ()=>{
         }
         if(password === confirmpassword){
             setmydisable(true);
-            setsubmitbutton('Please Wait...')
+            setsubmitbutton('Please Wait...');
+            
             await axios({
                 method: "POST",
                 url: `${Base_url}/user/changepassword/data`,
