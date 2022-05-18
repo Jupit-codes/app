@@ -22,6 +22,9 @@ const Index = ()=>{
     const [loader,setloader] = useState(false);
     const [brandlist,setbrandlist] = useState([]);
     const [SelectOption,setSelectOption] = useState()
+    const [brandloader,setbrandloader] = useState(true);
+    const [prevData,setprevData] = useState()
+    const [search,setsearch] = useState('')
     
     const options = [
         { value: '100USD', label: '100USD @ N215' },
@@ -42,7 +45,10 @@ const Index = ()=>{
           })
         .then(res=>{
 
-            console.log(res.data)
+            // console.log(res.data)
+            setbrandloader(false)
+            setallgiftcard(res.data)
+            setprevData(res.data);
            
         })
         .catch(err=>{
@@ -134,9 +140,11 @@ const Index = ()=>{
             return allgiftcard && allgiftcard.map((d)=>{
                 return <div className="displayCard" onClick={(e)=>handleSelect(e)}>
                             
-                            <img src={d.image_url}/>
-                            <input type='hidden' value={d.brand_code}/>
-                            <div>{d.name}</div>
+                            
+                                <img src={d.image_url}/>
+                            
+                            
+                            <div>{d.brandname}</div>
                             <div className="selectbutton">Select</div>
                         </div>
             })
@@ -201,14 +209,34 @@ const Index = ()=>{
                         </div>
                     </div>                    
     }
+    const handleSearch = (e)=>{
+        
+        if(e.target.value){
+            const filteredData= allgiftcard.filter(d=>{
+                return d.brandname.toLowerCase().includes(e.target.value.toLowerCase())
+            })
+    
+            console.log(filteredData)
+            setallgiftcard(filteredData);
+        }
+        else{
+            setallgiftcard(prevData)
+        }
+        setsearch(e.target.value)
+       
+
+
+
+    } 
+
     return(
         <div className="sellbody">
             <div className="giftCardDiv">
                     <div className="form-group searchBrand">
-                        <input type='text' className="form-control" placeholder="Search for Brand"/>
+                        <input type='text' className="form-control" placeholder="Search for Brand" value={search} onChange={handleSearch}/>
 
                     </div>
-                    {_renderComponent()}
+                    {brandloader ? <div className='Chartloader'></div> :  _renderComponent()}
 
             
                     {/* <div className="progressLine">

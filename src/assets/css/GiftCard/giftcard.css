@@ -55,7 +55,7 @@
     
 }
 .giftCardDiv{
-    flex:1 1 20%;
+    flex:1 1 25%;
     min-height: 40vh;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -76,6 +76,12 @@
 .selectbutton{
     color: #009EDB;
     font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+   
+    
+    
 }
 .myformSell{
     display: flex;
@@ -200,8 +206,12 @@ label{
     border: 1px solid #dedede;
     padding: 7px;
     cursor: pointer;
+    width: 100%;
+    
 }
+
 .displayCard > img{
+    
     flex:1 1 10%;
     width: 30%;
     border-radius: 10px;
@@ -209,9 +219,11 @@ label{
 .displayCard > div{
     padding-left: 10px;
     flex: 1 1 80%;
+    margin: 5px;
     font-size: 13px;
     font-family: 'Roboto';
     text-align: left;
+    
 
 }
 .brandselectederror{
