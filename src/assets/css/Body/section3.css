@@ -36,6 +36,9 @@
     margin-top: 10px;
 
 }
+.recent-transactions >div{
+    flex:1 1 20%;
+}
 .GifttCard{
     display: flex;
     align-items: center;
@@ -59,6 +62,7 @@
     text-align: left;
     
     
+    
 }
 
 .status{
@@ -66,15 +70,19 @@
 }
 .date-recent-transaction{
    color: #707EAE;
+  
+   
 }
 .coin-recent-transaction{
     color: #707EAE;
+    
+    
 }
 .recent-amount{
     color: #707EAE;
 }
 .asset-logo img{
-    width: 30%;
+    width: 25%;
 }
 
 .marketTRansaction-title{

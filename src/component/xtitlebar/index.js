@@ -83,7 +83,13 @@ const Index = ()=>{
         .catch((err)=>{
             console.log(err.response);
 
-            setnotification(0);
+            setnotification('Error');
+            if(err.response){
+                if(err.response.status === 403){
+                    reactLocalStorage.clear();
+                    window.location='client/signin'
+                }
+            }
             // if(err.response){
             //     if(err.response.status == 403){
             //         reactLocalStorage.clear();

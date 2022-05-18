@@ -42,7 +42,7 @@ const Index = ()=>{
           })
         .then(res=>{
 
-            setallgiftcard(res.data.brands)
+            console.log(res.data)
            
         })
         .catch(err=>{
