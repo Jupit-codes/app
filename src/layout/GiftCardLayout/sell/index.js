@@ -20,7 +20,7 @@ import {SiHere} from 'react-icons/si'
 import { LayoutTextSidebarReverse } from "react-bootstrap-icons";
 import s from "react-aws-s3";
 import Myloader from '../../../utils/loader/loader.js'
-
+import Swal from 'sweetalert2'
 const Index = ()=>{
     const fileTypes = ["JPG", "PNG", "GIF"];
     const [page,setpage] = useState('Step1')
@@ -224,11 +224,24 @@ const Index = ()=>{
           })
         .then(res=>{
            setloader(false);
+           
+           if(res.data.status){
+            Swal.fire({
+                title: 'Message!',
+                text: res.data.message,
+                icon: 'success',
+                confirmButtonText: 'ok'
+              })
+           }
            setselectedSetState('SET1');
+           setImages([]);
+           setSelectOption()
+           setselectbrand('nobrand');
            console.log(res.data);
            
         })
         .catch(err=>{
+            setloader(false);
             console.log(err.response);
  
         })
