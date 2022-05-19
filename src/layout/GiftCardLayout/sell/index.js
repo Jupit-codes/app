@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useCallback} from "react";
 import axios from "axios";
 import { reactLocalStorage } from "reactjs-localstorage";
 import Select from 'react-select'
@@ -8,148 +8,68 @@ import Flags from 'country-flag-icons/react/3x2'
 import Step1 from './step1.js'
 import Step2 from './step2.js'
 import Step3 from './step3.js'
+import Set1 from './set1.js'
+import Set2 from './set2.js'
+import Set3 from './set3.js'
 import { findRenderedComponentWithType } from "react-dom/test-utils";
+import { FileUploader } from "react-drag-drop-files";
+import {useDropzone} from 'react-dropzone'
+import {IoLogoDropbox} from 'react-icons/io'
+import {IoClose} from 'react-icons/io5'
+import {SiHere} from 'react-icons/si'
+import { LayoutTextSidebarReverse } from "react-bootstrap-icons";
+import s from "react-aws-s3";
+import Myloader from '../../../utils/loader/loader.js'
 
 const Index = ()=>{
-
+    const fileTypes = ["JPG", "PNG", "GIF"];
     const [page,setpage] = useState('Step1')
     const [checkedOne,setcheckedOne] = useState(false);
     const [checkedTwo,setcheckedTwo] = useState(false)
     const [checkedThree,setcheckedThree] = useState(false)
-    const [rate,setrate] = useState()
-    const [allgiftcard, setallgiftcard] = useState([]);
-    const [selectbrand,setselectbrand] = useState(false)
+    const [rate,setrate] = useState();
+    const [selectbrand,setselectbrand] = useState("nobrand")
+    const [selectedSetState,setselectedSetState]  = useState('SET1')
+
+    const [checkedData,setcheckedData] = useState()
     const [loader,setloader] = useState(false);
-    const [brandlist,setbrandlist] = useState([]);
-    const [SelectOption,setSelectOption] = useState()
-    const [brandloader,setbrandloader] = useState(true);
-    const [prevData,setprevData] = useState()
-    const [search,setsearch] = useState('')
+    const [SelectOption,setSelectOption] = useState();
+
+
+    const [pickedbrand,setpickedbrand] = useState();
+    const[pickedCurrency,setpickedCurrency] = useState();
+    const [pickedratepoint,setpickedratepoint] = useState();
+
+    const [Files, setFiles] = useState();
+    const [SelectedImage,setSelectedImage] = useState([]);
+    const [images,setImages] = useState([])
+    const [balance,setbalance] = useState(0)
     
-    const options = [
-        { value: '100USD', label: '100USD @ N215' },
-        { value: '50USD', label: '50USD @ N200' },
-        { value: '25USD', label: '25USD @ 180' },
-      ];
-      const GiftCard = async ()=>{
-        const Base_url = process.env.REACT_APP_BACKEND_URL;
-        await axios({
-            method: "GET",
-            url: `${Base_url}/verify/giftCardApi`,
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
-    
-            }
-            
-          })
-        .then(res=>{
 
-            // console.log(res.data)
-            setbrandloader(false)
-            setallgiftcard(res.data)
-            setprevData(res.data);
-           
-        })
-        .catch(err=>{
-            console.log(err.response)
-            
-            
-            
-        })
-      }
-
-      useEffect(()=>{
-          GiftCard();
-      },[])
-
-    const renderComponent = ()=>{
-        switch(page){
-            case 'Step1':
+    // const renderComponent = ()=>{
+    //     switch(page){
+    //         case 'Step1':
                 
-                return <Step1 stepPage={setpage} checked={setcheckedOne} rateSet={setrate}/>
-                break;
-            case 'Step2':
+    //             return <Step1 stepPage={setpage} checked={setcheckedOne} rateSet={setrate} />
+    //             break;
+    //         case 'Step2':
                 
-                return <Step2 stepPage={setpage} checked={setcheckedTwo} acceptRate={rate} />
-                break;
-            case 'Step3':
+    //             return <Step2 stepPage={setpage} checked={setcheckedTwo} acceptRate={rate}  />
+    //             break;
+    //         case 'Step3':
                 
-                return <Step3 stepPage={setpage} checked={setcheckedThree}/>
-                break;
-        }
-    }
-
-    const handleSelect = (e)=>{
-      
-      if(e.target.textContent === "Select"){
-        var x = e.target.parentElement
-        
-        var y = x.parentElement;
-        
-        for(let i=0;i<y.children.length;i++){
-            if(y.children[i].classList.contains('activeClicked')){
-                y.children[i].classList.remove('activeClicked');
-            }
-        }
-        x.classList.add('activeClicked');
-        setselectbrand(true);
-        setloader(true);
-        loadBrandDetails(x.children[1].value)
-        
-       
-      }
-        
-
-    }
-
-    const loadBrandDetails = async (mybrand)=>{
-       
-        
-        const Base_url = process.env.REACT_APP_BACKEND_URL;
-        await axios({
-            method: "POST",
-            url: `${Base_url}/verify/giftCardApi/brandname`,
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
-    
-            },
-            data:JSON.stringify({mybrand:mybrand})
-            
-          })
-        .then(res=>{
-
-            setbrandlist(res.data.brand);
-            console.log(res.data)
-            setloader(false)
-            
-           
-        })
-        .catch(err=>{
-            console.log(err.response)
-            
-            
-            
-        })
-    }
+    //             return <Step3 stepPage={setpage} checked={setcheckedThree}/>
+    //             break;
+    //     }
+    // }
 
 
-    const _renderComponent = ()=>{
-        
-            return allgiftcard && allgiftcard.map((d)=>{
-                return <div className="displayCard" onClick={(e)=>handleSelect(e)}>
-                            
-                            
-                                <img src={d.image_url}/>
-                            
-                            
-                            <div>{d.brandname}</div>
-                            <div className="selectbutton">Select</div>
-                        </div>
-            })
-        
-    }
+
+    const handleChangeFile= (file) => {
+        setFiles(file);
+        console.log(console.log(file))
+      };
+   
 
     const _displayNullCard = ()=>{
         return (
@@ -163,103 +83,236 @@ const Index = ()=>{
 
         )
     }
-
-    const _displayCard =()=>{
-        return(
+    const _displaySelectCountry = ()=>{
+        return (
             <div>
-                Card Selected
+                    <div className="brandselectederror">
+                        Select Currency.
+                    </div>
+                    <div className="brandselectedSpan">Select Currency</div>
             </div>
+            
+
         )
     }
+    
+
+   
     const handleChange = (e)=>{
-        console.log(e.target)
-        setSelectOption(e.target.value);
+        console.log(e.value)
+        setSelectOption(e.value);
     }
-    const _displayBrand = ()=>{
-        console.log(brandlist)
-                    return brandlist && 
-                    <div className="brandFlex">
-                        <div className="brandTitle">
-                            <div className="imgBrand">
-                                <div style={{width:'100%'}}> 
-                                    <img src={brandlist.image_url} className="imgBrandDetails"/>
-                                </div>
-                                <div className="brandlistname">
-                                    {brandlist.name}
-                                </div>
+    const selectSet = ()=>{
+        switch(selectedSetState){
+            case 'SET1':
+                return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand}/>
+                break;
+            case 'SET2':
+                return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency}/>
+                break;
+            case 'SET3':
+                return <Set3 current={setselectedSetState} />
+                break;
+            default:
+
+        }
+    }
+    const options = [
+        { value: 10, label: '10USD' },
+        { value: 15, label: '15USD' },
+        { value: 25, label: '25USD' },
+        { value: 50, label: '50USD' },
+        { value: 100, label: '100USD' },
+       
+        { value: 'others', label: 'Others' },
+        
+      ]
+
+      const myoption = ()=>{
+          return checkedData.map(d=>{
+              return {'value':d,'label':d}
+          })
+      }
+
+
+   
+      const onDrop = useCallback( (acceptedFiles) => {
+          console.log('acceptedFiles',acceptedFiles)
+        //   const reader = new FileReader();
+        //   reader.onload=()=>{
+        //       setImages(prevState =>[...image,reader.result]);
+        //   }
+        //   reader.readAsDataURL(acceptedFiles);
+            // setSelectedImage(acceptedFiles.map(file=>{
+               
+            //     return Object.assign(file,{preview:URL.createObjectURL(file)})
+                
+            // }))
+          
+            acceptedFiles.forEach(file=>{
+                const reader = new FileReader();
+                reader.onload=()=>{
+                    setImages(prevState=> [...prevState,reader.result])
+                }
+                reader.readAsDataURL(file)
+            })
+            console.log('myImages',images)
+            
+      }, [])
+
+      useEffect(()=>{
+        console.log('images',images)
+      },[images])
+      const {getRootProps,getInputProps,isDragActive} = useDropzone({onDrop,accept: 'image/*'});
+
+  const removeFile =(selectedFilesTobeDeleted)=>{
+        console.log(selectedFilesTobeDeleted)
+        return setImages(images.filter(item =>item != selectedFilesTobeDeleted));
+
+  }
+
+    const displaySelectedImages = ()=>{
+            
+        //         return SelectedImage && SelectedImage.map(file=>{
+                    
+        //                return <div className="selectedImagePrevDiv">
+        //                    <div className="close"><IoClose size={15} color="#000" onClick={()=>removeFile(file.path)}/></div>
+        //                             <img src={file.preview}  className="selectImagePrev" alt="preview"/>                  
+        //                         </div>
+        //    })
+
+        return images && images.map((filebase64,index)=>{
+            return <div className="selectedImagePrevDiv" key={index}>
+                           <div className="close"><IoClose size={15} color="#000" onClick={()=>removeFile(filebase64)}/></div>
+                                    <img src={filebase64}  className="selectImagePrev" alt="preview"/>                  
                             </div>
-                            
+        })
+    }
+    const See = ()=>{
+        // console.log(SelectOption)
+        let counter = 0;
+          SelectOption && SelectOption.map(d=>{
+            counter += d.value
+            
+        })
 
-                            <div className="currency">
-                                {brandlist.fund_currencyisocode}
-                            </div>
+        return counter;
+ 
+    }
 
+    const handleSubmit = async()=>{
+        let total = document.getElementById('sumTotal').innerHTML
+        console.log(SelectOption);
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+            method: "POST",
+            url: `${Base_url}/verify/addgiftcard/sell/request`,
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+    
+            },
+                data:JSON.stringify({
+                    Userid:reactLocalStorage.getObject('user')._id,
+                    Total:total,
+                    SelectedAmount:SelectOption,
+                    SelectedImage:images,
+                    Country:pickedCurrency
+                    
+                })
+            
+          })
+        .then(res=>{
+           setloader(false);
+           setselectedSetState('SET1');
+           console.log(res.data);
+           
+        })
+        .catch(err=>{
+            console.log(err.response);
+ 
+        })
+    }
 
+    const displayRateBoard=()=>{
+        return   <div className="selectForm">
+                        <div className="sumbalanceDiv">
+                            <div className="btn btn-primary sumbalance">
+                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * 400}</span>  </div>
+                                {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
+                                
+                                
+                                </div>
                             
                         </div>
-                        <div className="selectTool">
-                        <Select
+                        <div>
+                            <Select
                                 defaultValue={SelectOption}
                                 onChange={setSelectOption}
                                 options={options}
+                                className="form-control mySelect"
                                 isMulti={true}
                                 isSearchable={true}
-                                placeholder='Type/click to select'
-                        />
+                                
+                            />
+
                         </div>
-                    </div>                    
+                        
+                        {/* <div className="dropArea" >
+                            <FileUploader handleChange={handleChangeFile} name="file" types={fileTypes} classes="dragndrop" />
+                        </div> */}
+
+                        <div {...getRootProps()} className="dnd">
+                            <input {...getInputProps()} /> 
+                            {
+                                isDragActive ? <div><p>Drop the Giftcard Images here...</p><SiHere size={45}/></div>:
+                                <div>
+                                        <p>Drag and Drop some Giftcard Images here or click to select</p>
+                                        <IoLogoDropbox size={30}/>
+                                </div>
+                                
+                            }
+
+                        </div>
+                        <div className="ImagePreview">
+                            {displaySelectedImages()}
+                        </div>
+
+                        <div className="submitGiftcard">
+                            {SelectOption && images.length > 0 && <input type="submit" value="Sell GiftCard" className="form-control" onClick={handleSubmit}/>}
+                        </div>
+                       
+                        
+                        <div>
+                         
+                        </div>
+
+                        
+
+
+                    </div>
+
     }
-    const handleSearch = (e)=>{
-        
-        if(e.target.value){
-            const filteredData= allgiftcard.filter(d=>{
-                return d.brandname.toLowerCase().includes(e.target.value.toLowerCase())
-            })
-    
-            console.log(filteredData)
-            setallgiftcard(filteredData);
-        }
-        else{
-            setallgiftcard(prevData)
-        }
-        setsearch(e.target.value)
-       
-
-
-
-    } 
+   
 
     return(
         <div className="sellbody">
+            {loader && <Myloader />}
             <div className="giftCardDiv">
-                    <div className="form-group searchBrand">
-                        <input type='text' className="form-control" placeholder="Search for Brand" value={search} onChange={handleSearch}/>
-
-                    </div>
-                    {brandloader ? <div className='Chartloader'></div> :  _renderComponent()}
+                    
+                  {selectSet()}
 
             
-                    {/* <div className="progressLine">
-                        <div className={checkedOne ? "progressCircle dot" :"progressCircle"}></div>
-                        <div className="progressStep">Step One</div>
-                    </div>
-                    <div className="progressLine">
-                        <div className={checkedTwo ? "progressCircle dot" :"progressCircle"}></div>
-                        <div className="progressStep">Step Two</div>
-                    </div>
-                    <div className="progressLine">
-                        <div className={checkedThree ? "progressCircle dot" :"progressCircle"}></div>
-                        <div className="progressStep">Step Three</div>
-                    </div> */}
-                    
             </div>
             <div className="FormDiv">
                 
                 {/* {renderComponent()} */}
                
-                {!selectbrand && _displayNullCard()}
-                {loader && <div className='Chartloader'></div>}
-                {selectbrand && !loader && _displayBrand()}
+                {selectbrand === "nobrand" && _displayNullCard()}
+                {selectbrand === "nocurrency" && _displaySelectCountry()}
+                {selectbrand === "norate" && displayRateBoard()}
+                {/* {loader && <div className='Chartloader'></div>} */}
+             
 
                 
 
