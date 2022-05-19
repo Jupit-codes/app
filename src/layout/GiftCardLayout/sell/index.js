@@ -202,7 +202,7 @@ const Index = ()=>{
 
     const handleSubmit = async()=>{
         let total = document.getElementById('sumTotal').innerHTML
-        console.log(SelectOption);
+        setloader(true);
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
