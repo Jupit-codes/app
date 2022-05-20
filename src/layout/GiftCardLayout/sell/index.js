@@ -87,9 +87,9 @@ const Index = ()=>{
         return (
             <div>
                     <div className="brandselectederror">
-                        Select Currency.
+                        Select Country.
                     </div>
-                    <div className="brandselectedSpan">Select Currency</div>
+                    <div className="brandselectedSpan">Select Country</div>
             </div>
             
 

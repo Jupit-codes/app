@@ -372,6 +372,16 @@ color:#fff
     display:flex;
     width: 80%;
     flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.selectFormBuy{
+    display:flex;
+    width: 80%;
+    flex-direction: column;
+    
+    height: 80vh;
 }
 .sumbalanceDiv{
     width: 100%;
@@ -476,7 +486,20 @@ option{
    
 }
 
+.submitGiftcardBuy{
+    margin-top: 50px;
+   
+}
+.buySelect{
+    margin-top: 50px;
+}
+
+.submitGiftcardBuy >input{
+    background-color: #5d2d8c;
+    color:#fff
+}
 .submitGiftcard >input{
     background-color: #0079D9;
     color: #fff;
 }
+
