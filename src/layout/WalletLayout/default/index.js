@@ -70,7 +70,7 @@ const Index=(props)=>{
     useEffect(()=>{
         let _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id)
-    },[userBtc])
+    },[])
 
 
     const getbalance = (_id)=>{
