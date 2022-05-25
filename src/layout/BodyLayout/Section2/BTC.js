@@ -7,9 +7,10 @@ import axios from 'axios'
 const Index = ()=>{
 
     const [userBtc,setuserBtc] = useState()
+    const [refresh,setrefreshing] = useState()
 
     const getbalance = async(_id)=>{
-        
+        setrefreshing('refreshing balance..')
         await axios({
             method: "POST",
             url: `https://myjupit.herokuapp.com/users/refresh`,
@@ -24,6 +25,7 @@ const Index = ()=>{
             setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
             reactLocalStorage.remove('user')
             reactLocalStorage.setObject('user',res.data)
+            setrefreshing('')
           
         })
         .catch((err)=>{
@@ -61,6 +63,8 @@ const Index = ()=>{
                                         </div>
                                         <div className='card_section_balance'>
                                             {userBtc}&nbsp;BTC
+                                            <div>{refresh}</div>
+
                                         </div>
                                     </div>
                                     <div className='card_section_c'>

@@ -7,9 +7,10 @@ const Index = ({comp})=>{
 
     
     const [userNaira,setuserNaira] = useState()
-
+    const [refresh,setrefreshing] = useState()
     const getbalance = async(_id)=>{
-        
+
+        setrefreshing('refreshing balance..')
         await axios({
             method: "POST",
             url: `https://myjupit.herokuapp.com/users/refresh`,
@@ -24,6 +25,7 @@ const Index = ({comp})=>{
             setuserNaira(res.data.naira_wallet[0].balance.$numberDecimal);
             reactLocalStorage.remove('user')
             reactLocalStorage.setObject('user',res.data)
+            setrefreshing('')
 
             
           
@@ -62,7 +64,8 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;{userNaira}&nbsp;
+                                            &#8358;{userNaira}&nbsp;
+                                            <div>{refresh}</div>
                                         </div>
                                     </div>
                                     <div className='card_section_c'>

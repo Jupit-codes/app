@@ -330,6 +330,9 @@
     font-weight: bold;
 
 }
+.card_section_balance> div{
+    font-size: 10px;
+}
 .card_section_c{
     display: flex;
     justify-content: space-between;

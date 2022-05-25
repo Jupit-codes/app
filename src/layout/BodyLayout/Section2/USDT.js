@@ -6,9 +6,9 @@ import { useEffect,useState } from 'react'
 const Index = ()=>{
 
     const [userUSDT,setuserUSDT] = useState()
-
+    const [refresh,setrefreshing] = useState()
     const getbalance = async(_id)=>{
-        
+        setrefreshing('refreshing balance..')
         await axios({
             method: "POST",
             url: `https://myjupit.herokuapp.com/users/refresh`,
@@ -23,6 +23,7 @@ const Index = ()=>{
             setuserUSDT(res.data.usdt_wallet[0].balance.$numberDecimal);
             reactLocalStorage.remove('user')
             reactLocalStorage.setObject('user',res.data)
+            setrefreshing('')
           
         })
         .catch((err)=>{
@@ -59,7 +60,8 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        {userUSDT}&nbsp;TETHER
+                                            {userUSDT}&nbsp;TETHER
+                                            <div>{refresh}</div>
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
