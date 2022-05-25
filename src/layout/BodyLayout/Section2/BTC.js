@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const Index = ()=>{
 
-    const [userBtc,setuserBtc] = useState('loading..')
+    const [userBtc,setuserBtc] = useState()
 
     const getbalance = async(_id)=>{
         
