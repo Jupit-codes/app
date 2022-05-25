@@ -79,7 +79,7 @@ const Index = (props)=>{
  useEffect(()=>{
      let _id = reactLocalStorage.getObject('user')._id;
      getbalance(_id)
- },[userBtc])
+ },[])
 
 
    //1 SUN = 0.199

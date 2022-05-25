@@ -1,7 +1,42 @@
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
 import { reactLocalStorage } from 'reactjs-localstorage'
+import { useState,useEffect } from 'react'
+import axios from 'axios'
 const Index = ({comp})=>{
+
+    
+    const [userNaira,setuserNaira] = useState()
+
+    const getbalance = async(_id)=>{
+        
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:_id})
+        })
+        .then((res)=>{
+            
+            setuserNaira(res.data.naira_wallet[0].balance.$numberDecimal);
+            
+          
+        })
+        .catch((err)=>{
+        
+            console.log(err.response)
+            
+        })
+    }
+     useEffect(()=>{
+         setuserNaira(reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal)
+         let _id = reactLocalStorage.getObject('user')._id;
+         getbalance(_id)
+     },[])
+
     return (
         <div className='designcover slideCardLeft'>
                             <div className='cardNairaCover '>
@@ -24,7 +59,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;{reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal}&nbsp;
+                                        &#8358;{userNaira}&nbsp;
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
