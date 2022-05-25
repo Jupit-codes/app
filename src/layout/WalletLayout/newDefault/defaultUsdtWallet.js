@@ -71,8 +71,10 @@ const Index = ()=>{
         
         // setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
         setuserUsdt(res.data.usdt_wallet[0].balance.$numberDecimal);
+        
         reactLocalStorage.remove('user')
         reactLocalStorage.setObject('user',res.data)  
+        setrefresh('')
       
     })
     .catch((err)=>{

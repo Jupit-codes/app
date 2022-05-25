@@ -24,7 +24,7 @@ const Index = ({comp})=>{
     const [percentageUSDT ,setpercentageUSDT]= useState()
     const [openModal, setopenModal] = useState(false);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
-  
+    const [refresh,setrefresh] = useState()
     const _renderRate =()=>{
         if(percentageBTC <0){
             return <div className='bullish'><span>{percentageBTC}%</span></div>
@@ -56,7 +56,7 @@ const Index = ({comp})=>{
    },[data])
 
    const getbalance = (_id)=>{
-        
+        setrefresh('refreshing balance')
     axios({
         method: "POST",
         url: `https://myjupit.herokuapp.com/users/refresh`,
@@ -67,8 +67,11 @@ const Index = ({comp})=>{
         data:JSON.stringify({_id:_id})
     })
     .then((res)=>{
-        
+        setrefresh('')
+
         setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+        reactLocalStorage.remove('user');
+        reactLocalStorage.setObject('user',res.data)
         
       
     })
@@ -131,6 +134,7 @@ const Index = ({comp})=>{
                                         </div>
                                         <div className='card_section_balance_equivalent'>
                                             USD EQUIVALENT:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3)}
+                                            <div>{refresh}</div>
                                         </div>
                                     </div>
                                     <div className='card_section_c'>
