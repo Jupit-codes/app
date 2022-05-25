@@ -21,7 +21,8 @@ const Index = ()=>{
         .then((res)=>{
             
             setuserUSDT(res.data.usdt_wallet[0].balance.$numberDecimal);
-            
+            reactLocalStorage.remove('user')
+            reactLocalStorage.setObject('user',res.data)
           
         })
         .catch((err)=>{

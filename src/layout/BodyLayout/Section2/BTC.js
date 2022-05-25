@@ -22,7 +22,8 @@ const Index = ()=>{
         .then((res)=>{
             
             setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
-            
+            reactLocalStorage.remove('user')
+            reactLocalStorage.setObject('user',res.data)
           
         })
         .catch((err)=>{
