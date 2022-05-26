@@ -167,9 +167,11 @@ const Index = ()=>{
                 <label>Select ID Card Type</label>
                 <select className="form-control" value={cardType} onChange={_handleIDCard}>
                     <option>Select ID Card Type</option>
-                    <option value="international-passport">International Passport</option>
-                    <option value="nimc">NIMC</option>
-                    <option value="driver">Drivers Licence</option>
+                    
+                    {/* <option value="Nimc">NIMC</option> */}
+                    {/* <option value="Driverslicense">Drivers Licence</option> */}
+                    <option value="Intlpassport">International Passport</option>
+                    <option value="Voterscard">Voter's Card</option>
                 </select>
             </div>
 
