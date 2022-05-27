@@ -124,29 +124,6 @@ const route = [
 
     },
     {
-        path:'/client',
-        title:'Client Dashboard | Jupit',
-        isAuthenticated:true,
-        component:Dashboard,
-
-    },
-    
-    
-    {
-        path:'/test',
-        title:'Client Dashboard | Jupit',
-        isAuthenticated:false,
-        component:Test,
-
-    },
-    {
-        path:'/',
-        title:'Home | Jupit',
-        isAuthenticated:false,
-        component:Home,
-
-    },
-    {
         path:'/client/buybtc',
         title:'Client Dashboard | Jupit',
         isAuthenticated:true,
@@ -174,11 +151,32 @@ const route = [
         component:Dashboard,
 
     },
+    {
+        path:'/client',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
 
+    },
     
- 
-   
- 
+    
+    {
+        path:'/test',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:false,
+        component:Test,
+
+    },
+    
+    {
+        path:'/',
+        title:'Home | Jupit',
+        isAuthenticated:false,
+        component:Home,
+
+    },
+    
+
    
 ]
 

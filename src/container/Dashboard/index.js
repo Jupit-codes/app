@@ -8,6 +8,7 @@ import Notification from  '../../container/Notification'
 import Settings from  '../../container/Settings'
 import Wallets from  '../../container/Wallets'
 import Send from '../../container/Send'
+import BuyBTC from '../../container/Buybtc'
 import SendUSDT from '../../container/SendUsdt'
 import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
@@ -24,7 +25,7 @@ const Index=()=>{
     const handleCallback =(value)=>{
         setOpen(value)
     }
-   
+   console.log("okay",path);
     const x =1
     const _renderBodyComponent=()=>{
         let component;
@@ -48,7 +49,7 @@ const Index=()=>{
                 return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sendbtc':
-                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sendusdt':
                 return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
