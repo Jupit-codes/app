@@ -23,6 +23,8 @@ import getNotification from '../../context/actions/getNotification';
 import { fabClasses } from '@mui/material';
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
 import EnterPinModal from '../../utils/modal/INPUT_PIN/'
+import { getAllByPlaceholderText } from '@testing-library/react';
+import {AiOutlineReload} from 'react-icons/ai'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -49,8 +51,9 @@ const Index =()=>{
     const {getnotificationState,getnotificationDispatch} = useContext(GlobalContext)
     // console.log('sendCoindata',SEND_COIN_data);
     // console.log('sendCoinError',SEND_COIN_error);
-    const [btcamount,setbtcamount] = useState('');
-    const [usdamount,setusdamount] = useState('');
+    const [btcamount,setbtcamount] = useState(0);
+    const [usdamount,setusdamount] = useState(0);
+    const [ngnamount,setngnamount] = useState(0);
     const [Balance,setBalance] = useState(0);
     const [mountBalance,setMountBalance] = useState(false)
     const isMounted = useRef(false);
@@ -65,6 +68,9 @@ const Index =()=>{
     const [mywallet,setmywallet] = useState('')
     const [dataAutofee,setdataAutofee] = useState();
     const [addamount,setaddamount] = useState();
+    const [buyrate,setbuyrate] = useState();
+    const [reloadRate,setReloadRate] = useState(false)
+    const [disableBTN,setDisableBTN] = useState(true)
 
     
 
@@ -74,8 +80,8 @@ const Index =()=>{
         UserDetailsRefresh(_id)(userdetailsDispatch)
     
             if(USER_data ){
-                if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
-                    setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                if(Balance != USER_data.naira_wallet[0].balance.$numberDecimal){
+                    setBalance(parseFloat(USER_data.naira_wallet[0].balance.$numberDecimal));
                     
                     
                 }
@@ -87,7 +93,7 @@ const Index =()=>{
             }
             // console.log('TestServer',USER_data)
 
-   },[Balance])
+   },[])
 
 
    const retrieveAutoFee = ()=>{
@@ -151,8 +157,8 @@ const Index =()=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            if(Balance !== res.data.btc_wallet[0].balance.$numberDecimal ){
-                setBalance(res.data.btc_wallet[0].balance.$numberDecimal);
+            if(Balance !== res.data.naira_wallet[0].balance.$numberDecimal ){
+                setBalance(res.data.naira_wallet[0].balance.$numberDecimal);
                 
             }
             
@@ -186,11 +192,40 @@ const Index =()=>{
             
         })
     }
+    const getRate = async()=>{
+        setReloadRate(false);
+        axios({
+            method: "GET",
+            url: `https://myjupit.herokuapp.com/verify/get/current/rate`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            }
+            
+        })
+        .then((res)=>{
+            setReloadRate(false)
+            setbuyrate(res.data.message[0].btc[0].buy);
+
+        })
+        .catch((err)=>{
+            
+            setReloadRate(true);
+
+            if(err.response){
+                setReloadRate(true);
+               
+            }
+            // console.log('error',err.response)
+            
+        })
+    }
 
     useEffect(()=>{
         const _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id);
         _getKyc(_id);
+        getRate();
 
     },[])
    
@@ -304,28 +339,49 @@ const Index =()=>{
         
     }
    
-    const BTCAmount = (e)=>{
-        setbtcamount(e.target.value);
+    // const BTCAmount = (e)=>{
+    //     setbtcamount(e.target.value);
         
-        let pat = currentRate * e.target.value
-        setusdamount(pat)
+    //     let pat = currentRate * e.target.value
+    //     setusdamount(pat)
         
-        if(dataAddr === "Internal Transfer"){
-            setNetworkFee(0)
+    //     if(dataAddr === "Internal Transfer"){
+    //         setNetworkFee(0)
             
-        }
+    //     }
         
-    }
-    const USDAmount=(e)=>{
-        console.log('Test',kycLevel1)
-        setusdamount(e.target.value);
-        let pat = e.target.value / currentRate 
-        setbtcamount(pat)
-        if(dataAddr === "Internal Transfer"){
-            setNetworkFee(0)
+    // }
+    // const USDAmount=(e)=>{
+    //     console.log('Test',kycLevel1)
+    //     setusdamount(e.target.value);
+    //     let pat = e.target.value / currentRate 
+    //     setbtcamount(pat)
+    //     if(dataAddr === "Internal Transfer"){
+    //         setNetworkFee(0)
             
+    //     }
+    // }
+
+    const NGNAmount=(e)=>{
+        
+        setngnamount(e.target.value);
+
+        setusdamount((parseFloat(e.target.value)/parseFloat(buyrate)).toFixed(3))
+        setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
+        if(Balance >= ngnamount){
+            setDisableBTN(false)
         }
+        else if(ngnamount > Balance){
+            setDisableBTN(true)
+        }
+        // let pat = e.target.value / currentRate 
+        // setbtcamount(pat)
+        // if(dataAddr === "Internal Transfer"){
+        //     setNetworkFee(0)
+            
+        // }
     }
+
     const CopyData = (e)=>{
        
         setReceipentAddress(e.clipboardData.getData('Text'))
@@ -470,17 +526,17 @@ const Index =()=>{
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>
-                    <div className='sendBTCFrom'>Send BTC From</div>
+                    <div className='sendBTCFrom'>Buy BTC</div>
                     <div className='fromBTC'>
                         <div>
                             <Icon name="btc" size={30} /> <span>BTC Wallet</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance}
+                            Balance:&#x20A6;{Balance}
                         </div>
                     </div>
-                    <div className='toBTC'>
+                    {/* <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
                             <input type="text"  onChange={_handleReceipent} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} />
@@ -489,23 +545,33 @@ const Index =()=>{
                             {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
                             
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
-                            <img src={Equivalent}/>
-                            <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount}/>
+                            {reloadRate && <div onClick={()=>{getRate()}}>Click here to Reload <AiOutlineReload/> </div>}
+                            {buyrate && 
+                                <>
+
+                                    <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount}/>
+                                    <img src={Equivalent}/>
+                                    <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} />
+                                    <img src={Equivalent}/>
+                                    <input type="number"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount} onChange={NGNAmount}/>
+                                </>
+                            
+
+                            }
+                            
                         </div>
                     </div>
                     <div>
-                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && dataAutofee && _selectFee()}
-                        {/* <small>{loadingAutofee && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small> */}
-                        {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
+                        
+                      
                        
                     </div>
-                    {btcamount && btcamount > Balance && <div className='errorBTCAddr pt-4'>Amount Inputted is Greater than Available Balance</div> }
-                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount && btcamount < Balance  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && btcamount < Balance && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
+                    {/* {ngnamount && ngnamount > Balance && <div className='errorBTCAddr pt-4'>Amount Inputted is Greater than Available Balance({Balance})</div> } */}
+                    <div className={disableBTN ? 'sendFund disabled': 'sendFund '  }  onClick={sendCoin}>
                             Continue
                     </div>
                    

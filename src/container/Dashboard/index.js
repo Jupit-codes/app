@@ -49,7 +49,7 @@ const Index=()=>{
                 return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sendbtc':
-                return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sendusdt':
                 return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
@@ -58,7 +58,7 @@ const Index=()=>{
                 return <GiftCard openClose={open} settrigger={settrigger} trigger={trigger}/>
             break;
             case '/client/buybtc':
-                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/buyusdt':
                 return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
