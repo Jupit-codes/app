@@ -312,16 +312,16 @@ const Index = ()=>{
         history.push('/client/sendusdt')
     }
     const buybtc = ()=>{
-        alert('BUY BTC')
+        history.push('/client/buybtc')
     }
     const buyusdt= ()=>{
-        alert('BUY USDT')
+        history.push('/client/buyusdt')
     }
     const sellbtc = ()=>{
-        alert('SELL BUY')
+        history.push('/client/sellbtc')
     }
     const sellusdt= ()=>{
-        alert('SELL USDT')
+        history.push('/client/sellusdt')
     }
     const _showWithdrawal = ()=>{
 
