@@ -466,7 +466,7 @@ const Index = ()=>{
                     {_renderChartComponent()}
                     
                 </div>
-                <div className='Transaction-TopUp'>
+                <div className={component !== "Naira" ? 'Transaction-TopUp' :'d-none'}>
                     <div className={_selectClass()}>
                         {_buy()}
                     </div>
