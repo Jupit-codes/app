@@ -244,7 +244,7 @@ const Index = ()=>{
                             <span>Click To Buy BTC.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={sendBtc}/>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={buybtc}/>
                         </div>
                     </div>
                    
@@ -256,7 +256,7 @@ const Index = ()=>{
                             <span>Click To Buy USDT.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={sendUsdt}/>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={buyusdt}/>
                         </div>
                     </div>
                    
@@ -311,6 +311,18 @@ const Index = ()=>{
     const sendUsdt = ()=>{
         history.push('/client/sendusdt')
     }
+    const buybtc = ()=>{
+        alert('BUY BTC')
+    }
+    const buyusdt= ()=>{
+        alert('BUY USDT')
+    }
+    const sellbtc = ()=>{
+        alert('SELL BUY')
+    }
+    const sellusdt= ()=>{
+        alert('SELL USDT')
+    }
     const _showWithdrawal = ()=>{
 
         if(component === "Usdt"){
@@ -362,7 +374,7 @@ const Index = ()=>{
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModalUsdt(true)}/>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>sellbtc}/>
                         </div>
                     </div>
         }
@@ -374,7 +386,7 @@ const Index = ()=>{
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModal(true)}/>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>sellusdt}/>
                         </div>
                     </div>
         }
