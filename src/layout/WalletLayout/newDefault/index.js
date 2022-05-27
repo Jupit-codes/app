@@ -223,6 +223,49 @@ const Index = ()=>{
             return 'TopUp UsdtWithdrawal';
         }
     }
+
+    const _buy= ()=>{
+        // if(component === "Naira"){
+        //     return  <div className='TopUpSpace'>
+        //                  <div>
+        //                     TopUp<br/>
+        //                     <span>Click To Top up your account.</span>
+        //                 </div>
+        //                 <div className='TopupIcon'>
+        //                     <BsArrowUpSquare color='#fff' size={20}/>
+        //                 </div>
+        //             </div>
+                   
+        // }
+        if(component === "Btc"){
+            return  <div className='TopUpSpace'>
+                         <div>
+                            Buy BTC<br/>
+                            <span>Click To Buy BTC.</span>
+                        </div>
+                        <div className='TopupIcon'>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={sendBtc}/>
+                        </div>
+                    </div>
+                   
+        }
+        else if(component === "Usdt"){
+            return  <div className='TopUpSpace'>
+                         <div>
+                            Buy USDT<br/>
+                            <span>Click To Buy USDT.</span>
+                        </div>
+                        <div className='TopupIcon'>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={sendUsdt}/>
+                        </div>
+                    </div>
+                   
+        }
+    }
+
+
+
+
     const _showTopUP = ()=>{
         if(component === "Naira"){
             return  <div className='TopUpSpace'>
@@ -308,6 +351,37 @@ const Index = ()=>{
         }
         
     }
+
+    const _Sell = ()=>{
+
+        if(component === "Usdt"){
+            return      <div className='TopUpSpace'>
+                        <div>
+                            Sell USDT<br/>
+                            <span>Click to Sell USDT</span>
+                        </div>
+
+                        <div className='TopupIcon'>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModalUsdt(true)}/>
+                        </div>
+                    </div>
+        }
+        else if(component === "Btc"){
+            return  <div className='TopUpSpace'>
+                        <div>
+                            Sell BTC<br/>
+                            <span>Click to Sell BTC</span>
+                        </div>
+
+                        <div className='TopupIcon'>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModal(true)}/>
+                        </div>
+                    </div>
+        }
+       
+        
+    }
+
     const changeTransTo = (trans)=>{
         setActivebutton(trans);
         setComponent(trans)
@@ -372,7 +446,7 @@ const Index = ()=>{
 
            </div>
 
-           <div>
+           <div style={{height:'100%'}}>
                <div className='Transaction-TopUp'>
                     <div className={_selectClass()}>
                         {_showTopUP()}
@@ -392,6 +466,17 @@ const Index = ()=>{
                     {_renderChartComponent()}
                     
                 </div>
+                <div className='Transaction-TopUp'>
+                    <div className={_selectClass()}>
+                        {_buy()}
+                    </div>
+                    <div className={_selectClassWithdrawal()}>
+                        {_Sell()}
+
+                    </div>
+                </div>
+
+                
                
            </div>
         </div>

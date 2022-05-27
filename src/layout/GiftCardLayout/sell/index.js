@@ -201,8 +201,15 @@ const Index = ()=>{
     }
 
     const handleSubmit = async()=>{
+        console.log(SelectOption);
+        let counter = 0;
+        SelectOption.forEach((d)=>{
+            counter+= d.value
+        })
+        
         let total = document.getElementById('sumTotal').innerHTML
         setloader(true);
+        let random = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
@@ -213,11 +220,14 @@ const Index = ()=>{
     
             },
                 data:JSON.stringify({
+                    Cardname:pickedbrand,
                     Userid:reactLocalStorage.getObject('user')._id,
                     Total:total,
                     SelectedAmount:SelectOption,
                     SelectedImage:images,
-                    Country:pickedCurrency
+                    Country:pickedCurrency,
+                    unique_id:random,
+                    amountInusd:counter
                     
                 })
             
