@@ -446,7 +446,7 @@ const Index = ()=>{
 
            </div>
 
-           <div style={{height:'100%'}}>
+           <div style={{height:'100%',minHeight:'50vh'}}>
                <div className='Transaction-TopUp'>
                     <div className={_selectClass()}>
                         {_showTopUP()}
