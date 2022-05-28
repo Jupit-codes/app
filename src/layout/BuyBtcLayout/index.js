@@ -74,26 +74,26 @@ const Index =()=>{
 
     
 
-   useEffect(()=>{
-       let _id = reactLocalStorage.getObject('user')._id;
+//    useEffect(()=>{
+//        let _id = reactLocalStorage.getObject('user')._id;
        
-        UserDetailsRefresh(_id)(userdetailsDispatch)
+//         UserDetailsRefresh(_id)(userdetailsDispatch)
     
-            if(USER_data ){
-                if(Balance != USER_data.naira_wallet[0].balance.$numberDecimal){
-                    setBalance(parseFloat(USER_data.naira_wallet[0].balance.$numberDecimal));
+//             if(USER_data ){
+//                 if(Balance != USER_data.naira_wallet[0].balance.$numberDecimal){
+//                     setBalance(parseFloat(USER_data.naira_wallet[0].balance.$numberDecimal));
                     
                     
-                }
-                setcreatePin(USER_data.Pin_Created);
-                setmywallet(USER_data.wallet_pin);
+//                 }
+//                 setcreatePin(USER_data.Pin_Created);
+//                 setmywallet(USER_data.wallet_pin);
                     
                 
                 
-            }
-            // console.log('TestServer',USER_data)
+//             }
+//             // console.log('TestServer',USER_data)
 
-   },[])
+//    },[])
 
 
    const retrieveAutoFee = ()=>{
@@ -158,8 +158,9 @@ const Index =()=>{
         })
         .then((res)=>{
             if(Balance !== res.data.naira_wallet[0].balance.$numberDecimal ){
-                setBalance(res.data.naira_wallet[0].balance.$numberDecimal);
-                
+                setBalance(parseFloat(res.data.naira_wallet[0].balance.$numberDecimal));
+                setcreatePin(res.data.Pin_Created);
+                setmywallet(res.data.wallet_pin);
             }
             
         })
@@ -436,7 +437,7 @@ const Index =()=>{
     //         setButtonDisable (false);
     //     }
     // },[dataAddr])
-    const sendCoin = ()=>{
+    const buycoin = ()=>{
         
 
         let kycprogress = 0
@@ -458,16 +459,16 @@ const Index =()=>{
         return false;
        }
 
-        let x = btcamount + networkFee;
+        // let x = btcamount + networkFee;
 
         
         
-        if(x > Balance){
+        if(parseFloat(ngnamount) > parseFloat(Balance)){
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;
         }
         else{
-             console.log(createPin)
+             
             if(createPin){
                     setInputwalletPIn(true)
             }
@@ -484,23 +485,55 @@ const Index =()=>{
         
     }
 
+    const buycoin_old = async ()=>{
+        if(parseFloat(ngnamount) > parseFloat(Balance)){
+            toast.error('insufficent Fund','Balance Error')
+        }
+        else{
+        //     const BaseUrl = process.env.REACT_APP_ADMIN_URL  
+        //     setFailedRequest(false)
+        //     setLoader(true)
+        // await axios({
+        
+        //     url:`${BaseUrl}/admin/get/uploadedgiftcards`,
+        //     method:'POST',
+        //     headers:{
+        //       'Content-Type':'application/json',  
+        //       'Authorization': reactLocalStorage.get('token')
+        //     },
+        //     data:JSON.stringify({
+        //         id
+        //     })
+            
+        //   })
+        //   .then((res)=>{
+        //    console.log(res.data)
+          
+      
+        //   })
+        //   .catch((err)=>{
+              
+        //         console.log(err.response);
+                
+               
+                
+        //   })
+        }
+    }
+
         useEffect(()=>{
             if(success){
                 const items={
-                    ReceipentAddress:ReceipentAddress,
-                    networkFee:networkFee,
                     userid:reactLocalStorage.getObject('user')._id,
                     amount:btcamount,
-                    block_average:blockaverage,
                     wallet_type:"BTC",
-                    transferType:dataAddr,
-                    senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
-        
+                
                 }
                 
-                ProcessCoin(items)(sendcoinDispatch);
-                setsuccess(false);
-                getbalance();
+                
+                // ProcessCoin(items)(sendcoinDispatch);
+                // setsuccess(false);
+                // getbalance();
                 
             }
 
@@ -571,7 +604,7 @@ const Index =()=>{
                        
                     </div>
                     {/* {ngnamount && ngnamount > Balance && <div className='errorBTCAddr pt-4'>Amount Inputted is Greater than Available Balance({Balance})</div> } */}
-                    <div className={disableBTN ? 'sendFund disabled': 'sendFund '  }  onClick={sendCoin}>
+                    <div className='sendFund'   onClick={buycoin}>
                             Continue
                     </div>
                    
@@ -589,18 +622,17 @@ const Index =()=>{
                                 {btcamount}
                             </div>
                     </div>
-                    <div className='TextInformation'>
+                    {/* <div className='TextInformation'>
                             <div className='sendBTCFrom'>Network Fee ( In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 {networkFee}
                             </div>
-                    </div>
+                    </div> */}
                     <div className='TextInformation'>
                             <div className='sendBTCFrom'>Total Fee (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {dataAddr && dataAddr === "Internal Transfer" && btcamount}
-                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee }
+                                {btcamount}
                             </div>
                     </div>
                 </div>
