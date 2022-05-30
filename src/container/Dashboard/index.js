@@ -69,7 +69,7 @@ const Index=()=>{
             case '/client/sellusdt':
                 return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
-            case '/client/sellbuy':
+            case '/client/sellbtc':
                 return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             
