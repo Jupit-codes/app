@@ -9,9 +9,12 @@ import Settings from  '../../container/Settings'
 import Wallets from  '../../container/Wallets'
 import Send from '../../container/Send'
 import BuyBTC from '../../container/Buybtc'
+import BuyUSDT from '../../container/Buyusdt'
 import SendUSDT from '../../container/SendUsdt'
 import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
+import SellUSDT from '../../container/SellUsdt'
+import SellBTC from '../../container/SellBtc'
 import { useLocation } from "react-router";
 import { reactLocalStorage } from "reactjs-localstorage";
 import axios from "axios";
@@ -61,13 +64,13 @@ const Index=()=>{
                 return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/buyusdt':
-                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                return <BuyUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sellusdt':
-                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             case '/client/sellbuy':
-                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             
             

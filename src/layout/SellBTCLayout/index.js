@@ -571,10 +571,10 @@ const Index =()=>{
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>
-                    <div className='sendBTCFrom'>Buy BTC</div>
+                    <div className='sendBTCFrom'>Sell BTC</div>
                     <div className='fromBTC'>
                         <div>
-                            <Icon name="btc" size={30} /> <span>BTC Wallet</span>
+                            <Icon name="btc" size={30} /> <span>Sell Wallet</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}

@@ -22,9 +22,10 @@ import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
 import { fabClasses } from '@mui/material';
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
-import EnterPinModal from '../../utils/modal/INPUT_PIN/'
+import EnterPinModal from '../../utils/modal/INPUT_PIN'
 import { getAllByPlaceholderText } from '@testing-library/react';
 import {AiOutlineReload} from 'react-icons/ai'
+import Tether from '../../assets/images/tether.png'
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -208,7 +209,8 @@ const Index =()=>{
         })
         .then((res)=>{
             setReloadRate(false)
-            setbuyrate(res.data.message[0].btc[0].buy);
+            
+            setbuyrate(res.data.message[0].usdt[1].buy);
 
         })
         .catch((err)=>{
@@ -258,7 +260,7 @@ const Index =()=>{
         Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(data.BTC.USD.PRICE);
+            setcurrentRate(data.USDT.USD.PRICE);
             
         }
         
@@ -297,7 +299,7 @@ const Index =()=>{
     const handleSend = ()=>{
         history.push({
             pathname:'/client/wallet',
-            state:{wallettype:'Btc'}
+            state:{wallettype:'Usdt'}
         })
     }
     const handleChangeFee = (e)=>{
@@ -364,15 +366,17 @@ const Index =()=>{
             
     //     }
     // }
-    const BTCAmount = (e)=>{
-        setbtcamount(e.target.value)
-        setusdamount(parseFloat(e.target.value) * currentRate);
-        setngnamount(parseFloat(buyrate) * parseFloat(e.target.value) * currentRate )
-    }
+
+
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
         setngnamount(parseFloat(e.target.value) * parseFloat(buyrate))
         setbtcamount(parseFloat(e.target.value)/parseFloat(currentRate))
+    }
+    const USDTAmount = (e)=>{
+        setbtcamount(e.target.value)
+        setusdamount(parseFloat(e.target.value) * currentRate);
+        setngnamount(parseFloat(buyrate) * parseFloat(e.target.value) * currentRate )
     }
     const NGNAmount=(e)=>{
         
@@ -567,14 +571,15 @@ const Index =()=>{
                 draggable
                 pauseOnHover
                 />
-            <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
+            <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to USDT Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>
-                    <div className='sendBTCFrom'>Buy BTC</div>
+                    <div className='sendBTCFrom'>Sell USDT</div>
                     <div className='fromBTC'>
                         <div>
-                            <Icon name="btc" size={30} /> <span>BTC Wallet</span>
+                            {/* <Icon name="btc" size={30} /> <span>BTC Wallet</span> */}
+                            <img src={Tether} width="30"/> <span>USDT Wallet</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
@@ -598,7 +603,7 @@ const Index =()=>{
                             {buyrate && 
                                 <>
 
-                                    <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={BTCAmount}/>
+                                    <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={USDTAmount}/>
                                     <img src={Equivalent}/>
                                     <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount} />
                                     <img src={Equivalent}/>
@@ -629,7 +634,7 @@ const Index =()=>{
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Amount(In BTC)</div>
+                            <div className='sendBTCFrom'>Amount(In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 {btcamount}
                             </div>
@@ -641,7 +646,7 @@ const Index =()=>{
                             </div>
                     </div> */}
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Total Fee (In BTC)</div>
+                            <div className='sendBTCFrom'>Total Fee (In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
                                 {btcamount}

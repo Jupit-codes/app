@@ -19,7 +19,7 @@ const Index = ({closeModal,mywalletpin,callback})=>{
 
     const pincheck = ()=>{
         if(walletpin){
-            console.log(walletpin,mywalletpin)
+            
             if(walletpin === mywalletpin){
                 toast.success('PIN accepted','SUCCESS')
                 callback(true);
