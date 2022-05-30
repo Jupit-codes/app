@@ -70,6 +70,7 @@ const Index =()=>{
     const [dataAutofee,setdataAutofee] = useState();
     const [addamount,setaddamount] = useState();
     const [buyrate,setbuyrate] = useState();
+    const [sellrate,setsellrate] = useState();
     const [reloadRate,setReloadRate] = useState(false)
     const [disableBTN,setDisableBTN] = useState(true)
     const [loader,setLoader] = useState(false);
@@ -161,7 +162,7 @@ const Index =()=>{
         })
         .then((res)=>{
             if(Balance !== res.data.naira_wallet[0].balance.$numberDecimal ){
-                setBalance(parseFloat(res.data.naira_wallet[0].balance.$numberDecimal));
+                setBalance(parseFloat(res.data.usdt_wallet[0].balance.$numberDecimal));
                 setcreatePin(res.data.Pin_Created);
                 setmywallet(res.data.wallet_pin);
             }
@@ -210,7 +211,7 @@ const Index =()=>{
         .then((res)=>{
             setReloadRate(false)
             
-            setbuyrate(res.data.message[0].usdt[1].buy);
+            setsellrate(res.data.message[0].usdt[0].sell);
 
         })
         .catch((err)=>{
@@ -370,19 +371,19 @@ const Index =()=>{
 
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
-        setngnamount(parseFloat(e.target.value) * parseFloat(buyrate))
+        setngnamount(parseFloat(e.target.value) * parseFloat(sellrate))
         setbtcamount(parseFloat(e.target.value)/parseFloat(currentRate))
     }
     const USDTAmount = (e)=>{
         setbtcamount(e.target.value)
         setusdamount(parseFloat(e.target.value) * currentRate);
-        setngnamount(parseFloat(buyrate) * parseFloat(e.target.value) * currentRate )
+        setngnamount(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate )
     }
     const NGNAmount=(e)=>{
         
         setngnamount(e.target.value);
 
-        setusdamount((parseFloat(e.target.value)/parseFloat(buyrate)).toFixed(3))
+        setusdamount((parseFloat(e.target.value)/parseFloat(sellrate)).toFixed(3))
         setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
         if(Balance >= ngnamount){
             setDisableBTN(false)
@@ -583,7 +584,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:&#x20A6;{Balance}
+                            Balance:{Balance}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
@@ -600,7 +601,7 @@ const Index =()=>{
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
                             {reloadRate && <div onClick={()=>{getRate()}}>Click here to Reload <AiOutlineReload/> </div>}
-                            {buyrate && 
+                            {sellrate && 
                                 <>
 
                                     <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={USDTAmount}/>
