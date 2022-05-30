@@ -374,7 +374,7 @@ const Index = ()=>{
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={sellbtc}/>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={sellusdt}/>
                         </div>
                     </div>
         }
@@ -386,7 +386,7 @@ const Index = ()=>{
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={sellusdt}/>
+                            <BsArrowDownSquare color='#fff' size={20} onClick={sellbtc}/>
                         </div>
                     </div>
         }
