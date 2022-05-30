@@ -366,14 +366,14 @@ const Index =()=>{
     //     }
     // }
     const BTCAmount = (e)=>{
-        setbtcamount(e.target.value)
+        setbtcamount(parseFloat(e.target.value).toFixed(8))
         setusdamount(parseFloat(e.target.value) * currentRate);
         setngnamount(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate )
     }
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
         setngnamount(parseFloat(e.target.value) * parseFloat(sellrate))
-        setbtcamount(parseFloat(e.target.value)/parseFloat(currentRate))
+        setbtcamount(parseFloat(parseFloat(e.target.value)/parseFloat(currentRate)).toFixed(8))
     }
     const NGNAmount=(e)=>{
         
@@ -475,7 +475,7 @@ const Index =()=>{
 
         
         
-        if(parseFloat(ngnamount) > parseFloat(Balance)){
+        if(parseFloat(btcamount) > parseFloat(Balance)){
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;
         }
@@ -503,7 +503,7 @@ const Index =()=>{
             setLoader(true)
         await axios({
         
-            url:`${BaseUrl}/verify/purchase/coin`,
+            url:`${BaseUrl}/verify/sell/coin`,
             method:'POST',
             headers:{
               'Content-Type':'application/json',  

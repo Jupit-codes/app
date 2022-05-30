@@ -372,12 +372,12 @@ const Index =()=>{
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
         setngnamount(parseFloat(e.target.value) * parseFloat(sellrate))
-        setbtcamount(parseFloat(e.target.value)/parseFloat(currentRate))
+        setbtcamount(parseFloat(parseFloat(e.target.value)/parseFloat(currentRate)).toFixed(8))
     }
     const USDTAmount = (e)=>{
         setbtcamount(e.target.value)
         setusdamount(parseFloat(e.target.value) * currentRate);
-        setngnamount(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate )
+        setngnamount(parseFloat(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate).toFixed )
     }
     const NGNAmount=(e)=>{
         
@@ -479,7 +479,7 @@ const Index =()=>{
 
         
         
-        if(parseFloat(ngnamount) > parseFloat(Balance)){
+        if(parseFloat(btcamount) > parseFloat(Balance)){
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;
         }
@@ -507,7 +507,7 @@ const Index =()=>{
             setLoader(true)
         await axios({
         
-            url:`${BaseUrl}/verify/purchase/coin`,
+            url:`${BaseUrl}/verify/sell/coin`,
             method:'POST',
             headers:{
               'Content-Type':'application/json',  
@@ -517,7 +517,7 @@ const Index =()=>{
                 userid:reactLocalStorage.getObject('user')._id,
                 ngnamount:ngnamount,
                 btcamount:btcamount,
-                wallet_type:'BTC'
+                wallet_type:'USDT'
             })
             
           })
