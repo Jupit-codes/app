@@ -164,7 +164,7 @@ const Index = ()=>{
             <ToastContainer/>
             {myloader && <Loader/>}
             {TwoFA && <TWO_FAmodal closeModal={setTwoFA} />}
-            {openChangeModal && <ChangePinModal closeModal={setopenChangeModal} openmodal={openChangeModal}/>}
+            {openChangeModal && <ChangePinModal closethis={setopenChangeModal} openmodal={openChangeModal}/>}
             <div className='CoverDIvSecurity'>
                 <div className='reset'>Reset Your Password</div>
                 <small>Click on the Button Below To Change Password</small>

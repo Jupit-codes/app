@@ -9,7 +9,7 @@ import axios from 'axios'
 // import QRcode from 'qrcode'
 // import { reactLocalStorage } from 'reactjs-localstorage'
 // import {CopyToClipboard} from 'react-copy-to-clipboard';
-const Index = ({closeModal,openmodal})=>{
+const Index = ({closethis,openmodal})=>{
 
     const [page,setpage]= useState('');
     const [pin,setpin]= useState('');
@@ -72,7 +72,7 @@ const Index = ({closeModal,openmodal})=>{
                             setnewpin('')
                             setoldpin('')
                             setconfirmpin('')
-                            closeModal(true)
+                            closethis(false)
                            
                         }
                     
@@ -90,8 +90,6 @@ const Index = ({closeModal,openmodal})=>{
         }
 
         
-        
-
     
     }
 
@@ -104,7 +102,7 @@ const Index = ({closeModal,openmodal})=>{
                             Change Pin
                         </div>
                         
-                        <IoClose size={25} onClick={()=>{closeModal(false)}} />
+                        <IoClose size={25} onClick={()=>{closethis(false)}} />
                     </div>
                     
                     <div><hr/></div>
