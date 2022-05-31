@@ -9,6 +9,7 @@ import axios from 'axios';
 import { Check } from 'react-bootstrap-icons';
 import { toast,ToastContainer } from 'react-toastify';
 import Loader from '../../../utils/loader/loader.js'
+import ChangePinModal from '../../../utils/modal/CHANGEPIN'
 const Index = ()=>{
 
     const [TwoFA,setTwoFA] = useState(false)
@@ -17,6 +18,8 @@ const Index = ()=>{
     const [err,setErr]  = useState();
     const [createpinStatus,setcreatepinStatus] = useState();
     const [myloader,setmyloader] = useState(false)
+    const [openChangeModal,setopenChangeModal] = useState(false)
+    const [visibility,setvisibility] = useState(false)
     const Base_url = process.env.REACT_APP_BACKEND_URL
     const get2fa= async ()=>{
         await axios({
@@ -142,16 +145,31 @@ const Index = ()=>{
                 
             })
         }
+
+        const handlePinChange =()=>{
+            
+            if(createpinStatus){
+               
+                setopenChangeModal(true)
+            }
+            else{
+                toast.info('Kindly Carry out your first transaction to create a pin','info')
+            }
+        }
+        const makeVisible = ()=>{
+            setvisibility(!visibility)
+        }
         return(
         <div className="TabBodySecurity">
             <ToastContainer/>
             {myloader && <Loader/>}
             {TwoFA && <TWO_FAmodal closeModal={setTwoFA} />}
+            {openChangeModal && <ChangePinModal closeModal={setopenChangeModal} openmodal={openChangeModal}/>}
             <div className='CoverDIvSecurity'>
                 <div className='reset'>Reset Your Password</div>
                 <small>Click on the Button Below To Change Password</small>
                 <div className='TabInput SubmitModal' onClick={()=>handleChangePassword()}>
-                    <RiLockPasswordFill size={20} style={{marginRight:10}}/> Change Password
+                    <RiLockPasswordFill size={20} style={{marginRight:10}}/> <span>Change Password</span>
                 
                 </div>
             </div>
@@ -168,7 +186,7 @@ const Index = ()=>{
             <div className='CoverDIvSecurity'>
                 <div className='reset'>{createpinStatus ? 'Change Pin': ' Create Pin'}</div>
                 <small>Click on the Button Below</small>
-                <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} >
+                <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} onClick={()=>{handlePinChange()}} >
                  
                     <RiLockPasswordFill size={20} style={{marginRight:10}}/> {createpinStatus ? 'Change Pin': ' Create Pin'}
                 </div>
