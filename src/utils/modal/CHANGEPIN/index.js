@@ -20,6 +20,7 @@ const Index = ({closeModal,openmodal})=>{
     const [oldpin,setoldpin] = useState('');
     const [newpin,setnewpin] = useState('');
     const [confirmpin,setconfirmpin] = useState('');
+    const [change,setchange] = useState('Change Pin')
     const Base_url = process.env.REACT_APP_BACKEND_URL
     const _handleoldpin=(e)=>{
         setoldpin(e.target.value)
@@ -49,29 +50,42 @@ const Index = ({closeModal,openmodal})=>{
                 toast.error('Newpin and Confirmpin not Corresponding','error')
             }
             else{
-                await axios({
-                    method: "POST",
-                    url: `${Base_url}/verify/change/wallet/pin`,
-                    headers:{
-                        'Content-Type':'application/json',
-                        'Authorization':reactLocalStorage.get('token')
-                    },
-                    data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,oldpin,newpin})
-                })
-                .then((res)=>{
+                if(change === "Change Pin"){
+                    setchange('Please Wait')
+                
+                    await axios({
+                        method: "POST",
+                        url: `${Base_url}/verify/change/wallet/pin`,
+                        headers:{
+                            'Content-Type':'application/json',
+                            'Authorization':reactLocalStorage.get('token')
+                        },
+                        data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id,oldpin,newpin})
+                    })
+                    .then((res)=>{
+                        
+                        
+                        
+                        if(res.data.status){
+                            
+                            toast.success('Pin Successfully Changed','SUCCESS');
+                            setnewpin('')
+                            setoldpin('')
+                            setconfirmpin('')
+                            closeModal(true)
+                           
+                        }
                     
-                   
-                    if(res.data.status){
-                        toast.success('Pin Successfully Changed','success')
-                    }
-                  
-                })
-                .catch((err)=>{
-                    console.log(err);
-                    toast.error(err.response,'error')
-                    //setErr(err.response? err.response.data:'NO Connecetion')
-                    
-                })
+                    })
+                    .catch((err)=>{
+                        console.log(err.response);
+                        setchange('Change Pin');
+                        toast.error(err.response.data.message,'error')
+                        //setErr(err.response? err.response.data:'NO Connecetion')
+                        
+                    })
+                }
+                
             }
         }
 
@@ -116,7 +130,7 @@ const Index = ({closeModal,openmodal})=>{
                                 {visibility2 ? <FiEye  className="iconoff" onClick={makeVisibleb}/> : <FiEyeOff  className="iconoff" onClick={makeVisibleb}/> }
                             </div>
                         
-                        <input type="submit" value="Save"  className="buttonNext" onClick={()=>handleSubmit()} />
+                        <input type="submit" value={change}  className="buttonNext" onClick={()=>handleSubmit()} />
                     </div>
 
                     
