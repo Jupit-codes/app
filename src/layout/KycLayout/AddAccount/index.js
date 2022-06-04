@@ -60,7 +60,7 @@ const banks = [
           url: `${Base_url}/users/bank`,
           headers: {
             "Content-Type": "application/json",
-            "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+            "Authorization":reactLocalStorage.get('token')
   
           },
           data:JSON.stringify({email:reactLocalStorage.getObject('user').email})
