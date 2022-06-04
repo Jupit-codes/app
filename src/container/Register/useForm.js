@@ -14,7 +14,7 @@ export default ()=>{
         if(data){
             if(data.status){
                 console.log('Form',Form)
-                setForm({...Form,'username':'','password':'','phonenumber':'','email':'','password':''})
+                setForm({...Form,'username':'','password':'','phonenumber':'','email':'','password':'','firstname':'','lastname':''})
                 
             }
         }
@@ -27,6 +27,8 @@ export default ()=>{
     || !Form.password?.length 
     || !Form.phonenumber?.length
     || !Form.password?.length
+    || !Form.firstname?.length
+    || !Form.lastname?.length
 
     const onSubmit = (e)=>{
         e.preventDefault();

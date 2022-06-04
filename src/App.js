@@ -69,7 +69,8 @@ const RenderRouter = (route)=>{
                             text: 'Hello World'
   }
     if(route.isAuthenticated){
-      if(reactLocalStorage.get('token')){
+      if(reactLocalStorage.get('token') && reactLocalStorage.get('user') ){
+        // alert('yes')
 
         const decodedJwt = parseJwt(reactLocalStorage.get('token'));
 

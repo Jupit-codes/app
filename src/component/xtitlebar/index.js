@@ -40,21 +40,27 @@ const Index = ()=>{
     },[])
 
     useEffect(()=>{
-        let x = reactLocalStorage.getObject('user');
-        
-        setUserInfor(x.username.toUpperCase())
-        
-        let hour = new Date().getHours();
-        
-        if(hour < 12){
-            setsalutation('Good Morning')
+
+        if(reactLocalStorage.getObject('user')  ){
+                
+            let x = reactLocalStorage.getObject('user');
+            
+            setUserInfor(x.username.toUpperCase())
+            
+            let hour = new Date().getHours();
+            
+            if(hour < 12){
+                setsalutation('Good Morning')
+            }
+            else if(hour < 18 ){
+                setsalutation('Good Afternoon')
+            }
+            else {
+                setsalutation('Good Evening')
+            }
+            
         }
-        else if(hour < 18 ){
-            setsalutation('Good Afternoon')
-        }
-        else {
-            setsalutation('Good Evening')
-        }
+       
         
     },[])
 

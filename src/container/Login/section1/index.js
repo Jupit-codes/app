@@ -43,7 +43,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     
 
     useEffect(()=>{
-        if(reactLocalStorage.get('token')){
+        if(reactLocalStorage.get('token') && reactLocalStorage.get('user')){
             history.replace('/client')
         }
         else{

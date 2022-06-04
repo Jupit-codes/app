@@ -180,6 +180,7 @@ export default function ColorTabs() {
       })
     .then(res=>{
         
+      console.log(res.data)
         
         setfirstLevel(res.data.level1[0].status)
         setsecondLevel(res.data.level2[0].event_status);

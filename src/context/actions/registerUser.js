@@ -17,7 +17,7 @@ export default (items)=>(dispatch)=>{
             headers: {
             "Content-Type": "application/json"
             },
-            data:JSON.stringify({username:items.username,email:items.email,phonenumber:items.phonenumber,password:items.password})
+            data:JSON.stringify({username:items.username,email:items.email,phonenumber:items.phonenumber,password:items.password,firstname:items.firstname,lastname:items.lastname})
         }).then(res => {
             
             dispatch({

@@ -19,6 +19,24 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                                 required/>
                         </div>
                         <div className="divForm"> 
+                            <input type="text" 
+                                className="form-control myform" 
+                                placeholder="Firstname" 
+                                name="firstname"  
+                                value={Form.firstname || ""}
+                                onChange={onChange}
+                                required/>
+                        </div>
+                        <div className="divForm"> 
+                            <input type="text" 
+                                className="form-control myform" 
+                                placeholder="Lastname" 
+                                name="lastname"  
+                                value={Form.lastname || ""}
+                                onChange={onChange}
+                                required/>
+                        </div>
+                        <div className="divForm"> 
                             <input type="email" 
                                 className="form-control myform" 
                                 placeholder="Email Address"  
