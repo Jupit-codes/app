@@ -270,13 +270,13 @@ const Index = ()=>{
 
     const _showTopUP = ()=>{
         if(component === "Naira"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace'  onClick={()=>{setdepositmodal(true)}}>
                          <div>
                             TopUp<br/>
                             <span>Click To Top up your account.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={()=>{setdepositmodal(true)}}/>
+                            <BsArrowUpSquare color='#fff' size={20} />
                         </div>
                     </div>
                    
