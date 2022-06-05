@@ -20,6 +20,7 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import ReceiveModal from '../../../utils/modal/customModal.js'
 import ReceiveModalUsdt from '../../../utils/modal/usdtreceivemodal.js'
 import axios from 'axios'
+import DepositModal from '../../../utils/modal/depositModal.js'
 const Index = ()=>{
    const location =  useLocation()
    const history = useHistory();
@@ -34,6 +35,7 @@ const Index = ()=>{
     const [kycLevel2,setkycLevel2] = useState('');
     const [kycLevel3,setkycLevel3] = useState('');
     const [progressbar,setprogressbar] = useState('')
+    const [depositmodal,setdepositmodal] = useState(false);
     const now = 80;
 
     
@@ -274,7 +276,7 @@ const Index = ()=>{
                             <span>Click To Top up your account.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20}/>
+                            <BsArrowUpSquare color='#fff' size={20} onClick={()=>{setdepositmodal(true)}}/>
                         </div>
                     </div>
                    
@@ -357,7 +359,7 @@ const Index = ()=>{
                         </div>
 
                     <div className='TopupIcon'>
-                        <BsArrowDownSquare color='#fff' size={20}/>
+                        <BsArrowDownSquare color='#fff' size={20} />
                     </div>
                      </div>
         }
@@ -405,6 +407,7 @@ const Index = ()=>{
            <div>
            {openModal && <ReceiveModal closeModal={setopenModal}/>}
            {openModalUsdt && <ReceiveModalUsdt closeModal={setopenModalUsdt}/>}
+           {depositmodal && <DepositModal closeModalDeposit={setdepositmodal}/>}
                 <div className='cardClassTab'>
                     <div className='cardClassTab-flex1'>
                         Wallet Assets

@@ -197,6 +197,14 @@
     opacity: 0.5; */
 }
 
+.vacct{
+    font-size:15px;
+}
+.vacctII{
+    font-size:15px;
+    font-weight: bold;
+}
+
 .modalClose{
     display: flex;
     margin-top: 20px;
@@ -382,3 +390,4 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
     
 }
+
