@@ -24,7 +24,7 @@ const Index = ()=>{
     return (
         <div className="xsidebar">
             <div className='logoContainer'>
-                <img src={logo} className='logo'/>
+                <img src={logo} className='logoxbar'/>
             </div>
             <div className='navigationContainer'>
                 <Link to="/client">

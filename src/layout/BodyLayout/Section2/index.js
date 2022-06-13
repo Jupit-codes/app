@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import Naira from '../../../assets/images/utility/naira.png'
 import Illustrator from '../../../assets/images/utility/Illustration.png'
 import Ornament from '../../../assets/images/utility/Ornament.png'
-
+import GIFTCARD from '../../../assets/images/utility/giftcard.png'
 import { DropdownButton,Dropdown } from 'react-bootstrap';
 import Btc from './BTC.js'
 import NairaWallet from './NAIRA.js'
@@ -45,17 +45,9 @@ const Index = ()=>{
         });
         
     }
-    const handleChart = (clicked)=>{
-        
-        setClickChart(clicked)
-        if(clicked === "BTC"){
-            setactiveBTC(true);
-            setactiveUSDT(false)
-        }
-        if(clicked === "USDT"){
-            setactiveUSDT(true);
-            setactiveBTC(false)
-        }
+
+    const opengiftcard = ()=>{
+        window.location='/client/tradegiftcard'
     }
     return(
         <div className="body_section2">
@@ -64,19 +56,25 @@ const Index = ()=>{
                         <div className='balanceWallet'>
                             Balances
                         </div>
-                        <div className='balanceIcon'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1c1c93" class="bi bi-three-dots-vertical" viewBox="0 0 16 16" onClick={()=>{setshowButton(!showButton)}}>
-                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                        </svg>
+                        <div className='balanceButton'>
+                            <div className={component === "Naira" ? 'naira-trans' :'trans'} onClick={()=>{setComponent('Naira');setshowButton(!showButton)}} >
+                                        NAIRA WALLET
+                            </div>
+                            <div className={component === "Btc" ? 'btc-trans' :'trans'} onClick={()=>{setComponent('Btc');setshowButton(!showButton)}} >
+                                        BTC WALLET
+                            </div>
+                            <div className={component === "Usdt" ? 'usdt-trans' :'trans'}onClick={()=>{setComponent('Usdt');setshowButton(!showButton)}}>
+                                        USDT WALLET
+                            </div>
                         
                         </div>
                         
                     </div>
-                    <div className={showButton ? 'typeBody showtype':'typeBody'} >
-                        <div onClick={()=>{setComponent('Btc');setshowButton(!showButton)}}>BTC</div>
-                        <div onClick={()=>{setComponent('Usdt');setshowButton(!showButton)}}>USDT</div>
-                        <div onClick={()=>{setComponent('Naira');setshowButton(!showButton)}}>NAIRA</div>
-                    </div>
+                    {/* <div className={showButton ? 'typeBody showtype':'typeBody'} >
+                        <div >BTC</div>
+                        <div >USDT</div>
+                        <div>NAIRA</div>
+                    </div> */}
                     <div className='rendercomponent'>
                         {_renderComponent()}
                     </div>
@@ -88,27 +86,14 @@ const Index = ()=>{
                     
 
             </div>
-
             <div className='marketTransaction'>
-                <div className='marketTitle'>
-                    <div>
-                        Transaction Overview
-                    </div>
-                    <div className='transDiv'>
-                        <div className={activeBTC ? 'trans transFlex active':'trans transFlex'} onClick={()=>handleChart('BTC')}>
-                                    BTC
-                        </div>
-                        <div className={activeUSDT ? 'trans transFlex active':'trans transFlex'} onClick={()=>handleChart('USDT')}>
-                                    USDT
-                        </div>
-                        {/* <div className='trans transXflex' onClick={handleChart('BTC')}>
-                                    ALL
-                        </div> */}
-                      
-                    </div>
-                </div>
-               <LineChart getClicked = {clickChart}/>
+                        <img src={GIFTCARD} />
+                        <button className='btn btn-secondary mt-2' onClick={()=>opengiftcard()}>
+                            Trade Your Gift Card with us.
+                        </button>
             </div>
+
+      
             
         </div>
     )

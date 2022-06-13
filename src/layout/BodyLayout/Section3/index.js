@@ -6,9 +6,26 @@ import GIFTCARD from '../../../assets/images/utility/giftcard.png'
 import USDT from '../../../assets/images/utility/usdt.png'
 import axios from 'axios'
 import moment from 'moment'
+import LineChart from '../lineChart.js'
 const Index = ()=>{
     const [loader,setloader] = useState(true);
     const [transactions,settransactions] = useState([]);
+    const [activeBTC,setactiveBTC] = useState(true)
+    const [activeUSDT,setactiveUSDT] = useState(false)
+    const [clickChart,setClickChart] =  useState('BTC')
+    
+    const handleChart = (clicked)=>{
+        
+        setClickChart(clicked)
+        if(clicked === "BTC"){
+            setactiveBTC(true);
+            setactiveUSDT(false)
+        }
+        if(clicked === "USDT"){
+            setactiveUSDT(true);
+            setactiveBTC(false)
+        }
+    }
     const getRecentTransactions =async ()=>{
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         let btc_address = reactLocalStorage.getObject('user').btc_wallet[0].address;
@@ -142,12 +159,32 @@ const Index = ()=>{
                
             </div>
             <div className='walletbalance-list'>
-                    <div className='GifttCard'>
+                    {/* <div className='GifttCard'>
                         <img src={GIFTCARD} />
                         <button className='btn btn-secondary mt-2' onClick={()=>opengiftcard()}>
                             Trade Your Gift Card with us.
                         </button>
+                    </div> */}
+                    <div className='marketTitle'>
+                        <div>
+                            Transaction Overview
+                        </div>
+                        <div className='transDiv'>
+                            <div className={activeBTC ? 'trans transFlex active':'trans transFlex'} onClick={()=>handleChart('BTC')}>
+                                        BTC
+                            </div>
+                            <div className={activeUSDT ? 'trans transFlex active':'trans transFlex'} onClick={()=>handleChart('USDT')}>
+                                        USDT
+                            </div>
+                            {/* <div className='trans transXflex' onClick={handleChart('BTC')}>
+                                        ALL
+                            </div> */}
+                        
+                        </div>
                     </div>
+                    <LineChart getClicked = {clickChart}/>
+
+               
 
                    
             </div>

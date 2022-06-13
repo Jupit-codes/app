@@ -155,11 +155,6 @@ const Index = ({getClicked})=>{
                 fetchChart();
         },[getClicked])
 
-        
-
-
-
-
     return(
         
         <div className='chartx'>
