@@ -72,7 +72,8 @@ const Index = ()=>{
             lastname:lastname,
             dob:dob,
             cardType:cardType,
-            userid:reactLocalStorage.getObject('user')._id
+            userid:reactLocalStorage.getObject('user')._id,
+            email:reactLocalStorage.getObject('user').email
         }
 
         // ReactS3Client.uploadFile(Buffer.from(x, 'base64'),"Filename").then(data=>{

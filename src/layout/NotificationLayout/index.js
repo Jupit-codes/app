@@ -143,15 +143,16 @@ const Index = ()=>{
             
             return state.map((d,index)=>{
 
-                if(d.type === "3"){
+                if(d.type == 5){
                     return (    
                         <div key={index} className="notifyDiv">
 
  
                             <div className='notify-flex-1'>
-                                <div className='info'>Message Alert</div>
-                                <div className="notifyMessage"><IoIosMail color={d.transfertype === "customeridentification.success"? 'green':'red'} size={20}/><div>KYC LEVEL (ACCOUNT VERIFICATION)</div></div>
-                                <small>Your KYC AccountLinkage Verification was <span className={d.transfertype === "customeridentification.success"? 'green':'red'} >{d.transfertype === "customeridentification.success"? 'Successful':'Unsuccessful'}</span></small>
+                                <div className={d.transfertype === "Buy"? 'green':'red'}>{d.transfertype == "Buy"? 'Buy Alert':'Sell Alert'}</div>
+                                <div className="notifyMessage"><div>{d.transfertype}</div></div>
+                                {d.transfertype=== 'Buy' &&<small>You have successfully bought	&#8358;{d.from_address} equivalent of {d.asset} ({d.initiator}) </small>}
+                                {d.transfertype=== 'Sell' &&<small>You have successfully sold {d.initiator}{d.asset} which is equivalents to &#8358;{d.from_address} </small>}
                                 
                                 <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
@@ -164,7 +165,46 @@ const Index = ()=>{
                     
                     )
                 }
-                else if(d.type === "4"){
+
+                if(d.type === "3"){
+                    return (    
+                        <div key={index} className="notifyDiv">
+
+ 
+                            <div className='notify-flex-1'>
+                                {
+                                  d.asset === "Webhook Callback" ?
+                                  <>
+                                        <div className="notifyMessage"><IoIosMail color={d.transfertype === "customeridentification.success"? 'green':'red'} size={20}/><div>KYC LEVEL (ACCOUNT VERIFICATION)</div></div>
+                                        <small>Your KYC AccountLinkage Verification was <span className={d.transfertype === "customeridentification.success"? 'green':'red'} >{d.transfertype === "customeridentification.success"? 'Successful':'Unsuccessful'}</span></small>
+                                        
+                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                </>
+                                  :
+                                  <>
+                                        <div className="notifyMessage"><IoIosMail color={d.transfertype === "Verified"? 'green':'red'} size={20}/><div>KYC LEVEL 3 (IDCARD VERIFICATION)</div></div>
+                                        <small>Your KYC IDcard Verification was <span className={d.transfertype === "Verified"? 'green':'red'} >{d.transfertype === "Verified"? 'Successful':'Unsuccessful'}</span></small>
+                                        
+                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                </>
+                                  
+                                }
+                                <div className='info'>Message Alert</div>
+                                
+
+                            
+                                
+                            </div>
+                            {/* <div className='notify-flex-2'>
+                                <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                            </div> */}
+
+                        </div>
+                    
+                    
+                    )
+                }
+                if(d.type === "4"){
                     if(d.status === "Processing"){
                         return (    
                             <div key={index} className="notifyDiv">
@@ -205,7 +245,7 @@ const Index = ()=>{
 
                    
                 }
-                else if(d.type === "12"){
+                if(d.type === "12"){
                     if(d.asset === "BTC"){
                         if(d.from_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
                             return (    
