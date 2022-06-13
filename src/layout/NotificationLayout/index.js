@@ -143,6 +143,29 @@ const Index = ()=>{
             
             return state.map((d,index)=>{
 
+                if(d.type == 7){
+                    return (    
+                        <div key={index} className="notifyDiv">
+
+ 
+                            <div className='notify-flex-1'>
+                                <div className='red'>Withdrawal</div>
+                                <div className="notifyMessage"><div>{d.transfertype}</div></div>
+                                <small>You have successfully withdrawal a sum of &#8358;{d.asset} from your naira wallet </small>
+                                
+                                
+                                <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                            </div>
+                            {/* <div className='notify-flex-2'>
+                                <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                            </div> */}
+
+                        </div>
+                    
+                    
+                    )
+                }
+
                 if(d.type == 5){
                     return (    
                         <div key={index} className="notifyDiv">

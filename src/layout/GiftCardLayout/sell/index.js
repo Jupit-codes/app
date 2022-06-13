@@ -44,6 +44,7 @@ const Index = ()=>{
     const [SelectedImage,setSelectedImage] = useState([]);
     const [images,setImages] = useState([])
     const [balance,setbalance] = useState(0)
+    const [sellrate,setsellrate] = useState(0);
     
 
     // const renderComponent = ()=>{
@@ -108,7 +109,7 @@ const Index = ()=>{
                 return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand}/>
                 break;
             case 'SET2':
-                return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency}/>
+                return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency} giftcardrate={setsellrate}/>
                 break;
             case 'SET3':
                 return <Set3 current={setselectedSetState} />
@@ -261,7 +262,7 @@ const Index = ()=>{
         return   <div className="selectForm">
                         <div className="sumbalanceDiv">
                             <div className="btn btn-primary sumbalance">
-                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * 400}</span>  </div>
+                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * sellrate}</span>  </div>
                                 {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
                                 
                                 

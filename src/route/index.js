@@ -145,6 +145,13 @@ const route = [
 
     },
     {
+        path:'/client/withdrawal',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
+
+    },
+    {
         path:'/client/sellusdt',
         title:'Client Dashboard | Jupit',
         isAuthenticated:true,

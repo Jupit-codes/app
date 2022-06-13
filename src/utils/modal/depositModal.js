@@ -37,6 +37,7 @@ const Index = ({closeModalDeposit})=>{
                         <p className="vacctII">
                             Virtual Account Number: {reactLocalStorage.getObject('user').virtual_account}<br/>
                             Bank: Providus Bank<br/>
+                            Narration: Jupit Buy<br/>
                             Account name: {reactLocalStorage.getObject('user').firstname} {reactLocalStorage.getObject('user').lastname}
                         </p>
                         <p className="vacct">

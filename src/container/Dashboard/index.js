@@ -15,6 +15,7 @@ import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
 import SellUSDT from '../../container/SellUsdt'
 import SellBTC from '../../container/SellBtc'
+import Withdrawal from '../../container/Withdrawal'
 import { useLocation } from "react-router";
 import { reactLocalStorage } from "reactjs-localstorage";
 import axios from "axios";
@@ -71,6 +72,9 @@ const Index=()=>{
                 break;
             case '/client/sellbtc':
                 return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/withdrawal':
+                return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             
             

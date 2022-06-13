@@ -154,9 +154,15 @@ const Index = ()=>{
 
     }
 
+    const withdrawalfund = ()=>{
+        window.location='/client/withdrawal'
+    }
+
     useEffect(()=>{
         loadKYC();
     })
+
+
     
 
     useEffect(()=>{
@@ -352,7 +358,7 @@ const Index = ()=>{
                     </div>
         }
         else if(component === "Naira"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' onClick={()=>withdrawalfund()}>
                         <div>
                             Withdrawal<br/>
                             <span>Withdrawal To Your Bank Acct</span>
