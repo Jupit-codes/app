@@ -190,13 +190,15 @@ const Index = ()=>{
                 }
 
                 if(d.type === "3"){
+                    console.log(d)
                     return (    
                         <div key={index} className="notifyDiv">
 
  
                             <div className='notify-flex-1'>
                                 {
-                                  d.asset === "Webhook Callback" ?
+                                  d.asset == "WebhookCallBack" 
+                                  ?
                                   <>
                                         <div className="notifyMessage"><IoIosMail color={d.transfertype === "customeridentification.success"? 'green':'red'} size={20}/><div>KYC LEVEL (ACCOUNT VERIFICATION)</div></div>
                                         <small>Your KYC AccountLinkage Verification was <span className={d.transfertype === "customeridentification.success"? 'green':'red'} >{d.transfertype === "customeridentification.success"? 'Successful':'Unsuccessful'}</span></small>

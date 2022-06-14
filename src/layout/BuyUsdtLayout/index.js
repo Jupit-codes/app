@@ -603,7 +603,7 @@ const Index =()=>{
                             {buyrate && 
                                 <>
 
-                                    <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={USDTAmount}/>
+                                    <input type="number"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={USDTAmount}/>
                                     <img src={Equivalent}/>
                                     <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount} />
                                     <img src={Equivalent}/>
