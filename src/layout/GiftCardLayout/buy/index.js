@@ -31,7 +31,7 @@ const Index = ()=>{
     const [checkedData,setcheckedData] = useState()
     const [loader,setloader] = useState(false);
     const [SelectOption,setSelectOption] = useState();
-
+    const [buyrate,setbuyrate] = useState(0);
 
     const [pickedbrand,setpickedbrand] = useState();
     const[pickedCurrency,setpickedCurrency] = useState();
@@ -105,7 +105,7 @@ const Index = ()=>{
                 return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand}/>
                 break;
             case 'SET2':
-                return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency}/>
+                return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency} giftcardrate={setbuyrate}/>
                 break;
            
             default:
@@ -255,7 +255,7 @@ const Index = ()=>{
         return   <div className="selectFormBuy">
                         <div className="sumbalanceDiv">
                             <div className="btn btn-primary sumbalance">
-                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * 400}</span>  </div>
+                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * buyrate}</span>  </div>
                                 {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
                                 
                                 
@@ -283,7 +283,7 @@ const Index = ()=>{
                         
 
                         <div className="submitGiftcardBuy">
-                            {SelectOption  && <input type="submit" value="Pay now" className="form-control" onClick={handlePaynow}/>}
+                            {SelectOption  && <input type="submit" value="Pay now" className="form-control btn-primary" onClick={handlePaynow}/>}
                         </div>
                        
                         

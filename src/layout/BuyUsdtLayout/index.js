@@ -516,7 +516,7 @@ const Index =()=>{
                 userid:reactLocalStorage.getObject('user')._id,
                 ngnamount:ngnamount,
                 btcamount:btcamount,
-                wallet_type:'BTC'
+                wallet_type:'USDT'
             })
             
           })

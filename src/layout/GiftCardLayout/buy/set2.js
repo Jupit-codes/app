@@ -1,6 +1,6 @@
 import {BiArrowBack} from 'react-icons/bi'
 
-const Index = ({current,data,pickedC,message})=>{
+const Index = ({current,data,pickedC,message,giftcardrate})=>{
     
     
     const handleCurrency = (e)=>{
@@ -16,6 +16,8 @@ const Index = ({current,data,pickedC,message})=>{
             x.classList.add('activeCurrency');
             // console.log(x.children[0].children[1].textContent)
             pickedC(x.children[0].children[1].textContent)
+            console.log(data[0].buyrate)
+            giftcardrate(data[0].buyrate)
             message('norate')
         }
     }
