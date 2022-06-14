@@ -190,7 +190,7 @@ const Index = ()=>{
                 }
 
                 if(d.type === "3"){
-                    console.log(d)
+                    
                     return (    
                         <div key={index} className="notifyDiv">
 
