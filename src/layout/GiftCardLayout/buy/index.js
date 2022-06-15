@@ -197,31 +197,37 @@ const Index = ()=>{
 
     const handlePaynow = async()=>{
         let total = document.getElementById('sumTotal').innerHTML
-        setloader(true);
-        Swal.fire({
-          title: 'Message!',
-          text: 'Success',
-          icon: 'success',
-          confirmButtonText: 'ok'
+        let counter = 0;
+        SelectOption.forEach((d)=>{
+            counter+= d.value
         })
-        setloader(false);
+        setloader(true);
+        // Swal.fire({
+        //   title: 'Message!',
+        //   text: 'Success',
+        //   icon: 'success',
+        //   confirmButtonText: 'ok'
+        // })
+        // setloader(false);
      
-        return false
+        
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
-            url: `${Base_url}/verify/addgiftcard/sell/request`,
+            url: `${Base_url}/verify/addgiftcard/buy/request`,
             headers: {
               "Content-Type": "application/json",
               "Authorization":`Bearer ${reactLocalStorage.get('token')}`
     
             },
                 data:JSON.stringify({
+                    Cardname:pickedbrand,
                     Userid:reactLocalStorage.getObject('user')._id,
                     Total:total,
                     SelectedAmount:SelectOption,
-                    SelectedImage:images,
-                    Country:pickedCurrency
+                    Country:pickedCurrency,
+                    amountInusd:counter
+
                     
                 })
             
@@ -241,12 +247,18 @@ const Index = ()=>{
            setImages([]);
            setSelectOption()
            setselectbrand('nobrand');
-           console.log(res.data);
+        //    console.log(res.data);
            
         })
         .catch(err=>{
             setloader(false);
-            console.log(err.response);
+            console.log(err);
+            Swal.fire({
+                title: 'Oops!',
+                text: err.response,
+                icon: 'error',
+                confirmButtonText: 'ok'
+              })
  
         })
     }
