@@ -148,7 +148,7 @@ export default function ColorTabs() {
   const [content,setContent] = useState('')
   const [firstLevel, setfirstLevel] = useState();
   const [secondLevel, setsecondLevel] = useState();
-
+  const [thirdLevel,setthirdLevel] = useState();
   const[disableFirstLevel,setdisableFirstLevel] = useState(true);
   const[disableSecondLevel,setdisableSecondLevel] = useState(true);
   const[disableThirdLevel,setdisableThirdLevel] = useState(true);
@@ -184,6 +184,7 @@ export default function ColorTabs() {
         
         setfirstLevel(res.data.level1[0].status)
         setsecondLevel(res.data.level2[0].event_status);
+        setthirdLevel(res.data.level3[0].callbackStatus)
         setdocAccount(res.data);
         setloaderState(false)
        
@@ -244,7 +245,7 @@ export default function ColorTabs() {
             //     return <AddressVerification/> 
             //     break;
             case 'four':
-               return <IDverification/>
+               return <IDverification />
                 break;
             default:
                 return <AddAccount/>
