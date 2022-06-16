@@ -57,7 +57,8 @@ const Index = ()=>{
 
     useEffect(()=>{
         setkycLevel1(reactLocalStorage.getObject('kyc').level1[0].status);
-        setkycLevel2(reactLocalStorage.getObject('kyc').level2[0].event_status)
+        setkycLevel2(reactLocalStorage.getObject('kyc').level2[0].event_status);
+        setkycLevel3(reactLocalStorage.getObject('kyc').level3[0].callbackStatus)
        
     },[])
 
@@ -86,6 +87,9 @@ const Index = ()=>{
 
         if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
+        }
+        if(kycLevel3 === "Verified"){
+            kycprogress += 45
         }
 
         switch(kycprogress){
@@ -135,7 +139,7 @@ const Index = ()=>{
            
             setkycLevel1(res.data.level1[0].status);
             setkycLevel2(res.data.level2[0].event_status)
-            
+            setkycLevel3(res.data.level3[0].callbackStatus)
 
             
             
