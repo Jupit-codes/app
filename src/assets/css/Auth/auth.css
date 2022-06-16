@@ -106,3 +106,16 @@
     font-family: candara;
     font-weight: bold;
 }
+
+@media screen 
+and (min-device-width:300px)
+and (max-device-width:700px)
+{
+    .logoArea{
+        display: none;
+    }
+    
+    .auth{
+        background:rgba(0, 0, 0, 0.1);
+    }
+}

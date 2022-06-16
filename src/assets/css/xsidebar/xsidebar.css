@@ -102,3 +102,30 @@
 .nonactive{
     color:#000
 }
+
+
+@media screen 
+and (min-device-width:300px)
+and (max-device-width:700px)
+{
+    .xsidebar{
+        width: 50px;
+        padding-left: 10px;
+         
+    }
+    .securityCaution{
+        display:none;
+    }
+    .navigationText{
+        display: none;
+    }
+    .navigation{
+        margin-bottom: 50px;
+    }
+   
+     .navigationContainer{
+        margin-top: 40px;
+        
+    }
+     
+}

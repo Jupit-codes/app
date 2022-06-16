@@ -13,7 +13,6 @@
    position: absolute;
    top:20px;
    
-  
 }
 .logoxbar{
     width: 45%
@@ -82,3 +81,47 @@
     margin-top: 0px;
     top:-20px;
 }
+
+@media screen 
+and (min-device-width:300px)
+and (max-device-width:700px)
+{
+    .xtitle{
+        padding-left: 50px;
+        margin-top: 50px;
+    }
+    .Hello{
+       
+        font-size: 15px;
+        
+    }
+    .dateHello{
+        font-size: 10px;
+       
+    }
+    .profileImage{
+        width: 15px;
+        height: 15px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        margin-right: 30px;
+    }
+    
+    .profilesection{
+        flex:1 1 70%;
+        
+        /* background-color: blue; */
+        
+    }
+    .xcode{
+        width: 50%;
+       
+    }
+
+    .xcode > div{
+        flex:1 1 cal(20px -33.3333%);
+    }
+
+}
+

@@ -13,3 +13,21 @@
     font-weight: bold;
 }
 
+@media screen 
+and (min-device-width:300px)
+and (max-device-width:700px)
+{
+    .section_1{
+        align-items: left;
+        height: 100px;
+        padding: 20px;
+        display: none;
+
+    }
+    .greetings > h1{
+        font-size: 18px;
+        font-family: candara;
+        
+    }
+}
+

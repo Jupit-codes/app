@@ -52,3 +52,16 @@
     
     width: 100%;
 }
+
+
+@media screen 
+and (min-device-width:300px)
+and (max-device-width:800px)
+{
+    .cardSection1{
+        flex:0 0 50%;
+        
+    }
+
+
+}
