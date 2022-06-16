@@ -12,6 +12,7 @@ import S3 from 'react-aws-s3'
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { toast,ToastContainer } from 'react-toastify';
 import Loader from '../../../utils/loader/loader.js'
+import axios from 'axios';
 
 const Index = ()=>{
     const [open,setOpen] = useState(false);
@@ -21,6 +22,7 @@ const Index = ()=>{
     const [firstname,setfirstname] = useState('');
     const [lastname,setlastname] = useState('');
     const [dob,setdob] = useState('');
+    const [disableBTX,setdisableBTX] = useState(false)
     const {idCardState:{idcardVerification:{idcard_loading,idcard_data,idcard_error}},idCardDispatch} = useContext(GlobalContext)
 
     
@@ -50,21 +52,62 @@ const Index = ()=>{
         setdob(e.target.value)
     }
 
+    const getInfo = async ()=>{
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+    
+            await axios({
+              method: "POST",
+              url: `${Base_url}/users/getIdcardverification`,
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization":reactLocalStorage.get('token')
+      
+              },
+              data:JSON.stringify({userid:reactLocalStorage.getObject('user')._id})
+            })
+          .then(res=>{
+              
+            console.log("IDCARD",res.data)
+      
+          
+             if(res.data[0].status === "Verified"){
+
+                  setcardType(res.data[0].cardtype);
+                  setfirstname(res.data[0].firstname);
+                  setlastname(res.data[0].lastname);
+                  setdob(res.data[0].dob)
+                  setcardNumber(res.data[0].cardnumber);
+                  setdisableBTX(true)
+                  setCapturedImage(res.data[0].imagepath)
+                 
+                    // setbank(res.data.bank_code)
+                    // setaccountName(res.data.account_name);
+                    // setaccountNumber(res.data.account_number);
+                    // setBvn(res.data.bvn)
+                    // setTextDisable(true)
+                    // toast.success('Successfully Resolved','SUCCESS');
+                    // update_validation();
+                    console.log('Veririfed')
+             }
+              
+      
+      
+          })
+          .catch(err=>{
+      
+          
+          console.log("IDcard",err.response)
+      
+          })
+       }
+
 
     const saveImageVerification = ()=>{
        
      
-    //    console.log(config)
-
-    //    return false;
         var decodedImg = decodeBase64Image(CapturedImage);
         var dataToBlob = dataURItoBlob(CapturedImage)
-        // console.log(decodedImg)
-        // console.log('DataToBlob',dataToBlob)
         var x = CapturedImage.toString().replace(/^data:image\/jpeg;base64,/, "")
-
-        // console.log(atob(x)) ;
-        // return false;
         const item = {
             CapturedImage:CapturedImage,
             cardNumber:cardNumber,
@@ -111,6 +154,12 @@ const Index = ()=>{
     type: 'image/jpg'
 });
 }
+
+    useEffect(()=>{
+        getInfo();
+    },[])
+
+
     useEffect(()=>{
             if(idcard_error){
                 toast.error(idcard_error, {
@@ -166,7 +215,7 @@ const Index = ()=>{
             
             <div className="formAccount_form">
                 <label>Select ID Card Type</label>
-                <select className="form-control" value={cardType} onChange={_handleIDCard}>
+                <select className="form-control" value={cardType} onChange={_handleIDCard} disabled={disableBTX}>
                     <option>Select ID Card Type</option>
                     
                     {/* <option value="Nimc">NIMC</option> */}
@@ -178,26 +227,26 @@ const Index = ()=>{
 
             <div className="formAccount_form">
                 <label>First Name</label>
-                <input type="text" className="form-control" placeholder="First Name" value={firstname} onChange={_handleFirstname}/>
+                <input type="text" className="form-control" placeholder="First Name" value={firstname} onChange={_handleFirstname} disabled={disableBTX}/>
             </div>
 
             <div className="formAccount_form">
                 <label>Last Name</label>
-                <input type="text" className="form-control" placeholder="Last Name" value={lastname} onChange={_handleLastname}/>
+                <input type="text" className="form-control" placeholder="Last Name" value={lastname} onChange={_handleLastname} disabled={disableBTX}/>
             </div>
             <div className="formAccount_form">
                 <label>Date Of Birth</label>
-                <input type="date" className="form-control" placeholder="" value={dob} onChange={_handledob}/>
+                <input type="date" className="form-control" placeholder="" value={dob} onChange={_handledob} disabled={disableBTX}/>
             </div>
 
             <div className="formAccount_form">
                 <label>Number</label>
-                <input type="text" className="form-control" placeholder="ID Card Number" value={cardNumber} onChange={_handleNumber}/>
+                <input type="text" className="form-control" placeholder="ID Card Number" value={cardNumber} onChange={_handleNumber} disabled={disableBTX}/>
             </div>
 
             <div className="formAccount_form">
                 
-                <input type="submit" className="form-control btn-secondary" value={CapturedImage ? 'Retake Picture': 'Take A Photo With Your ID Card'} onClick={()=>{setOpen(true)}}/>
+                {!disableBTX && <input type="submit" className="form-control btn-secondary" value={ CapturedImage ? 'Retake Picture': 'Take A Photo With Your ID Card'} onClick={()=>{setOpen(true)}}/> }
             </div>
 
             <div className='selfieDiv'>
@@ -207,7 +256,8 @@ const Index = ()=>{
                 </div>
                 <div className='flex2'>
                     <div className='samplepictureText'>Your Picture</div>
-                    {CapturedImage ? <img src={CapturedImage}/> : <img src={Empty}/>}
+                    { CapturedImage ? <img src={CapturedImage}/> : <img src={Empty}/>}
+                    
                 </div>
             </div>
 
@@ -217,7 +267,7 @@ const Index = ()=>{
 
             <div className="formAccount_form">
                 
-               {CapturedImage && <input type="submit" className="form-control btn-primary" value="Save" disabled={cardNumber && cardType ? false: true}  onClick={saveImageVerification}/> } 
+               {!disableBTX && CapturedImage && <input type="submit" className="form-control btn-primary" value="Save" disabled={cardNumber && cardType && !disableBTX ? false: true}  onClick={saveImageVerification}/> } 
             </div> 
             
         </div>
