@@ -75,6 +75,9 @@ const Index = ()=>{
         if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
         }
+        if(kycLevel3 === "Verified"){
+            kycprogress += 45
+        }
 
         return kycprogress
     }
@@ -112,6 +115,9 @@ const Index = ()=>{
         if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
         }
+        if(kycLevel3 === "Verified"){
+            kycprogress += 45
+        }
 
         switch(kycprogress){
             case 25:
@@ -119,7 +125,7 @@ const Index = ()=>{
             case 55:
                 return '500 USD'
             case 100:
-                return 'Limitless'
+                return 'Verified'
         }
     }
 
