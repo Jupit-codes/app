@@ -139,7 +139,7 @@ and (max-device-width:800px)
 
 @media screen 
 and (min-device-width:200px)
-and (max-device-width:450px)
+and (max-device-width:449px)
 {
     .xtitle{
         padding-left: 50px;
