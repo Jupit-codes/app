@@ -116,6 +116,6 @@ and (max-device-width:800px)
     }
     
     .auth{
-        background:rgb(1, 1, 1)
+        background-color: #fff;
     }
 }

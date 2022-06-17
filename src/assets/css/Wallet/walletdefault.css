@@ -434,3 +434,21 @@
       font-size: 14px;
       font-family: Acme;
   }
+
+  @media screen 
+and (min-device-width:200px)
+and (max-device-width:700px)
+{
+    .cardClassTab{
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .newWalletDiv{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+}

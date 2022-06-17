@@ -88,8 +88,8 @@ const Index = ()=>{
             
         })
         .catch((err)=>{
-            console.log(err.response);
-
+            console.log(err);
+            
             setnotification('Error');
             if(err.response){
                 if(err.response.status === 403){

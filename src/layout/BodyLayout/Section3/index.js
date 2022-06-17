@@ -159,12 +159,7 @@ const Index = ()=>{
                
             </div>
             <div className='walletbalance-list'>
-                    {/* <div className='GifttCard'>
-                        <img src={GIFTCARD} />
-                        <button className='btn btn-secondary mt-2' onClick={()=>opengiftcard()}>
-                            Trade Your Gift Card with us.
-                        </button>
-                    </div> */}
+                  
                     <div className='marketTitle'>
                         <div>
                             Transaction Overview

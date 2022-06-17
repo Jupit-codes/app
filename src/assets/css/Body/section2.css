@@ -525,24 +525,51 @@
 and (min-device-width:400px)
 and (max-device-width:700px)
 {
-    .body_section2{
-        flex-direction: column; 
-         
-     }
-     .balanceWallet{
-         font-size: 14px;
-     }
+        .body_section2{
+            flex-direction: column; 
+            
+        }
+        .balanceWallet{
+            font-size: 14px;
+        }
+        
+    .trans{
+        width: 35px;
+        height: 25px;
+        font-size:8px;
+    
+
+    }
+    .walletBalanceTitle{
+        flex-direction: column;
+    }
      
-.trans{
-    width: 35px;
-    height: 25px;
-    font-size:8px;
-   
 
 }
-.walletBalanceTitle{
-    flex-direction: column;
-}
+
+
+@media screen 
+and (min-device-width:200px)
+and (max-device-width:399px)
+{
+        .body_section2{
+            flex-direction: column; 
+            
+        }
+        .balanceWallet{
+            font-size: 14px;
+        }
+        
+    .trans{
+        width: 35px;
+        height: 25px;
+        font-size:8px;
+    
+
+    }
+    .walletBalanceTitle{
+        flex-direction: column;
+    }
      
 
 }
