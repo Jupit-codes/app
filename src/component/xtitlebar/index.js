@@ -9,6 +9,7 @@ import { useEffect,useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import {Badge,Dropdown} from 'react-bootstrap'
 import axios from 'axios'
+import {AiOutlinePoweroff} from 'react-icons/ai'
 const Index = ()=>{
     const history = useHistory();
     const [salutation, setsalutation] = useState();
@@ -153,11 +154,12 @@ const Index = ()=>{
                             Geoffrey
                         </div> */}
                         
-                        <div className='profileImage' >
+                        <div className='Notification' >
                            {/* <img src={ProfileImage}/> */}
-                           <Dropdown>
+                           <Dropdown style={{top:0}}>
                                 <Dropdown.Toggle id="dropdown-basic" variant=''>
-                                    <img src={ProfileImage}/>
+                                    {/* <img src={ProfileImage}/> */}
+                                    <AiOutlinePoweroff size={20} className="iconprofile"/>
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>

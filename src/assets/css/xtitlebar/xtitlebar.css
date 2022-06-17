@@ -55,11 +55,15 @@
 .profileImage{
     width: 29px;
     height: 29px;
+  
     border-radius: 5px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    margin-right: 30px;
+    
 }
+
 .ProfileName{
     font-family: 'Jura',sans-serif;
     font-size: 14px;
@@ -84,7 +88,7 @@
 
 @media screen 
 and (min-device-width:300px)
-and (max-device-width:700px)
+and (max-device-width:800px)
 {
     .xtitle{
         padding-left: 50px;
@@ -116,12 +120,15 @@ and (max-device-width:700px)
     }
     .xcode{
         width: 50%;
+        
        
     }
 
     .xcode > div{
         flex:1 1 cal(20px -33.3333%);
+        
     }
+    
 
 }
 

@@ -88,7 +88,7 @@ const Index = ()=>{
             </div>
             <div className='marketTransaction'>
                         <img src={GIFTCARD} />
-                        <button className='btn btn-secondary mt-2' onClick={()=>opengiftcard()}>
+                        <button className='btn btn-secondary mt-2 mb-2' onClick={()=>opengiftcard()}>
                             Trade Your Gift Card with us.
                         </button>
             </div>

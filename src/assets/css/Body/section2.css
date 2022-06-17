@@ -524,8 +524,24 @@ and (min-device-width:300px)
 and (max-device-width:800px)
 {
     .marketTransaction{
-        flex: 0 0 100%;
+        flex: 1 1 50%;
+       
     }
+    .walletBalanceTitle{
+       
+        padding: 5px;
+    }
+    .body_section2{
+       flex-direction: column;
+        
+        
+    }
+    .marketTransaction{
+        padding:20px;
+        
+    }
+    
+
 
 
 }
