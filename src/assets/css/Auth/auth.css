@@ -109,13 +109,13 @@
 
 @media screen 
 and (min-device-width:300px)
-and (max-device-width:700px)
+and (max-device-width:800px)
 {
     .logoArea{
         display: none;
     }
     
-    .auth{
+    /* .auth{
         background:rgba(0, 0, 0, 0.1);
-    }
+    } */
 }
