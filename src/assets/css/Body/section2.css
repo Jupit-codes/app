@@ -519,40 +519,14 @@
       
   }
 
-  @media screen 
-and (min-device-width:500px)
-and (max-device-width:800px)
-{
-    .marketTransaction{
-        flex: 1 1 50%;
-       
-    }
-    .walletBalanceTitle{
-       
-        padding: 5px;
-    }
-    .body_section2{
-       flex-direction: column;
-        
-        
-    }
-    .marketTransaction{
-        padding:20px;
-        
-    }
-    
 
-
-
-}
 
 @media screen 
-and (min-device-width:200px)
-and (max-device-width:499px)
+and (min-device-width:400px)
+and (max-device-width:700px)
 {
     .body_section2{
-        flex-direction: column;
-         
+        flex-direction: column; 
          
      }
      .balanceWallet{
@@ -565,6 +539,9 @@ and (max-device-width:499px)
     font-size:8px;
    
 
+}
+.walletBalanceTitle{
+    flex-direction: column;
 }
      
 

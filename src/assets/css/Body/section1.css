@@ -55,8 +55,8 @@
 
 
 @media screen 
-and (min-device-width:500px)
-and (max-device-width:800px)
+and (min-device-width:700px)
+and (max-device-width:900px)
 {
     .cardSection1{
         flex:0 0 50%;
@@ -68,7 +68,7 @@ and (max-device-width:800px)
 
 @media screen 
 and (min-device-width:200px)
-and (max-device-width:499px)
+and (max-device-width:700px)
 {
     .body_section1{
         flex-direction: column;

@@ -54,7 +54,7 @@ const Index = ()=>{
             <div className='walletbalance'>
                     <div className='walletBalanceTitle'>
                         <div className='balanceWallet'>
-                            Balances
+                            Wallet Balances
                         </div>
                         <div className='balanceButton'>
                             <div className={component === "Naira" ? 'naira-trans' :'trans'} onClick={()=>{setComponent('Naira');setshowButton(!showButton)}} >
