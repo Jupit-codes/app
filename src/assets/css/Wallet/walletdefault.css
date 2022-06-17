@@ -437,7 +437,7 @@
 
   @media screen 
 and (min-device-width:200px)
-and (max-device-width:700px)
+and (max-device-width:500px)
 {
     .cardClassTab{
         display: flex;
@@ -449,6 +449,40 @@ and (max-device-width:700px)
         display: flex;
         flex-direction: column;
         padding: 10px;
+    }
+
+}
+
+  @media screen 
+and (min-device-width:200px)
+and (max-device-width:499px)
+{
+
+    .cardClassTab{
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .newWalletDiv{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .card_section_main{
+        font-size: 14px;
+    }
+    .master{
+        width: 100%;
+    }
+    .cardnumber{
+        display: none;
+    }
+    .card_section_balance{
+        font-size: 15px;
+    }
+    .cardimg{
+        display: none;
     }
 
 }

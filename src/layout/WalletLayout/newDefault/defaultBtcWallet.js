@@ -119,7 +119,7 @@ const Index = ({comp})=>{
                                         <div>
                                             <img src={jupit}/>
                                         </div>
-                                        <div>
+                                        <div className='cardnumber'>
                                             **** **** **** 0808
                                         </div>
 
@@ -146,14 +146,14 @@ const Index = ({comp})=>{
                                             CARD HOLDER<br/>
                                             {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
-                                        <div>
+                                        <div className="cardimg">
                                             <img src={cardType} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className='visa cardNaira' onClick={()=>{comp('Usdt')}}>
-                                Visa
+                                
                             </div>
                         </div>
 
