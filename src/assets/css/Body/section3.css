@@ -140,6 +140,8 @@ and (max-device-width:499px)
     }
     .marketTRansaction-title {
         font-size: 16px;
+        display: flex;
+        align-items: center;
     }
     
 .viewmore{
