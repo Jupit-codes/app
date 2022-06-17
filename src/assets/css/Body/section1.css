@@ -55,7 +55,7 @@
 
 
 @media screen 
-and (min-device-width:300px)
+and (min-device-width:500px)
 and (max-device-width:800px)
 {
     .cardSection1{
@@ -65,3 +65,19 @@ and (max-device-width:800px)
 
 
 }
+
+@media screen 
+and (min-device-width:200px)
+and (max-device-width:499px)
+{
+    .body_section1{
+        flex-direction: column;
+        margin-top: 100px;
+        
+    }
+
+
+}
+
+
+

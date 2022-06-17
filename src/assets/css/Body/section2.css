@@ -520,7 +520,7 @@
   }
 
   @media screen 
-and (min-device-width:300px)
+and (min-device-width:500px)
 and (max-device-width:800px)
 {
     .marketTransaction{
@@ -543,5 +543,29 @@ and (max-device-width:800px)
     
 
 
+
+}
+
+@media screen 
+and (min-device-width:200px)
+and (max-device-width:499px)
+{
+    .body_section2{
+        flex-direction: column;
+         
+         
+     }
+     .balanceWallet{
+         font-size: 14px;
+     }
+     
+.trans{
+    width: 35px;
+    height: 25px;
+    font-size:8px;
+   
+
+}
+     
 
 }
