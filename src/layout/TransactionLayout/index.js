@@ -152,7 +152,7 @@ const Index = ()=>{
     return (
         <div className='history'>
             
-                {Loading && <img src={Spinner}/>}
+                {Loading && <div style={{display:'flex',width:'100%',justifyContent:'center'}}>Loading Data..</div>}
                 {/* {data && data.length === 0 && 
                 <div>
                         <div className="th-title">
@@ -166,7 +166,7 @@ const Index = ()=>{
                 } */}
                 <div className='tableDiv'>
                     {data.length > 0 && <Table  column={columns} data={data}/>}
-                    {data.length === 0 && _renderEmpty()}
+                    {!Loading && data.length === 0 && _renderEmpty()}
                 </div>
            
                 
