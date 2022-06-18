@@ -122,3 +122,25 @@
 .spinner{
     width: 10%;
 }
+
+@media screen
+and (min-device-width:200px)
+and (max-device-width:700px)
+{
+    .history{
+        margin-top: 100px;
+    }
+    .notifyTitle{
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    .notifyDiv{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .notifyMessage >div{
+        color: #1c1c93;
+        font-size: 18px;
+    }
+}
