@@ -75,7 +75,7 @@ const Index = ({comp})=>{
                                         </div>
                                         <div>
                                             CARD HOLDER<br/>
-                                            ODEWUMI TEMILOLUWA
+                                            {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
                                         <div className='cardtype'>
                                             <img src={cardType} />

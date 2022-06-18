@@ -1,5 +1,6 @@
 import '../../assets/css/xsidebar/xsidebar.css'
 import logo from '../../assets/images/utility/logo.png'
+import collapselogo from '../../assets/images/logo_1.png'
 import Dashboard from '../../assets/images/utility/dashboard.png'
 import Exchange from '../../assets/images/utility/exchange.png'
 import Settings from '../../assets/images/utility/settings.png'
@@ -25,6 +26,7 @@ const Index = ()=>{
         <div className="xsidebar">
             <div className='logoContainer'>
                 <img src={logo} className='logoxbar'/>
+                <img src={collapselogo} className="logoybar"/>
             </div>
             <div className='navigationContainer'>
                 <Link to="/client">

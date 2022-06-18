@@ -1,6 +1,5 @@
 .xsidebar{
     width: 200px;
-    
     height: 100%;;
     min-height: 100vh;
     background-color: #fff;
@@ -102,6 +101,9 @@
 .nonactive{
     color:#000
 }
+.logoybar{
+    display: none;
+}
 
 
 @media screen 
@@ -110,7 +112,12 @@ and (max-device-width:700px)
 {
     .xsidebar{
         width: 50px;
+        height: 100%;
+        min-height: 100vh;
         padding-left: 10px;
+      
+        margin-top: 0px;
+        position: absolute
          
     }
     .securityCaution{
@@ -126,6 +133,13 @@ and (max-device-width:700px)
      .navigationContainer{
         margin-top: 40px;
         
+    }
+    .logoxbar{
+        display: none;
+    }
+    .logoybar{
+        display: block;
+        width: 70%;
     }
      
 }

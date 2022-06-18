@@ -49,7 +49,7 @@ const Index = ()=>{
                                         <div>
                                             <img src={jupit}/>
                                         </div>
-                                        <div>
+                                        <div className='cardnumber'>
                                             **** **** **** 0706
                                         </div>
 
@@ -71,9 +71,9 @@ const Index = ()=>{
                                         </div>
                                         <div>
                                             CARD HOLDER<br/>
-                                            {reactLocalStorage.getObject('user').username}
+                                            {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
-                                        <div>
+                                        <div className='cardnumber'>
                                             <img src={cardType} />
                                         </div>
                                     </div>

@@ -552,6 +552,7 @@ and (max-device-width:700px)
 and (min-device-width:200px)
 and (max-device-width:399px)
 {
+    
         .body_section2{
             flex-direction: column; 
             
@@ -581,6 +582,18 @@ and (max-device-width:399px)
     }
     .cardtype{
         display: none;
+    }
+    .cardNairaCover{
+        margin-top: 20px;
+    }
+    .cardBTC{
+        margin-top: 20px;
+    }
+    .cardNAIRA{
+        margin-top: 20px;
+    }
+    .cardUSDT{
+        margin-top: 20px;
     }
      
 
