@@ -20,15 +20,15 @@ const Index=()=>{
             <div className="logoArea">
                 <img src={logoArea}/>
             </div>
-            <div className="formarea">
-            <div>{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
-            <div>{data && <AlertSuccess itemData={data.message} itemState={true}/>}</div>
-            <div><Link to='/'><img src={Jupit} /></Link></div>
-                
-                <div className="logincred">Fill the form below to have an account with us.</div>
-                <div className="formClass">
-                    <RegisterUI Form={useForm()}/>
-                </div>
+            <div className="formarea_reg">
+                <div>{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
+                <div>{data && <AlertSuccess itemData={data.message} itemState={true}/>}</div>
+                <div><Link to='/'><img src={Jupit} /></Link></div>
+                    
+                    <div className="logincred">Fill the form below to have an account with us.</div>
+                    <div className="formClass">
+                        <RegisterUI Form={useForm()}/>
+                    </div>
 
             </div>
         </div>

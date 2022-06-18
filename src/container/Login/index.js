@@ -47,8 +47,9 @@ const Index=()=>{
                 
             </div>
             <div className="formarea">
+                <div className="mobile-logo"><Link to='/'><img src={Jupit} /></Link></div>
                 <div>{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
-                <div><Link to='/'><img src={Jupit} /></Link></div>
+                <div className="desktop-logo"><Link to='/'><img src={Jupit} /></Link></div>
                
                 <div className="welcome-back">Welcome Back!</div>
                 <div className="logincred">Kindly provide your login credentials.</div>

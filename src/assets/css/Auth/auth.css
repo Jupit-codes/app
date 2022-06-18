@@ -35,10 +35,17 @@
     infinite alternate; 
     margin-bottom: 30px;
 }
+.mobile-logo{
+    display: none;
+}
 
 @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
 
 .formarea{
+    align-self: center;
+    text-align: center;
+}
+.formarea_reg{
     align-self: center;
     text-align: center;
 }
@@ -108,7 +115,7 @@
 }
 
 @media screen 
-and (min-device-width:300px)
+and (min-device-width:200px)
 and (max-device-width:800px)
 {
     .logoArea{
@@ -118,4 +125,59 @@ and (max-device-width:800px)
     .auth{
         background-color: #fff;
     }
+    .form-input{
+        width: 80%;
+       
+    }
+    .myform{
+        height: 50px;
+        
+    }
+
+    .mobile-logo{
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 15%;
+        margin-top: 20px;
+        
+    }
+    .desktop-logo{
+        display: none;
+    }
+    .formarea{
+       
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        
+    }
+    .welcome-back{
+        margin-top: 20%;
+        font-size: 18px;
+        text-align: left;
+        margin-left: 15%;
+    }
+    .logincred{
+        font-size: 16px;
+        text-align: left;
+        margin-left: 15%;
+    }
+    .formClass{
+        
+        display: flex;
+        justify-content: center;
+        
+     }
+
+     .formarea_reg{
+       
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        padding: 20px;
+        
+    }
+   
 }
