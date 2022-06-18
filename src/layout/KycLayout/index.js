@@ -265,6 +265,7 @@ export default function ColorTabs() {
         indicatorColor='primary'
         aria-label="secondary tabs example"
         style={{backgroundColor:'#fff',marginLeft:20}}
+        className="kyc_tab"
       >
         
          <Tab icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
