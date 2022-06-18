@@ -264,11 +264,11 @@ export default function ColorTabs() {
         textColor="primary"
         indicatorColor='primary'
         aria-label="secondary tabs example"
-        style={{backgroundColor:'#fff',marginLeft:20}}
+        
         className="kyc_tab"
       >
         
-         <Tab icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
+         <Tab className='emailVerification' icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
          <Tab icon={secondLevel === "customeridentification.success" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
          <Tab icon={thirdLevel === "Verified" && <BsCheckCircle size={15} color="#003300" /> } label="Verify Id Card" aria-label="phone" disabled={disableThirdLevel}   value="four" />
       </Tabs>

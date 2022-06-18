@@ -14,6 +14,13 @@
     padding: 20px;
     
 }
+.kyc_tab{
+   
+    width: 80%;
+    background-color:#fff;
+    margin-left:20px;
+ 
+}
 
 @media screen
 and (min-device-width:300px)
@@ -22,6 +29,13 @@ and (max-device-width:700px)
 {
     .kyc_tab{
         margin-top: 100px;
+        width: 90%;
+        overflow-x: scroll;
+        background-color:#fff;
+        margin-left:20px;
+      
+        
     }
+    
     
 }
