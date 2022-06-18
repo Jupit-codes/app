@@ -62,6 +62,7 @@
 
 .formClass{
    display: flex;
+   width: 100%;
    justify-content: center;
    
 }
@@ -126,10 +127,11 @@ and (max-device-width:800px)
         background-color: #fff;
     }
     .form-input{
-        width: 80%;
+        width: 100%;
        
     }
     .myform{
+        width: 100%;
         height: 50px;
         
     }
@@ -137,7 +139,7 @@ and (max-device-width:800px)
     .mobile-logo{
         display: flex;
         justify-content: flex-start;
-        margin-left: 15%;
+        margin-left: 0px;
         margin-top: 20px;
         
     }
@@ -147,28 +149,41 @@ and (max-device-width:800px)
     .formarea{
        
         display: flex;
+        justify-content: center;
         width: 100%;
         height: 100%;
         flex-direction: column;
+        
+        padding: 40px;
         
     }
     .welcome-back{
         margin-top: 20%;
         font-size: 18px;
         text-align: left;
-        margin-left: 15%;
+        margin-left: 0px;
     }
     .logincred{
         font-size: 16px;
         text-align: left;
-        margin-left: 15%;
+        margin-left: 0px;
+        margin-bottom: 10px;
     }
     .formClass{
         
         display: flex;
         justify-content: center;
         
+        width: 100%;
+        
      }
+     .divForm{
+        width: 100%;
+        margin: 0px;
+        text-align: center;
+        margin-bottom: 10px;
+        
+    }
 
      .formarea_reg{
        
@@ -176,8 +191,14 @@ and (max-device-width:800px)
         width: 100%;
         height: 100%;
         flex-direction: column;
-        padding: 20px;
+        padding: 40px;
+        justify-content: center;
+        align-items: center;
         
     }
+    .mybtn{
+        margin-top: 10px;
+    }
+    
    
 }
