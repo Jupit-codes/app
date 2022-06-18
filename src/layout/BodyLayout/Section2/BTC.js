@@ -48,10 +48,10 @@ const Index = ()=>{
                                 </div>
                                 <div className='cardNairaBTC'>
                                     <div className='card_section_a'>
-                                        <div>
+                                        <div >
                                             <img src={jupit}/>
                                         </div>
-                                        <div>
+                                        <div className='cardnumber'>
                                             **** **** **** 0808
                                         </div>
 
@@ -76,7 +76,7 @@ const Index = ()=>{
                                             CARD HOLDER<br/>
                                             {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
-                                        <div>
+                                        <div className='cardtype'>
                                             <img src={cardType} />
                                         </div>
                                     </div>
