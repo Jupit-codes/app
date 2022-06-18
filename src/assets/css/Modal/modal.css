@@ -357,42 +357,109 @@
  
 
   @media only screen 
-and (min-device-width: 200px) 
-and (max-device-width: 400px)
-and (-webkit-min-device-pixel-ratio: 2) {
+    and (min-device-width: 200px) 
+    and (max-device-width: 599px)
+    and (-webkit-min-device-pixel-ratio: 2) {
 
-  
-.modalContainer{
-    width: 80%;
-    height: 60%;
-    
-}
+        
+        .modalContainer{
+            width: 80%;
+            height: 60%;
+            
+        }
 
-.modalContainerII{
-   
-    width: 80%;
-    height: 300px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    margin-top: 20px;
+        .modalContainerII{
+        
+            width: 80%;
+            height: 300px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            margin-top: 20px;
 
-}
-.camerabody{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+        }
+        .camerabody{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            
+        }
+        .videobody{
+            background-color: #000;
+            
+            height: 80%;
+        }
+        .vacct{
+            font-size:11px;
+        }
+        .vacctII{
+            font-size:12px;
+            font-weight: bold;
+        }
+
+        .receiveText{
+            font-family: Acme;
+            font-size: 13px;
+            color: #3498db;
+        }
     
-}
-.videobody{
-    background-color: #000;
+    }
+
+
+    @media only screen 
+    and (min-device-width: 600px) 
+    and (max-device-width: 800px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+
+        
+        .modalContainer{
+            width: 80%;
+            height: 60%;
+            
+        }
+
+        .modalContainerII{
+        
+            width: 80%;
+            height: 300px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            margin-top: 20px;
+
+        }
+        .camerabody{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            
+        }
+        .videobody{
+            background-color: #000;
+            
+            height: 80%;
+        }
+        .vacct{
+            font-size:14px;
+        }
+        .vacctII{
+            font-size:14px;
+            font-weight: bold;
+        }
+
+        .receiveText{
+            font-family: Acme;
+            font-size: 17px;
+            color: #3498db;
+        }
     
-    height: 80%;
-}
-    
-}
+    }
 

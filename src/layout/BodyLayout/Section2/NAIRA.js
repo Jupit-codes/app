@@ -50,10 +50,10 @@ const Index = ({comp})=>{
                                 </div>
                                 <div className='cardNaira'>
                                     <div className='card_section_a'>
-                                        <div>
+                                        <div >
                                             <img src={jupit}/>
                                         </div>
-                                        <div>
+                                        <div className='cardnumber'>
                                             **** **** **** 1234
                                         </div>
 
@@ -77,7 +77,7 @@ const Index = ({comp})=>{
                                             CARD HOLDER<br/>
                                             ODEWUMI TEMILOLUWA
                                         </div>
-                                        <div>
+                                        <div className='cardtype'>
                                             <img src={cardType} />
                                         </div>
                                     </div>

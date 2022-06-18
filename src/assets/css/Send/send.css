@@ -198,4 +198,21 @@ and (max-device-width:700px)
         width: 100%;
         flex-direction: column;
     }
+
+    .fromBTC{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #cecece;
+        
+        border-radius: 5px;
+    }
+    .fromBTC span {
+        font-family: Acme;
+        display: none;
+    }
+    .fromBTC div{
+        font-family: Acme;
+    }
 }
