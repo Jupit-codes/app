@@ -27,3 +27,14 @@
     border-bottom: 3px solid #2d9cdb;
     
 }
+
+@media screen
+and (min-device-width:200px)
+and (max-device-width:399px)
+{
+    .tabSettings div{
+        font-family: candara;
+        font-size: 16px;
+    }
+}
+
