@@ -6,3 +6,21 @@
     position: relative;
     
 }
+
+.tabCustom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    height: 40px;
+    position: absolute;
+    bottom: 0px; 
+     z-index: 1000;
+
+}
+
+
+
+

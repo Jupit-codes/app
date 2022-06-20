@@ -18,6 +18,18 @@ import SellBTC from '../../container/SellBtc'
 import Withdrawal from '../../container/Withdrawal'
 import { useLocation } from "react-router";
 import { reactLocalStorage } from "reactjs-localstorage";
+
+import Dashboard from '../../assets/images/utility/dashboard.png'
+import Exchange from '../../assets/images/utility/exchange.png'
+import Settingx from '../../assets/images/utility/settings.png'
+import Library from '../../assets/images/utility/kyc.png'
+import Schedule from '../../assets/images/utility/transaction.png'
+
+import DashboardActive from '../../assets/images/utility/active/dashboard-active.png'
+import ExchangeActive from '../../assets/images/utility/active/exchange-active.png'
+import SettingsActive from '../../assets/images/utility/active/settings-active.png'
+import LibraryActive from '../../assets/images/utility/active/kyc-active.png'
+import ScheduleActive from '../../assets/images/utility/active/transaction-active.png'
 import axios from "axios";
 
 const Index=()=>{
@@ -86,14 +98,35 @@ const Index=()=>{
         return component
     }
 
+    const _rendermobileTab =()=>{
+        return <div className="tabCustom">
+                    <div>
+                        <img src={DashboardActive}/>
+                    </div>
+                    <div>
+                        <img src={Library}/>
+                    </div>
+                    <div>
+                        <img src={Exchange}/>
+                    </div>
+                    <div>
+                        <img src={Settingx}/>
+                    </div>
+
+               </div>
+    }
     return (
         <div className="dashboard">
                 <Sidebar openClose={open} notify={x}/>
                 <TitleBar  handle={setOpen} currentHandle={open} handletrigger={trigger}/>
-              
-              
+
+
                 
                 {_renderBodyComponent()}
+                {
+                    _rendermobileTab()
+                }
+                
         </div>
     )
 }
