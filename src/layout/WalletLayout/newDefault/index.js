@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../../../assets/css/newWallet/newWallet.css'
-import '../../../assets/css/Body/section2.css'
+
 import Naira from '../../BodyLayout/Section2/NAIRA.js'
 import Btc from '../../BodyLayout/Section2/BTC'
 import Usdt from '../../BodyLayout/Section2/USDT'
