@@ -91,7 +91,7 @@ const Index=()=>{
                 <Sidebar openClose={open} notify={x}/>
                 <TitleBar  handle={setOpen} currentHandle={open} handletrigger={trigger}/>
               
-                {/* <Sidebar openClose={open} notify={x}/> */}
+              
                 
                 {_renderBodyComponent()}
         </div>

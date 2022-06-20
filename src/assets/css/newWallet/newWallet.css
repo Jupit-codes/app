@@ -389,5 +389,16 @@
     color:#fff
 }
 
+@media screen
+and(min-device-width:200px)
+and(max-device-width:400px)
+
+{
+    .newWalletDiv{
+        display: none;
+    }
+    
+}
+
 
 

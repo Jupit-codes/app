@@ -28,7 +28,8 @@ and (min-device-width:300px)
 and (max-device-width:700px)
 {
     .bodyOpen{
-        padding-left: 40px;
+        padding-left: 0px;
+    
 
     }
 
