@@ -58,9 +58,9 @@ const Index = ({closeModalDeposit})=>{
                     
                     
                 </div>
-                <div className='modalClose' >
+                {/* <div className='modalClose' >
                     <input type="submit" value="Close" onClick={()=>{closeModalDeposit(false)}}/>
-                </div>
+                </div> */}
             </div>
         </div>
     )

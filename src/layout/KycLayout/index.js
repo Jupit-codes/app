@@ -256,7 +256,7 @@ export default function ColorTabs() {
         
     }
   return (
-    <Box sx={{ width: '100%', marginTop:3,borderRadius:10 }}>
+    <Box sx={{ width: '100%', marginTop:3,borderRadius:10 }} className="boxShadow">
       {loaderState && <Loader/>}
       <Tabs
         value={value}

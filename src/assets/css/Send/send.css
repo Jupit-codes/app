@@ -184,7 +184,8 @@ and (min-device-width:200px)
 and (max-device-width:700px)
 {
     .sendBTC{
-        margin-top: 80px;
+        margin-top: 0px;
+        margin-bottom: 50px;
     }
 
     .back{
