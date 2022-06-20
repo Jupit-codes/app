@@ -522,7 +522,7 @@
 
 
 @media screen 
-and (min-device-width:400px)
+and (min-device-width:200px)
 and (max-device-width:700px)
 {
     .marketTransaction{

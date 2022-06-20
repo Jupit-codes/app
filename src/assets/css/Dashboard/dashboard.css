@@ -14,10 +14,11 @@
     align-items: center;
     width: 100%;
     background-color: #fff;
-    height: 40px;
-    position: absolute;
-    bottom: 0px; 
-    
+    height: 55px;
+    position: fixed;
+    z-index: 10000;
+    top:90%
+      
 
 }
 

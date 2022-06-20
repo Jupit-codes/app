@@ -10,12 +10,30 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import {Badge,Dropdown} from 'react-bootstrap'
 import axios from 'axios'
 import {AiOutlinePoweroff} from 'react-icons/ai'
+
+import Dashboard from '../../assets/images/utility/dashboard.png'
+import Exchange from '../../assets/images/utility/exchange.png'
+import Settingx from '../../assets/images/utility/settings.png'
+import Library from '../../assets/images/utility/kyc.png'
+import Schedule from '../../assets/images/utility/transaction.png'
+
+import DashboardActive from '../../assets/images/utility/active/dashboard-active.png'
+import ExchangeActive from '../../assets/images/utility/active/exchange-active.png'
+import SettingsActive from '../../assets/images/utility/active/settings-active.png'
+import LibraryActive from '../../assets/images/utility/active/kyc-active.png'
+import ScheduleActive from '../../assets/images/utility/active/transaction-active.png'
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from "react-router-dom";
 const Index = ()=>{
     const history = useHistory();
     const [salutation, setsalutation] = useState();
     const[userInfor,setUserInfor] = useState();
     const [notification,setnotification] = useState()
 
+    const location = useLocation();
+    const pathname = location.pathname.split('/');
+
+    
     
     const logout =()=>{
         reactLocalStorage.remove('user');
@@ -123,8 +141,42 @@ const Index = ()=>{
     const whatsapChat = ()=>{
         window.open('https://wa.me/2348088213177');
     }
+
+    const _rendermobileTab =()=>{
+        return <div className="tabCustom">
+                    <div>
+                        <Link to="/client">
+                            <img src={!pathname[2] ? DashboardActive: Dashboard}/>
+                        </Link>
+                        
+                    </div>
+                    <Link to="/client/kyc">
+                        <img src={pathname[2]=== "kyc"? LibraryActive : Library}/>
+                    </Link>
+                         
+                    <div>
+                        <Link to='/client/wallet'>
+                            <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/>
+                        
+                        </Link>
+                       
+                    </div>
+                    
+                    <div>
+                        <Link to='/client/settings'>
+                            <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/>
+                        
+                        </Link>
+                        
+                    </div>
+                    
+
+               </div>
+    }
+
     return (
         <div className="xtitle">
+            {_rendermobileTab()}
                 <div className='WelcomeClass'>
                     <div className='Hello'>
                         {salutation}, {userInfor}.
