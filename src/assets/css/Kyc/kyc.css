@@ -28,14 +28,14 @@ and (max-device-width:700px)
 
 {
     .kyc_tab{
-        margin-top: 100px;
-        width: 90%;
-        overflow-x: scroll;
-        background-color:#fff;
-        margin-left:20px;
-      
+        
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        margin-left:0px;
+        margin-top: 0px;
         
     }
-    
+   
     
 }
