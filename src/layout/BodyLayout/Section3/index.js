@@ -114,44 +114,11 @@ const Index = ()=>{
                     </div>
                 </div>
                 {
-                    loader ? <div className='Chartloader'> </div> : displayTransactions()
+                    loader ? <div className='Chartloader'> </div> :<div> {displayTransactions()}</div>
                     
                 }
                 
-                {/* <div className="recent-transactions">
-                    <div className='asset-logo'>
-                        <img src={BTC}/>
-                    </div>
-                    <div className='coin-recent-transaction'>
-                        Bitcoin
-                    </div>
-                    <div className='date-recent-transaction'>
-                        10:45:16AM
-                    </div>
-                    <div className='recent-amount'>
-                        +1545,00
-                    </div>
-                    <div className='status'>
-                        Completed
-                    </div>
-                </div> */}
-                {/* <div className="recent-transactions">
-                    <div className='asset-logo'>
-                        <img src={BTC}/>
-                    </div>
-                    <div className='coin-recent-transaction'>
-                        Bitcoin
-                    </div>
-                    <div className='date-recent-transaction'>
-                        10:45:16AM
-                    </div>
-                    <div className='recent-amount'>
-                        +1545,00
-                    </div>
-                    <div className='status'>
-                        Completed
-                    </div>
-                </div> */}
+              
                 
                
 

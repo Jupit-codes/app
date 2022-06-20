@@ -72,12 +72,9 @@
 .date-recent-transaction{
    color: #707EAE;
   
-   
 }
 .coin-recent-transaction{
-    color: #707EAE;
-    
-    
+    color: #707EAE;   
 }
 .recent-amount{
     color: #707EAE;
@@ -143,9 +140,50 @@ and (max-device-width:800px)
 and (min-device-width:200px)
 and (max-device-width:499px)
 {
+   
+
+    .marketTransaction-list{
+        flex: 1 1 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        font-size: 10px;
+        font-family: 'Jura',sans-serif;
+    }
+    .recent-transactions{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin: 0px;
+        
+        
+        
+    }
+    .recent-transactions > div{
+        flex:1 1 20%;
+        min-height: 30px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+    
+    }
 
     .body_section3{
+        width:100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        display: flex;
         flex-direction: column;
+        margin-top: 0px;
+        padding: 10px;
+       
     }
     .marketTRansaction-title {
         font-size: 16px;
