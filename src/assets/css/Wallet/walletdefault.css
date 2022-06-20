@@ -480,6 +480,7 @@ and (max-device-width:399px)
         border-radius: 15px;
        
     }
+    
 
 }
 
@@ -505,6 +506,7 @@ and (max-device-width:700px)
         padding: 20px;
         margin-top: 0px;
         border-radius: 15px;
+        margin-bottom: 50px;
        
     }
 
