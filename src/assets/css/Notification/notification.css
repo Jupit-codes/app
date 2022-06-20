@@ -128,7 +128,12 @@ and (min-device-width:200px)
 and (max-device-width:700px)
 {
     .history{
-        margin-top: 100px;
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: transparent;
     }
     .notifyTitle{
         font-size: 20px;

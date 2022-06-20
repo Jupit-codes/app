@@ -46,11 +46,14 @@ and (max-device-width:800px)
     .history{
         display: flex;
         height: 100%;
-        background-color: #fff;
+       
         width: 100%;
         text-align: center;
-        margin: 20px;
+        justify-content: center;
+        margin-top: 0px;
+        margin: 0px;
         box-sizing: border-box;
+        padding: 20px;
         
     }
     .tableDiv{
