@@ -528,9 +528,15 @@ and (max-device-width:700px)
         .body_section2{
             flex-direction: column; 
             
+            padding-left: 0px;
+            padding-right: 0px;
+            padding: 20px;
+            display: flex;
+            
         }
         .balanceWallet{
             font-size: 14px;
+            margin-bottom: 10px;
         }
         
     .trans{
@@ -543,6 +549,30 @@ and (max-device-width:700px)
     .walletBalanceTitle{
         flex-direction: column;
     }
+    
+.walletbalance{
+    flex: 0 0 50%;
+    border-radius: 15px;
+    margin: 0px;
+    
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    min-height: 450px;
+    position: relative;
+    
+
+}
+.rendercomponent{
+    width: 90%;
+    height: 100%;
+    overflow:hidden;
+    position: absolute;
+    margin-top: -30px;
+    z-index: 1;
+ 
+}
+    
      
 
 }
@@ -560,6 +590,7 @@ and (max-device-width:399px)
         .balanceButton{
             flex-wrap: nowrap;
             padding: 5px;
+            
             
         }
         

@@ -76,7 +76,7 @@ and (max-device-width:700px)
         display: flex;
         flex-direction: column;
         margin-top: 0px;
-        background-color: blue;
+        background-color:transparent;
         justify-content: center;
         
         
