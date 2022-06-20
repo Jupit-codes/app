@@ -45,12 +45,12 @@ const Index = ()=>{
     return(
         <div>
              <div className='VerveCover'>
-                            <div className='verve cardBTC'>
+                            {/* <div className='verve cardBTC'>
                                 
-                            </div>
+                            </div> */}
                             <div className='master'>
                                 <div class="master-child">
-                                <div className='card_section_a'>
+                                    <div className='card_section_a'>
                                         <div>
                                             <img src={jupit}/>
                                         </div>
@@ -84,9 +84,9 @@ const Index = ()=>{
                                     </div>
                                 </div>
                             </div>
-                            <div className='visa cardUSDT'>
+                            {/* <div className='visa cardUSDT'>
                                 
-                            </div>
+                            </div> */}
                         </div>
 
                         <div class="btn_open_more">
