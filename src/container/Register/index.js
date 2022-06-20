@@ -15,7 +15,7 @@ const Index=()=>{
     console.log('RegisterError',error)
     
     return(
-        <div className="auth">
+        <div className="auth_reg">
              { loading && <Loader/>}
             <div className="logoArea">
                 <img src={logoArea}/>
