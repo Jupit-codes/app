@@ -110,6 +110,8 @@
 and (min-device-width:200px)
 and (max-device-width:700px)
 {
+
+    
     .xsidebar{
         display: none;
         width: 0px;
