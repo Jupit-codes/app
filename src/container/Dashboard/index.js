@@ -120,13 +120,8 @@ const Index=()=>{
                
                 <Sidebar openClose={open} notify={x}/>
                 <TitleBar  handle={setOpen} currentHandle={open} handletrigger={trigger}/>
-
-                {
-                    _rendermobileTab()
-                }
-                
                 {_renderBodyComponent()}
-                
+                {_rendermobileTab()}
                 
         </div>
     )
