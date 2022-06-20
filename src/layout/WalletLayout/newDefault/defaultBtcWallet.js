@@ -104,7 +104,7 @@ const Index = ({comp})=>{
                         <Icon name="btc" size={25} /> <span>Bitcoin Wallet</span>
                         <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice}&nbsp;(USD/BTC)</span></div>
                     </div>
-                    <div>
+                    <div className='ratepercentage'>
                         {_renderRate()}
                     </div>
                 </div>

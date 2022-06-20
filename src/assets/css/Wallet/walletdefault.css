@@ -443,6 +443,17 @@ and (max-device-width:399px)
     .cardnumber{
         display: none;
     }
+    .newRate{
+        flex-direction: column;
+    }
+    .ratepercentage{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .card_section_balance{
+        font-size:12px ;
+    }
     .card_section_c > div{
         font-size: 10px;
     }
