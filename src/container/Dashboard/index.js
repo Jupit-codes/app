@@ -117,15 +117,16 @@ const Index=()=>{
     }
     return (
         <div className="dashboard">
+               
                 <Sidebar openClose={open} notify={x}/>
                 <TitleBar  handle={setOpen} currentHandle={open} handletrigger={trigger}/>
 
-
-                
-                {_renderBodyComponent()}
                 {
                     _rendermobileTab()
                 }
+                
+                {_renderBodyComponent()}
+                
                 
         </div>
     )
