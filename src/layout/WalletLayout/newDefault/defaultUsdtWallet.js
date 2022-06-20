@@ -109,9 +109,9 @@ const Index = ()=>{
                     </div>
                 </div>
              <div className='VerveCover'>
-                            <div className='verve cardBtcReplace'>
+                            {/* <div className='verve cardBtcReplace'>
                                
-                            </div>
+                            </div> */}
                             <div className='master'>
                                 <div class="master-child cardUsdtReplace">
                                 <div className='card_section_a'>
@@ -148,9 +148,9 @@ const Index = ()=>{
                                     </div>
                                 </div>
                             </div>
-                            <div className='visa cardNairaReplace coat'>
+                            {/* <div className='visa cardNairaReplace coat'>
                                 
-                            </div>
+                            </div> */}
                         </div>
 
                         <div class="btn_open_more">

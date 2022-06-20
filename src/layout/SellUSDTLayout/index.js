@@ -372,12 +372,12 @@ const Index =()=>{
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
         setngnamount(parseFloat(e.target.value) * parseFloat(sellrate))
-        setbtcamount(parseFloat(parseFloat(e.target.value)/parseFloat(currentRate)).toFixed(8))
+        setbtcamount(parseFloat(parseFloat(e.target.value)/parseFloat(currentRate)))
     }
     const USDTAmount = (e)=>{
         setbtcamount(e.target.value)
         setusdamount(parseFloat(e.target.value) * currentRate);
-        setngnamount(parseFloat(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate).toFixed )
+        setngnamount(parseFloat(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate))
     }
     const NGNAmount=(e)=>{
         
@@ -464,6 +464,9 @@ const Index =()=>{
 
         if(kycLevel2 === "customeridentification.success"){
             kycprogress += 30
+        }
+        if(kycLevel2 === "Verified"){
+            kycprogress += 45
         }
 
        if(kycprogress === 25 && usdamount > 100){
@@ -604,11 +607,11 @@ const Index =()=>{
                             {sellrate && 
                                 <>
 
-                                    <input type="number"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={USDTAmount}/>
+                                    <input type="number"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount|| ''} onChange={USDTAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount} />
+                                    <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount || ''} onChange={USDAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="number"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount} onChange={NGNAmount}/>
+                                    <input type="number"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount || ''} onChange={NGNAmount}/>
                                 </>
                             
 

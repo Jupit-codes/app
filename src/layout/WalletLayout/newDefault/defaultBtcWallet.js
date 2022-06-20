@@ -110,9 +110,9 @@ const Index = ({comp})=>{
                 </div>
                 
              <div className='VerveCover'>
-                            <div className='verve cardNairaReplace' onClick={()=>{comp('Naira')}}>
+                            {/* <div className='verve cardNairaReplace' onClick={()=>{comp('Naira')}}>
                             
-                            </div>
+                            </div> */}
                             <div className='master'>
                                 <div class="master-child master-child-btc">
                                 <div className='card_section_a'>
@@ -152,9 +152,9 @@ const Index = ({comp})=>{
                                     </div>
                                 </div>
                             </div>
-                            <div className='visa cardNaira' onClick={()=>{comp('Usdt')}}>
+                            {/* <div className='visa cardNaira' onClick={()=>{comp('Usdt')}}>
                                 
-                            </div>
+                            </div> */}
                         </div>
 
                         <div class="btn_open_more ">
