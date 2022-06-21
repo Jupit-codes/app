@@ -259,19 +259,20 @@ export default function ColorTabs() {
 
     <div className='kycTab'>
 
-      <div className='myTab'>
-        <div>
-          Email Verification <span>{firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
+        <div className='myTab'>
+            <div>
+              Email Verification <span>{firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
+            </div>
+            <div>
+                Verify Bank Account <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
+            </div>
+            <div>
+                Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
+            </div>
         </div>
-        <div>
-            Verify Bank Account <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
+        <div className='myrendercomponent'>
+        
         </div>
-        <div>
-            Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
-        </div>
-
-
-      </div>
 
     </div>
 
