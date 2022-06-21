@@ -90,7 +90,7 @@ const Index = ()=>{
     },[])
 
     return(
-        <div className="TabBody">
+        <div className="TabBodySecurity">
             {startloader && <Loader/>}
             <ToastContainer
                 position="top-right"
