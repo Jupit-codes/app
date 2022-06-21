@@ -267,8 +267,8 @@ const Index = ()=>{
         return   <div className="selectFormBuy">
                         <div className="sumbalanceDiv">
                             <div className="btn btn-primary sumbalance">
-                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * buyrate}</span>  </div>
-                                {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
+                                <div >Sum Total : &#8358;<span id="sumTotal">{See() * buyrate}</span>  </div>
+                                 {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
                                 
                                 
                                 </div>
