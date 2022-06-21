@@ -192,13 +192,12 @@ export default function ColorTabs() {
         if(res.data.level1[0].status === "Verified"){
           setdisableSecondLevel(false);
           setValue('two');
-          setContent('two')
+          setContent('Accountlinkage')
         }
         if(res.data.level2[0].event_status === "customeridentification.success"){
-            
           setdisableThirdLevel(false)
           setValue('four');
-          setContent('four')
+          setContent('Idcard')
             
         }
 
@@ -241,9 +240,6 @@ export default function ColorTabs() {
             case 'Accountlinkage':
               return <AddAccount status={secondLevel} />
                 break;
-            // case 'three':
-            //     return <AddressVerification/> 
-            //     break;
             case 'Idcard':
                return <IDverification />
                 break;
@@ -255,28 +251,72 @@ export default function ColorTabs() {
         
         
     }
-    const handleEmail = ()=>{
+    const handleEmail = (e)=>{
+      
+      
+      let x = e.target.parentElement;
+
+
+      
+      for (let i =0;i<x.children.length;i++){
+        if(x.children[i].classList.contains('activeTab')){
+          
+          x.children[i].classList.remove('activeTab');
+        }
+        
+    }
+      e.target.classList.add('activeTab');
       setContent('Email');
     }
-    const handleAcctLinkage= ()=>{
+    const handleAcctLinkage= (e)=>{
+      
+      let x = e.target.parentElement;
+
+      
+      
+      for (let i =0;i<x.children.length;i++){
+          if(x.children[i].classList.contains('activeTab')){
+            
+            x.children[i].classList.remove('activeTab');
+          }
+          
+      }
+      
+      e.target.classList.add('activeTab');
+     
       setContent('Accountlinkage');
     }
-    const handleIdverify = ()=>{
+    const handleIdverify = (e)=>{
+
+      let x = document.querySelectorAll('.checkactive');
+      for (let i =0;i<x.children.length;i++){
+        
+        if(x.children[i].classList.contains('activeTab')){
+          
+          x.children[i].classList.remove('activeTab');
+        }
+      }
+      e.target.classList.add('activeTab');
       setContent('Idcard');
+    }
+
+    const Active = (Content)=>{
+
     }
 
   return (
 
     <div className='kycTab'>
+      {loaderState && <Loader/>}
 
         <div className='myTab'>
-            <div onClick={handleEmail()}>
+            <div onClick={(e)=>{handleEmail(e)}} className="checkactive" >
               Email Verification <span>{firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
-            <div onClick={()=>handleAcctLinkage()}>
+            <div onClick={(e)=>{handleAcctLinkage(e)}} className={disableSecondLevel ? 'disableDiv': 'checkActive'} >
                 Verify Bank Account <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
-            <div onClick={()=>handleIdverify()}>
+            <div onClick={(e)=>{handleIdverify(e)}} className={disableThirdLevel ? 'disableDiv' : 'checkActive'}>
                 Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
         </div>
