@@ -261,13 +261,13 @@ export default function ColorTabs() {
 
       <div className='myTab'>
         <div>
-          Email Verification
+          Email Verification <span>{firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
         </div>
         <div>
-            Verify Bank Account
+            Verify Bank Account <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
         </div>
         <div>
-            Idcard Verification
+            Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
         </div>
 
 

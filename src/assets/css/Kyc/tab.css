@@ -77,14 +77,36 @@
     width: 80%;
     border-radius: 5%;
 }
-.kycTab{
+
+
+.myTab{
     width:100%;
     display:flex;
     justify-content: center;
+   
 }
-.kycTab > div{
+.kycTab{
+  display: flex;
+  width: 80%;
+  padding: 20px;
+  
+}
+.myTab > div{
+    font-family: 'Roboto' sans-serif;
     flex: 1 1 calc(33.333% - 20px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
     margin: 10px;
+    padding-bottom: 10px;
+}
+.myTab >div>span{
+    margin-left: 10px;
+}
+.myTab> div:nth-child(1){
+    border-bottom:2px solid #000088
+   
 }
 
 
