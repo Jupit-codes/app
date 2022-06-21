@@ -134,10 +134,11 @@ and (max-device-width:700px)
         align-items: center;
         flex-direction: column;
         background-color: transparent;
+       
     }
     .notifyTitle{
         font-size: 20px;
-        margin-top: 20px;
+        margin-top: 0px;
     }
     .notifyDiv{
         width: 100%;
