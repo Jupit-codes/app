@@ -620,6 +620,9 @@ and (max-device-width:700px)
         width: 25%;
         border-radius: 10px;
     }
+    .giftcardTab > div{
+        font-size: 13px;
+    }
     
 }
 
