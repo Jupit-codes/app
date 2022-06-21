@@ -235,16 +235,16 @@ export default function ColorTabs() {
     const _renderComponentTab = ()=>{
         
         switch(content){
-           case 'one':
+           case 'Email':
             return <Email/>
             break;        
-            case 'two':
+            case 'Accountlinkage':
               return <AddAccount status={secondLevel} />
                 break;
             // case 'three':
             //     return <AddressVerification/> 
             //     break;
-            case 'four':
+            case 'Idcard':
                return <IDverification />
                 break;
             default:
@@ -255,23 +255,33 @@ export default function ColorTabs() {
         
         
     }
+    const handleEmail = ()=>{
+      setContent('Email');
+    }
+    const handleAcctLinkage= ()=>{
+      setContent('Accountlinkage');
+    }
+    const handleIdverify = ()=>{
+      setContent('Idcard');
+    }
+
   return (
 
     <div className='kycTab'>
 
         <div className='myTab'>
-            <div>
+            <div onClick={handleEmail()}>
               Email Verification <span>{firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
-            <div>
+            <div onClick={()=>handleAcctLinkage()}>
                 Verify Bank Account <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
-            <div>
+            <div onClick={()=>handleIdverify()}>
                 Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
         </div>
-        <div className='myrendercomponent'>
-        
+        <div className='tab_content'>
+            {_renderComponentTab()}
         </div>
 
     </div>
