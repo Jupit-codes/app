@@ -326,10 +326,6 @@ const Index = ()=>{
                 {selectbrand === "nocurrency" && _displaySelectCountry()}
                 {selectbrand === "norate" && displayRateBoard()}
                 {/* {loader && <div className='Chartloader'></div>} */}
-             
-
-                
-
             </div>
 
 
