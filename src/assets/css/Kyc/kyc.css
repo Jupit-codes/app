@@ -36,6 +36,23 @@ and (max-device-width:700px)
         margin-top: 0px;
         
     }
-   
+
+    .formAccount_form{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        margin-top: 0px;
+        padding: 0px;
+        font-size: 12px;
+        font-family: candara;
+        background-color: #000;
+    }
+    .formAccount{
+        width: 100%;
+        height: 100%;
+        background-color: aqua;
+       
+      
+    }
     
 }

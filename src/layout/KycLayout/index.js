@@ -256,28 +256,47 @@ export default function ColorTabs() {
         
     }
   return (
-    <Box sx={{ width: '100%', marginTop:3,borderRadius:10 }} className="boxShadow">
-      {loaderState && <Loader/>}
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        textColor="primary"
-        indicatorColor='primary'
-        aria-label="secondary tabs example"
-        
-        className="kyc_tab"
-      >
-        
-         <Tab className='emailVerification' icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
-         <Tab icon={secondLevel === "customeridentification.success" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
-         <Tab icon={thirdLevel === "Verified" && <BsCheckCircle size={15} color="#003300" /> } label="Verify Id Card" aria-label="phone" disabled={disableThirdLevel}   value="four" />
-      </Tabs>
 
-        <div className="tab_content">
-        
-                {_renderComponentTab()}
+    <div className='kycTab'>
+
+      <div className='myTab'>
+        <div>
+          Email Verification
         </div>
+        <div>
+            Verify Bank Account
+        </div>
+        <div>
+            Idcard Verification
+        </div>
+
+
+      </div>
+
+    </div>
+
+    // <Box sx={{ width: '100%', marginTop:3,borderRadius:10 }} className="boxShadow">
+    //   {loaderState && <Loader/>}
+    //   <Tabs
+    //     value={value}
+    //     onChange={handleChange}
+    //     textColor="primary"
+    //     indicatorColor='primary'
+    //     aria-label="secondary tabs example"
+        
+    //     className="kyc_tab"
+    //   >
+        
+    //      <Tab className='emailVerification' icon={firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />} label="Email Verification" aria-label="Email" value="one" />
+    //      <Tab icon={secondLevel === "customeridentification.success" && <BsCheckCircle size={15} color="#003300" />} label="Verify Bank Account" aria-label="phone" disabled={disableSecondLevel} value="two" />
+    //      <Tab icon={thirdLevel === "Verified" && <BsCheckCircle size={15} color="#003300" /> } label="Verify Id Card" aria-label="phone" disabled={disableThirdLevel}   value="four" />
+    //   </Tabs>
+
+    //     <div className="tab_content">
+        
+    //             {_renderComponentTab()}
+    //     </div>
       
-    </Box>
+    // </Box>
   );
 }

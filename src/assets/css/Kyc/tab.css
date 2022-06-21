@@ -77,6 +77,15 @@
     width: 80%;
     border-radius: 5%;
 }
+.kycTab{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+.kycTab > div{
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px;
+}
 
 
 
@@ -106,6 +115,8 @@ and (max-device-width:700px)
         
         
     }
+
+    
 
 }
 
