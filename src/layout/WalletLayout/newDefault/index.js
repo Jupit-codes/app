@@ -420,7 +420,7 @@ const Index = ()=>{
     return(
         <div className="newWalletDiv">
             
-           <div>
+           <div className='cardwalletcheck'>
            {openModal && <ReceiveModal closeModal={setopenModal}/>}
            {openModalUsdt && <ReceiveModalUsdt closeModal={setopenModalUsdt}/>}
            {depositmodal && <DepositModal closeModalDeposit={setdepositmodal}/>}

@@ -152,6 +152,8 @@ export default function ColorTabs() {
   const[disableFirstLevel,setdisableFirstLevel] = useState(true);
   const[disableSecondLevel,setdisableSecondLevel] = useState(true);
   const[disableThirdLevel,setdisableThirdLevel] = useState(true);
+  const[scrollActive,setscrollActive] = useState();
+  const[scrollActiveII,setscrollActiveII] = useState();
   const [docAccount,setdocAccount] = useState({})
   const [loaderState, setloaderState] = useState(true)
 
@@ -193,12 +195,21 @@ export default function ColorTabs() {
           setdisableSecondLevel(false);
           setValue('two');
           setContent('Accountlinkage')
+         
+
         }
         if(res.data.level2[0].event_status === "customeridentification.success"){
           setdisableThirdLevel(false)
           setValue('four');
           setContent('Idcard')
+
             
+        }
+        if(res.data.level1[0].status === "Verified" && res.data.level2[0].event_status === "customeridentification.success"){
+          setscrollActiveII('activeTab')
+        }
+        else{
+          setscrollActive('activeTab')
         }
 
        
@@ -287,16 +298,20 @@ export default function ColorTabs() {
       setContent('Accountlinkage');
     }
     const handleIdverify = (e)=>{
+      let x = e.target.parentElement;
 
-      let x = document.querySelectorAll('.checkactive');
+      
+      
       for (let i =0;i<x.children.length;i++){
-        
-        if(x.children[i].classList.contains('activeTab')){
+          if(x.children[i].classList.contains('activeTab')){
+            
+            x.children[i].classList.remove('activeTab');
+          }
           
-          x.children[i].classList.remove('activeTab');
-        }
       }
+      
       e.target.classList.add('activeTab');
+      
       setContent('Idcard');
     }
 
@@ -313,10 +328,10 @@ export default function ColorTabs() {
             <div onClick={(e)=>{handleEmail(e)}} className="checkactive" >
               Email Verification <span>{firstLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
-            <div onClick={(e)=>{handleAcctLinkage(e)}} className={disableSecondLevel ? 'disableDiv': 'checkActive'} >
+            <div onClick={(e)=>{handleAcctLinkage(e)}} className={disableSecondLevel ? 'disableDiv': `checkActive ${scrollActive}`} >
                 Verify Bank Account <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
-            <div onClick={(e)=>{handleIdverify(e)}} className={disableThirdLevel ? 'disableDiv' : 'checkActive'}>
+            <div onClick={(e)=>{handleIdverify(e)}} className={disableThirdLevel ? 'disableDiv' : `checkActive ${scrollActiveII}`}>
                 Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
         </div>
