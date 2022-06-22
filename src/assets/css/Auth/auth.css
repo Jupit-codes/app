@@ -4,6 +4,16 @@
     flex-wrap: wrap;
     background-color: #fff;
 }
+.auth_reg{
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.auth_reg > div{
+    flex: 1 1 50%;
+}
 
 .auth > div{
     flex: 1 1 50%;
