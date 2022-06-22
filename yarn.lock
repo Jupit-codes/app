@@ -12930,6 +12930,11 @@
     "prop-types" "^15.7.2"
     "react-fast-compare" "^3.0.1"
 
+"react-pwa-add-to-homescreen@^1.1.7":
+  "integrity" "sha512-peLWwxkp82IFXn5i98OfB+X1E78+6BElJ7fe3SNADtnfmMeg/X3At+FiItu+GcEk+I+7ND9ZYFfLjokn5tVDNg=="
+  "resolved" "https://registry.npmjs.org/react-pwa-add-to-homescreen/-/react-pwa-add-to-homescreen-1.1.7.tgz"
+  "version" "1.1.7"
+
 "react-pwa-install-prompt@^1.0.5":
   "integrity" "sha512-sOMFTd9gkSkqy60S4Iabg2I/KvihvSPOAx3oDkounOG7m3P22tBn5hI0j6ryKCV8OKqXGzuoAUwywKUO3oCgrQ=="
   "resolved" "https://registry.npmjs.org/react-pwa-install-prompt/-/react-pwa-install-prompt-1.0.5.tgz"

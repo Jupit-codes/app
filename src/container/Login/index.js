@@ -18,6 +18,39 @@ const Index=()=>{
     const [section,setsection] = useState('Section1');
     const [emailSection,setEmailSection] = useState();
     const [passwordSection,setPasswordSection] = useState();
+    const [check,setcheck] =useState(true)
+
+    const show_pwa = ()=>{
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            let deferredPrompt = e;
+
+            console.log("Def",deferredPrompt)
+            console.log("Event",e)
+            setcheck(false)
+            // Update UI to notify the user they can add to home screen
+            // addBtn.style.display = 'block';
+          
+            //addBtn.addEventListener('click', (e) => {
+              // hide our user interface that shows our A2HS button
+             // addBtn.style.display = 'none';
+              // Show the prompt
+            //   deferredPrompt.prompt();
+              // Wait for the user to respond to the prompt
+            //   deferredPrompt.userChoice.then((choiceResult) => {
+            //       if (choiceResult.outcome === 'accepted') {
+            //         console.log('User accepted the A2HS prompt');
+            //       } else {
+            //         console.log('User dismissed the A2HS prompt');
+            //       }
+            //       deferredPrompt = null;
+            //     });
+           // });
+          });
+    }
 
     const _renderSection = ()=>{
         switch(section){
@@ -40,6 +73,7 @@ const Index=()=>{
 
     return(
         <div className="auth">
+            {check && show_pwa()}
             
             { loading && <Loader/>}
             <div className="logoArea">
@@ -56,6 +90,7 @@ const Index=()=>{
                 <div>
                     {_renderSection()}
                 </div>
+               
 
             </div>
         </div>
