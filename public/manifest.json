@@ -5,7 +5,7 @@
     "background_color": "#fff",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/client/signin",
+    "start_url": "/",
     "icons":[
         {
            "src": "maskable.png",
