@@ -60,7 +60,23 @@ function App() {
     }
   };
 
+  const promptPWA = async ()=>{
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+    if (deferredPrompt !== null) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+          deferredPrompt = null;
+      }
+  }
+  }
+
 const RenderRouter = (route)=>{
+  
   
   document.title = route.title || 'Jupit App';
   const  swal= {
@@ -137,6 +153,7 @@ const RenderRouter = (route)=>{
   return (
     <div className="App">
       <ToastContainer/>
+      {promptPWA()}
       
       <GlobalProvider>
         <BrowserRouter>
