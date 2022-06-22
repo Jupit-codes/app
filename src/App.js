@@ -61,12 +61,12 @@ function App() {
   };
 
   const promptPWA = async ()=>{
-    let deferredPrompt;
+    // let deferredPrompt;
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-        deferredPrompt = e;
-        console.log("Env",e)
-    });
+    // window.addEventListener('beforeinstallprompt', (e) => {
+    //     deferredPrompt = e;
+    //     console.log("Env",e)
+    // });
     
   //   if (deferredPrompt !== null) {
   //     deferredPrompt.prompt();
@@ -155,7 +155,7 @@ const RenderRouter = (route)=>{
   return (
     <div className="App">
       <ToastContainer/>
-      {promptPWA()}
+     
       
       <GlobalProvider>
         <BrowserRouter>
