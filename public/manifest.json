@@ -2,10 +2,10 @@
     "name": "Jupit",
     "short_name": "Jupit",
     "theme_color": "#1c1c93",
-    "background_color": "#1c1c93",
+    "background_color": "#fff",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/client/signin",
     "icons":[
         {
            "src": "maskable.png",
