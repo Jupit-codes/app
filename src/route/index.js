@@ -174,14 +174,20 @@ const route = [
         component:Test,
 
     },
-    
     {
         path:'/',
-        title:'Home | Jupit',
+        title:'Client SignIn | Jupit',
         isAuthenticated:false,
-        component:Home,
+        component:Login,
+    }
+    
+    // {
+    //     path:'/',
+    //     title:'Home | Jupit',
+    //     isAuthenticated:false,
+    //     component:Home,
 
-    },
+    // },
     
 
    
