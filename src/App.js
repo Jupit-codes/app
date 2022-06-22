@@ -66,13 +66,14 @@ function App() {
     window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
     });
-    if (deferredPrompt !== null) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-          deferredPrompt = null;
-      }
-  }
+    console.log("Env",e)
+  //   if (deferredPrompt !== null) {
+  //     deferredPrompt.prompt();
+  //     const { outcome } = await deferredPrompt.userChoice;
+  //     if (outcome === 'accepted') {
+  //         deferredPrompt = null;
+  //     }
+  // }
   }
 
 const RenderRouter = (route)=>{
