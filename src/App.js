@@ -81,8 +81,8 @@ function App() {
 
 const RenderRouter = (route)=>{
   
-  {install && <button onClick={install}>Install</button>}
-  
+ 
+
   document.title = route.title || 'Jupit App';
   const  swal= {
                             show: true,
@@ -157,7 +157,7 @@ const RenderRouter = (route)=>{
 
   return (
     <div className="App">
-      
+       {install && <button onClick={install}>Install</button>}
       <ToastContainer/>
       <GlobalProvider>
         <BrowserRouter>
