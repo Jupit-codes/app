@@ -1,4 +1,4 @@
-import Home from '../container/Home'
+// import Home from '../container/Home'
 import About from '../container/Aboutus'
 import Learn from '../container/Learn'
 import Faq from '../container/Faq'
