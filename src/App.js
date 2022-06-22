@@ -65,8 +65,9 @@ function App() {
 
     window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
+        console.log("Env",e)
     });
-    console.log("Env",e)
+    
   //   if (deferredPrompt !== null) {
   //     deferredPrompt.prompt();
   //     const { outcome } = await deferredPrompt.userChoice;
