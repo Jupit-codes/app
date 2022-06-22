@@ -10,10 +10,12 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { toast,ToastContainer } from 'react-toastify';
 import SweetAlert2 from 'react-sweetalert2';
+import { usePWAInstall } from 'react-use-pwa-install'
 function App() {
 
   const [isLoading, setLoading] = useState(true);
   const history = useHistory();
+  const install = usePWAInstall()
   function fakeRequest() {
     return new Promise(resolve => setTimeout(() => resolve(), 2500));
   }
@@ -154,9 +156,8 @@ const RenderRouter = (route)=>{
 
   return (
     <div className="App">
+      {install && <button onClick={install}>Install</button>}
       <ToastContainer/>
-     
-      
       <GlobalProvider>
         <BrowserRouter>
         
