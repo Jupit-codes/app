@@ -20,7 +20,7 @@ const Index=({openClose})=>{
 const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
 const kyc = reactLocalStorage.getObject('kyc')
 const pwaprompt = reactLocalStorage.get('pwa-data');
-    const [pwaprompter,setpwaprompter] = useState(true);
+    const [pwaprompter,setpwaprompter] = useState(false);
     const [response,setresponse] = useState()
     const [actiondata,setactiondata] = useState()
    useEffect(()=>{
