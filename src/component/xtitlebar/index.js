@@ -17,11 +17,11 @@ import Settingx from '../../assets/images/utility/settings.png'
 import Library from '../../assets/images/utility/kyc.png'
 import Schedule from '../../assets/images/utility/transaction.png'
 
-import DashboardActive from '../../assets/images/utility/active/dashboard-active.png'
-import ExchangeActive from '../../assets/images/utility/active/exchange-active.png'
-import SettingsActive from '../../assets/images/utility/active/settings-active.png'
-import LibraryActive from '../../assets/images/utility/active/kyc-active.png'
-import ScheduleActive from '../../assets/images/utility/active/transaction-active.png'
+import DashboardActive from '../../assets/images/utility/active/newer/dashboard-active.ico'
+import ExchangeActive from '../../assets/images/utility/active/newer/exchange-active.ico'
+import SettingsActive from '../../assets/images/utility/active/newer/settings-active.ico'
+import LibraryActive from '../../assets/images/utility/active/newer/kyc-active.png'
+import ScheduleActive from '../../assets/images/utility/active/newer/transaction-active.ico'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { Link } from "react-router-dom";
 const Index = ()=>{
