@@ -19,8 +19,10 @@ const Index=({openClose})=>{
 
 const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
 const kyc = reactLocalStorage.getObject('kyc')
-const pwaprompt = reactLocalStorage.get('pwa');
-    const [pwaprompter,setpwaprompter] = useState(false)
+const pwaprompt = reactLocalStorage.get('pwa-data');
+    const [pwaprompter,setpwaprompter] = useState(true);
+    const [response,setresponse] = useState()
+    const [actiondata,setactiondata] = useState()
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -31,7 +33,11 @@ const pwaprompt = reactLocalStorage.get('pwa');
    },[USER_data])
 
    const showInAppInstallPromotion= (action)=>{
-    setpwaprompter(true);
+    if(!reactLocalStorage.get('pwa-data')){
+        setactiondata(action);
+        setpwaprompter(true);
+    }
+    
    }
 
    useEffect(()=>{
@@ -80,9 +86,13 @@ const pwaprompt = reactLocalStorage.get('pwa');
        
    },[])
 
+   useEffect(()=>{
+    console.log('response',response)
+   },[response])
+
     return (
         <div className={openClose ? 'bodyOpen':'bodyClose'}>
-            {pwaprompter && <PwaModal closePWA={setpwaprompter}/>}
+            {pwaprompter && <PwaModal closePWA={setpwaprompter} sendresponse={setresponse} action={setactiondata}/>}
            {/* <WelcomeNote/> */}
            {/* <Section_1/> */}
            {/* <Section_2/>
