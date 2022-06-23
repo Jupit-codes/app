@@ -41,7 +41,7 @@ const pwaprompt = reactLocalStorage.get('pwa-data');
    }
 
    useEffect(()=>{
-    
+    console.log('useeffect called');
     window.addEventListener('beforeinstallprompt', (e) => {
     // Prevents the default mini-infobar or install dialog from appearing on mobile
     e.preventDefault();
@@ -51,6 +51,7 @@ const pwaprompt = reactLocalStorage.get('pwa-data');
     // Your own UI doesn't have to be a single element, you
     // can have buttons in different locations, or wait to prompt
     // as part of a critical journey.
+    console.log('tester',deferredPrompt)
     showInAppInstallPromotion(deferredPrompt);
     });
    },[])
