@@ -52,16 +52,7 @@ const [actiondata,setactiondata] = useState()
     return null
   }
 
-  const onClickInstall = async () => {
-    const didInstall = await promptInstall()
-    if (didInstall) {
-      // User accepted PWA install
-      console.log('User accepted  Installation')
-    }
-    else{
-        console.log('User denied the installation')
-    }
-  }
+  
 
    const Base_url = process.env.REACT_APP_BACKEND_URL;
    const kycFetch = async ()=>{
