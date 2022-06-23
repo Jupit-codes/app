@@ -49,7 +49,7 @@ const [actiondata,setactiondata] = useState()
     //     <button onClick={onClickInstall}>Prompt PWA Install</button>
     //   )
     return <PwaModal closePWA={setpwaprompter} sendresponse={setresponse} action={setactiondata}/>
-    return null
+   
   }
 
   
