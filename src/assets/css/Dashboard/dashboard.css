@@ -9,9 +9,7 @@
 
 .tabCustom{
     display: none;
-   
-   
-      
+ 
 
 }
 
@@ -22,14 +20,20 @@ and (max-device-width:700px)
     .tabCustom{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
+        
         background-color: #fff;
-        height: 55px;
         position: fixed;
         z-index: 10000;
         top:90%;
+        bottom: 0px;
+    }
+    .tabCustom > div{
+        flex:1 1 cal(25%-20px);
+        margin: 10px;
+
     }
 
 }
