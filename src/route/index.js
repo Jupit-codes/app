@@ -1,44 +1,44 @@
 // import Home from '../container/Home'
-import About from '../container/Aboutus'
-import Learn from '../container/Learn'
-import Faq from '../container/Faq'
-import Contact from '../container/Contact'
+// import About from '../container/Aboutus'
+// import Learn from '../container/Learn'
+// import Faq from '../container/Faq'
+// import Contact from '../container/Contact'
 import Login from '../container/Login'
 import Register from '../container/Register'
 import Dashboard from '../container/Dashboard'
-import Test from '../container/Test'
+
 import KYC from '../container/Kyc'
 import Send from '../container/Send'
 import ChangePassword from '../container/Changepassword'
 const route = [
-    {
-        path:'/aboutus',
-        title:'About | Jupit',
-        isAuthenticated:false,
-        component:About,
+    // {
+    //     path:'/aboutus',
+    //     title:'About | Jupit',
+    //     isAuthenticated:false,
+    //     component:About,
 
-    },
-    {
-        path:'/learnwithus',
-        title:'Learn | Jupit',
-        isAuthenticated:false,
-        component:Learn,
+    // },
+    // {
+    //     path:'/learnwithus',
+    //     title:'Learn | Jupit',
+    //     isAuthenticated:false,
+    //     component:Learn,
 
-    },
-    {
-        path:'/faq',
-        title:'Faq | Jupit',
-        isAuthenticated:false,
-        component:Faq,
+    // },
+    // {
+    //     path:'/faq',
+    //     title:'Faq | Jupit',
+    //     isAuthenticated:false,
+    //     component:Faq,
 
-    },
-    {
-        path:'/contact-us',
-        title:'Contact Us | Jupit',
-        isAuthenticated:false,
-        component:Contact,
+    // },
+    // {
+    //     path:'/contact-us',
+    //     title:'Contact Us | Jupit',
+    //     isAuthenticated:false,
+    //     component:Contact,
 
-    },
+    // },
     {
         path:'/user/changepassword/:codeid/:userid',
         title:'Reset Password | Jupit',
@@ -167,13 +167,7 @@ const route = [
     },
     
     
-    {
-        path:'/test',
-        title:'Client Dashboard | Jupit',
-        isAuthenticated:false,
-        component:Test,
-
-    },
+    
     {
         path:'/',
         title:'Client SignIn | Jupit',
