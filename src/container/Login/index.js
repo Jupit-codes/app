@@ -75,7 +75,7 @@ const Index=()=>{
             </div>
             <div className="formarea">
                 <div className="mobile-logo"><Link to='/'><img src={Jupit} /></Link></div>
-                <div>{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
+                <div className="errorShowcase">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
                 <div className="desktop-logo"><Link to='/'><img src={Jupit} /></Link></div>
                
                 <div className="welcome-back">Welcome Back!</div>
