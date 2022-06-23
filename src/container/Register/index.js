@@ -25,7 +25,7 @@ const Index=()=>{
                 <div>{data && <AlertSuccess itemData={data.message} itemState={true}/>}</div>
                 <div><Link to='/'><img src={Jupit} /></Link></div>
                     
-                    <div className="logincred">Fill the form below to have an account with us.</div>
+                    <div className="logincred_reg">Fill the form below to have an account with us.</div>
                     <div className="formClass">
                         <RegisterUI Form={useForm()}/>
                     </div>
