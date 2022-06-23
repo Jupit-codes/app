@@ -47,6 +47,10 @@ const [actiondata,setactiondata] = useState()
         console.log('Install pls');
         return <PwaModal closePWA={setpwaprompter} sendresponse={setresponse} action={setactiondata}/>
     }
+    else{
+        console.log('isInstallPromptSupported',isInstallPromptSupported)
+        console.log('isStandalone',isStandalone)
+    }
    
   }
 
