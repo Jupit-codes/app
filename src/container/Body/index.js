@@ -1,5 +1,4 @@
 import React,{useContext, useEffect, useState} from "react";
-
 import '../../assets/css/Body/body.css';
 import WelcomeNote from '../../layout/BodyLayout/WelcomeNote';
 import Section_1 from '../../layout/BodyLayout/Section_1';
