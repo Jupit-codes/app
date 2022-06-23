@@ -14,15 +14,17 @@ import { reactLocalStorage } from "reactjs-localstorage";
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
 import axios from "axios";
 import PwaModal from '../../utils/modal/pwa'
+import usePWA from 'react-pwa-install-prompt'
 
 const Index=({openClose})=>{
 
 const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
 const kyc = reactLocalStorage.getObject('kyc')
 const pwaprompt = reactLocalStorage.get('pwa-data');
-    const [pwaprompter,setpwaprompter] = useState(false);
-    const [response,setresponse] = useState()
-    const [actiondata,setactiondata] = useState()
+const [pwaprompter,setpwaprompter] = useState(false);
+const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA()
+const [response,setresponse] = useState()
+const [actiondata,setactiondata] = useState()
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -40,21 +42,25 @@ const pwaprompt = reactLocalStorage.get('pwa-data');
     
    }
 
-   useEffect(()=>{
-    console.log('useeffect called');
-    window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevents the default mini-infobar or install dialog from appearing on mobile
-    e.preventDefault();
-    // Save the event because you'll need to trigger it later.
-    let deferredPrompt = e;
-    // Show your customized install prompt for your PWA
-    // Your own UI doesn't have to be a single element, you
-    // can have buttons in different locations, or wait to prompt
-    // as part of a critical journey.
-    console.log('tester',deferredPrompt)
-    showInAppInstallPromotion(deferredPrompt);
-    });
-   },[])
+   const renderInstallButton = () => {
+    if (isInstallPromptSupported && isStandalone)
+
+      return (
+        <button onClick={onClickInstall}>Prompt PWA Install</button>
+      )
+    return null
+  }
+
+  const onClickInstall = async () => {
+    const didInstall = await promptInstall()
+    if (didInstall) {
+      // User accepted PWA install
+      console.log('User accepted  Installation')
+    }
+    else{
+        console.log('User denied the installation')
+    }
+  }
 
    const Base_url = process.env.REACT_APP_BACKEND_URL;
    const kycFetch = async ()=>{
