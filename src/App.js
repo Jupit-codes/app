@@ -157,7 +157,7 @@ const RenderRouter = (route)=>{
 
   return (
     <div className="App">
-       {/* {install && <button onClick={install}>Install</button>} */}
+       {install && <button onClick={install}>Install</button>}
       <ToastContainer/>
       <GlobalProvider>
         <BrowserRouter>
