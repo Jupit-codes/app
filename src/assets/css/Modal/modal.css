@@ -26,6 +26,18 @@
     margin-top: 40px;
 }
 
+.modalbodypwa{
+    width: 500px;
+    height: 400px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    margin-top: 40px;
+}
+
 .modalContainerCreatepin{
     /* position: absolute;
    

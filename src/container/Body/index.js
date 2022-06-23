@@ -13,11 +13,14 @@ import { GlobalContext } from "../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
 import axios from "axios";
+import PwaModal from '../../utils/modal/pwa'
 
 const Index=({openClose})=>{
 
 const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userdetailsDispatch} = useContext(GlobalContext);
 const kyc = reactLocalStorage.getObject('kyc')
+const pwaprompt = reactLocalStorage.get('pwa');
+    const [pwaprompter,setpwaprompter] = useState(false)
    useEffect(()=>{
        let _id = reactLocalStorage.getObject('user')._id;
        
@@ -26,6 +29,25 @@ const kyc = reactLocalStorage.getObject('kyc')
             
         }
    },[USER_data])
+
+   const showInAppInstallPromotion= (action)=>{
+    setpwaprompter(true);
+   }
+
+   useEffect(()=>{
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevents the default mini-infobar or install dialog from appearing on mobile
+    e.preventDefault();
+    // Save the event because you'll need to trigger it later.
+    let deferredPrompt = e;
+    // Show your customized install prompt for your PWA
+    // Your own UI doesn't have to be a single element, you
+    // can have buttons in different locations, or wait to prompt
+    // as part of a critical journey.
+    showInAppInstallPromotion(deferredPrompt);
+    });
+   },[])
 
    const Base_url = process.env.REACT_APP_BACKEND_URL;
    const kycFetch = async ()=>{
@@ -60,6 +82,7 @@ const kyc = reactLocalStorage.getObject('kyc')
 
     return (
         <div className={openClose ? 'bodyOpen':'bodyClose'}>
+            {pwaprompter && <PwaModal closePWA={setpwaprompter}/>}
            {/* <WelcomeNote/> */}
            {/* <Section_1/> */}
            {/* <Section_2/>
