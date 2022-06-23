@@ -29,27 +29,27 @@ const Index = ()=>{
                 <img src={collapselogo} className="logoybar"/>
             </div>
             <div className='navigationContainer'>
-                <Link to="/client">
+                <Link to="/client"  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                         <div className='navigationIcon'> <img src={!pathname[2] ? DashboardActive: Dashboard}/> </div> <div className={ !pathname[2] ? 'navigationText active': 'navigationText nonactive'}>Dashboard</div>
                     </div>
                 </Link>
-                <Link to='/client/wallet'>
+                <Link to='/client/wallet'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                         <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Exchange</div>
                     </div>
                 </Link>
-                <Link to='/client/kyc'>
+                <Link to='/client/kyc'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                     <div className='navigationIcon'> <img src={pathname[2]=== "kyc"? LibraryActive : Library}/> </div> <div  className={pathname[2]=== "kyc" ? 'navigationText active': 'navigationText nonactive'} >Kyc</div>
                     </div>
                 </Link>
-                <Link to='/client/transactions-history'>
+                <Link to='/client/transactions-history'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                     <div className='navigationIcon'> <img src={pathname[2] === "transactions-history" ? ScheduleActive :Schedule}/> </div> <div  className={pathname[2]=== "transactions-history" ? 'navigationText active': 'navigationText nonactive'}>Transactions</div>
                     </div>
                 </Link>
-                <Link to="/client/settings">
+                <Link to="/client/settings"  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                     <div className='navigationIcon'> <img src={pathname[2]=== "settings" ? SettingsActive : Settings}/> </div> <div  className={pathname[2]=== "settings" ? 'navigationText active': 'navigationText nonactive'}>Settings</div>
                     </div>
