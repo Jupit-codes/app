@@ -15,7 +15,7 @@ import Alas from './utils/modal/pwa'
 function App() {
 
   const [isLoading, setLoading] = useState(true);
-  const [modal,setmodal] = useState(false);
+  const [modal,setmodal] = useState(true);
   const history = useHistory();
   const install = usePWAInstall()
   function fakeRequest() {
@@ -159,7 +159,7 @@ const RenderRouter = (route)=>{
 
   return (
     <div className="App">
-       {install && !modal && <Alas closePWA={setmodal} />}
+       {install && modal && <Alas closePWA={setmodal} />}
       <ToastContainer/>
       <GlobalProvider>
         <BrowserRouter>
