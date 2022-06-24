@@ -497,7 +497,7 @@ const Index = ()=>{
                     {_renderChartComponent()}
                     
                 </div>
-                <div className={component !== "Naira" ? 'Transaction-TopUp' :'d-none'}>
+                {/* <div className={component !== "Naira" ? 'Transaction-TopUp' :'d-none'}>
                     <div className={_selectClass()}>
                         {_buy()}
                     </div>
@@ -505,7 +505,7 @@ const Index = ()=>{
                         {_Sell()}
 
                     </div>
-                </div>
+                </div> */}
 
                 
                

@@ -298,7 +298,7 @@ const Index =()=>{
     },[ReceipentAddress])
     const handleSend = ()=>{
         history.push({
-            pathname:'/client/wallet',
+            pathname:'/client/exchange',
             state:{wallettype:'Usdt'}
         })
     }

@@ -16,6 +16,7 @@ import '../../assets/css/Dashboard/dashboard.css'
 import SellUSDT from '../../container/SellUsdt'
 import SellBTC from '../../container/SellBtc'
 import Withdrawal from '../../container/Withdrawal'
+import Exchange from '../../container/Exchange'
 import { useLocation } from "react-router";
 import { reactLocalStorage } from "reactjs-localstorage";
 
@@ -76,6 +77,9 @@ const Index=()=>{
                 break;
             case '/client/withdrawal':
                 return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/exchange':
+                return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
             
             

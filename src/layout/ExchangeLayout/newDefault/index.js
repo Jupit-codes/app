@@ -24,11 +24,11 @@ import DepositModal from '../../../utils/modal/depositModal.js'
 const Index = ()=>{
    const location =  useLocation()
    const history = useHistory();
-    const [component,setComponent] = useState('Naira');
+    const [component,setComponent] = useState('Btc');
     const[showButton,setshowButton]=useState(false)
     const [openModal,setopenModal] = useState(false);
     const [openModalUsdt,setopenModalUsdt] = useState(false);
-    const [activeButton,setActivebutton] = useState('Naira')
+    const [activeButton,setActivebutton] = useState('Btc')
     
     // console.log(reactLocalStorage.getObject('kyc'))
     const [kycLevel1,setkycLevel1] = useState('');
@@ -188,9 +188,7 @@ const Index = ()=>{
     
     const _renderComponent = ()=>{
         switch (component) {
-            case 'Naira':
-                return <NairaWallet comp={setComponent}/>
-                break;
+           
             case 'Btc':
                 return <BtcWallet comp={setComponent}/>
                 break;
@@ -204,9 +202,7 @@ const Index = ()=>{
     }
     const _renderChartComponent = ()=>{
         switch (component) {
-            case 'Naira':
-                return <NairaWalletChart comp={setComponent}/>
-                break;
+           
             case 'Btc':
                 return <BtcWalletChart comp={setComponent}/>
                 break;
@@ -426,12 +422,12 @@ const Index = ()=>{
            {depositmodal && <DepositModal closeModalDeposit={setdepositmodal}/>}
                 <div className='cardClassTab'>
                     <div className='cardClassTab-flex1'>
-                        Wallet Assets
+                        Exchange 
                     </div>
                     <div className='cardClassTab-flex2'>
-                        <div className={activeButton === 'Naira'? 'trans transFlexNAIRA':'trans'} onClick={()=>{changeTransTo('Naira')}}>
+                        {/* <div className={activeButton === 'Naira'? 'trans transFlexNAIRA':'trans'} onClick={()=>{changeTransTo('Naira')}}>
                                     NAIRA WALLET
-                        </div>
+                        </div> */}
                         <div className={activeButton === 'Btc'? 'trans transFlexBTC':'trans'} onClick={()=>{changeTransTo('Btc')}}>
                                     BTC WALLET
                         </div>
@@ -478,7 +474,7 @@ const Index = ()=>{
            </div>
 
            <div style={{height:'100%',minHeight:'50vh'}}>
-               <div className='Transaction-TopUp'>
+               {/* <div className='Transaction-TopUp'>
                     <div className={_selectClass()}>
                         {_showTopUP()}
                     </div>
@@ -486,18 +482,8 @@ const Index = ()=>{
                         {_showWithdrawal()}
 
                     </div>
-                </div>
-                <div className='overviewMarket'>
-                    <div>
-                        Overview Balance<br/>
-                        <span>Wallet Transaction processed on monthly basis</span>
-                    </div>
-                </div>
-                <div>
-                    {_renderChartComponent()}
-                    
-                </div>
-                <div className={component !== "Naira" ? 'Transaction-TopUp' :'d-none'}>
+                </div> */}
+                    <div className={component !== "Naira" ? 'Transaction-TopUp' :'d-none'}>
                     <div className={_selectClass()}>
                         {_buy()}
                     </div>
@@ -506,6 +492,23 @@ const Index = ()=>{
 
                     </div>
                 </div>
+
+
+
+
+                
+                <div className='overviewMarket'>
+                    <div>
+                        Overview Balance<br/>
+                        <span>Wallet Transaction processed on monthly basis</span>
+                    </div>
+                </div>
+
+                <div>
+                    {_renderChartComponent()}
+                    
+                </div>
+                
 
                 
                

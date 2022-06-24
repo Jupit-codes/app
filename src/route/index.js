@@ -6,6 +6,7 @@
 import Login from '../container/Login'
 import Register from '../container/Register'
 import Dashboard from '../container/Dashboard'
+import Exchange from '../container/Exchange'
 
 import KYC from '../container/Kyc'
 import Send from '../container/Send'
@@ -146,6 +147,13 @@ const route = [
     },
     {
         path:'/client/withdrawal',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
+
+    },
+    {
+        path:'/client/exchange',
         title:'Client Dashboard | Jupit',
         isAuthenticated:true,
         component:Dashboard,

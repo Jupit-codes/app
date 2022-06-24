@@ -39,6 +39,11 @@ const Index = ()=>{
                         <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Wallet</div>
                     </div>
                 </Link>
+                <Link to='/client/exchange'  style={{textDecoration:"none"}}>
+                    <div className='navigation'>
+                        <div className='navigationIcon'> <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "exchange" ? 'navigationText active': 'navigationText nonactive'}>Exchange</div>
+                    </div>
+                </Link>
                 <Link to='/client/kyc'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                     <div className='navigationIcon'> <img src={pathname[2]=== "kyc"? LibraryActive : Library}/> </div> <div  className={pathname[2]=== "kyc" ? 'navigationText active': 'navigationText nonactive'} >Kyc</div>
