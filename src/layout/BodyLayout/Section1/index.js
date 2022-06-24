@@ -10,6 +10,7 @@ import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { useContext, useEffect, useState } from 'react'
+import NumberFormat from 'react-number-format'
 const Index = ()=>{
     const [percentageBTC, setpercentageBTC]= useState()
     const [percentageUSDT ,setpercentageUSDT]= useState()
@@ -29,12 +30,36 @@ const Index = ()=>{
             
             setpercentageBTC(parseFloat(xBTC).toFixed(5));
             setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
-            setbtcprice(data.BTC.USD.PRICE);
-            setusdtprice(data.USDT.USD.PRICE);
+            setbtcprice(parseFloat(data.BTC.USD.PRICE)- 150);
+            setusdtprice(parseFloat(data.USDT.USD.PRICE) );
         }
         
 
    },[data])
+
+   const seperate = (amount)=>{
+    var delimiter = ","; // replace comma if desired
+	var a = amount.split('.',2)
+	var d = a[1];
+	var i = parseInt(a[0]);
+	if(isNaN(i)) { return ''; }
+	var minus = '';
+	if(i < 0) { minus = '-'; }
+	i = Math.abs(i);
+	var n = new String(i);
+	var a = [];
+	while(n.length > 3) {
+		var nn = n.substr(n.length-3);
+		a.unshift(nn);
+		n = n.substr(0,n.length-3);
+	}
+	if(n.length > 0) { a.unshift(n); }
+	n = a.join(delimiter);
+	if(d.length < 1) { amount = n; }
+	else { amount = n + '.' + d; }
+	amount = minus + amount;
+	return amount;
+   }
 
    const _renderRateBig =()=>{
     if(percentageBTC <0){
@@ -94,7 +119,8 @@ const _renderRateUsdtBig =()=>{
                         <span>BTC</span><span><img src={Equivalent}/></span><span>USD</span>
                     </div>
                     <div className='asset-value'>
-                        {btcprice}
+                        {/* {btcprice} */}
+                        <NumberFormat value={btcprice} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                     </div>
                     <div className='trend-div'>
                         {_renderRate()}
@@ -113,7 +139,8 @@ const _renderRateUsdtBig =()=>{
                         <span>USD</span><span><img src={Equivalent}/></span><span>USD</span>
                     </div>
                     <div className='asset-value'>
-                       {usdtprice}
+                       {/* {usdtprice} */}
+                       <NumberFormat value={usdtprice} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                     </div>
                     <div className='trend-div'>
                         {/* <img src={Downward}/><span>{percentageUSDT}%</span> */}

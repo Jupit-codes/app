@@ -40,6 +40,7 @@
     "react-icons": "^4.3.1",
     "react-iframe": "^1.8.0",
     "react-native-pager-view": "^5.4.9",
+    "react-number-format": "^4.9.3",
     "react-owl-carousel": "^2.3.3",
     "react-player": "^2.9.0",
     "react-pwa-add-to-homescreen": "^1.1.7",

@@ -579,7 +579,7 @@ const Index =()=>{
             <div className='SendBody'>
                 <div className='SendBodyI'>
                     <div className='currentRate'>&#36;{currentRate}</div>
-                    <div className='sendBTCFrom'>Sell USDT</div>
+                    <div className='sendBTCFrom'>Sell USDT @ &#x20A6;{sellrate}</div>
                     <div className='fromBTC'>
                         <div>
                             {/* <Icon name="btc" size={30} /> <span>BTC Wallet</span> */}
