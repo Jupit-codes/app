@@ -1,5 +1,5 @@
 import '../../assets/css/xsidebar/xsidebar.css'
-import logo from '../../assets/images/utility/logo.png'
+import logo from '../../assets/images/utility/logo_new.svg'
 import collapselogo from '../../assets/images/logo_1.png'
 import Dashboard from '../../assets/images/utility/dashboard.png'
 import Exchange from '../../assets/images/utility/exchange.png'
