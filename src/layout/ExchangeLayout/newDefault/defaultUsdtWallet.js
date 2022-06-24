@@ -8,16 +8,16 @@ import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import Icon from "react-crypto-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
-// import ReceiveModal from '../../../utils/modal/customModal'
+import ReceiveModal from '../../../utils/modal/customModal'
+import ReceiveUSDT from '../../../utils/modal/usdtreceivemodal'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
-import ReceiveModal from '../../../utils/modal/receiveModal.js'
-
-const Index = ({comp})=>{
-
+import Tether from '../../../assets/images/tether.png'
+const Index = ()=>{
     const history = useHistory();
     const [userBtc ,setuserBtc]= useState();
-    const [rate, setrate]=useState([]);
+    const [userUsdt ,setuserUsdt]= useState();
+    const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
     const [usdtprice, setusdtprice]= useState()
@@ -25,15 +25,16 @@ const Index = ({comp})=>{
     const [openModal, setopenModal] = useState(false);
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     const [refresh,setrefresh] = useState()
+  
     const _renderRate =()=>{
         if(percentageBTC <0){
-            return <div className='bullish'><span>{percentageBTC}%</span></div>
+            return <div className='bullish'><span>{percentageUSDT}%</span></div>
         }
         else if(percentageBTC == 0){
-            return <div className='neutral'><span>{percentageBTC}%</span></div>
+            return <div className='neutral'><span>{percentageUSDT}%</span></div>
         }
         else if(percentageBTC > 0){
-            return <div className='bearish'><span>{percentageBTC}%</span></div>
+            return <div className='bearish'><span>{percentageUSDT}%</span></div>
         }
     }
 
@@ -48,7 +49,7 @@ const Index = ({comp})=>{
             
             setpercentageBTC(parseFloat(xBTC).toFixed(5));
             setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
-            setbtcprice(parseFloat(data.BTC.USD.PRICE) - 150);
+            setbtcprice(data.BTC.USD.PRICE);
             setusdtprice(data.USDT.USD.PRICE);
         }
         
@@ -67,12 +68,13 @@ const Index = ({comp})=>{
         data:JSON.stringify({_id:_id})
     })
     .then((res)=>{
-        setrefresh('')
-
-        setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
-        reactLocalStorage.remove('user');
-        reactLocalStorage.setObject('user',res.data)
         
+        // setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+        setuserUsdt(res.data.usdt_wallet[0].balance.$numberDecimal);
+        
+        reactLocalStorage.remove('user')
+        reactLocalStorage.setObject('user',res.data)  
+        setrefresh('')
       
     })
     .catch((err)=>{
@@ -82,39 +84,36 @@ const Index = ({comp})=>{
     })
 }
  useEffect(()=>{
+    setuserBtc(reactLocalStorage.getObject('user').usdt_wallet[0].balance.$numberDecimal)
      let _id = reactLocalStorage.getObject('user')._id;
+     
      getbalance(_id)
  },[])
 
 
-   
+   //1 SUN = 0.199
 
-  const SendBTC = ()=>{
-      history.push('/client/sendbtc')
+  const SendUSDT = ()=>{
+      history.push('/client/sendusdt')
   }
-
-
 
     return(
         <div>
-            
-                <div className='newRate'>
-                    
+             <div className='newRate'>
                     <div>
-                        <Icon name="btc" size={25} /> <span>Bitcoin Wallet</span>
-                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice}&nbsp;(USD/BTC)</span></div>
+                        <img src={Tether} style={{width:25}}/> <span>USDT Wallet</span>
+                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{usdtprice}&nbsp;(USD/USDT)</span></div>
                     </div>
-                    <div className='ratepercentage'>
+                    <div>
                         {_renderRate()}
                     </div>
                 </div>
-                
              <div className='VerveCover'>
-                            {/* <div className='verve cardNairaReplace' onClick={()=>{comp('Naira')}}>
-                            
+                            {/* <div className='verve cardBtcReplace'>
+                               
                             </div> */}
                             <div className='master'>
-                                <div class="master-child master-child-btc">
+                                <div class="master-child cardUsdtReplace">
                                 <div className='card_section_a'>
                                         <div>
                                             <img src={jupit}/>
@@ -126,14 +125,11 @@ const Index = ({comp})=>{
                                     </div>
                                     <div className='card_section_b'>
                                         <div className='card_section_main'>
-                                            BTC Balance
+                                            USDT Balance
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        {userBtc}BTC
-                                        </div>
-                                        <div className='card_section_balance_equivalent'>
-                                            USD EQUIVALENT:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3)}
+                                            {userUsdt}&nbsp;TETHER
                                             <div>{refresh}</div>
                                         </div>
                                     </div>
@@ -146,19 +142,19 @@ const Index = ({comp})=>{
                                             CARD HOLDER<br/>
                                             {reactLocalStorage.getObject('user').username.toUpperCase()}
                                         </div>
-                                        <div className="cardimg">
+                                        <div className='cardimg'>
                                             <img src={cardType} />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {/* <div className='visa cardNaira' onClick={()=>{comp('Usdt')}}>
+                            {/* <div className='visa cardNairaReplace coat'>
                                 
                             </div> */}
                         </div>
 
-                        <div class="btn_open_more ">
-                            <div className='btn_open_moreBTN cardBtcReplace' onClick={SendBTC}>
+                        <div class="btn_open_more">
+                            <div className='btn_open_moreBTN cardUsdtReplace' onClick={SendUSDT}>
                                 View More
                             </div>
                         </div>

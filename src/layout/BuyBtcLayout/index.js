@@ -258,7 +258,7 @@ const Index =()=>{
         Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(data.BTC.USD.PRICE);
+            setcurrentRate(parseFloat(data.BTC.USD.PRICE) - 150);
             
         }
         

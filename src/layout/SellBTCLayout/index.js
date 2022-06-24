@@ -259,7 +259,7 @@ const Index =()=>{
         Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(data.BTC.USD.PRICE);
+            setcurrentRate(parseFloat(data.BTC.USD.PRICE) - 150);
             
         }
         
@@ -452,24 +452,24 @@ const Index =()=>{
     const buycoin = ()=>{
         
 
-        let kycprogress = 0
-        if(kycLevel1 === "Verified"){
+    //     let kycprogress = 0
+    //     if(kycLevel1 === "Verified"){
             
-            kycprogress += 25
-        }
+    //         kycprogress += 25
+    //     }
 
-        if(kycLevel2 === "customeridentification.success"){
-            kycprogress += 30
-        }
+    //     if(kycLevel2 === "customeridentification.success"){
+    //         kycprogress += 30
+    //     }
 
-       if(kycprogress === 25 && usdamount > 100){
-        toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
-        return false;
-       }
-       if(kycprogress === 55 && usdamount > 500){
-        toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
-        return false;
-       }
+    //    if(kycprogress === 25 && usdamount > 100){
+    //     toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
+    //     return false;
+    //    }
+    //    if(kycprogress === 55 && usdamount > 500){
+    //     toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
+    //     return false;
+    //    }
 
         // let x = btcamount + networkFee;
 

@@ -36,7 +36,7 @@ const Index = ()=>{
                 </Link>
                 <Link to='/client/wallet'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
-                        <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Exchange</div>
+                        <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Wallet</div>
                     </div>
                 </Link>
                 <Link to='/client/kyc'  style={{textDecoration:"none"}}>
