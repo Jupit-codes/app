@@ -80,8 +80,8 @@ const onClickInstall = async () => {
                         This web app can be installed as an application.<br/> It will open on its on window and safely integrate with all platform devices features. 
                     </p>
                     <div className="installer_button">
-                        <div onClick={()=>Notnow()}>Not now</div>
-                        <div  onClick={()=>onClickInstall()}>Install</div>
+                        <div onClick={()=>{Notnow()}}>Not now</div>
+                        <div  onClick={()=>{onClickInstall()}}>Install</div>
                     </div>
 
 
