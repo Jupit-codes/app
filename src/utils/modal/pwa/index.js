@@ -3,6 +3,8 @@ import { IoClose } from "react-icons/io5"
 import { reactLocalStorage } from "reactjs-localstorage"
 import maskedlogo from '../../../assets/images/maskable.png'
 import usePWA from 'react-pwa-install-prompt'
+import { NoncurrentVersionExpiration } from "@aws-sdk/client-s3"
+import { MdOutlineNorthWest } from "react-icons/md"
 const Index=({closePWA,sendresponse,action})=>{
 
     const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA()
@@ -42,6 +44,15 @@ const onClickInstall = async () => {
     }
   }
 
+  const Notnow =()=>{
+    if(reactLocalStorage.get('pwa')){
+        closePWA(false)
+    }
+    else{
+        reactLocalStorage.set('pwa','notready');
+    }
+  }
+
     return (
         <div className="modalBackground">
         <div className='modalContainerCreatePWA'>
@@ -68,7 +79,7 @@ const onClickInstall = async () => {
                         This web app can be installed as an application.<br/> It will open on its on window and safely integrate with all platform devices features. 
                     </p>
                     <div className="installer_button">
-                        <div onClick={()=>onClickInstall()}>Not now</div>
+                        <div onClick={()=>Notnow()}>Not now</div>
                         <div  onClick={()=>onClickInstall()}>Install</div>
                     </div>
 
