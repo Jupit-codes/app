@@ -50,6 +50,7 @@ const onClickInstall = async () => {
     }
     else{
         reactLocalStorage.set('pwa','notready');
+        closePWA(false)
     }
   }
 
