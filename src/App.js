@@ -11,9 +11,11 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { toast,ToastContainer } from 'react-toastify';
 import SweetAlert2 from 'react-sweetalert2';
 import { usePWAInstall } from 'react-use-pwa-install'
+import Alas from './utils/modal/pwa'
 function App() {
 
   const [isLoading, setLoading] = useState(true);
+  const [modal,setmodal] = useState(false);
   const history = useHistory();
   const install = usePWAInstall()
   function fakeRequest() {
@@ -157,7 +159,7 @@ const RenderRouter = (route)=>{
 
   return (
     <div className="App">
-       {install && <button onClick={install}>Install</button>}
+       {install && !modal && <Alas closePWA={setmodal} />}
       <ToastContainer/>
       <GlobalProvider>
         <BrowserRouter>
