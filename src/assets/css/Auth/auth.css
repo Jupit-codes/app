@@ -90,3 +90,63 @@
     font-family: 'Jura' sans-serif;
     letter-spacing: 1px;
 }
+
+@media screen 
+and (min-device-width:200px)
+and (max-device-width:399px)
+{
+
+    .mylogo_me{
+        width: 25%;
+    }
+    .welcomeback{
+        font-size: 14px;
+    }
+    .logincred{
+        width: 100%;
+        text-align: center;
+        align-self: center;
+        font-size: 12px;
+        font-family: 'Roboto',sans-serif;
+        letter-spacing: 0px;
+    }
+    .divForm >input{
+        height: 40px;
+    }
+
+    .forgetpassword{
+        font-size: 12px;
+        font-family: 'Jura' sans-serif;
+        letter-spacing: 0px;
+    }
+
+    
+.additional{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.additional > span{
+    margin: 10px;
+    font-size: 12px;
+}
+.create_account{
+    font-size: 12px;
+}
+    
+
+    
+}
+
+
+@media screen 
+and (min-device-width:400px)
+and (max-device-width:800px)
+{
+
+    .authCard{
+        width: 80%;
+    }
+}
