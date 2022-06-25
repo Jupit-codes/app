@@ -45,11 +45,11 @@ const Index = ()=>{
                         <div className='navigationIcon'> <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "exchange" ? 'navigationText active': 'navigationText nonactive'}>Exchange</div>
                     </div>
                 </Link>
-                <Link to='/client/kyc'  style={{textDecoration:"none"}}>
+                {/* <Link to='/client/kyc'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                     <div className='navigationIcon'> <img src={pathname[2]=== "kyc"? LibraryActive : Library}/> </div> <div  className={pathname[2]=== "kyc" ? 'navigationText active': 'navigationText nonactive'} >Kyc</div>
                     </div>
-                </Link>
+                </Link> */}
                 <Link to='/client/transactions-history'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
                     <div className='navigationIcon'> <img src={pathname[2] === "transactions-history" ? ScheduleActive :Schedule}/> </div> <div  className={pathname[2]=== "transactions-history" ? 'navigationText active': 'navigationText nonactive'}>Transactions</div>
