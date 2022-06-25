@@ -33,8 +33,9 @@
    
     display: flex;
     flex-direction: row;
+    
     padding: 0px;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 .modalbodypwa >div{
     margin: 0px;
@@ -96,6 +97,8 @@
     background-color: #fff;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     padding: 25px;
     margin-top: 10px;
@@ -430,12 +433,61 @@
       left: 90%;
       cursor: pointer;
   }
+
+  @media screen
+  and (min-device-width:200px)
+  and (min-device-width:400px)
+  
+  {
+     
+
+  }
  
 
   @media only screen 
     and (min-device-width: 200px) 
     and (max-device-width: 599px)
     and (-webkit-min-device-pixel-ratio: 2) {
+     
+
+    .modalContainerCreatePWA{
+            width: 80%;
+    }
+    .modalbodypwa > div > p{
+        font-size: 12px;
+    }
+   
+
+   
+
+    .installer_button>div:nth-child(1){
+
+        width: 80px;
+        height: 30px;
+        border-radius: 20px;
+        background-color: #6c757d;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 11px;
+        margin: 5px;
+    }
+    .installer_button>div:nth-child(2){
+
+        width: 80px;
+        height: 30px;
+        border-radius: 20px;
+        background-color: #1c1c93;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 11px;
+        margin: 5px;
+    }
 
         .modalContainerCreatepin{
             width: 70%;
