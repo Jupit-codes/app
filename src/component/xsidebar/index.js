@@ -12,7 +12,8 @@ import ExchangeActive from '../../assets/images/utility/active/exchange-active.p
 import SettingsActive from '../../assets/images/utility/active/settings-active.png'
 import LibraryActive from '../../assets/images/utility/active/kyc-active.png'
 import ScheduleActive from '../../assets/images/utility/active/transaction-active.png'
-import Payout from '../../assets/images/utility/payout.png'
+import WalletActive from '../../assets/images/utility/active/wallet-active.png'
+import Wallet from '../../assets/images/utility/wallet.png'
 import Security from '../../assets/images/utility/security.png'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
@@ -36,7 +37,7 @@ const Index = ()=>{
                 </Link>
                 <Link to='/client/wallet'  style={{textDecoration:"none"}}>
                     <div className='navigation'>
-                        <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Wallet</div>
+                        <div className='navigationIcon'> <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/> </div> <div className={pathname[2]=== "wallet" ? 'navigationText active': 'navigationText nonactive'}>Wallet</div>
                     </div>
                 </Link>
                 <Link to='/client/exchange'  style={{textDecoration:"none"}}>

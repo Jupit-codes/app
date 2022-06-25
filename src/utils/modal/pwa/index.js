@@ -5,6 +5,7 @@ import maskedlogo from '../../../assets/images/maskable.png'
 import usePWA from 'react-pwa-install-prompt'
 import { NoncurrentVersionExpiration } from "@aws-sdk/client-s3"
 import { MdOutlineNorthWest } from "react-icons/md"
+import '../../../assets/css/pwa-modal.css'
 const Index=({closePWA,sendresponse,action})=>{
 
     const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA()
@@ -63,7 +64,7 @@ const onClickInstall = async () => {
                 <div className='modalText'>
                    
                     
-                    <IoClose size={25} onClick={()=>{closePWA(false)}} />
+                    
                 </div>
                 
                
