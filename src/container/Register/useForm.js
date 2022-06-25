@@ -13,8 +13,8 @@ export default ()=>{
     useEffect(()=>{
         if(data){
             if(data.status){
-                console.log('Form',Form)
-                setForm({...Form,'username':'','password':'','phonenumber':'','email':'','password':'','firstname':'','lastname':''})
+                
+                setForm({...Form,'username':'','password':'','phonenumber':'','email':'','password':'','firstname':'','lastname':'','referral':''})
                 
             }
         }

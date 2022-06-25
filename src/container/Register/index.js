@@ -15,22 +15,20 @@ const Index=()=>{
     console.log('RegisterError',error)
     
     return(
-        <div className="auth_reg">
-             { loading && <Loader/>}
-            <div className="logoArea">
-                <img src={logoArea}/>
-            </div>
-            <div className="formarea_reg">
-                <div>{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
-                <div>{data && <AlertSuccess itemData={data.message} itemState={true}/>}</div>
-                <div><Link to='/'><img src={Jupit} /></Link></div>
-                    
-                    <div className="logincred_reg">Fill the form below to have an account with us.</div>
-                    <div className="formClass">
+        <div className="auth">
+           
+                <div class="divCover">
+                <div className="authCard">
+                        <div className="mylogo_new"><Link to='/'><img src={Jupit}  className="mylogo_me"/></Link></div>
+                        <div className="logincred">Fill the fields below to have an account with us.</div>
+                        <div className="customerror">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
+                        <div className="customsuccess">{data && <AlertSuccess itemData={data.message} itemState={true}/>}</div>
                         <RegisterUI Form={useForm()}/>
-                    </div>
+                </div>
 
-            </div>
+                </div>
+            
+            
         </div>
     )
 }

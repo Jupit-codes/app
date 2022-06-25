@@ -13,6 +13,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Section1 from './section1'
 import Section2 from './section2'
+
 const Index=()=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
     const [section,setsection] = useState('Section1');
@@ -68,6 +69,7 @@ const Index=()=>{
                             <div className="mylogo_new"><Link to='/'><img src={Jupit}  className="mylogo_me"/></Link></div>
                             <div className="welcomeback"> Welcome Back</div>
                             <div className="logincred">Kindly provide your login credentials.</div>
+                            <div className="customerror">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
                             <div className="formArea">
                                 {_renderSection()}
                             </div>

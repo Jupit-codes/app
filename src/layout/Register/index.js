@@ -8,7 +8,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
 
     
     return (
-                <form className="form-input" >
+                <form className="formClass" >
                     <div className="divForm"> 
                             <input type="text" 
                                 className="form-control myform" 
@@ -55,6 +55,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                                 onChange={onChange}
                                 required/>
                         </div>
+
                         <div className="divForm">
                             <input type="password"
                               className="form-control myform"
@@ -65,9 +66,18 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                               required/>
                             
                         </div>
+                        <div className="divForm"> 
+                            <input type="text" 
+                                className="form-control myform" 
+                                placeholder="Referral Username....optional"  
+                                name="referral"  
+                                value={Form.referral || ""}
+                                onChange={onChange}
+                                required/>
+                        </div>
                         
-                        <small className="forgetpassword">
-                            By clicking the Create an Account button below, you agree to <br/><span className="create_account">Jupit's terms and service</span>
+                        <small className="acccept_terms_n_conditions">
+                            By clicking the Create an Account button below, you have agreed to Jupit's terms and service.
                         </small>
 
 
