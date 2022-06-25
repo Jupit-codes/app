@@ -38,9 +38,11 @@ const onClickInstall = async () => {
     if (didInstall) {
       // User accepted PWA install
       console.log('User accepted  Installation')
+      closePWA(false)
     }
     else{
         console.log('User denied the installation')
+        closePWA(false)
     }
   }
 
