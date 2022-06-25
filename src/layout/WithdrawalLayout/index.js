@@ -74,7 +74,7 @@ const Index =()=>{
     const [disableBTN,setDisableBTN] = useState(true)
     const [loader,setLoader] = useState(false);
     const [failedRequest,setFailedRequest] = useState(false)
-
+    const [dailytransactioncount,setdailytransactioncount] = useState()
     
 
 //    useEffect(()=>{
@@ -145,6 +145,29 @@ const Index =()=>{
         
     })
 
+   }
+
+   const getTransactionCount = (_id)=>{
+    
+    axios({
+        method: "POST",
+        url: `https://myjupit.herokuapp.com/verify/getwithrawal/count`,
+        headers:{
+            'Content-Type':'application/json',
+            
+            'Authorization':reactLocalStorage.get('token')
+        },
+        data:JSON.stringify({_id:_id})
+    })
+    .then((res)=>{
+    //    console.log(res.data)
+        setdailytransactioncount(res.data.length)
+    })
+    .catch((err)=>{
+        
+        console.log('error',err.response)
+        
+    })
    }
 
     const getbalance = (_id)=>{
@@ -230,6 +253,7 @@ const Index =()=>{
         getbalance(_id);
         _getKyc(_id);
         getRate();
+        getTransactionCount(_id);
 
     },[])
    
@@ -428,6 +452,10 @@ const Index =()=>{
        }
 
         
+       if(dailytransactioncount >5){
+        toast.error("Sorry, you have exceeded your five withdrawal limit for the day...");
+        return false;
+       }
 
         
         
