@@ -43,7 +43,7 @@ const [actiondata,setactiondata] = useState()
 
    const renderInstallButton = () => {
     if (isInstallPromptSupported && isStandalone){
-        console.log('Install pls');
+        
         return <PwaModal closePWA={setpwaprompter} sendresponse={setresponse} action={setactiondata}/>
     }
     else{
@@ -92,7 +92,7 @@ const [actiondata,setactiondata] = useState()
 
     return (
         <div className={openClose ? 'bodyOpen':'bodyClose'}>
-            {renderInstallButton()}
+            {/* {renderInstallButton()} */}
             {/* {pwaprompter && } */}
            {/* <WelcomeNote/> */}
            {/* <Section_1/> */}
