@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../assets/css/Auth/auth.css'
 import logoArea from '../../assets/images/IMG.png'
-import Jupit from '../../assets/images/logo.png'
+import Jupit from '../../assets/images/utility/logo_new.svg'
 import sendLogin from '../../context/actions/sendLogin'
 import Loader from '../../utils/loader/loader'
 import {GlobalContext} from '../../context/Provider'
@@ -34,11 +34,7 @@ const Index=()=>{
     const _renderSection = ()=>{
         switch(section){
             case 'Section1':
-                return <Section1 Next={setsection} 
-                     
-                    setUserEmail={setEmailSection}
-
-                    setUserPassword={setPasswordSection}
+                return <Section1 Next={setsection} setUserEmail={setEmailSection} setUserPassword={setPasswordSection}
                  
                  />
                 break;
@@ -66,26 +62,17 @@ const Index=()=>{
 
     return(
         <div className="auth">
-            
-            
-            { loading && <Loader/>}
-            <div className="logoArea">
-                <img src={logoArea}/>
-                
-            </div>
-            <div className="formarea">
-                <div className="mobile-logo"><Link to='/'><img src={Jupit} /></Link></div>
-                <div className="errorShowcase">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
-                <div className="desktop-logo"><Link to='/'><img src={Jupit} /></Link></div>
-               
-                <div className="welcome-back">Welcome Back!</div>
-                <div className="logincred">Kindly provide your login credentials.</div>
-                <div>
-                    {_renderSection()}
-                </div>
-               
-
-            </div>
+                <ToastContainer/>
+                <div class="divCover">
+                        <div className="authCard">
+                            <div className="mylogo_new"><Link to='/'><img src={Jupit}  className="mylogo_me"/></Link></div>
+                            <div className="welcomeback"> Welcome Back</div>
+                            <div className="logincred">Kindly provide your login credentials.</div>
+                            <div className="formArea">
+                                {_renderSection()}
+                            </div>
+                        </div>
+                </div>    
         </div>
     )
 }

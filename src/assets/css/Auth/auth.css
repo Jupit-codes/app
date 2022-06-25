@@ -1,235 +1,92 @@
 .auth{
-    height: 100vh;
     display: flex;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: url('../../images/crypto.jpg');
+    flex-direction: column;
     flex-wrap: wrap;
-    background-color: #fff;
-}
-.errorShowcase{
-    margin-top: 10%;
-}
-.auth_reg{
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #fff;
 }
 
-.auth_reg > div{
-    flex: 1 1 50%;
-}
-
-.auth > div{
-    flex: 1 1 50%;
-}
-.error_red{
-    font-size: 14px;
-    font-family: candara;
-    margin-top: 10px;
-    color:#ff0000
-}
-.logoArea{
-    background-color: #C6FCED;
+.divCover{
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height:100%;
+    min-height: 100vh;
+}
 
+
+
+
+.authCard{
+    width: 40%;
+    min-width: 50vh;
+    min-height: 50vh;
+    height: 100%;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    box-shadow: 0 0 5px #fff;
+    border-radius: 10px;
+}
+
+.mylogo_new{
+    
+    width: 100%;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+.welcomeback{
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+    letter-spacing: 1px;
 }
 .logincred{
-    font-size: 14px;
-    font-family: candara;
-}
-.welcome-back{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-.logoArea >img{
-    width: 70%;
-    animation: bounce 2s 
-    infinite alternate; 
-    margin-bottom: 30px;
-}
-.mobile-logo{
-    display: none;
-}
-
-@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
-
-.formarea{
-    align-self: center;
-    text-align: center;
-}
-.formarea_reg{
-    align-self: center;
-    text-align: center;
-}
-.divForm{
     width: 100%;
-    margin: 20px;
-    text-align: left;
-    
+    text-align: center;
+    align-self: center;
+    font-size: 13px;
+    font-family: 'Roboto',sans-serif;
+    letter-spacing: 1px;
 }
-
-.myform{
-    font-family: candara;
+.mylogo_me{
+    width: 20%;
 }
 
 .formClass{
-   display: flex;
-   width: 100%;
-   justify-content: center;
-   
+    padding: 20px;
 }
-.formClassToken{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 40px;
- }
- .return{
-     cursor: pointer;
- }
- .return span {
-     font-family: candara;
-     font-size: 14px;
- }
-
-.form-input{
-    width: 60%;
-   
+.divForm{
+    padding: 10px;
 }
-.mybtn{
-    font-family: candara;
-    background-color: #FFB74A;
+.divForm >input{
+    height: 50px;
+}
+.mybtn {
+    background-color:  #FFB74A !important;
+    
 }
 .additional{
-    text-align: left;
-    margin-left: 20px;
-    font-size: 13px;
-    font-family: candara;
-}
-
-.create_account{
-    font-weight: bold;
-    color:#00E0BB;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
+.additional > span{
+    margin: 10px;
+}
+
 .forgetpassword{
-    margin-top: 5px;
     font-size: 13px;
-    font-family: candara;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: left;
-}
-.new-customer{
-    font-size: 13px;
-    font-family: candara;
-    font-weight: bold;
-}
-
-@media screen 
-and (min-device-width:200px)
-and (max-device-width:800px)
-{
-    .logoArea{
-        display: none;
-    }
-    
-    .auth{
-        background-color: #fff;
-    }
-    .auth_reg{
-        background-color: #fff;
-        padding: 40px;
-    }
-    .form-input{
-        width: 100%;
-       
-    }
-    .myform{
-        width: 100%;
-        height: 50px;
-        
-    }
-
-    .mobile-logo{
-        display: flex;
-        justify-content: flex-start;
-        margin-left: 0px;
-        margin-top: 5%;
-       
-        
-    }
-    .desktop-logo{
-        display: none;
-    }
-    .formarea{
-       
-        display: flex;
-        justify-content: center;
-        
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-       
-        padding: 20px;
-       
-        
-    }
-    .welcome-back{
-        margin-top: 5%;
-        font-size: 18px;
-        text-align: left;
-        margin-left: 0px;
-    }
-    .logincred{
-        font-size: 16px;
-        text-align: left;
-        margin-left: 0px;
-        margin-bottom: 10px;
-    }
-    .logincred_reg{
-        font-size: 16px;
-        text-align: center;
-        margin-left: 0px;
-        margin-bottom: 10px;
-    }
-    .formClass{
-        
-        display: flex;
-        justify-content: center;
-        
-        width: 100%;
-        
-     }
-     .divForm{
-        width: 100%;
-        margin: 0px;
-        text-align: center;
-        margin-bottom: 10px;
-        
-    }
-
-     .formarea_reg{
-       
-        display: flex;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        padding:20px;
-        padding-top:20px;
-        padding-bottom: 20px;
-        justify-content: center;
-        align-items: center;
-    
-        /* background-color: #00E0BB; */
-        
-        
-    }
-    .mybtn{
-        margin-top: 10px;
-    }
-    
-   
+    font-family: 'Jura' sans-serif;
+    letter-spacing: 1px;
 }

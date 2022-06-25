@@ -63,6 +63,8 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     },[data])
     return (
         <div className="formClass">
+                    <ToastContainer/>
+                    {loading && <Loader />}
                     <form className="form-input">
                         <div className="divForm"> 
                             <input type="email" className="form-control myform" placeholder="Email Address" onChange={handleEmail} value={emailaddress} required/>
@@ -76,7 +78,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
                             <input type="submit" className="form-control mybtn" onClick={submitLogin} value="Login"/>
                         </div>
                         <div className="additional">
-                            <span className="new-customer">New Customer? </span><Link to='/client/signup'><span className="create_account">Create an Account</span></Link>
+                            <span className="new-customer">New Customer? </span><Link style={{textDecoration:'none'}} to='/client/signup'><span className="create_account">Create an Account</span></Link>
                         </div>
                         
                     </form>

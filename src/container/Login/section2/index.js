@@ -60,7 +60,7 @@ const Index = ({Next,userEmail,userPassword})=>{
         <div>
             <ToastContainer/>
             {loader && <LoaderModal/>}
-            <div className="formClassToken mt-4">
+            <div className="formClass">
                 <div className="divForm">
                         <input type="number" className="form-control myform" placeholder="Input Authenticator Token" onChange={(e)=>setToken(e.target.value)} value={token} required/>
                         
