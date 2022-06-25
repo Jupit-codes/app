@@ -77,7 +77,7 @@ const onClickInstall = async () => {
                 </div>
                 <div>
                     <p className="install_pwa_msg">Install Jupit App<br/>
-                        <small>Publisher: Jupit.app</small>
+                        <small>Publisher: Jupit</small>
                     </p>
                     <p>
                         This web app can be installed as an application.<br/> It will open on its on window and safely integrate with all platform devices features. 
