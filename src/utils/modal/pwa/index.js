@@ -6,7 +6,7 @@ import usePWA from 'react-pwa-install-prompt'
 import { NoncurrentVersionExpiration } from "@aws-sdk/client-s3"
 import { MdOutlineNorthWest } from "react-icons/md"
 import '../../../assets/css/pwa-modal.css'
-const Index=({closePWA,sendresponse,action})=>{
+const Index=({closePWA,sendresponse,action,installLib})=>{
 
     const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA()
 const handleresponse = async (response)=>{
@@ -84,7 +84,7 @@ const onClickInstall = async () => {
                     </p>
                     <div className="installer_button">
                         <div onClick={()=>{Notnow()}}>Not now</div>
-                        <div  onClick={()=>{onClickInstall()}}>Install</div>
+                        <div  onClick={installLib}>Install</div>
                     </div>
 
 
