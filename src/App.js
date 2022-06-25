@@ -159,7 +159,7 @@ const RenderRouter = (route)=>{
 
   return (
     <div className="App">
-       {modal && <Alas closePWA={setmodal} />}
+       {install && modal && <Alas closePWA={setmodal} />}
       <ToastContainer/>
       <GlobalProvider>
         <BrowserRouter>
