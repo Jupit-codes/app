@@ -65,7 +65,7 @@
 }
 .FormDiv{
     flex:1 1 80%;
-    min-height: 80vh;
+    min-height: 40vh;
     height: 100%;
     background-color: #fff;
     display: flex;
@@ -386,16 +386,28 @@ color:#fff
 .sumbalanceDiv{
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 20px;
   
     
 }
 .sumbalance{
-    width: 25%;
+    width: 40%;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 14px;
+    font-weight: bold;
+    font-family: 'Roboto',sans-serif;
+}
+
+.buyrate{
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
     font-family: 'Roboto',sans-serif;
 }
 

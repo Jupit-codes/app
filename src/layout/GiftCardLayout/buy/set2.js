@@ -2,7 +2,7 @@ import {BiArrowBack} from 'react-icons/bi'
 
 const Index = ({current,data,pickedC,message,giftcardrate})=>{
     
-    
+    console.log('data',data)
     const handleCurrency = (e)=>{
         
         if(e.target.classList.contains('selectbutton')){
@@ -14,10 +14,16 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                 }
             }
             x.classList.add('activeCurrency');
-            // console.log(x.children[0].children[1].textContent)
-            pickedC(x.children[0].children[1].textContent)
-            console.log(data[0].buyrate)
-            giftcardrate(data[0].buyrate)
+            console.log(x.children[0].children[1].textContent)
+            data[0].rate.map(d=>{
+                if(d.country === x.children[0].children[1].textContent){
+                    giftcardrate(d.buy)
+                }
+                
+            })
+            
+            pickedC(x.children[0].children[2].textContent)
+            
             message('norate')
         }
     }
@@ -32,6 +38,7 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                             
                             <div className='flagIconText'>
                                 <img src={x.image_url}/>
+                                <span className='currencySet'>{x.country_name}</span>
                                 <span className='currencySet'>{x.currency}</span>
                             </div>
                             <div className='selectbutton'>

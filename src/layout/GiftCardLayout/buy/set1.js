@@ -23,7 +23,7 @@ const Index = ({current,message,setdata,pickedB})=>{
           })
         .then(res=>{
 
-            // console.log(res.data)
+            console.log(res.data)
             setbrandloader(false)
             setallgiftcard(res.data)
             setprevData(res.data);
