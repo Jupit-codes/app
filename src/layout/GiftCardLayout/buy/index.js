@@ -32,6 +32,7 @@ const Index = ()=>{
     const [loader,setloader] = useState(false);
     const [SelectOption,setSelectOption] = useState();
     const [buyrate,setbuyrate] = useState(0);
+    const [Form,setForm] = useState({})
 
     const [pickedbrand,setpickedbrand] = useState();
     const[pickedCurrency,setpickedCurrency] = useState();
@@ -113,11 +114,11 @@ const Index = ()=>{
         }
     }
     const options = [
-        { value: 10, label: '10USD' },
-        { value: 15, label: '15USD' },
-        { value: 25, label: '25USD' },
-        { value: 50, label: '50USD' },
-        { value: 100, label: '100USD' },
+        { value: 10, label: `10${pickedCurrency}` },
+        { value: 15, label: `15${pickedCurrency}` },
+        { value: 25, label: `25${pickedCurrency}` },
+        { value: 50, label: `50${pickedCurrency}` },
+        { value: 100, label: `100${pickedCurrency}` },
        
         { value: 'others', label: 'Others' },
         
@@ -184,16 +185,50 @@ const Index = ()=>{
         })
     }
     const See = ()=>{
-        // console.log(SelectOption)
+        
         let counter = 0;
-          SelectOption && SelectOption.map(d=>{
-            counter += d.value
+          SelectOption && SelectOption.map((d,index)=>{
+            
+            counter+= parseInt(Form['index']);
+            
             
         })
+       
 
         return counter;
  
     }
+    const handleChangeInput = (e)=>{
+        const {name,value} = e.target
+        setForm({...Form,[name]:value});
+        
+    }
+    console.log(Form)
+    const renderCart = ()=>{
+        return SelectOption && SelectOption.length > 0 &&
+        SelectOption.map((d,index)=>{
+          
+            return <div key={index} className="displaycard_cart form-group">
+                            <div className="form-group">
+                                {pickedbrand}
+                            </div>
+                            <div className="form-group">
+                                {d.value}{pickedCurrency}
+                            </div>
+                            <div className="form-group">
+                                <input type="number" name={index}  onChange={handleChangeInput} value={Form.index} className="form-control"/>
+                            </div>
+                           
+                    </div>
+        })
+    }
+    useEffect(()=>{
+        if(SelectOption && SelectOption.length > 0){
+            console.log('length',SelectOption.length)
+            renderCart(SelectOption)
+        }
+       
+    },[SelectOption])
 
     const handlePaynow = async()=>{
         let total = document.getElementById('sumTotal').innerHTML
@@ -290,6 +325,8 @@ const Index = ()=>{
                             />
 
                         </div>
+
+                        {renderCart()}
                         
                         {/* <div className="dropArea" >
                             <FileUploader handleChange={handleChangeFile} name="file" types={fileTypes} classes="dragndrop" />
