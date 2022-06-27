@@ -174,7 +174,7 @@ export default function Index() {
 
   return (
 
-    <div className='kycTab'>
+    <div className=''>
       {loaderState && <Loader/>}
 
         <div className='myTab'>
