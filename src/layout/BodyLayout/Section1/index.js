@@ -15,12 +15,21 @@ import {FcBearish,FcBullish} from 'react-icons/fc'
 import {AiOutlineFall,AiOutlineRise} from 'react-icons/ai'
 import {FaBtc} from 'react-icons/fa'
 import Icon from "react-crypto-icons";
+
+
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
 const Index = ()=>{
     const [percentageBTC, setpercentageBTC]= useState()
     const [percentageUSDT ,setpercentageUSDT]= useState()
     const [usdtprice, setusdtprice]= useState();
     const [btcprice, setbtcprice]= useState();
-
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
 
     useEffect(()=>{
@@ -68,60 +77,71 @@ const Index = ()=>{
    const _renderRateBig =()=>{
     if(percentageBTC <0){
         // return <img src={Down}/>
-        return <FcBearish size={50}/>
+        return <FcBearish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
     }
     else if(percentageBTC == 0){
-        return <FcBullish size={50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
         // return <img src={Growth}/>
     }
     else if(percentageBTC > 0){
-        return <FcBullish size={50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
         // return <img src={Growth}/>
     }
 }
 
 const _renderRate =()=>{
     if(percentageBTC <0){
-        return <div className='bullish'><span><AiOutlineFall color="#ff0000" size={15}/>&nbsp;{percentageBTC}%</span></div>
+        return <div className='bullish'><span><AiOutlineFall color="#ff0000" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageBTC}%</span></div>
     }
     else if(percentageBTC == 0){
         return <div className='neutral'><span>{percentageBTC}%</span></div>
     }
     else if(percentageBTC > 0){
-        return <div className='bearish'><span><AiOutlineRise color="#003300" size={15}/>&nbsp;{percentageBTC}%</span></div>
+        return <div className='bearish'><span><AiOutlineRise color="#003300" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageBTC}%</span></div>
     }
 }
 
 const _renderRateUsdt =()=>{
     if(percentageUSDT <0){
-        return <div className='bullish'><span><AiOutlineFall color="#ff0000" size={15}/>&nbsp;{percentageUSDT}%</span></div>
+        return <div className='bullish'><span><AiOutlineFall color="#ff0000" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageUSDT}%</span></div>
     }
     else if(percentageUSDT == 0){
         return <div className='neutral'><span>{percentageUSDT}%</span></div>
     }
     else if(percentageUSDT > 0){
-        return <div className='bearish'><span><AiOutlineRise color="#003300" size={15}/>&nbsp;{percentageUSDT}%</span></div>
+        return <div className='bearish'><span><AiOutlineRise color="#003300" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageUSDT}%</span></div>
     }
 }
 
 const _renderRateUsdtBig =()=>{
     if(percentageUSDT <0){
         // FcBearish,FcBullish
-        return <FcBearish size={50}/>
+        return <FcBearish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
     }
     else if(percentageUSDT == 0){
-        return <FcBullish size={50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
     }
     else if(percentageUSDT > 0){
-        return <FcBullish size={50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
     }
 }
+
+useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
     return(
         <div className="body_section1">
             <div className='cardSection1'>
                 <div className='imagepart'>
                     <div className='asset-img-div'>
-                        <Icon name="btc" size={30} />
+                        <Icon name="btc" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 25 : 30} />
                     </div>
                     <div className='asset-to-usd'>
                         <span>BTC</span><span><img src={Equivalent}/></span><span>USD</span>
@@ -142,7 +162,7 @@ const _renderRateUsdtBig =()=>{
             <div className='imagepart'>
                     <div className='asset-img-div'>
                          {/* <img src={USDT}  /> */}
-                         <Icon name="usdt" size={30} />
+                         <Icon name="usdt" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 25 : 30} />
                     </div>
                     <div className='asset-to-usd'>
                         <span>USDT</span><span><img src={Equivalent}/></span><span>USD</span>

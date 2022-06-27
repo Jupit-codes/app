@@ -7,6 +7,7 @@ import USDT from '../../../assets/images/utility/usdt.png'
 import axios from 'axios'
 import moment from 'moment'
 import LineChart from '../lineChart.js'
+import Icon from "react-crypto-icons";
 const Index = ()=>{
     const [loader,setloader] = useState(true);
     const [transactions,settransactions] = useState([]);
@@ -69,8 +70,8 @@ const Index = ()=>{
         transactions.map((d,index)=>{
             return <div key={index} className="recent-transactions">   
                         <div className='asset-logo'>
-                           {d.currency === "BTC" && <img src={BTC}/> } 
-                           {d.currency === "USDT" && <img src={USDT}/> } 
+                           {d.currency === "BTC" && <Icon name="btc" size={25}/> } 
+                           {d.currency === "USDT" && <Icon name="usdt" size={25}/>  } 
                         </div>
                         <div className='coin-recent-transaction'>
                             {d.currency}
