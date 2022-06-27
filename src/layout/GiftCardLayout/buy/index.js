@@ -18,6 +18,7 @@ import { LayoutTextSidebarReverse } from "react-bootstrap-icons";
 import s from "react-aws-s3";
 import Myloader from '../../../utils/loader/loader.js'
 import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
 const Index = ()=>{
     const fileTypes = ["JPG", "PNG", "GIF"];
     const [page,setpage] = useState('Step1')
@@ -188,8 +189,12 @@ const Index = ()=>{
         
         let counter = 0;
           SelectOption && SelectOption.map((d,index)=>{
+            console.log(d.value);
+
+            if(Form[index]){
+                counter+= parseInt(d.value) * parseInt(Form[index]);
+            }
             
-            counter+= parseInt(Form['index']);
             
             
         })
@@ -231,11 +236,33 @@ const Index = ()=>{
     },[SelectOption])
 
     const handlePaynow = async()=>{
+
+
+
         let total = document.getElementById('sumTotal').innerHTML
+
+        let balance = reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal;
+
+        if(parseFloat(total) >  parseFloat(balance)){
+            toast.error('Sorry your Naira wallet is not sufficiently funded')
+            return false
+        }
+
         let counter = 0;
-        SelectOption.forEach((d)=>{
-            counter+= d.value
+        let cart = [];
+        SelectOption.forEach((d,index)=>{
+            if(Form[index]){
+                let item = {
+                    amount:d.value,
+                    quantity:Form[index]
+                }
+                counter += d.value * Form[index]
+                cart.push(item)
+            }
         })
+
+            console.log(counter)
+        
         setloader(true);
         // Swal.fire({
         //   title: 'Message!',
@@ -258,7 +285,9 @@ const Index = ()=>{
                 data:JSON.stringify({
                     Cardname:pickedbrand,
                     Userid:reactLocalStorage.getObject('user')._id,
+                    Email:reactLocalStorage.getObject('user').email,
                     Total:total,
+                    Cart:cart,
                     SelectedAmount:SelectOption,
                     Country:pickedCurrency,
                     amountInusd:counter
@@ -336,7 +365,7 @@ const Index = ()=>{
                         
 
                         <div className="submitGiftcardBuy">
-                            {SelectOption  && <input type="submit" value="Pay now" className="form-control btn-primary" onClick={handlePaynow}/>}
+                            {SelectOption && See() * buyrate > 0  && <input type="submit" value="Pay now" className="form-control btn-primary" onClick={handlePaynow}/>}
                         </div>
                        
                         
