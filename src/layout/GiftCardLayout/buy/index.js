@@ -19,6 +19,15 @@ import s from "react-aws-s3";
 import Myloader from '../../../utils/loader/loader.js'
 import Swal from 'sweetalert2'
 import { toast } from "react-toastify";
+
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+
 const Index = ()=>{
     const fileTypes = ["JPG", "PNG", "GIF"];
     const [page,setpage] = useState('Step1')
@@ -34,6 +43,7 @@ const Index = ()=>{
     const [SelectOption,setSelectOption] = useState();
     const [buyrate,setbuyrate] = useState(0);
     const [Form,setForm] = useState({})
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
     const [pickedbrand,setpickedbrand] = useState();
     const[pickedCurrency,setpickedCurrency] = useState();
@@ -44,23 +54,6 @@ const Index = ()=>{
     const [images,setImages] = useState([])
     const [balance,setbalance] = useState(0)
     
-
-    // const renderComponent = ()=>{
-    //     switch(page){
-    //         case 'Step1':
-                
-    //             return <Step1 stepPage={setpage} checked={setcheckedOne} rateSet={setrate} />
-    //             break;
-    //         case 'Step2':
-                
-    //             return <Step2 stepPage={setpage} checked={setcheckedTwo} acceptRate={rate}  />
-    //             break;
-    //         case 'Step3':
-                
-    //             return <Step3 stepPage={setpage} checked={setcheckedThree}/>
-    //             break;
-    //     }
-    // }
 
 
 
@@ -156,6 +149,15 @@ const Index = ()=>{
             console.log('myImages',images)
             
       }, [])
+
+      useEffect(() => {
+        function handleResize() {
+          setWindowDimensions(getWindowDimensions());
+        }
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
 
       useEffect(()=>{
         console.log('images',images)
@@ -328,6 +330,20 @@ const Index = ()=>{
     }
 
     const displayRateBoard=()=>{
+        //console.log('dimension',windowDimensions.width)
+        if(windowDimensions.width <= 700){
+            let x = document.querySelector('#sellbody');
+        
+            x.classList.remove('sellbody');
+            x.classList.add('reverse')
+        }
+        else{
+            let x = document.querySelector('#sellbody');
+        
+            x.classList.remove('reverse');
+            x.classList.add('sellbody')
+        }
+       
         return   <div className="selectFormBuy">
                         <div className="sumbalanceDiv">
                             <div className="buyrate">
@@ -380,7 +396,7 @@ const Index = ()=>{
    
 
     return(
-        <div className="sellbody">
+        <div className="sellbody" id="sellbody">
             {loader && <Myloader />}
             <div className="giftCardDiv">
                     

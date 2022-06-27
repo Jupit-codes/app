@@ -21,6 +21,14 @@ import { LayoutTextSidebarReverse } from "react-bootstrap-icons";
 import s from "react-aws-s3";
 import Myloader from '../../../utils/loader/loader.js'
 import Swal from 'sweetalert2'
+
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
 const Index = ()=>{
     const fileTypes = ["JPG", "PNG", "GIF"];
     const [page,setpage] = useState('Step1')
@@ -35,6 +43,7 @@ const Index = ()=>{
     const [loader,setloader] = useState(false);
     const [SelectOption,setSelectOption] = useState();
     const [Form,setForm] = useState({})
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
     const [pickedbrand,setpickedbrand] = useState();
     const[pickedCurrency,setpickedCurrency] = useState();
@@ -184,6 +193,14 @@ const Index = ()=>{
                     </div>
         })
     }
+    useEffect(() => {
+        function handleResize() {
+          setWindowDimensions(getWindowDimensions());
+        }
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
 
       useEffect(()=>{
         console.log('images',images)
@@ -310,6 +327,19 @@ const Index = ()=>{
     }
 
     const displayRateBoard=()=>{
+        if(windowDimensions.width <= 700){
+            let x = document.querySelector('#sellbody');
+        
+            x.classList.remove('sellbody');
+            x.classList.add('reverse')
+        }
+        else{
+            let x = document.querySelector('#sellbody');
+        
+            x.classList.remove('reverse');
+            x.classList.add('sellbody')
+        }
+       
         return   <div className="selectForm">
                         <div className="space">
                                 <div className="buyrate">
@@ -380,7 +410,7 @@ const Index = ()=>{
    
 
     return(
-        <div className="sellbody">
+        <div className="sellbody" id="sellbody">
             {loader && <Myloader />}
             <div className="giftCardDiv">
                     

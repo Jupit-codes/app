@@ -51,7 +51,7 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
         })
     }
     const _renderComponent = ()=>{
-        console.log(data)
+       
         return data && data.map((d)=>{
             return <div className="country_div">
                         
