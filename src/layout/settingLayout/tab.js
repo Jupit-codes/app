@@ -15,6 +15,9 @@ export const Tab = ({Active,currentActiveState})=>{
             <div  onClick={()=>Active('Security-Settings')}  className={currentActiveState === "Security-Settings" ? 'tabDiv activeTab':'tabDiv' } >
                 Security Settings
             </div>
+            <div  onClick={()=>Active('Verification')}  className={currentActiveState === "Verification" ? 'tabDiv activeTab':'tabDiv' } >
+                Verification
+            </div>
         </div>
     )
 }
