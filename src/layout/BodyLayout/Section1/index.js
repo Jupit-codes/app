@@ -68,14 +68,14 @@ const Index = ()=>{
    const _renderRateBig =()=>{
     if(percentageBTC <0){
         // return <img src={Down}/>
-        return <FcBearish size={40}/>
+        return <FcBearish size={50}/>
     }
     else if(percentageBTC == 0){
-        return <FcBullish size={40}/>
+        return <FcBullish size={50}/>
         // return <img src={Growth}/>
     }
     else if(percentageBTC > 0){
-        return <FcBullish size={40}/>
+        return <FcBullish size={50}/>
         // return <img src={Growth}/>
     }
 }
@@ -107,13 +107,13 @@ const _renderRateUsdt =()=>{
 const _renderRateUsdtBig =()=>{
     if(percentageUSDT <0){
         // FcBearish,FcBullish
-        return <FcBearish size={40}/>
+        return <FcBearish size={50}/>
     }
     else if(percentageUSDT == 0){
-        return <FcBullish size={40}/>
+        return <FcBullish size={50}/>
     }
     else if(percentageUSDT > 0){
-        return <FcBullish size={40}/>
+        return <FcBullish size={50}/>
     }
 }
     return(

@@ -1,4 +1,4 @@
-import jupit from '../../../assets/images/utility/jupit.png'
+import jupit from '../../../assets/images/utility/logo_new.svg'
 import cardType from '../../../assets/images/utility/mastercard.png'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import axios from 'axios'
