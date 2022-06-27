@@ -16,7 +16,8 @@ import Exchange from '../../assets/images/utility/exchange.png'
 import Settingx from '../../assets/images/utility/settings.png'
 import Library from '../../assets/images/utility/kyc.png'
 import Schedule from '../../assets/images/utility/transaction.png'
-
+import WalletActive from '../../assets/images/utility/active/wallet-active.png'
+import Wallet from '../../assets/images/utility/wallet.png'
 import DashboardActive from '../../assets/images/utility/active/newer/dashboard-active.ico'
 import ExchangeActive from '../../assets/images/utility/active/newer/exchange-active.ico'
 import SettingsActive from '../../assets/images/utility/active/newer/settings-active.ico'
@@ -150,13 +151,13 @@ const Index = ()=>{
                         </Link>
                         
                     </div>
-                    <Link to="/client/kyc">
-                        <img src={pathname[2]=== "kyc"? LibraryActive : Library}/>
+                    <Link to="/client/exchange">
+                        <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/>
                     </Link>
                          
                     <div>
                         <Link to='/client/wallet'>
-                            <img src={pathname[2]=== "wallet"? ExchangeActive : Exchange}/>
+                            <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/>
                         
                         </Link>
                        
