@@ -15,9 +15,13 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                 }
             }
             x.classList.add('activeCurrency');
-            // console.log(x.children[0].children[1].textContent)
-            pickedC(x.children[0].children[1].textContent)
-            giftcardrate(data[0].sellrate)
+            data[0].rate.map(d=>{
+                if(d.country === x.children[0].children[1].textContent){
+                    giftcardrate(d.sell)
+                }
+                
+            })
+            pickedC(x.children[0].children[2].textContent)
             message('norate')
         }
     }
@@ -32,6 +36,7 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                             
                             <div className='flagIconText'>
                                 <img src={x.image_url}/>
+                                <span className='currencySet'>{x.country_name}</span>
                                 <span className='currencySet'>{x.currency}</span>
                             </div>
                             <div className='selectbutton'>

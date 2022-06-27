@@ -34,7 +34,7 @@ const Index = ()=>{
     const [checkedData,setcheckedData] = useState()
     const [loader,setloader] = useState(false);
     const [SelectOption,setSelectOption] = useState();
-
+    const [Form,setForm] = useState({})
 
     const [pickedbrand,setpickedbrand] = useState();
     const[pickedCurrency,setpickedCurrency] = useState();
@@ -119,13 +119,12 @@ const Index = ()=>{
         }
     }
     const options = [
-        { value: 10, label: '10USD' },
-        { value: 15, label: '15USD' },
-        { value: 25, label: '25USD' },
-        { value: 50, label: '50USD' },
-        { value: 100, label: '100USD' },
-       
-        { value: 'others', label: 'Others' },
+        { value: 10, label: `10${pickedCurrency}` },
+        { value: 15, label: `15${pickedCurrency}` },
+        { value: 25, label: `25${pickedCurrency}` },
+        { value: 50, label: `50${pickedCurrency}`},
+        { value: 100, label: `100${pickedCurrency}` },
+    
         
       ]
 
@@ -161,6 +160,31 @@ const Index = ()=>{
             
       }, [])
 
+      const handleChangeInput = (e)=>{
+        const {name,value} = e.target
+        setForm({...Form,[name]:value});
+        
+    }
+    
+    const renderCart = ()=>{
+        return SelectOption && SelectOption.length > 0 &&
+        SelectOption.map((d,index)=>{
+          
+            return <div key={index} className="displaycard_cart form-group">
+                            <div className="form-group">
+                                {pickedbrand}
+                            </div>
+                            <div className="form-group">
+                                {d.value}{pickedCurrency}
+                            </div>
+                            <div className="form-group">
+                                <input type="number" name={index}  onChange={handleChangeInput} value={Form.index} className="form-control"/>
+                            </div>
+                           
+                    </div>
+        })
+    }
+
       useEffect(()=>{
         console.log('images',images)
       },[images])
@@ -191,11 +215,28 @@ const Index = ()=>{
     }
     const See = ()=>{
         // console.log(SelectOption)
+        // let counter = 0;
+        //   SelectOption && SelectOption.map(d=>{
+        //     counter += d.value
+            
+        // })
+
+
+        // return counter;
+
+        
         let counter = 0;
-          SelectOption && SelectOption.map(d=>{
-            counter += d.value
+          SelectOption && SelectOption.map((d,index)=>{
+            console.log(d.value);
+
+            if(Form[index]){
+                counter+= parseInt(d.value) * parseInt(Form[index]);
+            }
+            
+            
             
         })
+       
 
         return counter;
  
@@ -204,8 +245,16 @@ const Index = ()=>{
     const handleSubmit = async()=>{
         console.log(SelectOption);
         let counter = 0;
-        SelectOption.forEach((d)=>{
-            counter+= d.value
+        let cart = [];
+        SelectOption.forEach((d,index)=>{
+            if(Form[index]){
+                let item = {
+                    amount:d.value,
+                    quantity:Form[index]
+                }
+                counter += d.value * Form[index]
+                cart.push(item)
+            }
         })
         
         let total = document.getElementById('sumTotal').innerHTML
@@ -223,12 +272,14 @@ const Index = ()=>{
                 data:JSON.stringify({
                     Cardname:pickedbrand,
                     Userid:reactLocalStorage.getObject('user')._id,
+                    Email: reactLocalStorage.getObject('user').email,
                     Total:total,
                     SelectedAmount:SelectOption,
                     SelectedImage:images,
                     Country:pickedCurrency,
                     unique_id:random,
-                    amountInusd:counter
+                    amountInusd:counter,
+                    Cart:cart
                     
                 })
             
@@ -260,15 +311,22 @@ const Index = ()=>{
 
     const displayRateBoard=()=>{
         return   <div className="selectForm">
-                        <div className="sumbalanceDiv">
-                            <div className="btn btn-primary sumbalance">
-                                <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * sellrate}</span>  </div>
-                                {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
-                                
-                                
+                        <div className="space">
+                                <div className="buyrate">
+                                    SellRate : &#x20A6;{sellrate}
                                 </div>
-                            
+                                <div className="sumbalanceDiv">
+                                    <div className="btn btn-primary sumbalance">
+                                        <div >Sum Total : 		&#8358;<span id="sumTotal">{See() * sellrate}</span>  </div>
+                                        {/* <div> Calculation:&nbsp;&nbsp;{See()} X 400 </div> */}
+                                        
+                                        
+                                        </div>
+                                    
+                                </div>
                         </div>
+                            
+
                         <div>
                             <Select
                                 defaultValue={SelectOption}
@@ -281,6 +339,8 @@ const Index = ()=>{
                             />
 
                         </div>
+                        
+                        {renderCart()}
                         
                         {/* <div className="dropArea" >
                             <FileUploader handleChange={handleChangeFile} name="file" types={fileTypes} classes="dragndrop" />
@@ -303,7 +363,7 @@ const Index = ()=>{
                         </div>
 
                         <div className="submitGiftcard">
-                            {SelectOption && images.length > 0 && <input type="submit" value="Sell GiftCard" className="form-control" onClick={handleSubmit}/>}
+                            {SelectOption && images.length > 0 && See() * sellrate > 0 && <input type="submit" value="Sell GiftCard" className="form-control" onClick={handleSubmit}/>}
                         </div>
                        
                         

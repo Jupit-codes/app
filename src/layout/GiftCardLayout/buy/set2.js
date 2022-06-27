@@ -14,7 +14,7 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                 }
             }
             x.classList.add('activeCurrency');
-            console.log(x.children[0].children[1].textContent)
+            // console.log(x.children[0].children[1].textContent)
             data[0].rate.map(d=>{
                 if(d.country === x.children[0].children[1].textContent){
                     giftcardrate(d.buy)

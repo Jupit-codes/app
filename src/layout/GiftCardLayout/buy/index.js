@@ -121,7 +121,7 @@ const Index = ()=>{
         { value: 50, label: `50${pickedCurrency}` },
         { value: 100, label: `100${pickedCurrency}` },
        
-        { value: 'others', label: 'Others' },
+
         
       ]
 
@@ -208,7 +208,7 @@ const Index = ()=>{
         setForm({...Form,[name]:value});
         
     }
-    console.log(Form)
+    
     const renderCart = ()=>{
         return SelectOption && SelectOption.length > 0 &&
         SelectOption.map((d,index)=>{
@@ -227,13 +227,13 @@ const Index = ()=>{
                     </div>
         })
     }
-    useEffect(()=>{
-        if(SelectOption && SelectOption.length > 0){
-            console.log('length',SelectOption.length)
-            renderCart(SelectOption)
-        }
+    // useEffect(()=>{
+    //     if(SelectOption && SelectOption.length > 0){
+    //         console.log('length',SelectOption.length)
+    //         renderCart(SelectOption)
+    //     }
        
-    },[SelectOption])
+    // },[SelectOption])
 
     const handlePaynow = async()=>{
 
@@ -261,7 +261,7 @@ const Index = ()=>{
             }
         })
 
-            console.log(counter)
+           // console.log(counter)
         
         setloader(true);
         // Swal.fire({
