@@ -7,7 +7,7 @@ import { Tab } from './tab'
 import AccountSettings from './AccountSettings'
 import NotificationSettings from './NotificationSettings'
 import SecuritySetting from './SecuritySettings'
-import Kyc from '../KycLayout'
+import KycLayout from '../KycLayout'
 import axios from 'axios'
 import { GetPublicAccessBlockCommand } from '@aws-sdk/client-s3'
 
@@ -33,7 +33,7 @@ const Index=()=>{
                 return <SecuritySetting/>
                 break;
             case 'Verification':
-                return <Kyc/>
+                return <KycLayout/>
                 break;
         }
     }

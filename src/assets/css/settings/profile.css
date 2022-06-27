@@ -101,11 +101,11 @@ and (max-device-width:700px)
     
     .myprofile{
         
-        
+       
         margin: 0px;
         background-color:#fff;
         width: 100%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         

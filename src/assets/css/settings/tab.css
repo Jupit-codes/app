@@ -34,7 +34,17 @@ and (max-device-width:399px)
 {
     .tabSettings div{
         font-family: candara;
-        font-size: 16px;
+        font-size: 14px;
+    }
+}
+
+@media screen
+and (min-device-width:400px)
+and (max-device-width:700px)
+{
+    .tabSettings div{
+        font-family: candara;
+        font-size: 15px;
     }
 }
 
