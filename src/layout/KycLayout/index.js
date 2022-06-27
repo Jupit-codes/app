@@ -1,9 +1,7 @@
 
 import { useContext, useEffect, useState }  from 'react';
 import React from "react";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
+
 import '../../assets/css/Kyc/tab.css'
 import AddAccount from './AddAccount'
 import IDverification from './IDverification'
