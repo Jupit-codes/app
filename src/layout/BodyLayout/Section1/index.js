@@ -1,6 +1,6 @@
 import '../../../assets/css/Body/section1.css'
-import BTC from '../../../assets/images/utility/btc.png'
-import USDT from '../../../assets/images/utility/usdt.png'
+import BTC from '../../../assets/images/utility/btc.svg'
+import USDT from '../../../assets/images/utility/usdt.svg'
 import Equivalent from '../../../assets/images/utility/equivalent.png'
 import Upward from '../../../assets/images/utility/upward.svg'
 import Growth from '../../../assets/images/utility/growth.svg'
@@ -136,7 +136,7 @@ const _renderRateUsdtBig =()=>{
                          <img src={USDT}/>
                     </div>
                     <div className='asset-to-usd'>
-                        <span>USD</span><span><img src={Equivalent}/></span><span>USD</span>
+                        <span>USDT</span><span><img src={Equivalent}/></span><span>USD</span>
                     </div>
                     <div className='asset-value'>
                        {/* {usdtprice} */}

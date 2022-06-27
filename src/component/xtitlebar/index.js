@@ -25,6 +25,8 @@ import LibraryActive from '../../assets/images/utility/active/newer/kyc-active.p
 import ScheduleActive from '../../assets/images/utility/active/newer/transaction-active.ico'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { Link } from "react-router-dom";
+import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill} from 'react-icons/ri'
+import {BsWallet2} from 'react-icons/bs'
 const Index = ()=>{
     const history = useHistory();
     const [salutation, setsalutation] = useState();
@@ -147,26 +149,28 @@ const Index = ()=>{
         return <div className="tabCustom">
                     <div>
                         <Link to="/client">
-                            <img src={!pathname[2] ? DashboardActive: Dashboard}/>
+                            {/* <img src={!pathname[2] ? DashboardActive: Dashboard}/> */}
+                            <RiDashboardFill size={20} color={!pathname[2]? '#0d6efd':'#000'}/>
                         </Link>
                         
                     </div>
                     <Link to="/client/exchange">
-                        <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/>
+                        {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
+                        <RiExchangeBoxFill size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
                     </Link>
                          
                     <div>
                         <Link to='/client/wallet'>
-                            <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/>
-                        
+                            {/* <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/> */}
+                            <RiWalletFill size={25}  color={pathname[2] === "wallet" ? '#0d6efd':'#000'}/>
                         </Link>
                        
                     </div>
                     
                     <div>
                         <Link to='/client/settings'>
-                            <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/>
-                        
+                            {/* <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/> */}
+                            <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#0d6efd':'#000'}/>
                         </Link>
                         
                     </div>
