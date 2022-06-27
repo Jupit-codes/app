@@ -11,6 +11,10 @@ import { GlobalContext } from "../../../context/Provider";
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { useContext, useEffect, useState } from 'react'
 import NumberFormat from 'react-number-format'
+import {FcBearish,FcBullish} from 'react-icons/fc'
+import {AiOutlineFall,AiOutlineRise} from 'react-icons/ai'
+import {FaBtc} from 'react-icons/fa'
+import Icon from "react-crypto-icons";
 const Index = ()=>{
     const [percentageBTC, setpercentageBTC]= useState()
     const [percentageUSDT ,setpercentageUSDT]= useState()
@@ -63,49 +67,53 @@ const Index = ()=>{
 
    const _renderRateBig =()=>{
     if(percentageBTC <0){
-        return <img src={Down}/>
+        // return <img src={Down}/>
+        return <FcBearish size={40}/>
     }
     else if(percentageBTC == 0){
-        return <img src={Growth}/>
+        return <FcBullish size={40}/>
+        // return <img src={Growth}/>
     }
     else if(percentageBTC > 0){
-        return <img src={Growth}/>
+        return <FcBullish size={40}/>
+        // return <img src={Growth}/>
     }
 }
 
 const _renderRate =()=>{
     if(percentageBTC <0){
-        return <div className='bullish'><span><img src={Downward}/>&nbsp;{percentageBTC}%</span></div>
+        return <div className='bullish'><span><AiOutlineFall color="#ff0000" size={15}/>&nbsp;{percentageBTC}%</span></div>
     }
     else if(percentageBTC == 0){
         return <div className='neutral'><span>{percentageBTC}%</span></div>
     }
     else if(percentageBTC > 0){
-        return <div className='bearish'><span><img src={Upward}/>&nbsp;{percentageBTC}%</span></div>
+        return <div className='bearish'><span><AiOutlineRise color="#003300" size={15}/>&nbsp;{percentageBTC}%</span></div>
     }
 }
 
 const _renderRateUsdt =()=>{
     if(percentageUSDT <0){
-        return <div className='bullish'><span><img src={Downward}/>&nbsp;{percentageUSDT}%</span></div>
+        return <div className='bullish'><span><AiOutlineFall color="#ff0000" size={15}/>&nbsp;{percentageUSDT}%</span></div>
     }
     else if(percentageUSDT == 0){
         return <div className='neutral'><span>{percentageUSDT}%</span></div>
     }
     else if(percentageUSDT > 0){
-        return <div className='bearish'><span><img src={Upward}/>&nbsp;{percentageUSDT}%</span></div>
+        return <div className='bearish'><span><AiOutlineRise color="#003300" size={15}/>&nbsp;{percentageUSDT}%</span></div>
     }
 }
 
 const _renderRateUsdtBig =()=>{
     if(percentageUSDT <0){
-        return <img src={Down}/>
+        // FcBearish,FcBullish
+        return <FcBearish size={40}/>
     }
     else if(percentageUSDT == 0){
-        return <img src={Growth}/>
+        return <FcBullish size={40}/>
     }
     else if(percentageUSDT > 0){
-        return <img src={Growth}/>
+        return <FcBullish size={40}/>
     }
 }
     return(
@@ -113,7 +121,7 @@ const _renderRateUsdtBig =()=>{
             <div className='cardSection1'>
                 <div className='imagepart'>
                     <div className='asset-img-div'>
-                         <img src={BTC}/>
+                        <Icon name="btc" size={30} />
                     </div>
                     <div className='asset-to-usd'>
                         <span>BTC</span><span><img src={Equivalent}/></span><span>USD</span>
@@ -133,7 +141,8 @@ const _renderRateUsdtBig =()=>{
             <div className='cardSection1'>
             <div className='imagepart'>
                     <div className='asset-img-div'>
-                         <img src={USDT}/>
+                         {/* <img src={USDT}  /> */}
+                         <Icon name="usdt" size={30} />
                     </div>
                     <div className='asset-to-usd'>
                         <span>USDT</span><span><img src={Equivalent}/></span><span>USD</span>
