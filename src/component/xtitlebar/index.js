@@ -26,6 +26,7 @@ import ScheduleActive from '../../assets/images/utility/active/newer/transaction
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { Link } from "react-router-dom";
 import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill} from 'react-icons/ri'
+import {MdOutlineHistory} from 'react-icons/md'
 import {BsWallet2} from 'react-icons/bs'
 const Index = ()=>{
     const history = useHistory();
@@ -162,13 +163,20 @@ const Index = ()=>{
                         </Link>
                        
                     </div>
-                    <Link to="/client/exchange">
-                        {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
-                        <RiExchangeBoxFill size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
-                    </Link>
-                         
-                    
-                    
+                    <div className='cruise'>
+                        <Link to="/client/exchange">
+                            {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
+                            <RiExchangeBoxFill className='cruise-exchange' size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
+                        </Link>
+
+                    </div>
+                    <div>
+                        <Link to="/client/transactions-history">
+                            {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
+                            <MdOutlineHistory size={25} color={pathname[2] === "transactions-history" ? '#0d6efd':'#000'}/>
+                        </Link>
+
+                    </div>
                     <div>
                         <Link to='/client/settings'>
                             {/* <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/> */}
