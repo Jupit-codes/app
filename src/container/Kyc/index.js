@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 
 import '../../assets/css/Kyc/kyc.css';
-import WelcomeNote from '../../layout/BodyLayout/WelcomeNote';
+import Javscript from '../../layout/BodyLayout/WelcomeNote';
 
 import Footer from '.././../layout/BodyLayout/Footer'
 import KYC from '../../layout/KycLayout'
@@ -13,6 +13,7 @@ const Index=({openClose})=>{
         <div className={openClose ? 'bodyOpen':'bodyClose'}>
            
             <KYC/>
+            <Javscript/>
            {/* <Footer/> */}
             {/* <ImportantNotice/> */}
         </div>

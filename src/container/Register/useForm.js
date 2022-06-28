@@ -7,6 +7,7 @@ export default ()=>{
     // console.log('RegisterError',error)
     const onChange = (e)=>{
       const {name,value} = e.target
+      
         setForm({...Form,[name]:value});
     }
 
