@@ -61,13 +61,13 @@ const route = [
         component:Register,
 
     },
-    {
-        path:'/client/kyc',
-        title:'Client KYC | Jupit',
-        isAuthenticated:true,
-        component:Dashboard,
+    // {
+    //     path:'/client/kyc',
+    //     title:'Client KYC | Jupit',
+    //     isAuthenticated:true,
+    //     component:Dashboard,
 
-    },
+    // },
     {
         path:'/client/transactions-history',
         title:'Client Transactions | Jupit',
