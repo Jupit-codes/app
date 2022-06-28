@@ -283,7 +283,7 @@ const Index = ()=>{
                                         <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                                     </div>
                                     <div className='notify-flex-2'>
-                                    <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                                    <Button  className='btnClass' onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
                                     </div>
         
                                 </div>

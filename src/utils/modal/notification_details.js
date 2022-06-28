@@ -84,7 +84,7 @@ const Index = ({closeModal,userid})=>{
     }
     return (
         <div className="modalBackground">
-            <div className='modalContainer'>
+            <div className='modalContainerIII'>
                 <div className='modalHeader'>
                     <div className='modalText'>
                         <div className='receiveText'>
@@ -97,7 +97,7 @@ const Index = ({closeModal,userid})=>{
                     <div><hr/></div>
                 </div>
                 
-                <div className='modalbody '>
+                <div className='modalbodyNotify'>
                     {loader && <img src={Spinner} style={{width:50}}/>}
                     { closeModal &&_renderBody()}
                     {!userid &&  
@@ -110,9 +110,7 @@ const Index = ({closeModal,userid})=>{
                 <div className='modalFooter'>
                    
                 </div>
-                <div className='modalClose' >
-                    <input type="submit" value="Close" onClick={()=>closeModal(!closeModal)} />
-                </div>
+               
             </div>
         </div>
     )
