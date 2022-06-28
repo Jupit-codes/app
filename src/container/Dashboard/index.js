@@ -18,9 +18,13 @@ import SellBTC from '../../container/SellBtc'
 import Withdrawal from '../../container/Withdrawal'
 import Exchange from '../../container/Exchange'
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
 
 import axios from "axios";
+import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill} from 'react-icons/ri'
+import {MdOutlineHistory} from 'react-icons/md'
+import {BsWallet2} from 'react-icons/bs'
 
 const Index=()=>{
     const location = useLocation();
@@ -28,6 +32,7 @@ const Index=()=>{
     const [open, setOpen] = useState(true);
     const [trigger, settrigger] = useState(false);
     const [navigation, setNavigation] = useState('');
+    const pathname = location.pathname.split('/');
     const handleCallback =(value)=>{
         setOpen(value)
     }
@@ -92,9 +97,54 @@ const Index=()=>{
     }
 
     
+    const _rendermobileTab =()=>{
+        return <div className="tabCustom">
+                    <div>
+                        <Link to="/client">
+                            {/* <img src={!pathname[2] ? DashboardActive: Dashboard}/> */}
+                            <RiDashboardFill size={20} color={!pathname[2]? '#0d6efd':'#000'}/>
+                        </Link>
+                        
+                    </div>
+
+                    <div>
+                        <Link to='/client/wallet'>
+                            {/* <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/> */}
+                            <RiWalletFill size={25}  color={pathname[2] === "wallet" ? '#0d6efd':'#000'}/>
+                        </Link>
+                       
+                    </div>
+                    <div className='cruise'>
+                        <Link to="/client/exchange">
+                            {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
+                            <RiExchangeBoxFill className='cruise-exchange' size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
+                        </Link>
+
+                    </div>
+                    <div>
+                        <Link to="/client/transactions-history">
+                            {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
+                            <MdOutlineHistory size={25} color={pathname[2] === "transactions-history" ? '#0d6efd':'#000'}/>
+                        </Link>
+
+                    </div>
+                    <div>
+                        <Link to='/client/settings'>
+                            {/* <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/> */}
+                            <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#0d6efd':'#000'}/>
+                        </Link>
+                        
+                    </div>
+                    
+
+               </div>
+    }
+
+
+
     return (
         <div className="dashboard">
-               
+                {_rendermobileTab()}
                 <Sidebar openClose={open} notify={x}/>
                 <TitleBar  handle={setOpen} currentHandle={open} handletrigger={trigger}/>
                 {_renderBodyComponent()}

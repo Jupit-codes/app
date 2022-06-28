@@ -191,7 +191,7 @@ const Index = ()=>{
 
     return (
         <div className="xtitle">
-            {_rendermobileTab()}
+           
                 <div className='WelcomeClass'>
                     <div className='Hello'>
                         {salutation}, {userInfor}.

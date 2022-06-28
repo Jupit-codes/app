@@ -27,7 +27,7 @@ and (max-device-width:700px)
         background-color: #fff;
         position: fixed;
         z-index: 500;
-        top: 90%;
+        
         bottom: 0px;
     }
     .tabCustom > div{
