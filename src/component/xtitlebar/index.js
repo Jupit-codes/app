@@ -139,7 +139,7 @@ const Index = ()=>{
        const actualtime = date.toLocaleTimeString(); 
        const actualDate =  date.toDateString();
 
-       return actualDate +`(${actualtime})`
+       return actualDate +` (${actualtime})`
     }
     const whatsapChat = ()=>{
         window.open('https://wa.me/2348088213177');
@@ -154,11 +154,7 @@ const Index = ()=>{
                         </Link>
                         
                     </div>
-                    <Link to="/client/exchange">
-                        {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
-                        <RiExchangeBoxFill size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
-                    </Link>
-                         
+
                     <div>
                         <Link to='/client/wallet'>
                             {/* <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/> */}
@@ -166,6 +162,12 @@ const Index = ()=>{
                         </Link>
                        
                     </div>
+                    <Link to="/client/exchange">
+                        {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
+                        <RiExchangeBoxFill size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
+                    </Link>
+                         
+                    
                     
                     <div>
                         <Link to='/client/settings'>
