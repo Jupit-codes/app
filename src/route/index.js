@@ -11,6 +11,7 @@ import Exchange from '../container/Exchange'
 import KYC from '../container/Kyc'
 import Send from '../container/Send'
 import ChangePassword from '../container/Changepassword'
+import Reset from '../container/Forgetpassword'
 const route = [
     // {
     //     path:'/aboutus',
@@ -46,6 +47,12 @@ const route = [
         isAuthenticated:false,
         component:ChangePassword,
 
+    },
+    {
+        path:'/reset/password',
+        title:'Client Reset | Jupit',
+        isAuthenticated:false,
+        component:Reset,
     },
     {
         path:'/client/signin',
@@ -181,7 +188,8 @@ const route = [
         title:'Client SignIn | Jupit',
         isAuthenticated:false,
         component:Login,
-    }
+    },
+    
     
     // {
     //     path:'/',

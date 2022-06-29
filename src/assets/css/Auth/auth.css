@@ -30,8 +30,8 @@
 }
 
 .divCover{
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.6);
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +46,17 @@
     width: 40%;
     
     min-height: 50vh;
+    height: 100%;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    box-shadow: 0 0 5px #fff;
+    border-radius: 10px;
+}
+
+
+.authCardReset{
+    width: 40%;
+    min-height: 25vh;
     height: 100%;
     border: 1px solid #e5e5e5;
     background-color: #fff;
@@ -118,6 +129,9 @@ and (max-device-width:399px)
     .authCard{
         width: 100%;
     }
+    .authCardReset{
+        width: 100%;
+    }
     
     .acccept_terms_n_conditions{
         font-size: 12px;
@@ -185,6 +199,18 @@ and (max-device-width:1000px)
         padding: 10px;
         margin: 0px;
     }
+    .authCardReset{
+        width: 100%;
+        height: 100%;
+        border: 1px solid #e5e5e5;
+        background-color: #fff;
+        box-shadow: 0 0 5px #fff;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0px;
+    }
+
+
     .divCover{
         background-color: rgba(0, 0, 0, 0.6);
         display: flex;

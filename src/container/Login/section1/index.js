@@ -40,6 +40,10 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
         sendLogin(items)(authDispatch)
         
     }
+
+    const passwordreset = ()=>{
+       history.push('/reset/password')
+    }
     
 
     useEffect(()=>{
@@ -71,7 +75,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
                         </div>
                         <div className="divForm">
                             <input type="password" className="form-control myform" placeholder="Password" onChange={handlePassword} value={password} required/>
-                            <small className="forgetpassword">Forget Password?</small>
+                            <small className="forgetpassword" onClick={()=>passwordreset()}>Forget Password?</small>
                         </div>
 
                         <div className="divForm">
