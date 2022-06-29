@@ -21,7 +21,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                         <div className="divForm"> 
                             <input type="text" 
                                 className="form-control myform" 
-                                placeholder="Firstname" 
+                                placeholder="First Name" 
                                 name="firstname"  
                                 value={Form.firstname || ""}
                                 onChange={onChange}
@@ -30,7 +30,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                         <div className="divForm"> 
                             <input type="text" 
                                 className="form-control myform" 
-                                placeholder="Lastname" 
+                                placeholder="Last Name" 
                                 name="lastname"  
                                 value={Form.lastname || ""}
                                 onChange={onChange}
