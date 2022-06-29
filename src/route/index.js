@@ -48,6 +48,7 @@ const route = [
         component:ChangePassword,
 
     },
+    
     {
         path:'/reset/password',
         title:'Client Reset | Jupit',
