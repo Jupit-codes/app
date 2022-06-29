@@ -10,7 +10,7 @@ const  AlertDismissible= ({itemHeader,itemData,itemState})=> {
     if (show) {
       return (
           <div style={{padding:10}}>
-              <Alert variant="danger" >
+              <Alert variant={itemState === "success" ? 'info': 'danger'} >
                   <p>{itemData}</p>
               </Alert>
           </div>

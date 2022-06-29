@@ -35,6 +35,8 @@ const Index=()=>{
     const reset = (e)=>{
         e.preventDefault()
         setloading(true)
+        seterror('')
+        setdata('')
     axios({
         method: "POST",
         url: `https://myjupit.herokuapp.com/users/resetpassword`,
@@ -47,6 +49,7 @@ const Index=()=>{
     .then((res)=>{
         setloading(false)
         setdata(res.data.message)
+        setemail('')
       
     })
     .catch((err)=>{
@@ -69,8 +72,8 @@ const Index=()=>{
                             <div className="mylogo_new"><Link to='/'><img src={Jupit}  className="mylogo_me"/></Link></div>
                             <div className="welcomeback"> PASSSWORD RESET</div>
                            
-                            <div className="customerror">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
-                            <div className="customerror">{data && <AlertDismissible itemData={data} itemState={data}/>}</div>
+                            <div className="customerror">{error && <AlertDismissible itemData={error} itemState="error"/>}</div>
+                            <div className="customerror">{data && <AlertDismissible itemData={data} itemState="success"/>}</div>
                             <div className="formArea">
                                 <div className="formClass">
                                     <ToastContainer/>
