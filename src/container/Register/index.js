@@ -16,7 +16,7 @@ const Index=()=>{
     
     return(
         <div className="auth">
-           
+                {loading && <Loader/>}
                 <div class="divCover">
                 <div className="authCard">
                         <div className="mylogo_new"><Link to='/'><img src={Jupit}  className="mylogo_me"/></Link></div>
