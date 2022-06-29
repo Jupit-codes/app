@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { setDatasets } from "react-chartjs-2/dist/utils";
+import axios from 'axios'
 
 
 const Index=()=>{
@@ -32,7 +32,8 @@ const Index=()=>{
         setemail(e.target.value)
     }
 
-    const getbalance = ()=>{
+    const reset = (e)=>{
+        e.preventDefault()
         setloading(true)
     axios({
         method: "POST",
@@ -41,7 +42,7 @@ const Index=()=>{
             'Content-Type':'application/json',
             'Authorization':reactLocalStorage.get('token')
         },
-        data:JSON.stringify({email:email})
+        data:JSON.stringify({email:emailaddress})
     })
     .then((res)=>{
         setloading(false)
@@ -49,7 +50,8 @@ const Index=()=>{
       
     })
     .catch((err)=>{
-        seterror(err.response.message)
+        setloading(false)
+        seterror(err.response ? err.response.data.message : 'No Connection')
         console.log(err.response)
         
     })
@@ -80,7 +82,7 @@ const Index=()=>{
                                         
 
                                         <div className="divForm">
-                                            <input type="submit" className="form-control mybtn"  value="Reset"/>
+                                            <input type="submit" className="form-control mybtn"  onClick={(e)=>reset(e)} value="Reset"/>
                                         </div>
                                        
                                     </form>
