@@ -37,6 +37,8 @@ const Index=()=>{
         setloading(true)
         seterror('')
         setdata('')
+
+        
     axios({
         method: "POST",
         url: `https://myjupit.herokuapp.com/users/resetpassword`,
