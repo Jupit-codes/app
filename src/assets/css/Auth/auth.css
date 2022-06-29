@@ -43,7 +43,7 @@
 
 .authCard{
     width: 40%;
-    min-width: 50vh;
+    
     min-height: 50vh;
     height: 100%;
     border: 1px solid #e5e5e5;
@@ -113,6 +113,11 @@
 and (min-device-width:200px)
 and (max-device-width:399px)
 {
+
+    .authCard{
+        width: 100%;
+    }
+    
     .acccept_terms_n_conditions{
         font-size: 12px;
     }
@@ -156,7 +161,8 @@ and (max-device-width:399px)
 .create_account{
     font-size: 12px;
 }
-   
+
+
 
 
     
@@ -165,7 +171,7 @@ and (max-device-width:399px)
 
 @media screen 
 and (min-device-width:400px)
-and (max-device-width:800px)
+and (max-device-width:1000px)
 {
     
     .authCard{
@@ -175,7 +181,7 @@ and (max-device-width:800px)
         background-color: #fff;
         box-shadow: 0 0 5px #fff;
         border-radius: 10px;
-        padding: 30px;
+        padding: 10px;
     }
     .divCover{
         background-color: rgba(0, 0, 0, 0.6);
