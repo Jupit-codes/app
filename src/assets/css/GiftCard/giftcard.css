@@ -658,6 +658,9 @@ option{
 and (min-device-width:200px)
 and (max-device-width:400px)
 {
+    .country{
+        padding-bottom: 20px;
+    }
     .dnd{
         display: flex;
         justify-content: center;
@@ -716,7 +719,7 @@ and (max-device-width:400px)
     }
     .quantityDiv{
         margin-top: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         width: 100%;
         
     }
@@ -931,9 +934,11 @@ and (max-device-width:400px)
         width: 100%;
     }
     .submitGiftcardBuy{
-        margin-top: 0px;
+        margin-top: 50px;
         padding: 10px;
+        display: flex;
         width: 100%;
+        
        
     }
 
