@@ -36,12 +36,54 @@
     background-color: aquamarine;
 }
 
+.flagSize{
+    width: 25%;
+}
+
+.cardParent{
+    margin-top: 20px;
+}
+.cardPickedParent{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cardPickedParent > div:nth-child(2){
+    margin-left: 10px;
+    font-size: 25px;
+    font-family: 'Jura',sans-serif;
+    font-weight: bold;
+}
+.cardPicked{
+    width:25%;
+    height:150px;
+    border-radius: 20px;
+    border: 0px solid #e5e5e5;
+}
+.currencyBtn{
+    width: 25%;
+    height:50px;
+    background-color: #0d6efd;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+}
+
+
 .sellbody{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
     padding: 10px;
     height: 100vh;
+    height: 100%;
+    padding-bottom: 50px;
     
 }
 
@@ -54,13 +96,23 @@
     align-items: baseline;
     
 }
+.displayCardParent{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.displayCardParent > div{
+    flex: 0 1 calc(25% - 20px);
+    height: 100px;
+    margin: 10px;
+}
 .giftCardDiv{
-    flex:1 1 25%;
-    min-height: 80vh;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding-right: 10px
+    
+   width: 100%;
+   height: 100%;
+  
+
+ 
    
 }
 .FormDiv{
@@ -130,6 +182,53 @@ label{
     display: flex;
     flex-direction: column;
     
+}
+.quantityDiv{
+    margin-top: 30px;
+    width: 80%;
+    
+}
+
+.mynewCart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px;
+    padding: 10;
+   
+
+}
+.mynewCartTitle{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px;
+    
+    padding: 10px;
+   
+
+}
+.mynewCartTitle >div{
+    flex: 0 1 calc(33.33%);
+    color:#9e9e9e;
+}
+
+.mynewCart > div{
+    flex: 0 1 calc(33.33%);
+    color:#000;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+}
+.buyrateDiv{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 25px;
 }
 .calculator{
     display: flex;
@@ -203,26 +302,29 @@ label{
 
 .displayCard{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 5px;
     border-radius: 5px;
-    border: 1px solid #dedede;
+    border: 2px solid #dedede;
     padding: 7px;
     cursor: pointer;
     width: 100%;
+    height: 100%;
+    
     
 }
 
 .displayCard > img{
     
-    flex:1 1 10%;
-    width: 30%;
+    display: flex;
+    width: 35%;
+    
     border-radius: 10px;
 }
 .displayCard > div{
     padding-left: 10px;
-    flex: 1 1 80%;
+    
     margin: 5px;
     font-size: 13px;
     font-family: 'Roboto';
@@ -335,7 +437,8 @@ color:#fff
     
 }
 .brandlogo > img{
-    width: 45%;
+    width: 30%;
+    border: 10px;
 }
 .brandname{
     font-size: 16px;
@@ -344,10 +447,20 @@ color:#fff
     color: #fff;
 }
 
+.countryParent{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.countryParent > div{
+    flex: 0 1 calc(33.333% - 20px);
+    margin: 10px;
+}
+
 .countryFlag{
     display: flex;
     justify-content: space-between;
-    padding:5px;
+    padding:10px;
     border: 1px solid #009EDB;
     width: 100%;
     border-radius: 5px;
@@ -455,7 +568,7 @@ color:#fff
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 200px;
     border-radius: 5px;
     background-color: #e5e5e5;
@@ -519,11 +632,13 @@ option{
 
 .submitGiftcard{
     margin-top: 20px;
+    width: 80%;
    
 }
 
 .submitGiftcardBuy{
     margin-top: 50px;
+    width: 80%;
    
 }
 .buySelect{
@@ -541,8 +656,138 @@ option{
 
 @media screen
 and (min-device-width:200px)
-and (max-device-width:700px)
+and (max-device-width:400px)
 {
+    .dnd{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        margin-top: 20px;
+        text-align: center;
+        cursor: pointer;
+    
+        padding: 50px;
+    }
+    .buyrateDiv{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Jura',sans-serif;
+    }
+    .currencyBtn{
+        width: 100%;
+        height:50px;
+        background-color: #0d6efd;
+        align-items: center;
+        border-radius: 15px;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    
+    }
+    .cardPickedParent{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .cardPickedParent > div:nth-child(2){
+        margin-left: 10px;
+        font-size: 18px;
+        font-family: 'Jura',sans-serif;
+        font-weight: bold;
+        
+
+    }
+    .cardPicked{
+        width:100%;
+        height:150px;
+        border-radius: 20px;
+        border: 0px solid #e5e5e5;
+    }
+    .quantityDiv{
+        margin-top: 30px;
+        margin-bottom: 50px;
+        width: 100%;
+        
+    }
+    .mynewCartTitle{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        
+        padding: 0px;
+       
+    
+    }
+    .mynewCartTitle >div{
+        flex: 0 1 calc(33.33%);
+        color:#9e9e9e;
+        margin-top: 10px;
+        
+        
+    }
+    .mynewCart > div{
+        flex: 0 1 calc(33.33%);
+        color:#000;
+        font-size: 13px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .mynewCart{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+       
+       
+    
+    }
+    .countryParent{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .country_div{
+        margin-bottom: 10px;
+    }
+    
+    .countryParent > div{
+        flex: 0 1 calc(100% - 20px);
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+
+    .displayCardParent{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+    
+    }
+    .displayCardParent > div{
+        flex: 0 1 calc(100% - 10px);
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .displayCard > img{
+    
+        width: 10%;
+        border-radius: 10px;
+    }
+    
 
     .space{
         display: flex;
@@ -568,7 +813,7 @@ and (max-device-width:700px)
         margin:10px
     }
     .flagIconText > img{
-        width: 40%;
+        width: 30%;
     }
     .giftcardBody{
         width:100%;
@@ -589,6 +834,7 @@ and (max-device-width:700px)
     }
     .brandlogo{
         width: 30%;
+        
     }
 
     .giftcardTab{
@@ -619,6 +865,8 @@ and (max-device-width:700px)
         width: 100%;
         padding: 10px;
         height: 100%;
+        
+        
         
     }
     .giftCardDiv{

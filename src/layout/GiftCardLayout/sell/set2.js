@@ -1,5 +1,5 @@
 import {BiArrowBack} from 'react-icons/bi'
-
+import { US,CA,GB,CH,AU,NZ } from 'country-flag-icons/react/3x2'
 const Index = ({current,data,pickedC,message,giftcardrate})=>{
     
     console.log('setdata',)
@@ -23,9 +23,26 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
             })
             pickedC(x.children[0].children[2].textContent)
             message('norate')
+            current('SET3')
         }
     }
 
+    const showImage = (cname)=>{
+        switch(cname){
+            case 'United Kingdom':
+                return <GB title="United Kingdom" className='flagSize'/>
+            case 'USA':
+                return <US title="United State" className='flagSize'/>
+            case 'Canada':
+                return <CA title="canada" className='flagSize'/>
+            case 'Australia':
+                return <AU title="Australia" className='flagSize'/>
+            case 'Switzerland':
+                return <CH title="Switzerland" className='flagSize'/>
+            case 'European Union':
+                return <NZ title="Switzerland" className='flagSize'/>
+        }
+    }
 
     const _renderCountry =()=>{
         return data && data.map((d)=>{
@@ -35,7 +52,7 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                 return <div className='countryFlag' onClick={(e)=>handleCurrency(e)}>
                             
                             <div className='flagIconText'>
-                                <img src={x.image_url}/>
+                                {showImage(x.country_name)}
                                 <span className='currencySet'>{x.country_name}</span>
                                 <span className='currencySet'>{x.currency}</span>
                             </div>
@@ -71,8 +88,14 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
             <div className="arrow">
                 <BiArrowBack  size={20} color="#000" onClick={()=>{current('SET1') ;message('nobrand')}}/>
             </div>
-           {_renderComponent()}
-           {_renderCountry()}
+            <div>
+                {_renderComponent()}
+            </div>
+           
+            <div className='countryParent'>
+                    {_renderCountry()}
+            </div>
+           
         </div>
     )
 }

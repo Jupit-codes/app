@@ -48,6 +48,7 @@ const Index = ()=>{
     const [pickedbrand,setpickedbrand] = useState();
     const[pickedCurrency,setpickedCurrency] = useState();
     const [pickedratepoint,setpickedratepoint] = useState();
+    const [imageurlgiftcard,setimageurlgiftcard] = useState('')
 
     const [Files, setFiles] = useState();
     const [SelectedImage,setSelectedImage] = useState([]);
@@ -115,13 +116,13 @@ const Index = ()=>{
     const selectSet = ()=>{
         switch(selectedSetState){
             case 'SET1':
-                return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand}/>
+                return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand} imageurlgift={setimageurlgiftcard}/>
                 break;
             case 'SET2':
                 return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency} giftcardrate={setsellrate}/>
                 break;
             case 'SET3':
-                return <Set3 current={setselectedSetState} />
+                return <Set3 giftcardimage = {imageurlgiftcard} current={setselectedSetState} currencypicked={pickedCurrency} brandpicked={pickedbrand} rate={sellrate}/>
                 break;
             default:
 
@@ -418,19 +419,19 @@ const Index = ()=>{
 
             
             </div>
-            <div className="FormDiv">
+            {/* <div className="FormDiv">
                 
-                {/* {renderComponent()} */}
+              
                
                 {selectbrand === "nobrand" && _displayNullCard()}
                 {selectbrand === "nocurrency" && _displaySelectCountry()}
                 {selectbrand === "norate" && displayRateBoard()}
-                {/* {loader && <div className='Chartloader'></div>} */}
+              
              
 
                 
 
-            </div>
+            </div> */}
 
 
     </div>

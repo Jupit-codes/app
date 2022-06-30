@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { reactLocalStorage } from "reactjs-localstorage";
+import HorizontalScroll from 'react-scroll-horizontal'
 
-const Index = ({current,message,setdata,pickedB})=>{
+const Index = ({current,message,setdata,pickedB,setimageurlset1})=>{
     const [brandloader,setbrandloader] = useState(true);
     const [loader,setloader] = useState(true);
     const [prevData,setprevData] = useState()
@@ -41,7 +42,7 @@ const Index = ({current,message,setdata,pickedB})=>{
           GiftCard();
       },[])
 
-      const handleSelect = (e)=>{
+      const handleSelect = (e,url)=>{
       
         if(e.target.textContent === "Select"){
           var x = e.target.parentElement
@@ -63,7 +64,7 @@ const Index = ({current,message,setdata,pickedB})=>{
           console.log('SElectedData',selectedData)
           message('nocurrency');
           setdata(selectedData)
-        
+          setimageurlset1(url)
           pickedB(x.children[1].textContent);
           current('SET2');
           
@@ -98,7 +99,7 @@ const Index = ({current,message,setdata,pickedB})=>{
         const _renderComponent = ()=>{
         
             return allgiftcard && allgiftcard.map((d)=>{
-                return <div className="displayCard" onClick={(e)=>handleSelect(e)}>
+                return <div className="displayCard"  onClick={(e)=>handleSelect(e,d.image_url)}>
                             
                             
                                 <img src={d.image_url}/>
@@ -110,14 +111,17 @@ const Index = ({current,message,setdata,pickedB})=>{
             })
     
         }
+   
 
     return(
         <div>
-            <div className="form-group searchBrand">
+           
+             <div className="form-group searchBrand">
                         <input type='text' className="form-control" placeholder="Search for Brand" value={search} onChange={handleSearch}/>
 
-                    </div>
-                    {brandloader ? <div className='Chartloader'></div> :  _renderComponent()}
+            </div>
+            {brandloader ? <div className='Chartloader'></div> : <div className="displayCardParent"> {_renderComponent()}</div>} 
+                    
         </div>
     )
 }

@@ -7,6 +7,7 @@ import { countries,hasFlag  } from 'country-flag-icons'
 import Flags from 'country-flag-icons/react/3x2'
 import Set1 from './set1.js'
 import Set2 from './set2.js'
+import Set3 from './set3.js'
 
 import { findRenderedComponentWithType } from "react-dom/test-utils";
 import { FileUploader } from "react-drag-drop-files";
@@ -53,6 +54,7 @@ const Index = ()=>{
     const [SelectedImage,setSelectedImage] = useState([]);
     const [images,setImages] = useState([])
     const [balance,setbalance] = useState(0)
+    const [imageurlgiftcard,setimageurlgiftcard] = useState('')
     
 
 
@@ -97,10 +99,13 @@ const Index = ()=>{
     const selectSet = ()=>{
         switch(selectedSetState){
             case 'SET1':
-                return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand}/>
+                return <Set1 current={setselectedSetState} message={setselectbrand} setdata={setcheckedData}  pickedB={setpickedbrand} setimageurlset1={setimageurlgiftcard}/>
                 break;
             case 'SET2':
                 return <Set2 current={setselectedSetState} message={setselectbrand} data={checkedData}  pickedC={setpickedCurrency} giftcardrate={setbuyrate}/>
+                break;
+            case 'SET3':
+                return <Set3 giftcardimage = {imageurlgiftcard} current={setselectedSetState} currencypicked={pickedCurrency} brandpicked={pickedbrand} rate={buyrate}/>
                 break;
            
             default:
@@ -404,15 +409,15 @@ const Index = ()=>{
 
             
             </div>
-            <div className="FormDiv">
+            {/* <div className="FormDiv">
                 
-                {/* {renderComponent()} */}
+               
                
                 {selectbrand === "nobrand" && _displayNullCard()}
                 {selectbrand === "nocurrency" && _displaySelectCountry()}
                 {selectbrand === "norate" && displayRateBoard()}
-                {/* {loader && <div className='Chartloader'></div>} */}
-            </div>
+                
+            </div> */}
 
 
     </div>
