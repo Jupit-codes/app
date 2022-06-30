@@ -102,7 +102,7 @@ const Index = ({current,message,setdata,pickedB,setimageurlset1})=>{
                 return <div className="displayCard"  onClick={(e)=>handleSelect(e,d.image_url)}>
                             
                             
-                                <img src={d.image_url}/>
+                                <img src={d.image_url} className="brandimg"/>
                             
                             
                             <div>{d.brandname}</div>
