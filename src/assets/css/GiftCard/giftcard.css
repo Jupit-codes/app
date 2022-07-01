@@ -635,6 +635,9 @@ option{
     width: 80%;
    
 }
+.control-width{
+    width: 50% !important;
+}
 
 .submitGiftcardBuy{
     margin-top: 50px;

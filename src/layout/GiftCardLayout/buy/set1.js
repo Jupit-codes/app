@@ -117,7 +117,7 @@ const Index = ({current,message,setdata,pickedB,setimageurlset1})=>{
         <div>
            
              <div className="form-group searchBrand">
-                        <input type='text' className="form-control" placeholder="Search for Brand" value={search} onChange={handleSearch}/>
+                        <input type='text' className="form-control control-width" placeholder="Search for Brand" value={search} onChange={handleSearch}/>
 
             </div>
             {brandloader ? <div className='Chartloader'></div> : <div className="displayCardParent"> {_renderComponent()}</div>} 
