@@ -202,8 +202,10 @@ const Index = ()=>{
 
                 </div>
 
-               
-
+                <div className='Notification hidenotify'  onClick={notify}>
+                            <IoIosNotificationsOutline size={20} color="#1c1c93"/> 
+                            <Badge pill bg="danger" className='notify'>{notification}</Badge>
+                </div>
                 <div className='profilesection'>
                     <div className='xcode'>  
 
@@ -240,6 +242,10 @@ const Index = ()=>{
                     
 
                 </div>
+
+               
+
+                
         </div>
     )
 }

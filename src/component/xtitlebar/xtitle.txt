@@ -1,0 +1,36 @@
+<div className='profilesection'>
+                    <div className='xcode'>  
+
+                        <div className='Notification'  onClick={notify}>
+                            <IoIosNotificationsOutline size={20} color="#1c1c93"/> 
+                            <Badge pill bg="danger" className='notify'>{notification}</Badge>
+                        </div>
+                        {/* <div className='Notification'>
+                            <BiSupport size={20} color="#1c1c93"/>
+                        </div> */}
+                        <div className='Notification'>
+                            <IoLogoWhatsapp size={20} color="#25D366" onClick={whatsapChat}/>
+                        </div>
+                        {/* <div className='ProfileName'>
+                            Geoffrey
+                        </div> */}
+                        
+                        <div className='Notification' >
+                           {/* <img src={ProfileImage}/> */}
+                           <Dropdown style={{top:0}}>
+                                <Dropdown.Toggle id="dropdown-basic" variant=''>
+                                    {/* <img src={ProfileImage}/> */}
+                                    <AiOutlinePoweroff size={20} className="iconprofile"/>
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                                
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
