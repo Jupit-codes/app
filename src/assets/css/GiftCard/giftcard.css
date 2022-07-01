@@ -656,7 +656,7 @@ option{
 
 @media screen
 and (min-device-width:200px)
-and (max-device-width:400px)
+and (max-device-width:600px)
 {
     
     .country{
@@ -705,7 +705,7 @@ and (max-device-width:400px)
         align-items: center;
     }
     .cardPickedParent > div:nth-child(2){
-        margin-left: 10px;
+        margin-left: 0px;
         font-size: 18px;
         font-family: 'Jura',sans-serif;
         font-weight: bold;

@@ -280,7 +280,7 @@ function getWindowDimensions() {
                                 {d.value}{currencypicked}
                             </div>
                             <div className="form-group">
-                                <input type="number" name={index}  onChange={handleChangeInput} value={Form.index} className="form-control"/>
+                                <input type="number" name={index}  onChange={handleChangeInput} value={Form.index} className="form-control" placeholder='Input Quantity'/>
                             </div>
                            
                     </div>
@@ -295,7 +295,7 @@ function getWindowDimensions() {
             <div className='cardParent'>
                 <div className='cardPickedParent'>
                     
-                    <div className='cardPicked' style={{backgroundImage:`url(${giftcardimage})`, backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}>
+                    <div className='cardPicked' style={{backgroundImage:`url(${giftcardimage})`, backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'contain'}}>
                         
                     </div>
                     <div>{brandpicked}</div>
