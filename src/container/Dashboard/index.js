@@ -102,7 +102,7 @@ const Index=()=>{
                     <div>
                         <Link to="/client">
                             {/* <img src={!pathname[2] ? DashboardActive: Dashboard}/> */}
-                            <RiDashboardFill size={20} color={!pathname[2]? '#0d6efd':'#000'}/>
+                            <RiDashboardFill size={20} color={!pathname[2]? '#1c1c93':'#9c9c9c'}/>
                         </Link>
                         
                     </div>
@@ -110,28 +110,28 @@ const Index=()=>{
                     <div>
                         <Link to='/client/wallet'>
                             {/* <img src={pathname[2]=== "wallet"? WalletActive : Wallet}/> */}
-                            <RiWalletFill size={25}  color={pathname[2] === "wallet" ? '#0d6efd':'#000'}/>
+                            <RiWalletFill size={25}  color={pathname[2] === "wallet" ? '#1c1c93':'#9c9c9c'}/>
                         </Link>
                        
                     </div>
                     <div className='cruise'>
                         <Link to="/client/exchange">
                             {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
-                            <RiExchangeBoxFill className='cruise-exchange' size={25} color={pathname[2] === "exchange" ? '#0d6efd':'#000'}/>
+                            <RiExchangeBoxFill className='cruise-exchange' size={25} color={pathname[2] === "exchange" ? '#1c1c93':'#9c9c9c'}/>
                         </Link>
 
                     </div>
                     <div>
                         <Link to="/client/transactions-history">
                             {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
-                            <MdOutlineHistory size={25} color={pathname[2] === "transactions-history" ? '#0d6efd':'#000'}/>
+                            <MdOutlineHistory size={25} color={pathname[2] === "transactions-history" ? '#1c1c93':'#9c9c9c'}/>
                         </Link>
 
                     </div>
                     <div>
                         <Link to='/client/settings'>
                             {/* <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/> */}
-                            <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#0d6efd':'#000'}/>
+                            <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#1c1c93':'#9c9c9c'}/>
                         </Link>
                         
                     </div>

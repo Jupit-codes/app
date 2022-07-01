@@ -89,7 +89,7 @@
     top:-20px;
 }
 .hidenotify{
-    display: none  !important;
+    display: none;
 }
 
 
@@ -101,13 +101,13 @@ and (max-device-width:800px)
     display: none !important;
    }
    .hidenotify{
-        display: flex !important;
+        display: block;
     }
     .cruise-exchange{
         top:-200px;
     }
     .xtitle{
-        display: inline;
+        
         padding-left: 0px;
         
        flex-wrap: wrap;
@@ -120,6 +120,7 @@ and (max-device-width:800px)
         padding-top: 0px;
         margin-top: 0px;
         padding: 10px;
+       
         
       
         
@@ -168,13 +169,13 @@ and (max-device-width:800px)
         flex:1 1 cal(20px -33.3333%);
         
     }
-    .WelcomeClass{
+    /* .WelcomeClass{
        flex:1 1 100%;
        width: 100%;
        margin-top: 10px;
        
         
-    }
+    } */
     
     /* .profilesection{
         flex:1 1 100%;
