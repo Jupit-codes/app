@@ -3,7 +3,7 @@ import cardType from '../../../assets/images/utility/mastercard.png'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import axios from 'axios'
 import { useEffect,useState } from 'react'
-const Index = ()=>{
+const Index = ({comp})=>{
 
     const [userUSDT,setuserUSDT] = useState()
     const [refresh,setrefreshing] = useState()
@@ -33,6 +33,7 @@ const Index = ()=>{
         })
     }
      useEffect(()=>{
+        comp('Usdt')
          setuserUSDT(reactLocalStorage.getObject('user').usdt_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;
          getbalance(_id)

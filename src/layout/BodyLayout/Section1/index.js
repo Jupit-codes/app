@@ -77,14 +77,14 @@ const Index = ()=>{
    const _renderRateBig =()=>{
     if(percentageBTC <0){
         // return <img src={Down}/>
-        return <FcBearish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
+        return <FcBearish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 40 : 50}/>
     }
     else if(percentageBTC == 0){
-        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 40 : 50}/>
         // return <img src={Growth}/>
     }
     else if(percentageBTC > 0){
-        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 40 : 50}/>
         // return <img src={Growth}/>
     }
 }
@@ -97,7 +97,7 @@ const _renderRate =()=>{
         return <div className='neutral'><span>{percentageBTC}%</span></div>
     }
     else if(percentageBTC > 0){
-        return <div className='bearish'><span><AiOutlineRise color="#003300" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageBTC}%</span></div>
+        return <div className='bearish'><span><AiOutlineRise color="#2b9f7b" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageBTC}%</span></div>
     }
 }
 
@@ -109,20 +109,20 @@ const _renderRateUsdt =()=>{
         return <div className='neutral'><span>{percentageUSDT}%</span></div>
     }
     else if(percentageUSDT > 0){
-        return <div className='bearish'><span><AiOutlineRise color="#003300" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageUSDT}%</span></div>
+        return <div className='bearish'><span><AiOutlineRise color="#2b9f7b" size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 12 : 20}/>&nbsp;{percentageUSDT}%</span></div>
     }
 }
 
 const _renderRateUsdtBig =()=>{
     if(percentageUSDT <0){
         // FcBearish,FcBullish
-        return <FcBearish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
+        return <FcBearish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 40 : 50}/>
     }
     else if(percentageUSDT == 0){
-        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 40 : 50}/>
     }
     else if(percentageUSDT > 0){
-        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 30 : 50}/>
+        return <FcBullish size={windowDimensions.width > 0 && windowDimensions.width <=800 ? 40 : 50}/>
     }
 }
 

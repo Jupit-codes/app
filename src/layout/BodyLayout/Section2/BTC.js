@@ -4,7 +4,7 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 
-const Index = ()=>{
+const Index = ({comp})=>{
 
     const [userBtc,setuserBtc] = useState()
     const [refresh,setrefreshing] = useState()
@@ -35,6 +35,7 @@ const Index = ()=>{
         })
     }
      useEffect(()=>{
+       
          setuserBtc(reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;
          getbalance(_id)

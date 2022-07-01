@@ -12,6 +12,7 @@ import { toast,ToastContainer } from 'react-toastify';
 import SweetAlert2 from 'react-sweetalert2';
 import { usePWAInstall } from 'react-use-pwa-install'
 import Alas from './utils/modal/pwa'
+import Spinner from './utils/loader/spinner.js'
 function App() {
 
   const [isLoading, setLoading] = useState(true);
@@ -24,7 +25,8 @@ function App() {
 
   useEffect(() => {
     fakeRequest().then(() => {
-      const el = document.querySelector(".loader-container");
+      // const el = document.querySelector(".loader-container");
+      const el = document.querySelector(".loader-container")
       if (el) {
         el.remove();
         setLoading(!isLoading);

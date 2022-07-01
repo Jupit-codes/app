@@ -194,7 +194,7 @@ const Index = ()=>{
            
                 <div className='WelcomeClass'>
                     <div className='Hello'>
-                        {salutation}, {userInfor}.
+                        {salutation}, {userInfor}
                     </div>
                     <div className='dateHello'>
                         {dateandtime()}

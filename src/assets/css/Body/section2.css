@@ -111,7 +111,7 @@
     border-radius: 10px;
     color: #fff;
     padding: 5px;
-    background-color: #d4af37;
+    background-color: #f39321;
     margin: 5px;
     font-family: 'Jura',sans-serif;
     font-size:10px;
@@ -130,7 +130,7 @@
     border-radius: 10px;
     color: #fff;
     padding: 5px;
-    background-color: #00DEA3;
+    background-color: #2b9f7b;
     margin: 5px;
     font-family: 'Jura',sans-serif;
     font-size:10px;
@@ -280,7 +280,7 @@
     width: 100px;
     min-height: 100%;
     height: 200px;
-    background-color: #d4af37;
+    background-color: #f39321;
     border-radius: 5px;
 
 }
@@ -289,7 +289,7 @@
     width: 100px;
     min-height: 100%;
     height: 200px;
-    background-color: #259c77;
+    background-color: #2b9f7b;
     border-radius: 5px;
 }
 
@@ -333,7 +333,7 @@
 .cardNairaBTC{
     width: 100%;
     height: 100%;
-    background-color: #d4af37;
+    background-color: #f39321;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -351,7 +351,7 @@
 .cardNairaUSDT{
     width: 100%;
     height: 100%;
-    background-color: #259c77;
+    background-color: #2b9f7b;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -483,7 +483,7 @@
     height: 50px;
     color: #fff;
     border-radius: 15px;
-    background-color: #259c77;
+    background-color: #2b9f7b;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -496,7 +496,7 @@
     height: 50px;
     color: #fff;
     border-radius: 15px;
-    background-color: #d4af37;
+    background-color: #f39321;
     display: flex;
     justify-content: center;
     align-items: center;
