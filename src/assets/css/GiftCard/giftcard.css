@@ -352,6 +352,9 @@ label{
 .searchBrand{
     margin-bottom: 10px;
     height: 100%;
+    display: flex;
+    justify-content: flex-end;
+
 }
 .searchBrand > input{
     font-size: 14px;
@@ -636,7 +639,7 @@ option{
    
 }
 .control-width{
-    width: 50% !important;
+    width: 20% !important;
 }
 
 .submitGiftcardBuy{
