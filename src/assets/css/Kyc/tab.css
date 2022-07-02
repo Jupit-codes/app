@@ -107,7 +107,11 @@
     margin-left: 20px;
 }
 .activeTab{
-    border-bottom:2px solid #000088
+    border-bottom:2px solid #1c1c93
+   
+}
+.activeTabnew{
+    border-bottom:2px solid #1c1c93
    
 }
 

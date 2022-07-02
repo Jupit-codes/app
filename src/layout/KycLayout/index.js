@@ -75,10 +75,10 @@ export default function Index() {
             
         }
         if(res.data.level1[0].status === "Verified" && res.data.level2[0].event_status === "customeridentification.success"){
-          setscrollActiveII('activeTab')
+          setscrollActiveII('activeTabnew')
         }
         else{
-          setscrollActive('activeTab')
+          setscrollActive('activeTabnew')
         }
 
        
@@ -123,13 +123,13 @@ export default function Index() {
 
       
       for (let i =0;i<x.children.length;i++){
-        if(x.children[i].classList.contains('activeTab')){
+        if(x.children[i].classList.contains('activeTabnew')){
           
-          x.children[i].classList.remove('activeTab');
+          x.children[i].classList.remove('activeTabnew');
         }
         
     }
-      e.target.classList.add('activeTab');
+      e.target.classList.add('activeTabnew');
       setContent('Email');
     }
     const handleAcctLinkage= (e)=>{
@@ -139,14 +139,14 @@ export default function Index() {
       
       
       for (let i =0;i<x.children.length;i++){
-          if(x.children[i].classList.contains('activeTab')){
+          if(x.children[i].classList.contains('activeTabnew')){
             
-            x.children[i].classList.remove('activeTab');
+            x.children[i].classList.remove('activeTabnew');
           }
           
       }
       
-      e.target.classList.add('activeTab');
+      e.target.classList.add('activeTabnew');
      
       setContent('Accountlinkage');
     }
@@ -156,14 +156,14 @@ export default function Index() {
       
       
       for (let i =0;i<x.children.length;i++){
-          if(x.children[i].classList.contains('activeTab')){
+          if(x.children[i].classList.contains('activeTabnew')){
             
-            x.children[i].classList.remove('activeTab');
+            x.children[i].classList.remove('activeTabnew');
           }
           
       }
       
-      e.target.classList.add('activeTab');
+      e.target.classList.add('activeTabnew');
       
       setContent('Idcard');
     }

@@ -6,16 +6,16 @@ export const Tab = ({Active,currentActiveState})=>{
     
     return(
         <div className="tabSettings">
-            <div  onClick={()=>Active('Account-Settings')} className={currentActiveState === "Account-Settings" ? ' tabDiv activeTab':'tabDiv' }>
+            <div  onClick={()=>Active('Account-Settings')} className={currentActiveState === "Account-Settings" ? ' tabDiv activeTabnew':'tabDiv' }>
                 Account Settings
             </div>
             {/* <div onClick={()=>Active('Notification-Settings')} className={currentActiveState === "Notification-Settings" ? 'tabDiv activeTab' :'tabDiv' }>
                 Notification Settings
             </div> */}
-            <div  onClick={()=>Active('Security-Settings')}  className={currentActiveState === "Security-Settings" ? 'tabDiv activeTab':'tabDiv' } >
+            <div  onClick={()=>Active('Security-Settings')}  className={currentActiveState === "Security-Settings" ? 'tabDiv activeTabnew':'tabDiv' } >
                 Security Settings
             </div>
-            <div  onClick={()=>Active('Verification')}  className={currentActiveState === "Verification" ? 'tabDiv activeTab':'tabDiv' } >
+            <div  onClick={()=>Active('Verification')}  className={currentActiveState === "Verification" ? 'tabDiv activeTabnew':'tabDiv' } >
                 Verification
             </div>
         </div>

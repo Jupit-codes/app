@@ -20,19 +20,24 @@ import Exchange from '../../container/Exchange'
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
-
+import { Offcanvas } from "react-bootstrap"; 
 import axios from "axios";
-import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill} from 'react-icons/ri'
+import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill, RiMoreLine} from 'react-icons/ri'
 import {MdOutlineHistory} from 'react-icons/md'
 import {BsWallet2} from 'react-icons/bs'
+import {AiOutlineWhatsApp} from 'react-icons/ai'
+import {BiLogOut} from 'react-icons/bi'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Index=()=>{
     const location = useLocation();
+    const history = useHistory()
     const path = location.pathname;
     const [open, setOpen] = useState(true);
     const [trigger, settrigger] = useState(false);
     const [navigation, setNavigation] = useState('');
     const pathname = location.pathname.split('/');
+    const [close,setClose] = useState(false)
     const handleCallback =(value)=>{
         setOpen(value)
     }
@@ -96,6 +101,21 @@ const Index=()=>{
         return component
     }
 
+    const handleClose = ()=>{
+        setClose(!close)
+    }
+
+    const logout =()=>{
+        reactLocalStorage.remove('user');
+        reactLocalStorage.remove('token');
+        reactLocalStorage.remove('kyc');
+        reactLocalStorage.remove('2fa');
+        history.push('/client/login')
+     }
+     const whatsapChat = ()=>{
+        window.open('https://wa.me/2348088213177');
+    }
+
     
     const _rendermobileTab =()=>{
         return <div className="tabCustom">
@@ -128,13 +148,52 @@ const Index=()=>{
                         </Link>
 
                     </div>
-                    <div>
-                        <Link to='/client/settings'>
+                   
+                    <div onClick={()=>{handleClose()}}>
+                        
                             {/* <img src={pathname[2]=== "settings"? SettingsActive : Settingx}/> */}
-                            <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#1c1c93':'#9c9c9c'}/>
-                        </Link>
+                            < RiMoreLine size={25}  color='#9c9c9c'/>
+                        
                         
                     </div>
+
+                    <Offcanvas show={close} onHide={handleClose} placement='end' className='myoffcanvas'>
+                        <Offcanvas.Header closeButton>
+                        <Offcanvas.Title style={{color:'#fff'}}>More</Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                             <div className="moreDiv" onClick={()=>{history.push('/client/settings')}}>
+                                
+                                <div>
+                                    <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#9c9c9c':'#fff'}/>
+                                </div>
+                                <div>
+                                    Settings
+                                </div>
+
+                             </div>
+                             <div className="moreDiv" onClick={()=>whatsapChat()}>
+                                
+                                <div><AiOutlineWhatsApp size={25}  color='#25D366'/></div>
+                                <div>Whatsapp</div>
+                             </div>
+                             <div className="moreDiv" onClick={()=>logout()}>
+                                
+                                    <div>
+                                        <BiLogOut size={25}  color='#fff'/>
+                                    </div>
+                                    <div>
+                                        Logout
+                                    </div>
+                             </div>
+                            
+                            
+                        </Offcanvas.Body>
+                    </Offcanvas>
+
+                   
+
+
                     
 
                </div>
