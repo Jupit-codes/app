@@ -182,7 +182,7 @@ function getWindowDimensions() {
                     <div className='cardPicked' style={{backgroundImage:`url(${giftcardimage})`, backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'contain'}}>
                         
                     </div>
-                    <div>{brandpicked}</div>
+                    
                 </div>
                 <div className='currencyBtn'>
                 {currencypicked} {See()}
@@ -217,7 +217,7 @@ function getWindowDimensions() {
                 {renderCart()}
 
                 <div className="submitGiftcardBuy">
-                    {SelectOption && See() * rate > 0  && <input type="submit" value='Pay now' className="form-control btn-primary" onClick={handlePaynow}/>}
+                    {SelectOption && See() * rate > 0  && <input type="submit" value='Pay' className="form-control " onClick={handlePaynow}/>}
                 </div>
                 
 

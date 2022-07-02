@@ -121,11 +121,11 @@ const Index = ()=>{
 
         switch(kycprogress){
             case 25:
-                return '100 USD'
+                return 'N10,000 per day'
             case 55:
-                return '500 USD'
+                return 'N200,000 per day'
             case 100:
-                return 'Verified'
+                return 'N1,000,000 per day'
         }
     }
 

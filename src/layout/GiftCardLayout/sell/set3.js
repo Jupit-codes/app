@@ -298,7 +298,7 @@ function getWindowDimensions() {
                     <div className='cardPicked' style={{backgroundImage:`url(${giftcardimage})`, backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'contain'}}>
                         
                     </div>
-                    <div>{brandpicked}</div>
+                   
                 </div>
                 <div className='currencyBtn'>
                 {currencypicked} {See()}

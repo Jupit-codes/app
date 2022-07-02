@@ -75,9 +75,9 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
                             <div className="brandlogo">
                                 <img src={d.image_url}/>
                             </div>
-                            <div className="brandname">
+                            {/* <div className="brandname">
                                 {d.brandname}
-                            </div>
+                            </div> */}
                         
                        
                     </div>
