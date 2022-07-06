@@ -452,23 +452,23 @@ const Index =()=>{
         
 
         let kycprogress = 0
-        if(kycLevel1 === "Verified"){
+    //     if(kycLevel1 === "Verified"){
             
-            kycprogress += 25
-        }
+    //         kycprogress += 25
+    //     }
 
-        if(kycLevel2 === "customeridentification.success"){
-            kycprogress += 30
-        }
+    //     if(kycLevel2 === "customeridentification.success"){
+    //         kycprogress += 30
+    //     }
 
-       if(kycprogress === 25 && usdamount > 100){
-        toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
-        return false;
-       }
-       if(kycprogress === 55 && usdamount > 500){
-        toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
-        return false;
-       }
+    //    if(kycprogress === 25 && usdamount > 100){
+    //     toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
+    //     return false;
+    //    }
+    //    if(kycprogress === 55 && usdamount > 500){
+    //     toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
+    //     return false;
+    //    }
 
         // let x = btcamount + networkFee;
 
@@ -512,7 +512,11 @@ const Index =()=>{
                 userid:reactLocalStorage.getObject('user')._id,
                 ngnamount:ngnamount,
                 btcamount:btcamount,
-                wallet_type:'BTC'
+                usdamount:usdamount,
+                currentRate:currentRate,
+                buyrate:buyrate,
+                wallet_type:'BTC',
+                to_address:reactLocalStorage.getObject('user').btc_wallet[0].address
             })
             
           })
@@ -521,9 +525,9 @@ const Index =()=>{
             setLoader(false)
             toast.success(res.data.message,'success');
             setngnamount('');
-            setbtcamount('')
-            setusdamount('')
-            getbalance(reactLocalStorage.getObject('user')._id)
+            setbtcamount('');
+            setusdamount('');
+            getbalance(reactLocalStorage.getObject('user')._id);
       
           })
           .catch((err)=>{

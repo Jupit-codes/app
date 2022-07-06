@@ -278,11 +278,7 @@ const Index =()=>{
 
     },[error,data])
 
-    useEffect(()=>{
-        
-       retrieveAutoFee();
-        
-    },[])
+    
 
     useEffect(()=>{
         
@@ -517,10 +513,18 @@ const Index =()=>{
               'Authorization': reactLocalStorage.get('token')
             },
             data:JSON.stringify({
+                // userid:reactLocalStorage.getObject('user')._id,
+                // ngnamount:ngnamount,
+                // btcamount:btcamount,
+                // wallet_type:'USDT'
                 userid:reactLocalStorage.getObject('user')._id,
                 ngnamount:ngnamount,
                 btcamount:btcamount,
-                wallet_type:'USDT'
+                usdamount:usdamount,
+                currentRate:currentRate,
+                sellrate:sellrate,
+                wallet_type:'USDT',
+                from_address:reactLocalStorage.getObject('user').usdt_wallet[0].address
             })
             
           })

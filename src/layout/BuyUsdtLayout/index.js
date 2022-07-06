@@ -516,7 +516,11 @@ const Index =()=>{
                 userid:reactLocalStorage.getObject('user')._id,
                 ngnamount:ngnamount,
                 btcamount:btcamount,
-                wallet_type:'USDT'
+                wallet_type:'USDT',
+                usdamount:usdamount,
+                currentRate:currentRate,
+                buyrate:buyrate,
+                to_address:reactLocalStorage.getObject('user').btc_wallet[0].address
             })
             
           })

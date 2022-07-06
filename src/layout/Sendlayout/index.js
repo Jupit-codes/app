@@ -435,6 +435,8 @@ const Index =()=>{
                     networkFee:networkFee,
                     userid:reactLocalStorage.getObject('user')._id,
                     amount:btcamount,
+                    usdequivalent:usdamount,
+                    current_usd_rate:currentRate,
                     block_average:blockaverage,
                     wallet_type:"BTC",
                     transferType:dataAddr,

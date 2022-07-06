@@ -31,7 +31,9 @@ export default (item)=>(dispatch)=>{
             userid:item.userid,
             transfertype:item.transferType,
             amount:item.amount,
-            senderaddress:item.senderAddress
+            senderaddress:item.senderAddress,
+            usdequivalent:item.usdequivalent,
+            current_usd_rate:item.current_usd_rate,
   
         })
     })
@@ -51,7 +53,7 @@ export default (item)=>(dispatch)=>{
             payload:err.response ? err.response.error : 'CONNECTION FAULT'
         })
 
-        console.log(err.response.error)
+        console.log(err.response)
        
     })
 }
