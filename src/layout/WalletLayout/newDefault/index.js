@@ -121,11 +121,11 @@ const Index = ()=>{
         
         switch(kycprogress){
             case 25:
-                return 'N10,000 per day'
+                return 'N10,000 per transaction (Five Times Daily)'
             case 55:
-                return 'N200,000 per day'
+                return 'N200,000 per transaction (Five Times Daily)'
             case 100:
-                return 'N1,000,000 per day'
+                return 'N1,000,000 per transaction (Five Times Daily)' 
         }
     }
 
@@ -457,7 +457,7 @@ const Index = ()=>{
                     <div className='YClass'>
                         <div className='myKyc'>
                             <div>
-                                Transaction Limit <span><b>({kycTransaction()})</b></span>
+                                Transaction Limit: <span><b>{kycTransaction()}</b></span>
                             </div>
                             <div>
                                 KYC LEVEL({kycProgressBar()}%)

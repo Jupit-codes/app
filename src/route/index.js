@@ -62,13 +62,13 @@ const route = [
         component:Login,
 
     },
-    // {
-    //     path:'/client/signup',
-    //     title:'Client SignUp | Jupit',
-    //     isAuthenticated:false,
-    //     component:Register,
+    {
+        path:'/client/signup',
+        title:'Client SignUp | Jupit',
+        isAuthenticated:false,
+        component:Register,
 
-    // },
+    },
     // {
     //     path:'/client/kyc',
     //     title:'Client KYC | Jupit',
