@@ -75,7 +75,7 @@ const Index =()=>{
     const [loader,setLoader] = useState(false);
     const [failedRequest,setFailedRequest] = useState(false)
     const [dailytransactioncount,setdailytransactioncount] = useState()
-    
+    const [withdrawalcheck,setwithdrawalcheck] = useState()
 
 //    useEffect(()=>{
 //        let _id = reactLocalStorage.getObject('user')._id;
@@ -109,11 +109,11 @@ const Index =()=>{
             "Authorization":`Bearer ${reactLocalStorage.get('token')}`
 
             },
-            data:JSON.stringify({walletType:'BTC'})
+            data:JSON.stringify({walletType:'BTC',email:reactLocalStorage.getObject('user').email})
         })
         .then(res=>{
         
-
+        setwithdrawalcheck(res.data.bankCheck)
         res.data.message.auto_fees.forEach((d)=>{
                             
             if(d.block_num === 1){
@@ -423,6 +423,9 @@ const Index =()=>{
    
     const buycoin = ()=>{
         
+        if(!withdrawalcheck){
+            toast.error('Sorry, your account details has not been linked. Kindly conclude your KYC Level 2');
+        }
 
         let kycprogress = 0
         if(kycLevel1 === "Verified"){
@@ -482,7 +485,10 @@ const Index =()=>{
     }
 
     const Withdrawal = async ()=>{
-             const BaseUrl = process.env.REACT_APP_BACKEND_URL  
+
+        
+
+            const BaseUrl = process.env.REACT_APP_BACKEND_URL  
           
             setLoader(true)
         await axios({
