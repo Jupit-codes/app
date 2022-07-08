@@ -112,8 +112,8 @@ const Index =()=>{
             data:JSON.stringify({walletType:'BTC',email:reactLocalStorage.getObject('user').email})
         })
         .then(res=>{
-        
-        setwithdrawalcheck(res.data.bankCheck)
+        console.log(res.data);
+       
         res.data.message.auto_fees.forEach((d)=>{
                             
             if(d.block_num === 1){
@@ -183,10 +183,12 @@ const Index =()=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            if(Balance !== res.data.naira_wallet[0].balance.$numberDecimal ){
-                setBalance(parseFloat(res.data.naira_wallet[0].balance.$numberDecimal));
-                setcreatePin(res.data.Pin_Created);
-                setmywallet(res.data.wallet_pin);
+            console.log(res.data)
+            setwithdrawalcheck(res.data.bankCheck);
+            if(Balance !== res.data.user.naira_wallet[0].balance.$numberDecimal ){
+                setBalance(parseFloat(res.data.user.naira_wallet[0].balance.$numberDecimal));
+                setcreatePin(res.data.user.Pin_Created);
+                setmywallet(res.data.user.wallet_pin);
             }
             
         })
@@ -300,11 +302,11 @@ const Index =()=>{
 
     },[error,data])
 
-    useEffect(()=>{
+    // useEffect(()=>{
         
-       retrieveAutoFee();
+    //    retrieveAutoFee();
         
-    },[])
+    // },[])
 
     useEffect(()=>{
         
@@ -423,10 +425,12 @@ const Index =()=>{
    
     const buycoin = ()=>{
         
+        alert(withdrawalcheck)
         if(!withdrawalcheck){
             toast.error('Sorry, your account details has not been linked. Kindly conclude your KYC Level 2.');
             return false;
         }
+
 
         let kycprogress = 0
         if(kycLevel1 === "Verified"){
@@ -505,7 +509,8 @@ const Index =()=>{
                 amount:ngnamount,
                 firstname: reactLocalStorage.getObject('user').firstname,
                 lastname: reactLocalStorage.getObject('user').lastname,
-                email:reactLocalStorage.getObject('user').email
+                email:reactLocalStorage.getObject('user').email,
+                phonenumber:reactLocalStorage.getObject('user').phonenumber
             })
             
           })
