@@ -425,7 +425,7 @@ const Index =()=>{
    
     const buycoin = ()=>{
         
-        alert(withdrawalcheck)
+        
         if(!withdrawalcheck){
             toast.error('Sorry, your account details has not been linked. Kindly conclude your KYC Level 2.');
             return false;
