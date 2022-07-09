@@ -168,6 +168,25 @@ const Index = ()=>{
                 if(d.type == 5){
                     return (    
                         <div key={index} className="notifyDiv">
+    
+     
+                                <div className='notify-flex-1'>
+                                    <div className='info'>Deposit Alert (Virtual Account)</div>
+                                    <div className="notifyMessage"><IoIosMail color="#1c1c93" size={20}/><div>DEPOSIT ALERT</div></div>
+                                    <small>You receive a sum of {d.from_address} into your virtual wallet account.<br/> The current status is <span class="success">{d.status}</span></small>
+                                    <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                </div>
+                               
+    
+                        </div>
+                    
+                    
+                    )
+                }
+
+                if(d.type == 6){
+                    return (    
+                        <div key={index} className="notifyDiv">
 
  
                             <div className='notify-flex-1'>

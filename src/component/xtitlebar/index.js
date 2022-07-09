@@ -97,7 +97,7 @@ const Index = ()=>{
                 
                 'Authorization':reactLocalStorage.get('token')
             },
-            data:JSON.stringify({addressBTC:reactLocalStorage.getObject('user').btc_wallet[0].address,addressUSDT:reactLocalStorage.getObject('user').usdt_wallet[0].address,userid:_id,email:reactLocalStorage.getObject('user').email})
+            data:JSON.stringify({addressBTC:reactLocalStorage.getObject('user').btc_wallet[0].address,addressUSDT:reactLocalStorage.getObject('user').usdt_wallet[0].address,userid:_id,email:reactLocalStorage.getObject('user').email,virtual_account:reactLocalStorage.getObject('user').virtual_accounts})
         })
         .then((res)=>{
             
