@@ -33,6 +33,9 @@
 .wallet-title > img{
     width: 25px;
 }
+.btn_open_more{
+    cursor: pointer;
+}
 .wallet-balance{
     display: flex;
     flex-direction: column;
