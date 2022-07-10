@@ -619,7 +619,7 @@ const Index =()=>{
             <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
-                    <div className='currentRate'>&#36;{currentRate}</div>
+                    <div className='currentRate'>&#36;{currentRate && currentRate > 1 ? currentRate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):currentRate }</div>
                     <div className='sendBTCFrom'>Buy BTC @ &#x20A6;{buyrate}</div>
                     <div className='fromBTC'>
                         <div>
@@ -627,7 +627,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:&#x20A6;{Balance}
+                            Balance:&#x20A6;{Balance && Balance > 1 ? Balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","): Balance}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
