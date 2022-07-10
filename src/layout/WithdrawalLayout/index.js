@@ -509,8 +509,7 @@ const Index =()=>{
 
         const BaseUrl = process.env.REACT_APP_BACKEND_URL  
         let value = check(ngnamount);
-        console.log(value);
-        return false;
+        
         setLoader(true)
         await axios({
         
