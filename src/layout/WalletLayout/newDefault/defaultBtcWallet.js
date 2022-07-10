@@ -16,7 +16,7 @@ import ReceiveModal from '../../../utils/modal/receiveModal.js'
 const Index = ({comp})=>{
 
     const history = useHistory();
-    const [userBtc ,setuserBtc]= useState();
+    const [userBtc ,setuserBtc]= useState(0);
     const [rate, setrate]=useState([]);
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
@@ -102,7 +102,7 @@ const Index = ({comp})=>{
                     
                     <div>
                         <Icon name="btc" size={25} /> <span>Bitcoin Wallet</span>
-                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice}&nbsp;(USD/BTC)</span></div>
+                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice && btcprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;(USD/BTC)</span></div>
                     </div>
                     <div className='ratepercentage'>
                         {_renderRate()}
@@ -130,10 +130,10 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        {userBtc}BTC
+                                        {userBtc && userBtc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;BTC
                                         </div>
                                         <div className='card_section_balance_equivalent'>
-                                            USD EQUIVALENT:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3)}
+                                            USD:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                             <div>{refresh}</div>
                                         </div>
                                     </div>

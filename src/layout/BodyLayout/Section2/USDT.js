@@ -61,7 +61,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userUSDT}&nbsp;TETHER
+                                            {userUSDT}&nbsp;USDT
                                             <div>{refresh}</div>
                                         </div>
                                     </div>

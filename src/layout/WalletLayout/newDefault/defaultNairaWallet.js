@@ -65,7 +65,7 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;{userNaira}
+                                        &#8358;{userNaira && userNaira.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                         <div>{refresh}</div>
                                         </div>
                                     </div>

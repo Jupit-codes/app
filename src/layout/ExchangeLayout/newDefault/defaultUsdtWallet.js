@@ -16,7 +16,7 @@ import Tether from '../../../assets/images/tether.png'
 const Index = ()=>{
     const history = useHistory();
     const [userBtc ,setuserBtc]= useState();
-    const [userUsdt ,setuserUsdt]= useState();
+    const [userUsdt ,setuserUsdt]= useState(0);
     const [rate, setrate]=useState([])
     const [btcprice, setbtcprice]= useState()
     const [percentageBTC, setpercentageBTC]= useState()
@@ -102,7 +102,7 @@ const Index = ()=>{
              <div className='newRate'>
                     <div>
                         <img src={Tether} style={{width:25}}/> <span>USDT Wallet</span>
-                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{usdtprice}&nbsp;(USD/USDT)</span></div>
+                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{usdtprice }&nbsp;(USD/USDT)</span></div>
                     </div>
                     <div>
                         {_renderRate()}
@@ -129,7 +129,7 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userUsdt}&nbsp;TETHER
+                                            {userUsdt && userUsdt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;USDT
                                             <div>{refresh}</div>
                                         </div>
                                     </div>
