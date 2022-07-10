@@ -506,6 +506,7 @@ const Index =()=>{
         }
         
         if(parseFloat(ngnamount) > parseFloat(Balance)){
+           
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;
         }
@@ -542,7 +543,7 @@ const Index =()=>{
             let valuebtc = check(btcamount);
             let valueusd = check(usdamount);
             let valuengn = check(ngnamount);
-
+      
             setLoader(true)
         await axios({
         
