@@ -63,7 +63,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userBtc}&nbsp;BTC
+                                            {userBtc && userBtc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;BTC
                                             <div>{refresh}</div>
 
                                         </div>

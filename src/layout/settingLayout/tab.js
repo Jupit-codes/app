@@ -7,7 +7,7 @@ export const Tab = ({Active,currentActiveState})=>{
     return(
         <div className="tabSettings">
             <div  onClick={()=>Active('Account-Settings')} className={currentActiveState === "Account-Settings" ? ' tabDiv activeTabnew':'tabDiv' }>
-                Account Settings
+                User Settings
             </div>
             {/* <div onClick={()=>Active('Notification-Settings')} className={currentActiveState === "Notification-Settings" ? 'tabDiv activeTab' :'tabDiv' }>
                 Notification Settings
