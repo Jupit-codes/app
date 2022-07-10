@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import '../../assets/css/Auth/auth.css'
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/Provider";
 import { Alert } from "react-bootstrap";
+import {FiEye,FiEyeOff} from 'react-icons/fi'
 const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
     const {registerDispatch,registerState:{registerAuth:{error,email_error}}} = useContext(GlobalContext)
 
+        const [show,setshow] = useState(false)
     
     return (
                 <form className="formClass" >
@@ -49,21 +51,26 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                         <div className="divForm"> 
                             <input type="text" 
                                 className="form-control myform" 
-                                placeholder="Phonenumber"  
+                                placeholder="Phone number"  
                                 name="phonenumber"  
                                 value={Form.phonenumber || ""}
                                 onChange={onChange}
                                 required/>
+                                
                         </div>
 
-                        <div className="divForm">
-                            <input type="password"
+                        <div className="divForm passwordForm">
+                            <div className="eyepassword" onClick={()=>{setshow(!show)}}>
+                                 {show ? <FiEye/> : <FiEyeOff  /> }
+                            </div>
+                            <input type={show ? 'text': "password"}
                               className="form-control myform"
                               placeholder="Password" 
                               value={Form.password || ""}
                               onChange={onChange}
                               name="password"    
                               required/>
+
                             
                         </div>
                         <div className="divForm"> 

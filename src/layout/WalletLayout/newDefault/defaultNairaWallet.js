@@ -23,10 +23,11 @@ const Index = ()=>{
     .then((res)=>{
         
         // setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
-        setuserNaira(res.data.naira_wallet[0].balance.$numberDecimal);
+        setuserNaira(res.data.user.naira_wallet[0].balance.$numberDecimal);
         
         reactLocalStorage.remove('user')
-        reactLocalStorage.setObject('user',res.data)  
+        reactLocalStorage.setObject('user',res.data.user)  
+        console.log(res.data.user)
         setrefresh('')
     
     })

@@ -12,6 +12,19 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+.passwordForm{
+    position: relative
+}
+.eyepassword{
+    position: absolute;
+    display: flex;
+    left: 90%;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+   
+    height: 50px;
+}
 .customerror{
     width: 100%;
     text-align: center;

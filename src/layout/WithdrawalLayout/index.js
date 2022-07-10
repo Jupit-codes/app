@@ -403,22 +403,26 @@ const Index =()=>{
     }
     const NGNAmount=(e)=>{
         
-        setngnamount(e.target.value);
+        const {value} = e.target;
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            setngnamount(formattedValue);
+            console.log(formattedValue)
+            setusdamount((parseFloat(value.replace(/,/g, ''))/parseFloat(buyrate)).toFixed(3))
+            setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
+            if(Balance >= value.replace(/,/g, '')){
+                setDisableBTN(false)
+            }
+            else if(value.replace(/,/g, '') > Balance){
+                setDisableBTN(true)
+            }
+        }
+        else{
+            setngnamount('')
+        }
+        
 
-        setusdamount((parseFloat(e.target.value)/parseFloat(buyrate)).toFixed(3))
-        setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
-        if(Balance >= ngnamount){
-            setDisableBTN(false)
-        }
-        else if(ngnamount > Balance){
-            setDisableBTN(true)
-        }
-        // let pat = e.target.value / currentRate 
-        // setbtcamount(pat)
-        // if(dataAddr === "Internal Transfer"){
-        //     setNetworkFee(0)
-            
-        // }
+       
     }
 
   
@@ -488,14 +492,26 @@ const Index =()=>{
         // toast('Coin Successfully Sent');
         
     }
+    const check = (value)=>{
+        let valuex;
+        if (value.toString().indexOf(',') > -1) { 
+            valuex = value.replace(/\D/g, '');
+          }
+          else{
+              valuex=value
+          }
+          return valuex;
+    }
 
     const Withdrawal = async ()=>{
 
         
 
-            const BaseUrl = process.env.REACT_APP_BACKEND_URL  
-          
-            setLoader(true)
+        const BaseUrl = process.env.REACT_APP_BACKEND_URL  
+        let value = check(ngnamount);
+        console.log(value);
+        return false;
+        setLoader(true)
         await axios({
         
             url:`${BaseUrl}/verify/client/withdrawal`,
@@ -506,7 +522,7 @@ const Index =()=>{
             },
             data:JSON.stringify({
                 userid:reactLocalStorage.getObject('user')._id,
-                amount:ngnamount,
+                amount:value,
                 firstname: reactLocalStorage.getObject('user').firstname,
                 lastname: reactLocalStorage.getObject('user').lastname,
                 email:reactLocalStorage.getObject('user').email,
@@ -569,7 +585,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:&#x20A6;{Balance}
+                            Balance:&#x20A6;{Balance && Balance > 1 ? Balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","): Balance}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
@@ -590,7 +606,7 @@ const Index =()=>{
                                 <>
 
                                    
-                                    <input type="number"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount} onChange={NGNAmount}/>
+                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount || ''} onChange={NGNAmount}/>
                                 </>
                             
 

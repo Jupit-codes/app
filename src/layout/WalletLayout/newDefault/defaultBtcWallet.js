@@ -68,10 +68,10 @@ const Index = ({comp})=>{
     })
     .then((res)=>{
         setrefresh('')
-
-        setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+        console.log('jhjkhkj',res.data)
+        setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
         reactLocalStorage.remove('user');
-        reactLocalStorage.setObject('user',res.data)
+        reactLocalStorage.setObject('user',res.data.user)
         
       
     })
@@ -130,7 +130,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        {userBtc && userBtc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;BTC
+                                        {userBtc && userBtc > 1 ? userBtc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","): userBtc}&nbsp;BTC
                                         </div>
                                         <div className='card_section_balance_equivalent'>
                                             USD:&#36;&nbsp;{parseFloat(userBtc * btcprice).toFixed(3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}

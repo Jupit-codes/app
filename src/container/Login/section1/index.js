@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {FiEye,FiEyeOff} from 'react-icons/fi'
 const Index=({Next,setUserPassword,setUserEmail})=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
    
@@ -18,6 +19,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     const [password,setpassword] = useState('');
     const [loaderPlus,setloaderPlus] = useState(false);
     const [section,setsection] = useState('Section1')
+    const [show,setshow] = useState(false)
     const history = useHistory();
 
     const handleEmail =(e)=>{
@@ -73,8 +75,11 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
                         <div className="divForm"> 
                             <input type="email" className="form-control myform" placeholder="Email Address" onChange={handleEmail} value={emailaddress} required/>
                         </div>
-                        <div className="divForm">
-                            <input type="password" className="form-control myform" placeholder="Password" onChange={handlePassword} value={password} required/>
+                        <div className="divForm passwordForm">
+                            <div className="eyepassword" onClick={()=>{setshow(!show)}}>
+                                    {show ? <FiEye/> : <FiEyeOff  /> }
+                            </div>
+                            <input type={show ? 'text':'password'} className="form-control myform" placeholder="Password" onChange={handlePassword} value={password} required/>
                             <small className="forgetpassword" onClick={()=>passwordreset()} style={{cursor:"pointer"}}>Forget Password?</small>
                         </div>
 

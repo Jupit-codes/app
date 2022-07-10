@@ -74,11 +74,11 @@ const Index =()=>{
         UserDetailsRefresh(_id)(userdetailsDispatch)
     
             if(USER_data ){
-                if(Balance != USER_data.btc_wallet[0].balance.$numberDecimal){
-                    setBalance(USER_data.btc_wallet[0].balance.$numberDecimal);
+                if(Balance != USER_data.user.usdt_wallet[0].balance.$numberDecimal){
+                    setBalance(USER_data.user.usdt_wallet[0].balance.$numberDecimal);
                     
-                    setcreatePin(USER_data.Pin_Created);
-                    setmywallet(USER_data.wallet_pin);
+                    setcreatePin(USER_data.userPin_Created);
+                    setmywallet(USER_data.user.wallet_pin);
                 }
                
                     
