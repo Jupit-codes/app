@@ -19,7 +19,7 @@ const Index=()=>{
     const [kycLevel3,setkycLevel3] = useState('');
     const [primaryAcctname,setprimaryAcctname] = useState("NULL");
     const [primaryAcctnum,setprimaryAcctnum] = useState("NULL");
-    const [bank,setbank] = useState("NULL");
+    const [bank,setbank] = useState();
     // console.log('Active',active)
     const _renderComponent = ()=>{
         switch(active){
@@ -63,6 +63,7 @@ const Index=()=>{
         { "id": "22", "name": "Wema Bank","code":"035" },
         { "id": "23", "name": "Zenith Bank","code":"057" }
     ]
+    
     const loadKYC = async ()=>{
         let _id = reactLocalStorage.getObject('user')._id;
         await axios({
@@ -109,8 +110,8 @@ const Index=()=>{
             console.log(res.data)
             setprimaryAcctname(res.data.account_name);
             setprimaryAcctnum(res.data.account_number);
-
-            getBank(res.data.bank_code);
+            setbank(res.data.bank_code)
+            
             
             
 
@@ -159,6 +160,15 @@ const Index=()=>{
         loadKYC();
         loadBank();
     },[])
+
+    const _renderBank = ()=>{
+        return banks.map((d)=>{
+            if(d.code == bank){
+                return d.name
+            }
+        })
+    }
+    
     return (
         <div className="settings-profile">
             <div className="profile">
@@ -176,8 +186,8 @@ const Index=()=>{
                 <div className="kyc-level"> KYC LEVEL :{Kyc}</div>
 
                 <div className="acct"> PRIMARY BANK ACCOUNT :
-                    <span>Bank:{bank} </span>
-                    <span>Account Number:{primaryAcctnum} </span>
+                    <span>Bank:&nbsp;{_renderBank()} </span>
+                    <span>Account Number:&nbsp;{primaryAcctnum} </span>
                 </div>
                 <div className="acct"> Account Name :
                     <span>{primaryAcctname} </span>
