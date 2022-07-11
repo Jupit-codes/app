@@ -76,7 +76,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                         <div className="divForm"> 
                             <input type="text" 
                                 className="form-control myform" 
-                                placeholder="Referral Username....optional"  
+                                placeholder="Referral Username (optional)"  
                                 name="referral"  
                                 value={Form.referral || ""}
                                 onChange={onChange}
