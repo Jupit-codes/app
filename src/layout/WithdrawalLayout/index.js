@@ -468,9 +468,11 @@ const Index =()=>{
         toast.error("Sorry, you have exceeded your five withdrawal limit for the day...");
         return false;
        }
-
-        
-        
+       
+       if(ngnamount == "" || ngnamount === 0 ){
+        toast.error("Input Amount","ERROR")
+        return false;
+        }
         if(parseFloat(ngnamount) > parseFloat(Balance)){
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;

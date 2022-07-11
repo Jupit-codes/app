@@ -23,10 +23,10 @@ const Index = ()=>{
     .then((res)=>{
         
         // setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
-        setuserNaira(res.data.naira_wallet[0].balance.$numberDecimal);
+        setuserNaira(res.data.user.naira_wallet[0].balance.$numberDecimal);
         
         reactLocalStorage.remove('user')
-        reactLocalStorage.setObject('user',res.data)  
+        reactLocalStorage.setObject('user',res.data.user)  
         setrefresh('')
     
     })
@@ -65,7 +65,7 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;{userNaira.toLocaleString()}
+                                        &#8358;{userNaira && userNaira > 1 ? userNaira.toLocaleString() : userNaira}
                                         <div>{refresh}</div>
                                         </div>
                                     </div>

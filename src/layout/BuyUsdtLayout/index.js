@@ -477,11 +477,11 @@ const Index =()=>{
         // let x = btcamount + networkFee;
 
         
-        if(ngnamount === 0){
+        if(ngnamount === 0 || ngnamount === "" ){
             toast.error("Input Amount","ERROR")
             return false;
         }
-        
+
         if(parseFloat(ngnamount) > parseFloat(Balance)){
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;

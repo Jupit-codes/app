@@ -70,10 +70,10 @@ const Index = ()=>{
     .then((res)=>{
         
         // setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
-        setuserUsdt(res.data.usdt_wallet[0].balance.$numberDecimal);
+        setuserUsdt(res.data.user.usdt_wallet[0].balance.$numberDecimal);
         
         reactLocalStorage.remove('user')
-        reactLocalStorage.setObject('user',res.data)  
+        reactLocalStorage.setObject('user',res.data.user)  
         setrefresh('')
       
     })
@@ -129,7 +129,7 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userUsdt && userUsdt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;USDT
+                                            {userUsdt && userUsdt > 1 ? userUsdt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : userUsdt}&nbsp;USDT
                                             <div>{refresh}</div>
                                         </div>
                                     </div>
