@@ -542,7 +542,7 @@ const retrieveAutoFee = ()=>{
                     <div className='sendBTCFrom'>Send USDT From</div>
                     <div className='fromBTC'>
                         <div>
-                            <img src={Tether} width="30"/> <span>USDT Wallet</span>
+                            <img src={Tether} width="30"/> <span>USDT Wallet (RC-20)</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}

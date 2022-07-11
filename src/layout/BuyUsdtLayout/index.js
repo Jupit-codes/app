@@ -645,7 +645,7 @@ const Index =()=>{
                     <div className='fromBTC'>
                         <div>
                             {/* <Icon name="btc" size={30} /> <span>BTC Wallet</span> */}
-                            <img src={Tether} width="30"/> <span>USDT Wallet</span>
+                            <img src={Tether} width="30"/> <span>USDT Wallet(RC-20)</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
