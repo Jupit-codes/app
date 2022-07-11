@@ -426,7 +426,7 @@ const Index =()=>{
             setngnamount('');
         }
         
-        setngnamount(e.target.value);
+        
 
         
         // let pat = e.target.value / currentRate 
@@ -649,7 +649,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:&#x20A6;{Balance}
+                            Balance:&#x20A6;{Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
                         </div>
                     </div>
                     {/* <div className='toBTC'>

@@ -306,26 +306,57 @@ const Index =()=>{
     }
    
     const BTCAmount = (e)=>{
-        setbtcamount(e.target.value);
-        
-        let pat = currentRate * e.target.value
-        setusdamount(pat)
-        
-        if(dataAddr === "Internal Transfer"){
-            setNetworkFee(0)
+
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            
+            setbtcamount(formattedValue)
+            let pat = value.replace(/,/g, '') * currentRate 
+            setusdamount(pat)
+            if(dataAddr === "Internal Transfer"){
+                setNetworkFee(0)
+                
+            }
+            
             
         }
+        else{
+            setbtcamount('');
+            setusdamount('');
+           
+        }
+
+
+      
+
+        
+        
+       
         
     }
     const USDAmount=(e)=>{
-        console.log('Test',kycLevel1)
-        setusdamount(e.target.value);
-        let pat = e.target.value / currentRate 
-        setbtcamount(pat)
-        if(dataAddr === "Internal Transfer"){
-            setNetworkFee(0)
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            
+            setusdamount(formattedValue)
+            let pat = value.replace(/,/g, '') / currentRate 
+            setbtcamount(pat)
+            if(dataAddr === "Internal Transfer"){
+                setNetworkFee(0)
+                
+            }
+            
             
         }
+        else{
+            setbtcamount('');
+            setusdamount('');
+           
+        }
+    
+       
     }
     const CopyData = (e)=>{
        
@@ -428,15 +459,27 @@ const Index =()=>{
         // toast('Coin Successfully Sent');
         
     }
-
+    const check = (value)=>{
+        let valuex;
+        if (value.toString().indexOf(',') > -1) { 
+            valuex = value.replace(/\D/g, '');
+          }
+          else{
+              valuex=value
+          }
+          return valuex;
+    }
         useEffect(()=>{
             if(success){
+                let valuebtc = check(btcamount);
+                let valueusd = check(usdamount);
+                
                 const items={
                     ReceipentAddress:ReceipentAddress,
                     networkFee:networkFee,
                     userid:reactLocalStorage.getObject('user')._id,
-                    amount:btcamount,
-                    usdequivalent:usdamount,
+                    amount:valuebtc,
+                    usdequivalent:valueusd,
                     current_usd_rate:currentRate,
                     block_average:blockaverage,
                     wallet_type:"BTC",
@@ -480,7 +523,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance}
+                            Balance:{Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
                         </div>
                     </div>
                     <div className='toBTC'>
@@ -496,9 +539,9 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
+                            <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}/>
                             <img src={Equivalent}/>
-                            <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount}/>
+                            <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDAmount}/>
                         </div>
                     </div>
                     <div>
