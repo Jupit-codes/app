@@ -542,10 +542,22 @@ const Index =()=>{
         // toast('Coin Successfully Sent');
         
     }
+    const check = (value)=>{
+        let valuex;
+        if (value.toString().indexOf(',') > -1) { 
+            valuex = value.replace(/\D/g, '');
+          }
+          else{
+              valuex=value
+          }
+          return valuex;
+    }
 
     const purchaseCoin = async ()=>{
              const BaseUrl = process.env.REACT_APP_BACKEND_URL  
-          
+             let valuebtc = check(btcamount);
+             let valueusd = check(usdamount);
+             let valuengn = check(ngnamount);
             setLoader(true)
         await axios({
         
@@ -557,10 +569,10 @@ const Index =()=>{
             },
             data:JSON.stringify({
                 userid:reactLocalStorage.getObject('user')._id,
-                ngnamount:ngnamount,
-                btcamount:btcamount,
+                ngnamount:valuengn,
+                btcamount:valuebtc,
                 wallet_type:'USDT',
-                usdamount:usdamount,
+                usdamount:valueusd,
                 currentRate:currentRate,
                 buyrate:buyrate,
                 to_address:reactLocalStorage.getObject('user').btc_wallet[0].address
