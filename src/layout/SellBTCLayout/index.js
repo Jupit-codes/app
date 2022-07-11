@@ -366,9 +366,21 @@ const Index =()=>{
     //     }
     // }
     const BTCAmount = (e)=>{
-        setbtcamount(parseFloat(e.target.value).toFixed(8))
-        setusdamount(parseFloat(e.target.value) * currentRate);
-        setngnamount(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate )
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            
+            setbtcamount(formattedValue)
+            setusdamount(parseFloat(value.replace(/,/g, '')) * currentRate);
+            setngnamount(parseFloat(sellrate) * parseFloat(value.replace(/,/g, '')) * currentRate )
+            
+        }
+        else{
+            setbtcamount('');
+            setusdamount('');
+            setngnamount('');
+        }
+        
     }
     const USDAmount = (e)=>{
         const {value} = e.target
