@@ -341,24 +341,45 @@ const retrieveAutoFee = ()=>{
     }
    
     const BTCAmount = (e)=>{
-        setbtcamount(e.target.value);
-        
-        let pat = currentRate * e.target.value
-        setusdamount(pat)
-        
-        if(dataAddr === "Internal Transfer"){
-            setNetworkFee(0)
+
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            
+            setbtcamount(formattedValue)
+            let pat = value.replace(/,/g, '') * currentRate 
+            setusdamount(pat)
+            if(dataAddr === "Internal Transfer"){
+                setNetworkFee(0)
+                
+            }
+            
             
         }
+        else{
+            setbtcamount('');
+            setusdamount('');
+           
+        } 
         
     }
     const USDAmount=(e)=>{
-        setusdamount(e.target.value);
-        let pat = e.target.value / currentRate 
-        setbtcamount(pat)
-        if(dataAddr === "Internal Transfer"){
-            setNetworkFee(0)
-            
+       
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            setusdamount(formattedValue)
+            let pat = value.replace(/,/g, '') / currentRate 
+            setbtcamount(pat)
+            if(dataAddr === "Internal Transfer"){
+                setNetworkFee(0)
+                
+            }
+        }
+        else{
+            setbtcamount('');
+            setusdamount('');
+           
         }
     }
     const CopyData = (e)=>{
@@ -458,10 +479,22 @@ const retrieveAutoFee = ()=>{
 
         
     }
-
+    const check = (value)=>{
+        let valuex;
+        if (value.toString().indexOf(',') > -1) { 
+            valuex = value.replace(/\D/g, '');
+          }
+          else{
+              valuex=value
+          }
+          return valuex;
+    }
     
     useEffect(()=>{
         if(success){
+
+            let valuebtc = check(btcamount);
+                let valueusd = check(usdamount);
             const items={
                 ReceipentAddress:ReceipentAddress,
                 networkFee:networkFee,
@@ -513,7 +546,7 @@ const retrieveAutoFee = ()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance}
+                            Balance:{Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
                         </div>
                     </div>
                     <div className='toBTC'>
@@ -529,9 +562,9 @@ const retrieveAutoFee = ()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="number"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount}/>
+                            <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}/>
                             <img src={Equivalent}/>
-                            <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount}/>
+                            <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDAmount}/>
                         </div>
                     </div>
                     <div>

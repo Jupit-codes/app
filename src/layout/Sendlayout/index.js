@@ -325,14 +325,7 @@ const Index =()=>{
             setbtcamount('');
             setusdamount('');
            
-        }
-
-
-      
-
-        
-        
-       
+        }  
         
     }
     const USDAmount=(e)=>{
