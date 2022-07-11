@@ -129,7 +129,7 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userUsdt && userUsdt > 1 ? userUsdt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : userUsdt}&nbsp;USDT
+                                            {userUsdt && userUsdt > 1 ? userUsdt.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",") : userUsdt}&nbsp;USDT
                                             <div>{refresh}</div>
                                         </div>
                                     </div>

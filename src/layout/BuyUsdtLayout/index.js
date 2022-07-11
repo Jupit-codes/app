@@ -369,27 +369,66 @@ const Index =()=>{
 
 
     const USDAmount = (e)=>{
-        setusdamount(e.target.value);
-        setngnamount(parseFloat(e.target.value) * parseFloat(buyrate))
-        setbtcamount(parseFloat(e.target.value)/parseFloat(currentRate))
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            setusdamount(formattedValue);
+            setngnamount(parseFloat(value.replace(/,/g, '')) * parseFloat(buyrate))
+            setbtcamount(parseFloat(value.replace(/,/g, ''))/parseFloat(currentRate))
+        }
+        else{
+            setusdamount('');
+            setbtcamount('');
+            setngnamount('');
+        }
+        
+      
     }
     const USDTAmount = (e)=>{
-        setbtcamount(e.target.value)
-        setusdamount(parseFloat(e.target.value) * currentRate);
-        setngnamount(parseFloat(buyrate) * parseFloat(e.target.value) * currentRate )
+
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            
+            setbtcamount(formattedValue)
+            setusdamount(parseFloat(value.replace(/,/g, '')) * currentRate);
+            setngnamount(parseFloat(buyrate) * parseFloat(value.replace(/,/g, '')) * currentRate )
+            
+        }
+        else{
+            setbtcamount('');
+            setusdamount('');
+            setngnamount('');
+        }
+        
+        
     }
     const NGNAmount=(e)=>{
+
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            
+            setngnamount(formattedValue)
+            setusdamount((parseFloat(value.replace(/,/g, ''))/parseFloat(buyrate)).toFixed(3))
+            setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
+            if(Balance >= value.replace(/,/g, '')){
+                setDisableBTN(false)
+            }
+            else if(value.replace(/,/g, '') > Balance){
+                setDisableBTN(true)
+            }
+            
+        }
+        else{
+            setbtcamount('');
+            setusdamount('');
+            setngnamount('');
+        }
         
         setngnamount(e.target.value);
 
-        setusdamount((parseFloat(e.target.value)/parseFloat(buyrate)).toFixed(3))
-        setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
-        if(Balance >= ngnamount){
-            setDisableBTN(false)
-        }
-        else if(ngnamount > Balance){
-            setDisableBTN(true)
-        }
+        
         // let pat = e.target.value / currentRate 
         // setbtcamount(pat)
         // if(dataAddr === "Internal Transfer"){
@@ -562,6 +601,13 @@ const Index =()=>{
             }
 
         },[success])
+
+        const converter = (value)=>{
+            let integral_part =  Math.trunc(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            let decimal_part = Number((value-Math.trunc(value)).toFixed(2));
+            return integral_part + decimal_part;
+
+        }
     
     return (
         <div className="sendBTC">
@@ -611,11 +657,11 @@ const Index =()=>{
                             {buyrate && 
                                 <>
 
-                                    <input type="number"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={USDTAmount}/>
+                                    <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && btcamount > 1 ? btcamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  : btcamount} onChange={USDTAmount}/>
                                     <img src={Equivalent}/>
-                                    <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount} />
+                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount > 1 ? usdamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : usdamount} onChange={USDAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="number"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount} onChange={NGNAmount}/>
+                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount > 1 ? ngnamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : ngnamount} onChange={NGNAmount}/>
                                 </>
                             
 
