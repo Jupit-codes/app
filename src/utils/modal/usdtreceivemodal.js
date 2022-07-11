@@ -37,8 +37,8 @@ const Index = ({closeModal})=>{
                 <div className='modalFooter'>
                     <input type="text" value={address} disabled/>
                     <CopyToClipboard text={address}
-                    onCopy={() => {setCopied(true)}}>
-                    <div className={copied ? 'Copy' :'Copied'}>{copied ? 'Copied' :'Copy'}</div>
+                        onCopy={() => {setCopied(true)}}>
+                        <div className={copied ? 'Copy' :'Copied'}>{copied ? 'Copied' :'Copy'}</div>
                     </CopyToClipboard>
                 </div>
                 <div className='modalClose' >

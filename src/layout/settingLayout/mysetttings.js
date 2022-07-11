@@ -9,8 +9,10 @@ import NotificationSettings from './NotificationSettings'
 import SecuritySetting from './SecuritySettings'
 import KycLayout from '../KycLayout'
 import axios from 'axios'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {MdContentCopy} from 'react-icons/md'
 import { GetPublicAccessBlockCommand } from '@aws-sdk/client-s3'
-
+import { ToastContainer, toast } from 'react-toastify';
 const Index=()=>{
     const [Kyc,setKyc] = useState();
     const [active,setactive] = useState('Account-Settings');
@@ -80,10 +82,6 @@ const Index=()=>{
             // console.log(res.data)
             setkycLevel1(res.data.level1[0].status);
             setkycLevel2(res.data.level2[0].event_status)
-            
-
-            
-            
         })
         .catch((err)=>{
 
@@ -107,16 +105,10 @@ const Index=()=>{
             data:JSON.stringify({email:email})
         })
         .then((res)=>{
-            console.log(res.data)
+           
             setprimaryAcctname(res.data.account_name);
             setprimaryAcctnum(res.data.account_number);
-            setbank(res.data.bank_code)
-            
-            
-            
-
-            
-            
+            setbank(res.data.bank_code) 
         })
         .catch((err)=>{
 
@@ -168,9 +160,23 @@ const Index=()=>{
             }
         })
     }
+    const handlereferral = ()=>{
+        toast.success('Link Copied','success')
+    }
     
     return (
         <div className="settings-profile">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
             <div className="profile">
                <Tab Active={setactive} currentActiveState={active}/>
               { active && _renderComponent()} 
@@ -192,6 +198,16 @@ const Index=()=>{
                 <div className="acct"> Account Name :
                     <span>{primaryAcctname} </span>
                     {/* <span>NULL </span> */}
+                </div>
+                <div className='acct'><b>Referral Code :</b>
+                <div>
+                    {reactLocalStorage.getObject('user').username}
+                </div>
+                 <CopyToClipboard text={reactLocalStorage.getObject('user').username}>
+                        <MdContentCopy className='referrallink' onClick={()=>{handlereferral()}}/>
+                </CopyToClipboard>
+                
+
                 </div>
             </div>
         </div>

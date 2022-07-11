@@ -130,6 +130,9 @@ and (max-device-width:399px)
         border-radius: 15px;
     }
 
+    .referrallink{
+        cursor: pointer;
+    }
     
     
    .CoverDIvSecurity > div{
