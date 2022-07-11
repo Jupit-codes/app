@@ -647,11 +647,11 @@ const Index =()=>{
                             {buyrate && 
                                 <>
 
-                                    <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && btcamount > 1 ? btcamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):btcamount } onChange={BTCAmount}/>
+                                    <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && btcamount > 1 ? btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ","):btcamount } onChange={BTCAmount}/>
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount > 1 ? usdamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):usdamount} onChange={USDAmount} />
+                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount > 1 ? usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ","):usdamount} onChange={USDAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount > 1 ? ngnamount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):ngnamount} onChange={NGNAmount}/>
+                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount > 1 ? ngnamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ","):ngnamount} onChange={NGNAmount}/>
                                 </>
                             
 

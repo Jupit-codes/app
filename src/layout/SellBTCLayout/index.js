@@ -371,28 +371,44 @@ const Index =()=>{
         setngnamount(parseFloat(sellrate) * parseFloat(e.target.value) * currentRate )
     }
     const USDAmount = (e)=>{
-        setusdamount(e.target.value);
-        setngnamount(parseFloat(e.target.value) * parseFloat(sellrate))
-        setbtcamount(parseFloat(parseFloat(e.target.value)/parseFloat(currentRate)).toFixed(8))
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            setusdamount(formattedValue);
+            setngnamount(parseFloat(value.replace(/,/g, '')) * parseFloat(sellrate))
+            setbtcamount(parseFloat(value.replace(/,/g, ''))/parseFloat(currentRate).toFixed(8))
+        }
+        else{
+            setusdamount('');
+            setbtcamount('');
+            setngnamount('');
+        }
+
     }
     const NGNAmount=(e)=>{
-        
-        setngnamount(e.target.value);
 
-        setusdamount((parseFloat(e.target.value) /parseFloat(sellrate)).toFixed(3))
-        setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
-        if(Balance >= ngnamount){
-            setDisableBTN(false)
-        }
-        else if(ngnamount > Balance){
-            setDisableBTN(true)
-        }
-        // let pat = e.target.value / currentRate 
-        // setbtcamount(pat)
-        // if(dataAddr === "Internal Transfer"){
-        //     setNetworkFee(0)
+        const {value} = e.target
+        if(value){
+            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
             
-        // }
+            setngnamount(formattedValue)
+         
+            setusdamount((parseFloat(value.replace(/,/g, ''))/parseFloat(sellrate)).toFixed(3))
+            setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
+            if(Balance >= value.replace(/,/g, '')){
+                setDisableBTN(false)
+            }
+            else if(value.replace(/,/g, '') > Balance){
+                setDisableBTN(true)
+            }
+            
+        }
+        else{
+            setbtcamount('');
+            setusdamount('');
+            setngnamount('');
+        }
+        
     }
 
     const CopyData = (e)=>{
@@ -608,11 +624,11 @@ const Index =()=>{
                             {sellrate && 
                                 <>
 
-                                    <input type="number"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount} onChange={BTCAmount}/>
+                                    <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={BTCAmount}/>
                                     <img src={Equivalent}/>
-                                    <input type="number"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount} onChange={USDAmount} />
+                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="number"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount} onChange={NGNAmount}/>
+                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={NGNAmount}/>
                                 </>
                             
 
