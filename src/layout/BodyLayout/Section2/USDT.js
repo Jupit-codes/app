@@ -7,6 +7,7 @@ const Index = ({comp})=>{
 
     const [userUSDT,setuserUSDT] = useState()
     const [refresh,setrefreshing] = useState()
+
     const getbalance = async(_id)=>{
         setrefreshing('refreshing balance..')
         await axios({
@@ -19,15 +20,15 @@ const Index = ({comp})=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            
-            setuserUSDT(res.data.usdt_wallet[0].balance.$numberDecimal);
-            reactLocalStorage.remove('user')
-            reactLocalStorage.setObject('user',res.data)
             setrefreshing('')
+            setuserUSDT(res.data.user.usdt_wallet[0].balance.$numberDecimal);
+            reactLocalStorage.remove('user')
+            reactLocalStorage.setObject('user',res.data.user)
+            
           
         })
         .catch((err)=>{
-        
+            setrefreshing('')
             console.log(err.response)
             
         })

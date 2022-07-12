@@ -450,22 +450,25 @@ const Index = ()=>{
                        {_renderComponent()}
                         
                     </div>
-                    <div className='YClass'>
-                        <div className='myKyc'>
-                            <div>
-                                Transaction Limit <span><b>({kycTransaction()})</b></span>
+                    {component === "Naira" && 
+                        <div className='YClass'>
+                            <div className='myKyc'>
+                                <div>
+                                    Withdrawal Limit <span><b>({kycTransaction()})</b></span>
+                                </div>
+                                <div>
+                                    KYC LEVEL({kycProgressBar()}%)
+                                </div>
                             </div>
-                            <div>
-                                KYC LEVEL({kycProgressBar()}%)
-                            </div>
-                        </div>
-                        
-                         <ProgressBar now={kycProgressBar()} label={`${kycProgressBar()}%`} style={{height:40,width:'100%'}} variant={kycProgressBarVariant()} />
-                        {/* <div className='progressbar'>
-                             
                             
-                        </div> */}
-                    </div>
+                            <ProgressBar now={kycProgressBar()} label={`${kycProgressBar()}%`} style={{height:40,width:'100%'}} variant={kycProgressBarVariant()} />
+                            {/* <div className='progressbar'>
+                                
+                                
+                            </div> */}
+                        </div>
+                    }
+                    
 
                    
                     

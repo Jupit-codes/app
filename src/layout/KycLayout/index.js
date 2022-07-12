@@ -185,7 +185,7 @@ export default function Index() {
                 Bank Verification <span>{secondLevel === "customeridentification.success" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
             <div onClick={(e)=>{handleIdverify(e)}} className={disableThirdLevel ? 'disableDiv' : `checkActive ${scrollActiveII}`}>
-                Idcard Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
+                ID Verification <span>{thirdLevel === "Verified" && <BsCheckCircle size={20} color="#003300" />}</span>
             </div>
         </div>
         <div className='tab_content'>

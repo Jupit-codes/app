@@ -21,15 +21,15 @@ const Index = ({comp})=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            
-            setuserBtc(res.data.btc_wallet[0].balance.$numberDecimal);
+            setrefreshing('') 
+            setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
             reactLocalStorage.remove('user')
-            reactLocalStorage.setObject('user',res.data)
-            setrefreshing('')
+            reactLocalStorage.setObject('user',res.data.user)
+            
           
         })
         .catch((err)=>{
-        
+            setrefreshing('')
             console.log(err.response)
             
         })
