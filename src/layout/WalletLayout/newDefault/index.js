@@ -458,7 +458,7 @@ const Index = ()=>{
                         <div className='YClass'>
                             <div className='myKyc'>
                                 <div>
-                                    Transaction Limit: <span><b>{kycTransaction()}</b></span>
+                                    Withdrawal Limit: <span><b>{kycTransaction()}</b></span>
                                 </div>
                                 <div>
                                     KYC LEVEL({kycProgressBar()}%)
