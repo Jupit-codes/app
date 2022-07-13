@@ -30,6 +30,7 @@ const Index = ()=>{
           })
         .then(res=>{
             setLoading(false)
+            
            setdata(res.data)
         
         })
