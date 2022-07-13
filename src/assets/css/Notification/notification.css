@@ -180,8 +180,8 @@ and (max-device-width:700px)
     .history{
         margin-top: 0px;
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        justify-content: flex-start;
+        align-items: center;
         flex-direction: column;
        
         width: 100%;
