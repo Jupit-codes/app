@@ -26,7 +26,7 @@ const Index = ()=>{
               "Authorization":`Bearer ${reactLocalStorage.get('token')}`
     
             },
-            data:{addressBTC:reactLocalStorage.getObject('user').btc_wallet[0].address,addressUSDT:reactLocalStorage.getObject('user').usdt_wallet[0].address}
+            data:{addressBTC:reactLocalStorage.getObject('user').btc_wallet[0].address,addressUSDT:reactLocalStorage.getObject('user').usdt_wallet[0].address,virtual_account:reactLocalStorage.getObject('user').virtual_account}
           })
         .then(res=>{
             setLoading(false)
