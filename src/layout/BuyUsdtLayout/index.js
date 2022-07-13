@@ -160,10 +160,10 @@ const Index =()=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            if(Balance !== res.data.naira_wallet[0].balance.$numberDecimal ){
-                setBalance(parseFloat(res.data.naira_wallet[0].balance.$numberDecimal));
-                setcreatePin(res.data.Pin_Created);
-                setmywallet(res.data.wallet_pin);
+            if(Balance !== res.data.user.naira_wallet[0].balance.$numberDecimal ){
+                setBalance(parseFloat(res.data.user.naira_wallet[0].balance.$numberDecimal));
+                setcreatePin(res.data.user.Pin_Created);
+                setmywallet(res.data.user.wallet_pin);
             }
             
         })

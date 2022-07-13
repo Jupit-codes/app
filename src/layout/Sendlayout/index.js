@@ -152,8 +152,8 @@ const Index =()=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            if(Balance !== res.data.btc_wallet[0].balance.$numberDecimal ){
-                setBalance(res.data.btc_wallet[0].balance.$numberDecimal);
+            if(Balance !== res.data.user.btc_wallet[0].balance.$numberDecimal ){
+                setBalance(res.data.user.btc_wallet[0].balance.$numberDecimal);
                 
             }
             

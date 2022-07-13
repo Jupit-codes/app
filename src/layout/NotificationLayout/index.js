@@ -67,7 +67,7 @@ const Index = ()=>{
             "Content-Type": "application/json",
             "Authorization":`Bearer ${reactLocalStorage.get('token')}`
             },
-            data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email})
+            data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email,virtual_account:reactLocalStorage.getObject('user').virtual_account})
         })
         .then(res=>{
             console.log('test',res.data)
@@ -138,11 +138,14 @@ const Index = ()=>{
     const _renderNotification =()=>{
         
         if(state && state.length > 0){
+
+            
             
             
             return state.map((d,index)=>{
 
                 if(d.type == 7){
+                 
                     return (    
                         <div key={index} className="notifyDiv">
 
@@ -165,7 +168,8 @@ const Index = ()=>{
                     )
                 }
 
-                if(d.type == 5){
+                if(d.type == 13){
+                    
                     return (    
                         <div key={index} className="notifyDiv">
     
@@ -184,7 +188,7 @@ const Index = ()=>{
                     )
                 }
 
-                if(d.type == 6){
+                if(d.type == 5){
                     return (    
                         <div key={index} className="notifyDiv">
 
