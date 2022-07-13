@@ -98,7 +98,7 @@ const Index = ()=>{
                 "Content-Type": "application/json",
                 "Authorization":`Bearer ${reactLocalStorage.get('token')}`
                 },
-                data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email})
+                data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email,virtual_account:reactLocalStorage.getObject('user').virtual_account})
             })
             .then(res=>{
                 
