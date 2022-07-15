@@ -24,14 +24,14 @@ function App() {
   }
 
   useEffect(() => {
-    fakeRequest().then(() => {
-      // const el = document.querySelector(".loader-container");
-      const el = document.querySelector(".loader-container")
-      if (el) {
-        el.remove();
-        setLoading(!isLoading);
-      }
-    });
+    // fakeRequest().then(() => {
+    //   // const el = document.querySelector(".loader-container");
+    //   const el = document.querySelector(".loader-container")
+    //   if (el) {
+    //     el.remove();
+    //     setLoading(!isLoading);
+    //   }
+    // });
   }, []);
 
   if (isLoading) {
