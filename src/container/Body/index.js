@@ -21,7 +21,7 @@ const {userdetailsState:{userdetails:{USER_loading,USER_error,USER_data}},userde
 const kyc = reactLocalStorage.getObject('kyc')
 const pwaprompt = reactLocalStorage.get('pwa-data');
 const [pwaprompter,setpwaprompter] = useState(false);
-const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA()
+// const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA()
 const [response,setresponse] = useState()
 const [actiondata,setactiondata] = useState()
    useEffect(()=>{
