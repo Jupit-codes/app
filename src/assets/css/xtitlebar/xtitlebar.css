@@ -9,6 +9,14 @@
     align-items: center;
     padding-top: 30px;
 }
+.Hello{
+    font-family: 'Roboto',sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: flex;
+}
+
 .notify{
    position: absolute;
    top:-10px;
@@ -246,7 +254,7 @@ and (max-device-width:399px)
         letter-spacing: 2px;
         display: flex;
     }
-    
+
     .dateHello{
         font-size: 10px;
        
