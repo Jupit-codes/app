@@ -85,14 +85,8 @@ function App() {
 
 const RenderRouter = (route)=>{
   
- 
-
   document.title = route.title || 'Jupit App';
-  const  swal= {
-                            show: true,
-                            title: 'Basic Usage',
-                            text: 'Hello World'
-  }
+
     if(route.isAuthenticated){
       if(reactLocalStorage.get('token') && reactLocalStorage.get('user') ){
         // alert('yes')
@@ -111,9 +105,9 @@ const RenderRouter = (route)=>{
             
         }
         else{
-          console.log(expiration.getTime())
-          console.log(expiration.getTime() - now.getTime())
-          console.log(fiveMinutes);
+          // console.log(expiration.getTime())
+          // console.log(expiration.getTime() - now.getTime())
+          // console.log(fiveMinutes);
 
             return <Route 
               path={route.path}
