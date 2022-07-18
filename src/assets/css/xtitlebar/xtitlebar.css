@@ -94,7 +94,7 @@
 
 
 @media screen 
-and (min-device-width:200px)
+and (min-device-width:400px)
 and (max-device-width:800px)
 {
    .profilesection{
@@ -115,18 +115,18 @@ and (max-device-width:800px)
         height: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding-top: 0px;
         margin-top: 0px;
-        padding: 10px;
+        padding: 5px;
        
         
       
         
     }
     .xtitle > div{
-        flex:0 1 50%;
+        flex:0 0 50%;
         width: 100%;
     }
     .xtitle > div:nth-child(2){
@@ -134,11 +134,10 @@ and (max-device-width:800px)
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding-right: 20px;
+        padding-right: 10%;
         padding-top: 20px;
         width: 100%;
        
-        
     };
 
    
@@ -190,7 +189,111 @@ and (max-device-width:800px)
     .notify{
         position: absolute;
         top:2px;
-        left: 90%;
+        left: 80%;
+        
+    }
+    
+
+}
+
+
+@media screen 
+and (min-device-width:200px)
+and (max-device-width:399px)
+{
+   .profilesection{
+    display: none !important;
+   }
+   .hidenotify{
+        display: block;
+    }
+    .cruise-exchange{
+        top:-200px;
+    }
+    .xtitle{
+        
+        padding-left: 0px;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0px;
+        margin-top: 0px;
+        padding: 0px;
+       
+        
+      
+        
+    }
+    .xtitle > div{
+        flex:0 0 40%;
+        width: 100%;
+    }
+   
+    .xtitle > div:nth-child(2){
+        
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 50px;
+        padding-top: 20px;
+        width: 100%;
+       
+        
+    };
+
+   
+    .Hello{
+       
+        display: none;
+    }
+    .dateHello{
+        font-size: 10px;
+       
+    }
+    .profileImage{
+        width: 15px;
+        height: 15px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        margin-right: 30px;
+    }
+    
+   
+    .xcode{
+        width: 100%;
+    }
+
+    .xcode > div{
+        flex:1 1 cal(20px -33.3333%);
+        
+    }
+    /* .WelcomeClass{
+       flex:1 1 100%;
+       width: 100%;
+       margin-top: 10px;
+       
+        
+    } */
+    
+    /* .profilesection{
+        flex:1 1 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+        
+    } */
+    
+    .notify{
+        position: absolute;
+        top:2px;
+        left: 60%;
         
     }
     

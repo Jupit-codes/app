@@ -12,6 +12,7 @@ import moment from 'moment'
 import axios from 'axios'
 import { IoCompassOutline } from 'react-icons/io5'
 import {IoIosMail} from 'react-icons/io'
+import {ImSpinner2} from 'react-icons/im'
 const Index = ()=>{
 
     const [notificationData,setnotificationData] = useState()
@@ -20,6 +21,7 @@ const Index = ()=>{
     const [state, setState] = useState();
     const[id,setid] = useState();
     const [myLoader, setmyLoader] = useState(true);
+
     const {getnotificationState:{getnotification:{loadingNotification},dataNotification,errorNotification}, getnotificationDispatch} = useContext(GlobalContext)
     const all_ids=[];
     
@@ -395,7 +397,7 @@ const Index = ()=>{
             <div className="history">
                 {modal && <Details closeModal={setmodal} userid={userid}/>}
                 <div className='notifyTitle'>NOTIFICATION</div>
-               {myLoader && <img src={Spinner}/>}
+               {myLoader && <ImSpinner2/>}
                <div className='vNotification'>
                     {!myLoader && state && _renderNotification()}       
             
