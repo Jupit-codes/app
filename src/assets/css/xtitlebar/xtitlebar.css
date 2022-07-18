@@ -231,6 +231,7 @@ and (max-device-width:399px)
     .xtitle > div{
         flex:0 0 40%;
         width: 100%;
+        margin-top: 20px;
     }
    
     .xtitle > div:nth-child(2){
