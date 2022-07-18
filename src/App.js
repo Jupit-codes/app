@@ -23,16 +23,16 @@ function App() {
     return new Promise(resolve => setTimeout(() => resolve(), 2500));
   }
 
-  useEffect(() => {
-    fakeRequest().then(() => {
-      // const el = document.querySelector(".loader-container");
-      const el = document.querySelector(".loader-container")
-      if (el) {
-        el.remove();
-        setLoading(!isLoading);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   fakeRequest().then(() => {
+  //     // const el = document.querySelector(".loader-container");
+  //     const el = document.querySelector(".loader-container")
+  //     if (el) {
+  //       el.remove();
+  //       setLoading(!isLoading);
+  //     }
+  //   });
+  // }, []);
 
   if (isLoading) {
     return null;
