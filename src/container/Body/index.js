@@ -12,8 +12,8 @@ import { GlobalContext } from "../../context/Provider";
 import { reactLocalStorage } from "reactjs-localstorage";
 import UserDetailsRefresh from '../../context/actions/userdetails.js'
 import axios from "axios";
-import PwaModal from '../../utils/modal/pwa'
-import usePWA from 'react-pwa-install-prompt'
+// import PwaModal from '../../utils/modal/pwa'
+// import usePWA from 'react-pwa-install-prompt'
 
 const Index=({openClose})=>{
 
@@ -41,17 +41,17 @@ const [actiondata,setactiondata] = useState()
     
    }
 
-   const renderInstallButton = () => {
-    if (isInstallPromptSupported && isStandalone){
+//    const renderInstallButton = () => {
+//     if (isInstallPromptSupported && isStandalone){
         
-        return <PwaModal closePWA={setpwaprompter} sendresponse={setresponse} action={setactiondata}/>
-    }
-    else{
-        console.log('isInstallPromptSupported',isInstallPromptSupported)
-        console.log('isStandalone',isStandalone)
-    }
+//         return <PwaModal closePWA={setpwaprompter} sendresponse={setresponse} action={setactiondata}/>
+//     }
+//     else{
+//         console.log('isInstallPromptSupported',isInstallPromptSupported)
+//         console.log('isStandalone',isStandalone)
+//     }
    
-  }
+//   }
 
   
 
