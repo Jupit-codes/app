@@ -38,13 +38,7 @@
     /* background-color: blue; */
     
 }
-.Hello{
-    font-family: 'Roboto',sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    display: flex;
-}
+
 .dateHello{
     font-size: 12px;
     font-family: 'Roboto',sans-serif;
@@ -97,6 +91,13 @@
 and (min-device-width:400px)
 and (max-device-width:800px)
 {
+    .Hello{
+        font-family: 'Roboto',sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        display: flex;
+    }
    .profilesection{
     display: none !important;
    }
@@ -142,11 +143,7 @@ and (max-device-width:800px)
     };
 
    
-    .Hello{
-       
-        font-size: 15px;
-        
-    }
+    
     .dateHello{
         font-size: 10px;
        
@@ -249,8 +246,11 @@ and (max-device-width:399px)
 
    
     .Hello{
-       
-        display: none;
+        font-family: 'Roboto',sans-serif;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        display: flex;
     }
     .dateHello{
         font-size: 10px;
