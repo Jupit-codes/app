@@ -37,7 +37,7 @@ const Index =()=>{
     const [highFeeRate, sethighFeeRate]= useState('');
     const [mount,setMount] = useState(false)
 
-    const [networkFee,setNetworkFee] = useState(0);
+    const [networkFee,setNetworkFee] = useState(100);
     // const [actualNetworkFee,setactualNetworkFee] = useState(0);
     const [ButtonDisable,setButtonDisable] = useState(null)
     const [customdisable, setcustomdiasble]=useState(true)

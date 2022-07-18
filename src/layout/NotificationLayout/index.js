@@ -169,6 +169,27 @@ const Index = ()=>{
                     
                     )
                 }
+                if(d.type == 2){
+                 
+                    return (    
+                        <div key={index} className="notifyDiv">
+
+ 
+                            <div className='notify-flex-1'>
+                                <div className='red'>BlockChain Transfer Alert</div>
+                                <div className="notifyMessage"><div>{d.transfertype}</div></div>
+                                <small>You have initiated a transfer of {d.amount} {d.asset} from your USDT wallet to {d.to_address} address. </small>
+                                <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                            </div>
+                            {/* <div className='notify-flex-2'>
+                                <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
+                            </div> */}
+
+                        </div>
+                    
+                    
+                    )
+                }
 
                 if(d.type == 13){
                     
