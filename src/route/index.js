@@ -3,6 +3,7 @@
 // import Learn from '../container/Learn'
 // import Faq from '../container/Faq'
 // import Contact from '../container/Contact'
+import Test from '../container/test'
 import Login from '../container/Login'
 import Register from '../container/Register'
 import Dashboard from '../container/Dashboard'
@@ -34,13 +35,13 @@ const route = [
     //     component:Faq,
 
     // },
-    // {
-    //     path:'/contact-us',
-    //     title:'Contact Us | Jupit',
-    //     isAuthenticated:false,
-    //     component:Contact,
+    {
+        path:'/test',
+        title:'Test| Jupit',
+        isAuthenticated:false,
+        component:Test,
 
-    // },
+    },
     {
         path:'/user/changepassword/:codeid/:userid',
         title:'Reset Password | Jupit',
