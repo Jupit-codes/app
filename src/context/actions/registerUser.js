@@ -1,8 +1,9 @@
 import axios from 'axios'
 import {EMAIL_VALIDATE,EMAIL_VALIDATE_CHECKED, REGISTER_LOADING,REGISTER_ERROR,REGISTER_SUCCESS} from '../../constants/actionTypes'
+import validator from 'validator'
 export default (items)=>(dispatch)=>{
 
-    if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(items.email)){
+     if(validator.isEmail(items.email)){
         dispatch({
             type:EMAIL_VALIDATE_CHECKED,
         })
