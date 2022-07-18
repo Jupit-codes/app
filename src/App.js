@@ -10,15 +10,15 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { toast,ToastContainer } from 'react-toastify';
 import SweetAlert2 from 'react-sweetalert2';
-// import { usePWAInstall } from 'react-use-pwa-install'
-import Alas from './utils/modal/pwa'
+
+// import Alas from './utils/modal/pwa'
 import Spinner from './utils/loader/spinner.js'
 function App() {
 
   const [isLoading, setLoading] = useState(true);
   const [modal,setmodal] = useState(true);
   const history = useHistory();
-  // const install = usePWAInstall()
+
   function fakeRequest() {
     return new Promise(resolve => setTimeout(() => resolve(), 2500));
   }
