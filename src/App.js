@@ -19,9 +19,9 @@ function App() {
   const [modal,setmodal] = useState(true);
   const history = useHistory();
   const install = usePWAInstall()
-  function fakeRequest() {
-    return new Promise(resolve => setTimeout(() => resolve(), 2500));
-  }
+  // function fakeRequest() {
+  //   return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  // }
 
   // useEffect(() => {
   //   fakeRequest().then(() => {
