@@ -150,7 +150,7 @@ const Index=()=>{
                             {/* <img src={pathname[2]=== "exchange"? ExchangeActive : Exchange}/> */}
                             <MdOutlineHistory size={25} color={pathname[2] === "transactions-history" ? '#1c1c93':'#9c9c9c'}/>
                         </Link>
-                        <div>Transaction</div>
+                        <div>transaction</div>
 
                     </div>
                    
