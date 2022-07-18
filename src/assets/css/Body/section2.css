@@ -564,7 +564,7 @@ and (max-device-width:700px)
         height: 50px;
         color: #fff;
         border-radius: 10px;
-        background-color: #1C1C93;
+        background-color: #d8b74b;
         display: flex;
         justify-content: center;
         cursor: pointer;
@@ -576,7 +576,7 @@ and (max-device-width:700px)
         height: 50px;
         color: #fff;
         border-radius: 10px;
-        background-color: #1C1C93;
+        background-color: #2b9f7b;
         display: flex;
         justify-content: center;
         cursor: pointer;
