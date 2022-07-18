@@ -221,10 +221,6 @@ and (max-device-width:399px)
         padding-top: 0px;
         margin-top: 0px;
         padding: 0px;
-       
-        
-      
-        
     }
     .xtitle > div{
         flex:0 0 40%;
@@ -239,9 +235,7 @@ and (max-device-width:399px)
         align-items: center;
         padding-right: 50px;
         padding-top: 20px;
-        width: 100%;
-       
-        
+        width: 100%;  
     };
 
    
@@ -252,6 +246,7 @@ and (max-device-width:399px)
         letter-spacing: 2px;
         display: flex;
     }
+    
     .dateHello{
         font-size: 10px;
        
