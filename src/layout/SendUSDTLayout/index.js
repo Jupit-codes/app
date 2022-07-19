@@ -466,7 +466,7 @@ const retrieveAutoFee = ()=>{
 
     const getrate = ()=>{
         axios({
-            method: "POST",
+            method: "GET",
             url: `https://myjupit.herokuapp.com/threshold/rate`,
             headers:{
                 'Content-Type':'application/json',
