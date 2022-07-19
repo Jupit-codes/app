@@ -462,6 +462,29 @@ const retrieveAutoFee = ()=>{
           }
           return valuex;
     }
+
+    const rate = ()=>{
+        axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/threshold/get/rate`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            }
+            
+        })
+        .then((res)=>{
+
+            console.log(res.data)
+            
+        })
+        .catch((err)=>{
+            
+            console.log('error',err.response)
+            
+        })
+    }
     
     useEffect(()=>{
         if(success){
