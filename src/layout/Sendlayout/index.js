@@ -65,6 +65,7 @@ const Index =()=>{
     const [mywallet,setmywallet] = useState('')
     const [dataAutofee,setdataAutofee] = useState();
     const [addamount,setaddamount] = useState();
+    const [Rate,setRate] = useState(0);
 
     
 
@@ -77,14 +78,10 @@ const Index =()=>{
                 
                 if(Balance != USER_data.user.btc_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.user.btc_wallet[0].balance.$numberDecimal);
-                    
-                    
+                     
                 }
                 setcreatePin(USER_data.user.Pin_Created);
                 setmywallet(USER_data.user.wallet_pin);
-                    
-                
-                
             }
             // console.log('TestServer',USER_data)
 
@@ -241,6 +238,7 @@ const Index =()=>{
     useEffect(()=>{
         
        retrieveAutoFee();
+       getrate();
         
     },[])
 
@@ -396,15 +394,7 @@ const Index =()=>{
             </div>
         )
     }
-    // useEffect(()=>{
-    //     if(dataAddr && dataAddr === "Internal Transfer" && btcamount)
-    //     {
-    //         setButtonDisable (false);
-    //     }
-    //     else if(dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee){
-    //         setButtonDisable (false);
-    //     }
-    // },[dataAddr])
+ 
     const sendCoin = ()=>{
         
 
@@ -452,6 +442,31 @@ const Index =()=>{
         // toast('Coin Successfully Sent');
         
     }
+
+    
+    const getrate = ()=>{
+        axios({
+            method: "GET",
+            url: `https://myjupit.herokuapp.com/threshold/rate/btc`,
+            headers:{
+                'Content-Type':'application/json',
+                
+                'Authorization':reactLocalStorage.get('token')
+            }
+            
+        })
+        .then((res)=>{
+            setRate(res.data) 
+            console.log(res.data)
+        })
+        .catch((err)=>{
+            
+            console.log('error',err.response)
+            
+        })
+    }
+
+
     const check = (value)=>{
         let valuex;
         if (value.toString().indexOf(',') > -1) { 
@@ -477,7 +492,10 @@ const Index =()=>{
                     block_average:blockaverage,
                     wallet_type:"BTC",
                     transferType:dataAddr,
-                    senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address
+                    senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address,
+                    usdvalue:valueusd,
+                    nairavalue:parseFloat(valueusd) * parseFloat(Rate),
+                    rate:Rate,
         
                 }
                 
