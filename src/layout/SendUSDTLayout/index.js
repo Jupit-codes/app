@@ -505,7 +505,10 @@ const retrieveAutoFee = ()=>{
                 block_average:blockaverage,
                 wallet_type:"USDT",
                 transferType:dataAddr,
-                senderAddress:reactLocalStorage.getObject('user').usdt_wallet[0].address
+                senderAddress:reactLocalStorage.getObject('user').usdt_wallet[0].address,
+                usdvalue:usdamount,
+                nairavalue:'0',
+                rate:'0',
     
             }
             console.log(success)
