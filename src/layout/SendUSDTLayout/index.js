@@ -501,8 +501,8 @@ const retrieveAutoFee = ()=>{
                 transferType:dataAddr,
                 senderAddress:reactLocalStorage.getObject('user').usdt_wallet[0].address,
                 usdvalue:valueusd,
-                nairavalue:'0',
-                rate:'0',
+                nairavalue:parseFloat(valueusd) * parseFloat(Rate),
+                rate:Rate,
     
             }
             console.log(success)
