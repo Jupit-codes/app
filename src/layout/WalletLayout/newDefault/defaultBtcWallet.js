@@ -133,7 +133,7 @@ const Index = ({comp})=>{
                                         {userBtc && userBtc > 1 ? userBtc.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ","): userBtc}&nbsp;BTC
                                         </div>
                                         <div className='card_section_balance_equivalent'>
-                                            USD&nbsp;{parseFloat(userBtc * btcprice).toFixed(3).toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
+                                            USD&nbsp;{parseFloat(userBtc * btcprice).toFixed(2).toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
                                             <div>{refresh}</div>
                                         </div>
                                     </div>
