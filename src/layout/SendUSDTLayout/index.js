@@ -253,6 +253,7 @@ const retrieveAutoFee = ()=>{
 
     useEffect(()=>{
         retrieveAutoFee();
+        getrate();
         
     },[])
 // 1 TRX = 1,000,000 SUN
@@ -463,10 +464,10 @@ const retrieveAutoFee = ()=>{
           return valuex;
     }
 
-    const rate = ()=>{
+    const getrate = ()=>{
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/threshold/get/rate`,
+            url: `https://myjupit.herokuapp.com/threshold/rate`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -490,7 +491,7 @@ const retrieveAutoFee = ()=>{
         if(success){
 
             let valuebtc = check(btcamount);
-                let valueusd = check(usdamount);
+            let valueusd = check(usdamount);
             const items={
                 ReceipentAddress:ReceipentAddress,
                 networkFee:networkFee,
