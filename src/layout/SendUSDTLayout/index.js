@@ -66,6 +66,7 @@ const Index =()=>{
   
     const [InputwalletPIn,setInputwalletPIn] = useState(false)
     const [mywallet,setmywallet] = useState()
+    const [Rate,setRate] = useState(0);
 
     
    useEffect(()=>{
@@ -476,9 +477,7 @@ const retrieveAutoFee = ()=>{
             
         })
         .then((res)=>{
-
-            console.log(res.data)
-            
+            setRate(res.data) 
         })
         .catch((err)=>{
             
