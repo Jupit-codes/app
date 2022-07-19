@@ -417,9 +417,7 @@ const Index =()=>{
         return false;
        }
 
-        let x = btcamount + networkFee;
-
-        
+       let x = parseFloat(btcamount) + parseFloat(networkFee)
         
         if(x > Balance){
             toast.error("Insufficent Wallet Balance","ERROR")
@@ -561,8 +559,8 @@ const Index =()=>{
                         {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
                        
                     </div>
-                    {btcamount && btcamount > Balance && <div className='errorBTCAddr pt-4'>Amount Inputted is Greater than Available Balance</div> }
-                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount && btcamount < Balance  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && btcamount < Balance && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
+
+                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount && btcamount < Balance  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
                             Continue
                     </div>
                    

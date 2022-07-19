@@ -432,7 +432,7 @@ const retrieveAutoFee = ()=>{
        }
 
        let x = parseFloat(btcamount) + parseFloat(networkFee)
-        console.log('x',x)
+        
         
        if(x > Balance){
         toast.error("Insufficent Wallet Balance","ERROR")
