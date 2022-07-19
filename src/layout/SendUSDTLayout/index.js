@@ -77,7 +77,7 @@ const Index =()=>{
                 if(Balance != USER_data.user.usdt_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.user.usdt_wallet[0].balance.$numberDecimal);
                     
-                    setcreatePin(USER_data.userPin_Created);
+                    setcreatePin(USER_data.user.Pin_Created);
                     setmywallet(USER_data.user.wallet_pin);
                 }
                
