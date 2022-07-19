@@ -76,18 +76,11 @@ const Index =()=>{
             if(USER_data ){
                 if(Balance != USER_data.user.usdt_wallet[0].balance.$numberDecimal){
                     setBalance(USER_data.user.usdt_wallet[0].balance.$numberDecimal);
-                    
                     setcreatePin(USER_data.user.Pin_Created);
                     setmywallet(USER_data.user.wallet_pin);
                 }
                
-                    
-                    
-               
-                
             }
-          
-
    },[])
 
     const getbalance = (_id)=>{
@@ -153,14 +146,6 @@ const retrieveAutoFee = ()=>{
         console.log(err.response)
         {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
         
-        // toast.error(err.response,'Error')
-        // dispatch({
-        //     type:AUTO_FEE_ERROR,
-        //     payload:err.response ? err.response.data : 'NO NETWORK CONNECTIONs'
-        // })
-        // console.log(err.response)
-
-        
     })
 
    }
@@ -200,7 +185,6 @@ const retrieveAutoFee = ()=>{
             data:JSON.stringify({_id:reactLocalStorage.getObject('user')._id})
         })
         .then((res)=>{
-            // console.log('Temiloluwa',res.data);
             setcreatePin(res.data.Pin_Created)
             setmywallet(res.data.wallet_pin);
             
@@ -211,8 +195,6 @@ const retrieveAutoFee = ()=>{
             
         })
     }
-
-
 
 
     useEffect(()=>{
@@ -397,8 +379,7 @@ const retrieveAutoFee = ()=>{
         return parseFloat(btcamount) + parseFloat(networkFee)
     }
     const _selectFee = ()=>{
-        // getAutoFee()()0.00000001
-        // console.log('dataloadfee',dataAutofee)
+        
         return (
             <div className=''>
                 
@@ -426,15 +407,7 @@ const retrieveAutoFee = ()=>{
             </div>
         )
     }
-    // useEffect(()=>{
-    //     if(dataAddr && dataAddr === "Internal Transfer" && btcamount)
-    //     {
-    //         setButtonDisable (false);
-    //     }
-    //     else if(dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee){
-    //         setButtonDisable (false);
-    //     }
-    // },[dataAddr])
+   
     const sendCoin = ()=>{
 
         let kycprogress = 0
@@ -464,11 +437,9 @@ const retrieveAutoFee = ()=>{
         else{
             
             if(createPin){
-                // console.log('PIN',createPin);
-                // console.log('WALLET',mywallet);
-                // return false;
-                    setsuccess(false)
-                    setInputwalletPIn(true);
+              
+                setsuccess(false)
+                setInputwalletPIn(true);
             }
             else{
                 setsuccess(false)
@@ -501,12 +472,12 @@ const retrieveAutoFee = ()=>{
                 ReceipentAddress:ReceipentAddress,
                 networkFee:networkFee,
                 userid:reactLocalStorage.getObject('user')._id,
-                amount:btcamount,
+                amount:valuebtc,
                 block_average:blockaverage,
                 wallet_type:"USDT",
                 transferType:dataAddr,
                 senderAddress:reactLocalStorage.getObject('user').usdt_wallet[0].address,
-                usdvalue:usdamount,
+                usdvalue:valueusd,
                 nairavalue:'0',
                 rate:'0',
     
@@ -547,11 +518,11 @@ const retrieveAutoFee = ()=>{
                     <div className='sendBTCFrom'>Send USDT From</div>
                     <div className='fromBTC'>
                         <div>
-                            <img src={Tether} width="30"/> <span>USDT Wallet (RC-20)</span>
+                            <img src={Tether} width="30"/> <span>USDT Wallet (TRC-20)</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
+                            Balance: {Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} USDT
                         </div>
                     </div>
                     <div className='toBTC'>
