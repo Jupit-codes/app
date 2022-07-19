@@ -22,7 +22,7 @@ const Index = ({closeModal})=>{
                 <div className='modalHeader'>
                     <div className='modalText'>
                         <div className='receiveText'>
-                            Receive USDT (RC-20)
+                            Receive USDT (TRC-20)
                         </div>
                         
                         <IoClose size={25} onClick={()=>{closeModal(false)}} />

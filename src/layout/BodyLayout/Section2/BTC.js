@@ -1,14 +1,16 @@
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
 import { reactLocalStorage } from 'reactjs-localstorage'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useContext } from 'react'
 import axios from 'axios'
-
+import { GlobalContext } from "../../../context/Provider";
+import Marketprice from '../../../context/actions/marketprice'
 const Index = ({comp})=>{
 
     const [userBtc,setuserBtc] = useState()
     const [refresh,setrefreshing] = useState()
-
+    const [btcprice,setbtcprice] = useState()
+    const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     const getbalance = async(_id)=>{
         setrefreshing('refreshing balance..')
         await axios({
@@ -34,6 +36,26 @@ const Index = ({comp})=>{
             
         })
     }
+
+    useEffect(()=>{
+        let x = reactLocalStorage.getObject('user');
+        
+        // setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
+        Marketprice()(priceDispatch);
+        if(data){
+            let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
+            let xUSDT = ((data.USDT.USD.PRICE - data.USDT.USD.OPEN24HOUR) / data.USDT.USD.OPEN24HOUR) * 100
+            
+            // setpercentageBTC(parseFloat(xBTC).toFixed(5));
+            // setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
+            setbtcprice(parseFloat(data.BTC.USD.PRICE) - 150);
+            // setusdtprice(data.USDT.USD.PRICE);
+        }
+        
+
+   },[data])
+
+
      useEffect(()=>{
        
          setuserBtc(reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal)
@@ -63,7 +85,11 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userBtc && userBtc.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}&nbsp;BTC
+                                            {userBtc && userBtc.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}&nbsp;BTC <br/>
+                                            <div className='card_section_balance_equivalent'>
+                                                USD&nbsp;{parseFloat(userBtc * btcprice).toFixed(2).toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
+                                                <div>{refresh}</div>
+                                            </div>
                                             <div>{refresh}</div>
 
                                         </div>
