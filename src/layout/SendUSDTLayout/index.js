@@ -467,9 +467,11 @@ const retrieveAutoFee = ()=>{
                 // console.log('PIN',createPin);
                 // console.log('WALLET',mywallet);
                 // return false;
+                    setsuccess(false)
                     setInputwalletPIn(true);
             }
             else{
+                setsuccess(false)
                 setopenModal(true);
                 
             }
