@@ -190,7 +190,16 @@ and (max-device-width:399px)
     font-size: 12px;
 }
 
-
+.eyepassword{
+    position: absolute;
+    display: flex;
+    left: 80%;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+   
+    height: 50px;
+}
 
 
     
@@ -235,5 +244,15 @@ and (max-device-width:1000px)
     
     .logincred{
         padding: 10px;
+    }
+    .eyepassword{
+        position: absolute;
+        display: flex;
+        left: 85%;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+       
+        height: 50px;
     }
 }
