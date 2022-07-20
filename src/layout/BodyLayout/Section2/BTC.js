@@ -11,30 +11,43 @@ const Index = ({comp})=>{
     const [refresh,setrefreshing] = useState()
     const [btcprice,setbtcprice] = useState()
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
-    const getbalance = async(_id)=>{
-        setrefreshing('refreshing balance..')
-        await axios({
-            method: "POST",
-            url: `https://myjupit.herokuapp.com/users/refresh`,
-            headers:{
-                'Content-Type':'application/json',
-                'Authorization':reactLocalStorage.get('token')
-            },
-            data:JSON.stringify({_id:_id})
-        })
-        .then((res)=>{
-            setrefreshing('') 
-            setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
-            reactLocalStorage.remove('user')
-            reactLocalStorage.setObject('user',res.data.user)
+    const getbalance = async(_id,cancel)=>{
+        
+            try{
+                
+            setrefreshing('refreshing balance..')
+            await axios({
+                method: "POST",
+                url: `https://myjupit.herokuapp.com/users/refresh`,
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':reactLocalStorage.get('token')
+                },
+                data:JSON.stringify({_id:_id})
+            })
+            .then((res)=>{
+                
+                setrefreshing('') 
+                setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
+                reactLocalStorage.remove('user')
+                reactLocalStorage.setObject('user',res.data.user)
+                
             
-          
-        })
-        .catch((err)=>{
-            setrefreshing('')
-            console.log(err.response)
-            
-        })
+            })
+            .catch((err)=>{
+                setrefreshing('')
+                console.log(err.response)
+                
+            })
+        
+            }
+            catch(error){
+                if (axios.isCancel(error)) {
+                } else {
+                    throw error
+                }
+            }
+        
     }
 
     useEffect(()=>{
@@ -57,10 +70,13 @@ const Index = ({comp})=>{
 
 
      useEffect(()=>{
-       
+        const source = axios.CancelToken.source();
+
          setuserBtc(reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;
-         getbalance(_id)
+         getbalance(_id,source);
+
+        
      },[])
 
     return (
