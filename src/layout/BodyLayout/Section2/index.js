@@ -26,12 +26,12 @@ const Index = ()=>{
             case 'Naira':
                 return <NairaWallet comp={setComponent}/>
                 break;
-            case 'Btc':
-                return <Btc comp={setComponent}/>
-                break;
-            case 'Usdt':
-                return <Usdt comp={setComponent}/>
-                break;
+            // case 'Btc':
+            //     return <Btc comp={setComponent}/>
+            //     break;
+            // case 'Usdt':
+            //     return <Usdt comp={setComponent}/>
+            //     break;
         
             default:
                 break;
