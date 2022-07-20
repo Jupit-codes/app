@@ -10,6 +10,12 @@ import Dashboard from '../container/Dashboard'
 // import ChangePassword from '../container/Changepassword'
 // import Reset from '../container/Forgetpassword'
 const route = [
+    // {
+    //     path:'/',
+    //     title:'Client SignIn | Jupit',
+    //     isAuthenticated:false,
+    //     component:Login,
+    // },
     {
         path:'/client/signin',
         title:'Client SignIn | Jupit',
@@ -162,12 +168,7 @@ const route = [
     },
 
     
-    {
-        path:'/',
-        title:'Client SignIn | Jupit',
-        isAuthenticated:false,
-        component:Login,
-    },
+    
     
     
    
