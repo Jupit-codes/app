@@ -21,7 +21,7 @@ export default function Router() {
  
   const ProtectedRoute = () => {
 
-    if (reactLocalStorage.get('token') && reactLocalStorage.getObject('user')) {
+    if (reactLocalStorage.get('token') && reactLocalStorage.get('user')) {
 
         const decodedJwt = parseJwt(reactLocalStorage.get('token'));
         const expiration = new Date(decodedJwt.exp * 1000);
