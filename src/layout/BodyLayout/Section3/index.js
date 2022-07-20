@@ -145,11 +145,7 @@ const Index = ()=>{
                         
                         </div>
                     </div>
-                    <LineChart getClicked = {clickChart}/>
-
-               
-
-                   
+                    <LineChart getClicked = {clickChart}/>                   
             </div>
         </div>
     )
