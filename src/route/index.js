@@ -1,7 +1,7 @@
 
 // import Test from '../container/test'
 import Login from '../container/Login'
-// import Register from '../container/Register'
+import Register from '../container/Register'
 // import Dashboard from '../container/Dashboard'
 // import Exchange from '../container/Exchange'
 
@@ -15,6 +15,13 @@ const route = [
         title:'Client SignIn | Jupit',
         isAuthenticated:false,
         component:Login,
+
+    },
+    {
+        path:'/client/signup',
+        title:'Client SignUp | Jupit',
+        isAuthenticated:false,
+        component:Register,
 
     },
 
