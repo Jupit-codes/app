@@ -35,7 +35,7 @@ const Index = ({Next,userEmail,userPassword})=>{
                
                 reactLocalStorage.set('token',res.data.token);
                 reactLocalStorage.setObject('user',res.data.docs);
-                navigate('/client');
+                navigate('/client/app');
             }
             
         
