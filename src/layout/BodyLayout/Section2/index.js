@@ -29,9 +29,9 @@ const Index = ()=>{
             case 'Btc':
                 return <Btc comp={setComponent}/>
                 break;
-            case 'Usdt':
-                return <Usdt comp={setComponent}/>
-                break;
+            // case 'Usdt':
+            //     return <Usdt comp={setComponent}/>
+            //     break;
         
             default:
                 break;
