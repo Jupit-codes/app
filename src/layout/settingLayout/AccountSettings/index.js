@@ -44,8 +44,8 @@ const Index = ()=>{
                 })
                 .catch((err)=>{
                     setstartloader(false);
-                    toast.error("Update Failed..pls try again",'ERROR');
-                    console.log(err)
+                    toast.error(err.response && err.response.data,'ERROR');
+                    console.log(err.response)
                     
                     
                 })

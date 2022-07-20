@@ -494,6 +494,7 @@ const Index =()=>{
                     usdvalue:valueusd,
                     nairavalue:parseFloat(valueusd) * parseFloat(Rate),
                     rate:Rate,
+                    email:reactLocalStorage.getObject('user').email
         
                 }
                 
