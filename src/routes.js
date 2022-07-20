@@ -54,10 +54,10 @@ export default function Router() {
         <Route path="/client/signin" element={<Login />} />
         <Route path="client/signup" element={<Register/>} />
         <Route path="client/test" element={<Test/>} />
-          {/* <Route path="client" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+          <Route path="client" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
             <Route path="app" element={<Body/>} />
            
-          </Route> */}
+          </Route>
           {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
 }
