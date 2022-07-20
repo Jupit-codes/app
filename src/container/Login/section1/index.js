@@ -48,8 +48,8 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     
 
     useEffect(()=>{
-        if(reactLocalStorage.get('token') && reactLocalStorage.getObject('user')){
-            navigate('/client')
+        if(reactLocalStorage.get('token') && reactLocalStorage.get('user')){
+            navigate('/client/app')
         }
         else{
             if(data && data !== "Token is Required"){
