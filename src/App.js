@@ -89,53 +89,30 @@ const RenderRouter = (route)=>{
 
     if(route.isAuthenticated){
       if(reactLocalStorage.get('token') && reactLocalStorage.get('user') ){
-        // alert('yes')
-
+        
         const decodedJwt = parseJwt(reactLocalStorage.get('token'));
-
         const expiration = new Date(decodedJwt.exp * 1000);
         const now = new Date();
         const fiveMinutes = 1000 * 60 * 5;
-        console.log(expiration)
+        
         if( expiration.getTime() - now.getTime() < fiveMinutes ){
-            console.log('Expired');
-          
+
             reactLocalStorage.clear();
             window.location='/client/signin';
             
         }
         else{
-          // console.log(expiration.getTime())
-          // console.log(expiration.getTime() - now.getTime())
-          // console.log(fiveMinutes);
+          
 
             return <Route 
               path={route.path}
               exact={true}
               render={(props)=><route.component {...props}/>}
           />
-        }
-
-
-        // if (decodedJwt.exp * 1000 < Date.now()) {
-        
-        //  console.log(new Date(decodedJwt.exp * 1000))
-        //  console.log('Expired',decodedJwt)
-        // }
-        // else{
-            
-          
-        //     return <Route 
-        //       path={route.path}
-        //       exact={true}
-        //       render={(props)=><route.component {...props}/>}
-        //     />
-        // }
-      
-        
+        }  
       }
       else{
-        // console.log('Not Authenticated',reactLocalStorage.get('token'));
+       
         window.location='/client/signin';
       }
       
@@ -143,10 +120,10 @@ const RenderRouter = (route)=>{
     else{
      
         return <Route 
-        path={route.path}
-        exact
-        render={(props)=><route.component {...props}/>}
-      />
+                path={route.path}
+                exact
+                render={(props)=><route.component {...props}/>}
+              />
     }
   
 }
