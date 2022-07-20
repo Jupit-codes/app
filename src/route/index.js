@@ -2,7 +2,7 @@
 // import Test from '../container/test'
 import Login from '../container/Login'
 import Register from '../container/Register'
-// import Dashboard from '../container/Dashboard'
+import Dashboard from '../container/Dashboard'
 // import Exchange from '../container/Exchange'
 
 // import KYC from '../container/Kyc'
@@ -153,13 +153,13 @@ const route = [
     //     component:Dashboard,
 
     // },
-    // {
-    //     path:'/client',
-    //     title:'Client Dashboard | Jupit',
-    //     isAuthenticated:true,
-    //     component:Dashboard,
+    {
+        path:'/client',
+        title:'Client Dashboard | Jupit',
+        isAuthenticated:true,
+        component:Dashboard,
 
-    // },
+    },
     
     
     
