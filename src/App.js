@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './assets/css/Home/loader.css';
-
 import Routes from './route'
-import {BrowserRouter,Route,useNavigate} from 'react-router-dom'
+import {BrowserRouter,Route,Switch, useHistory} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { GlobalProvider } from './context/Provider';
@@ -10,9 +9,10 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 // import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { toast,ToastContainer } from 'react-toastify';
 import SweetAlert2 from 'react-sweetalert2';
-import NewRouter from './routes.js'
+// import NewRouter from './routes.js'
 // import Alas from './utils/modal/pwa'
 import Spinner from './utils/loader/spinner.js'
+
 function App() {
 
   const [isLoading, setLoading] = useState(true);
@@ -21,6 +21,7 @@ function App() {
   function fakeRequest() {
     return new Promise(resolve => setTimeout(() => resolve(), 500));
   }
+  const history = useHistory();
 
   useEffect(() => {
     fakeRequest().then(() => {
@@ -135,12 +136,12 @@ const RenderRouter = (route)=>{
         <ToastContainer/>
         <GlobalProvider>
           <BrowserRouter>
-              <NewRouter/>
-              {/* <Switch>
+              
+              <Switch>
                 {Routes.map((myroutes,index)=>{
                   return (<RenderRouter  {...myroutes} key={index}/>)
                 })}
-              </Switch>  */}
+              </Switch> 
 
           </BrowserRouter>
           

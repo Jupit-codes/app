@@ -24,7 +24,7 @@ import SettingsActive from '../../assets/images/utility/active/newer/settings-ac
 import LibraryActive from '../../assets/images/utility/active/newer/kyc-active.png'
 import ScheduleActive from '../../assets/images/utility/active/newer/transaction-active.ico'
 
-import { Link,useLocation,useNavigate } from "react-router-dom";
+import { Link,useHistory,useLocation,useNavigate } from "react-router-dom";
 import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill} from 'react-icons/ri'
 import {MdOutlineHistory} from 'react-icons/md'
 import {BsWallet2} from 'react-icons/bs'
@@ -36,7 +36,7 @@ const Index = ()=>{
 
     const location = useLocation();
     const pathname = location.pathname.split('/');
-    const navigate = useNavigate()
+    const history = useHistory()
     
     
     const logout =()=>{
@@ -44,11 +44,11 @@ const Index = ()=>{
         reactLocalStorage.remove('token');
         reactLocalStorage.remove('kyc');
         reactLocalStorage.remove('2fa');
-        navigate('/client/login',{replace:true})
+        history.push('/client/login',{replace:true})
      }
 
      const notify = ()=>{
-        navigate('/client/notification');
+        history.push('/client/notification');
      }
     
      useEffect(()=>{

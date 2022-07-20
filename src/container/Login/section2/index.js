@@ -4,7 +4,7 @@ import {IoIosArrowBack} from 'react-icons/io'
 import LoaderModal from '../../../utils/loader/loader.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
+import { useHistory, } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
 
 const Index = ({Next,userEmail,userPassword})=>{
@@ -12,7 +12,7 @@ const Index = ({Next,userEmail,userPassword})=>{
     const [loader, setloader] = useState(false);
     const [mydata,setmydata] = useState();
     const [myerror,setmyerror] = useState();
-    const navigate = useNavigate();
+    const history = useHistory();
     const submitToken = async ()=>{
        const Base_url = process.env.REACT_APP_BACKEND_URL
        setloader(true);
@@ -35,7 +35,7 @@ const Index = ({Next,userEmail,userPassword})=>{
                
                 reactLocalStorage.set('token',res.data.token);
                 reactLocalStorage.setObject('user',res.data.docs);
-                navigate('/client/app');
+                history.push('/client');
             }
             
         

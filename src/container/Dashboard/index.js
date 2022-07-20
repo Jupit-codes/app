@@ -12,12 +12,12 @@ import Start from '../../container/Body'
 // import BuyUSDT from '../../container/Buyusdt'
 // import SendUSDT from '../../container/SendUsdt'
 // import GiftCard from '../../container/Giftcard'
-// import '../../assets/css/Dashboard/dashboard.css'
+import '../../assets/css/Dashboard/dashboard.css'
 // import SellUSDT from '../../container/SellUsdt'
 // import SellBTC from '../../container/SellBtc'
 // import Withdrawal from '../../container/Withdrawal'
 // import Exchange from '../../container/Exchange'
-import { useLocation,Link ,useNavigate} from "react-router-dom";
+import { useLocation,Link, useHistory } from "react-router-dom";
 
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Offcanvas } from "react-bootstrap"; 
@@ -31,7 +31,7 @@ import {BiLogOut} from 'react-icons/bi'
 
 const Index=()=>{
     const location = useLocation();
-    const navigate = useNavigate()
+    const history = useHistory()
     const path = location.pathname;
     const [open, setOpen] = useState(true);
     const [trigger, settrigger] = useState(false);
@@ -107,7 +107,7 @@ const Index=()=>{
         reactLocalStorage.remove('token');
         reactLocalStorage.remove('kyc');
         reactLocalStorage.remove('2fa');
-        navigate('/client/login',{replace:true})
+        history.push('/client/login')
         
      }
      const whatsapChat = ()=>{
@@ -165,7 +165,7 @@ const Index=()=>{
                         <Offcanvas.Title style={{color:'#fff'}}>More</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                             <div className="moreDiv" onClick={()=>{navigate('/client/settings')}}>
+                             <div className="moreDiv" onClick={()=>{history.push('/client/settings')}}>
                                 
                                 <div>
                                     <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#9c9c9c':'#fff'}/>

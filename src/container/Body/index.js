@@ -1,5 +1,9 @@
 import React,{useContext, useEffect, useState} from "react";
 import '../../assets/css/Body/body.css';
+import WelcomeNote from '../../layout/BodyLayout/WelcomeNote';
+import Section_1 from '../../layout/BodyLayout/Section_1';
+import Section_2 from '../../layout/BodyLayout/Section_2';
+import Section_3 from '../../layout/BodyLayout/Section_3';
 import Footer from '.././../layout/BodyLayout/Footer'
 import Section1 from '../../layout/BodyLayout/Section1'
 import Section2 from '../../layout/BodyLayout/Section2'
@@ -82,6 +86,9 @@ const [actiondata,setactiondata] = useState()
        
    },[])
 
+   useEffect(()=>{
+    console.log('response',response)
+   },[response])
 
     return (
         <div className={openClose ? 'bodyOpen':'bodyClose'}>

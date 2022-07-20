@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link ,useNavigate} from "react-router-dom";
+import { Link ,useHistory,useNavigate} from "react-router-dom";
 import '../../../assets/css/Auth/auth.css'
 import logoArea from '../../../assets/images/IMG.png'
 import Jupit from '../../../assets/images/logo.png'
@@ -19,7 +19,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     const [loaderPlus,setloaderPlus] = useState(false);
     const [section,setsection] = useState('Section1')
     const [show,setshow] = useState(false)
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const handleEmail =(e)=>{
         setemailaddress(e.target.value)
@@ -43,20 +43,20 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     }
 
     const passwordreset = ()=>{
-       navigate('/reset/password')
+       history.push('/reset/password')
     }
     
 
     useEffect(()=>{
         if(reactLocalStorage.get('token') && reactLocalStorage.get('user')){
-            navigate('/client/test')
+            history.push('/client')
         }
         else{
             if(data && data !== "Token is Required"){
                
                 reactLocalStorage.set('token',data.token);
                 reactLocalStorage.setObject('user',data.docs);
-                navigate('/client/app');
+                history.push('/client');
             }
             else if(data === "Token is Required"){
                 Next('Section2')

@@ -13,14 +13,14 @@ import Usdt from './USDT.js'
 import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 const Index = ()=>{
     const [showButton,setshowButton] = useState(false)
     const [component,setComponent] = useState('Naira')
     const [clickChart,setClickChart] =  useState('BTC')
     const [activeBTC,setactiveBTC] = useState(true)
     const [activeUSDT,setactiveUSDT] = useState(false)
-    const navigate = useNavigate();
+    const history = useHistory();
         const _renderComponent = ()=>{
         switch (component) {
             case 'Naira':
@@ -29,7 +29,7 @@ const Index = ()=>{
             case 'Btc':
                 return <Btc comp={setComponent}/>
                 break;
-                
+
             // case 'Usdt':
             //     return <Usdt comp={setComponent}/>
             //     break;
@@ -40,11 +40,11 @@ const Index = ()=>{
     }
 
     const _handleWallet = ()=>{
-        navigate('/client/wallet',{state:{wallettype: component}})
-        // history.push({
-        //     pathname: '/client/wallet',
-        //     state: { wallettype: component }
-        // });
+        // navigate('/client/wallet',{state:{wallettype: component}})
+        history.push({
+            pathname: '/client/wallet',
+            state: { wallettype: component }
+        });
         
     }
 
