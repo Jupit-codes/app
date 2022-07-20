@@ -17,8 +17,8 @@ import Start from '../../container/Body'
 // import SellBTC from '../../container/SellBtc'
 // import Withdrawal from '../../container/Withdrawal'
 // import Exchange from '../../container/Exchange'
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { useLocation,Link ,useNavigate} from "react-router-dom";
+
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Offcanvas } from "react-bootstrap"; 
 import axios from "axios";
@@ -27,11 +27,11 @@ import {MdOutlineHistory} from 'react-icons/md'
 import {BsWallet2} from 'react-icons/bs'
 import {AiOutlineWhatsApp} from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 const Index=()=>{
     const location = useLocation();
-    const history = useHistory()
+    const navigate = useNavigate()
     const path = location.pathname;
     const [open, setOpen] = useState(true);
     const [trigger, settrigger] = useState(false);
@@ -92,9 +92,6 @@ const Index=()=>{
             //     return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
             //     break;
             
-            
-            
-
             default:
               
         }
@@ -110,7 +107,8 @@ const Index=()=>{
         reactLocalStorage.remove('token');
         reactLocalStorage.remove('kyc');
         reactLocalStorage.remove('2fa');
-        history.push('/client/login')
+        navigate('/client/login',{replace:true})
+        
      }
      const whatsapChat = ()=>{
         window.open('https://wa.me/2348088213177');
@@ -167,7 +165,7 @@ const Index=()=>{
                         <Offcanvas.Title style={{color:'#fff'}}>More</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                             <div className="moreDiv" onClick={()=>{history.push('/client/settings')}}>
+                             <div className="moreDiv" onClick={()=>{navigate('/client/settings')}}>
                                 
                                 <div>
                                     <RiSettings2Fill size={25}  color={pathname[2] === "settings" ? '#9c9c9c':'#fff'}/>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import '../../../assets/css/Auth/auth.css'
 import logoArea from '../../../assets/images/IMG.png'
 import Jupit from '../../../assets/images/logo.png'
@@ -10,7 +10,6 @@ import AlertDismissible from '../../../utils/alert/alertDisplay'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {reactLocalStorage} from 'reactjs-localstorage';
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {FiEye,FiEyeOff} from 'react-icons/fi'
 const Index=({Next,setUserPassword,setUserEmail})=>{
     const {authDispatch,authState:{auth:{loading,data,error,errorAlert}}} = useContext(GlobalContext)
@@ -20,7 +19,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     const [loaderPlus,setloaderPlus] = useState(false);
     const [section,setsection] = useState('Section1')
     const [show,setshow] = useState(false)
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleEmail =(e)=>{
         setemailaddress(e.target.value)
@@ -44,20 +43,20 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
     }
 
     const passwordreset = ()=>{
-       history.push('/reset/password')
+       navigate('/reset/password')
     }
     
 
     useEffect(()=>{
         if(reactLocalStorage.get('token') && reactLocalStorage.get('user')){
-            history.replace('/client')
+            navigate('/client')
         }
         else{
             if(data && data !== "Token is Required"){
                
                 reactLocalStorage.set('token',data.token);
                 reactLocalStorage.setObject('user',data.docs);
-                history.replace('/client');
+                navigate('/client');
             }
             else if(data === "Token is Required"){
                 Next('Section2')

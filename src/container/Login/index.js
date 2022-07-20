@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import '../../assets/css/Auth/auth.css'
 import logoArea from '../../assets/images/IMG.png'
 import Jupit from '../../assets/images/utility/logo_new.svg'
@@ -10,7 +10,6 @@ import AlertDismissible from '../../utils/alert/alertDisplay'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {reactLocalStorage} from 'reactjs-localstorage';
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Section1 from './section1'
 import Section2 from './section2'
 

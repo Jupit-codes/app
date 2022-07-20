@@ -6,7 +6,7 @@ import {IoLogoWhatsapp} from 'react-icons/io'
 import ProfileImage from '../../assets/images/utility/profile-pic.png'
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { useEffect,useState } from 'react'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+
 import {Badge,Dropdown} from 'react-bootstrap'
 import axios from 'axios'
 import {AiOutlinePoweroff} from 'react-icons/ai'
@@ -23,20 +23,20 @@ import ExchangeActive from '../../assets/images/utility/active/newer/exchange-ac
 import SettingsActive from '../../assets/images/utility/active/newer/settings-active.ico'
 import LibraryActive from '../../assets/images/utility/active/newer/kyc-active.png'
 import ScheduleActive from '../../assets/images/utility/active/newer/transaction-active.ico'
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
-import { Link } from "react-router-dom";
+
+import { Link,useLocation,useNavigate } from "react-router-dom";
 import {RiDashboardFill,RiWalletFill,RiExchangeBoxFill,RiSettings2Fill} from 'react-icons/ri'
 import {MdOutlineHistory} from 'react-icons/md'
 import {BsWallet2} from 'react-icons/bs'
 const Index = ()=>{
-    const history = useHistory();
+    
     const [salutation, setsalutation] = useState();
     const[userInfor,setUserInfor] = useState();
     const [notification,setnotification] = useState()
 
     const location = useLocation();
     const pathname = location.pathname.split('/');
-
+    const navigate = useNavigate()
     
     
     const logout =()=>{
@@ -44,11 +44,11 @@ const Index = ()=>{
         reactLocalStorage.remove('token');
         reactLocalStorage.remove('kyc');
         reactLocalStorage.remove('2fa');
-        history.push('/client/login')
+        navigate('/client/login',{replace:true})
      }
 
      const notify = ()=>{
-         history.push('/client/notification');
+        navigate('/client/notification');
      }
     
      useEffect(()=>{

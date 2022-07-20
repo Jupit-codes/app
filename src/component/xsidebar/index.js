@@ -15,8 +15,8 @@ import ScheduleActive from '../../assets/images/utility/active/transaction-activ
 import WalletActive from '../../assets/images/utility/active/wallet-active.png'
 import Wallet from '../../assets/images/utility/wallet.png'
 import Security from '../../assets/images/utility/security.png'
-import { Link } from "react-router-dom";
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link,useLocation } from "react-router-dom";
+
 import { Dash } from 'react-bootstrap-icons'
 const Index = ()=>{
     const location = useLocation();
