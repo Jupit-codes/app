@@ -56,7 +56,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
                
                 reactLocalStorage.set('token',data.token);
                 reactLocalStorage.setObject('user',data.docs);
-                navigate('/client');
+                navigate('/client/app');
             }
             else if(data === "Token is Required"){
                 Next('Section2')
