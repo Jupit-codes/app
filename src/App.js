@@ -20,7 +20,7 @@ function App() {
   const history = useHistory();
 
   function fakeRequest() {
-    return new Promise(resolve => setTimeout(() => resolve(), 2500));
+    return new Promise(resolve => setTimeout(() => resolve(), 500));
   }
 
   useEffect(() => {
