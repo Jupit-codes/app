@@ -160,15 +160,14 @@ const route = [
         component:Dashboard,
 
     },
+
     
-    
-    
-    // {
-    //     path:'/',
-    //     title:'Client SignIn | Jupit',
-    //     isAuthenticated:false,
-    //     component:Login,
-    // },
+    {
+        path:'/',
+        title:'Client SignIn | Jupit',
+        isAuthenticated:false,
+        component:Login,
+    },
     
     
    
