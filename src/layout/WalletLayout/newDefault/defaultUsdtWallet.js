@@ -102,7 +102,7 @@ const Index = ()=>{
              <div className='newRate'>
                     <div>
                         <img src={Tether} style={{width:25}}/> <span>USDT Wallet</span>
-                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{usdtprice.toLocaleString('en-US')}&nbsp;(USD/USDT)</span></div>
+                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{usdtprice && usdtprice.toLocaleString('en-US')}&nbsp;(USD/USDT)</span></div>
                     </div>
                     <div>
                         {_renderRate()}
