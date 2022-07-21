@@ -15,7 +15,7 @@ import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
 // import SellUSDT from '../../container/SellUsdt'
 // import SellBTC from '../../container/SellBtc'
-// import Withdrawal from '../../container/Withdrawal'
+import Withdrawal from '../../container/Withdrawal'
 import Exchange from '../../container/Exchange'
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -85,9 +85,9 @@ const Index=()=>{
             // case '/client/sellbtc':
             //     return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
             //     break;
-            // case '/client/withdrawal':
-            //     return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/withdrawal':
+                return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             case '/client/exchange':
                 return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
