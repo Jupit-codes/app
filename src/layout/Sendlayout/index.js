@@ -549,9 +549,9 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}/>
+                            <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && parseFloat(btcamount).toFixed(8).toLocaleString('en-US')}/>
                             <img src={Equivalent}/>
-                            <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDAmount}/>
+                            <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
                         </div>
                     </div>
                     <div>
