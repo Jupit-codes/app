@@ -62,7 +62,7 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userUSDT && userUSDT.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}&nbsp;USDT
+                                            {userUSDT && userUSDT.toLocaleString('en-US',{maximumFractionDigits:2 })}&nbsp;USDT
                                             <div>{refresh}</div>
                                         </div>
                                     </div>
