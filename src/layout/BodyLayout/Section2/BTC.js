@@ -90,7 +90,7 @@ const Index = ({comp})=>{
                                                 USD&nbsp;{parseFloat(userBtc * btcprice).toLocaleString('en-US',{maximumFractionDigits: 2})}
                                                 <div>{refresh}</div>
                                             </div>
-                                            <div>{refresh}</div>
+                                            
 
                                         </div>
                                     </div>
