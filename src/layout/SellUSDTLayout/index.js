@@ -376,7 +376,7 @@ const Index =()=>{
             const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
             setusdamount(formattedValue);
             setngnamount(parseFloat(value.replace(/,/g, '')) * parseFloat(sellrate))
-            setbtcamount(parseFloat(value.replace(/,/g, ''))/parseFloat(currentRate))
+            setbtcamount(parseFloat(parseFloat(value.replace(/,/g, ''))/parseFloat(currentRate)).toFixed(6))
         }
         else{
             setusdamount('');
@@ -631,16 +631,16 @@ const Index =()=>{
             <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to USDT Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
-                    <div className='currentRate'>&#36;{currentRate}</div>
+                    <div className='currentRate'>&#36;{currentRate.toLocaleString('en-US')}</div>
                     <div className='sendBTCFrom'>Sell USDT @ &#x20A6;{sellrate}</div>
                     <div className='fromBTC'>
                         <div>
                             {/* <Icon name="btc" size={30} /> <span>BTC Wallet</span> */}
-                            <img src={Tether} width="30"/> <span>USDT Wallet(RC-20)</span>
+                            <img src={Tether} width="30"/> <span>USDT Wallet(TRC-20)</span>
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
+                            Balance:{Balance && Balance.toLocaleString('en-US')}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
@@ -660,11 +660,11 @@ const Index =()=>{
                             {sellrate && 
                                 <>
 
-                                    <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDTAmount} />
+                                    <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && parseFloat(btcamount).toFixed(8).toLocaleString('en-US')} onChange={USDTAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDAmount} />
+                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={NGNAmount}/>
+                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount.toLocaleString('en-US')} onChange={NGNAmount}/>
                                 </>
                             
 

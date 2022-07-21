@@ -619,7 +619,7 @@ const Index =()=>{
             <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to BTC Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
-                    <div className='currentRate'>&#36;{currentRate}</div>
+                    <div className='currentRate'>&#36;{currentRate.toLocaleString('en-US')}</div>
                     <div className='sendBTCFrom'>Sell BTC @ &#x20A6;{sellrate}</div>
                     <div className='fromBTC'>
                         <div>
@@ -627,7 +627,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
+                            Balance:{Balance && Balance.toLocaleString('en-US')}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
@@ -647,11 +647,11 @@ const Index =()=>{
                             {sellrate && 
                                 <>
 
-                                    <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && btcamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={BTCAmount}/>
+                                    <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && parseFloat(btcamount).toFixed(8).toLocaleString('en-US')} onChange={BTCAmount}/>
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={USDAmount} />
+                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount} />
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} onChange={NGNAmount}/>
+                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount.toLocaleString('en-US')} onChange={NGNAmount}/>
                                 </>
                             
 
