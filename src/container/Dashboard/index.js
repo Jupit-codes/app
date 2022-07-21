@@ -8,8 +8,8 @@ import Notification from  '../../container/Notification'
 import Settings from  '../../container/Settings'
 import Wallets from  '../../container/Wallets'
 // import Send from '../../container/Send'
-// import BuyBTC from '../../container/Buybtc'
-// import BuyUSDT from '../../container/Buyusdt'
+import BuyBTC from '../../container/Buybtc'
+import BuyUSDT from '../../container/Buyusdt'
 // import SendUSDT from '../../container/SendUsdt'
 import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
@@ -73,12 +73,12 @@ const Index=()=>{
             case '/client/tradegiftcard':
                 return <GiftCard openClose={open} settrigger={settrigger} trigger={trigger}/>
             break;
-            // case '/client/buybtc':
-            //     return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/buyusdt':
-            //     return <BuyUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/buybtc':
+                return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/buyusdt':
+                return <BuyUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             // case '/client/sellusdt':
             //     return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
             //     break;
