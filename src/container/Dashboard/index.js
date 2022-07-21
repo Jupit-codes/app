@@ -16,7 +16,7 @@ import '../../assets/css/Dashboard/dashboard.css'
 // import SellUSDT from '../../container/SellUsdt'
 // import SellBTC from '../../container/SellBtc'
 // import Withdrawal from '../../container/Withdrawal'
-// import Exchange from '../../container/Exchange'
+import Exchange from '../../container/Exchange'
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
@@ -37,7 +37,7 @@ const Index=()=>{
     const [trigger, settrigger] = useState(false);
     const [navigation, setNavigation] = useState('');
     const pathname = location.pathname.split('/');
-    const [close,setClose] = useState(false)
+    const [close,setClose] = useState(false);
     const handleCallback =(value)=>{
         setOpen(value)
     }
@@ -88,9 +88,9 @@ const Index=()=>{
             // case '/client/withdrawal':
             //     return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
             //     break;
-            // case '/client/exchange':
-            //     return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/exchange':
+                return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             
             
             
