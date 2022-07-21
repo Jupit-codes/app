@@ -17,7 +17,7 @@ import SellUSDT from '../../container/SellUsdt'
 import SellBTC from '../../container/SellBtc'
 import Withdrawal from '../../container/Withdrawal'
 import Exchange from '../../container/Exchange'
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Offcanvas } from "react-bootstrap"; 
