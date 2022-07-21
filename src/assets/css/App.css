@@ -13,6 +13,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+body{
+	background-color: #EFF3FD;
+}
 
 .Hero{
   width:100%;
