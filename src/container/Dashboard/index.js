@@ -2,23 +2,23 @@ import React,{useEffect, useState} from "react";
 import TitleBar from '../../component/xtitlebar'
 import Sidebar from '../../component/xsidebar'
 import Start from '../../container/Body'
-// import KYC from  '../../container/Kyc'
-// import Transactions from  '../../container/Transactions'
-// import Notification from  '../../container/Notification'
-// import Settings from  '../../container/Settings'
-// import Wallets from  '../../container/Wallets'
-// import Send from '../../container/Send'
-// import BuyBTC from '../../container/Buybtc'
-// import BuyUSDT from '../../container/Buyusdt'
-// import SendUSDT from '../../container/SendUsdt'
-// import GiftCard from '../../container/Giftcard'
+import KYC from  '../../container/Kyc'
+import Transactions from  '../../container/Transactions'
+import Notification from  '../../container/Notification'
+import Settings from  '../../container/Settings'
+import Wallets from  '../../container/Wallets'
+import Send from '../../container/Send'
+import BuyBTC from '../../container/Buybtc'
+import BuyUSDT from '../../container/Buyusdt'
+import SendUSDT from '../../container/SendUsdt'
+import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
-// import SellUSDT from '../../container/SellUsdt'
-// import SellBTC from '../../container/SellBtc'
-// import Withdrawal from '../../container/Withdrawal'
-// import Exchange from '../../container/Exchange'
-import { useLocation,Link, useHistory } from "react-router-dom";
-
+import SellUSDT from '../../container/SellUsdt'
+import SellBTC from '../../container/SellBtc'
+import Withdrawal from '../../container/Withdrawal'
+import Exchange from '../../container/Exchange'
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Offcanvas } from "react-bootstrap"; 
 import axios from "axios";
@@ -27,7 +27,7 @@ import {MdOutlineHistory} from 'react-icons/md'
 import {BsWallet2} from 'react-icons/bs'
 import {AiOutlineWhatsApp} from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Index=()=>{
     const location = useLocation();
@@ -41,7 +41,7 @@ const Index=()=>{
     const handleCallback =(value)=>{
         setOpen(value)
     }
-
+   console.log("okay",path);
     const x =1
     const _renderBodyComponent=()=>{
         let component;
@@ -49,49 +49,52 @@ const Index=()=>{
             case '/client':
                 return <Start openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
-            // case '/client/kyc':
-            //     return <KYC openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/transactions-history':
-            //     return <Transactions openClose={open} trigger={settrigger}settrigger={settrigger}/>
-            //     break;
-            // case '/client/settings':
-            //     return <Settings openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/notification':
-            //     return <Notification openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/wallet':
-            //     return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/sendbtc':
-            //     return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/sendusdt':
-            //     return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/tradegiftcard':
-            //     return <GiftCard openClose={open} settrigger={settrigger} trigger={trigger}/>
-            // break;
-            // case '/client/buybtc':
-            //     return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/buyusdt':
-            //     return <BuyUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/sellusdt':
-            //     return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/sellbtc':
-            //     return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/withdrawal':
-            //     return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/exchange':
-            //     return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/kyc':
+                return <KYC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/transactions-history':
+                return <Transactions openClose={open} trigger={settrigger}settrigger={settrigger}/>
+                break;
+            case '/client/settings':
+                return <Settings openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/notification':
+                return <Notification openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/wallet':
+                return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/sendbtc':
+                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/sendusdt':
+                return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/tradegiftcard':
+                return <GiftCard openClose={open} settrigger={settrigger} trigger={trigger}/>
+            break;
+            case '/client/buybtc':
+                return <BuyBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/buyusdt':
+                return <BuyUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/sellusdt':
+                return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/sellbtc':
+                return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/withdrawal':
+                return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/exchange':
+                return <Exchange openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             
+            
+            
+
             default:
               
         }
@@ -108,7 +111,6 @@ const Index=()=>{
         reactLocalStorage.remove('kyc');
         reactLocalStorage.remove('2fa');
         history.push('/client/login')
-        
      }
      const whatsapChat = ()=>{
         window.open('https://wa.me/2348088213177');

@@ -69,8 +69,12 @@ const Index = ({getClicked})=>{
             setreceiveData([]);
             res.data.forEach((d)=>{
                 console.log('year',d._id)
+
+
+
                 d.monthlyusage.forEach((x)=>{
-                     
+                    
+                   
                    setlabel(mylabel =>[...mylabel,SwitchMonth(x.month)])
                     x.dailyusage.forEach((y)=>{
                         console.log('Data',y.totalTransaction)

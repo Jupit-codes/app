@@ -9,41 +9,31 @@ const Index = ({comp})=>{
     const [refresh,setrefreshing] = useState()
 
     const getbalance = async(_id)=>{
-
-        try{
-            setrefreshing('refreshing balance..')
-            await axios({
-                method: "POST",
-                url: `https://myjupit.herokuapp.com/users/refresh`,
-                headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':reactLocalStorage.get('token')
-                },
-                data:JSON.stringify({_id:_id})
-            })
-            .then((res)=>{
-                setrefreshing('')
-                setuserUSDT(res.data.user.usdt_wallet[0].balance.$numberDecimal);
-                reactLocalStorage.remove('user')
-                reactLocalStorage.setObject('user',res.data.user)
-                
-              
-            })
-            .catch((err)=>{
-                setrefreshing('')
-                console.log(err.response)
-                
-            })
-        }
-        catch(error){
-            if (axios.isCancel(error)) {
-            } else {
-                throw error
-            }
-        }
+        setrefreshing('refreshing balance..')
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:_id})
+        })
+        .then((res)=>{
+            setrefreshing('')
+            setuserUSDT(res.data.user.usdt_wallet[0].balance.$numberDecimal);
+            reactLocalStorage.remove('user')
+            reactLocalStorage.setObject('user',res.data.user)
+            
+          
+        })
+        .catch((err)=>{
+            setrefreshing('')
+            console.log(err.response)
+            
+        })
     }
      useEffect(()=>{
-        const source = axios.CancelToken.source();
         comp('Usdt')
          setuserUSDT(reactLocalStorage.getObject('user').usdt_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;

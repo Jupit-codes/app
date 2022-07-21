@@ -11,44 +11,30 @@ const Index = ({comp})=>{
     const [refresh,setrefreshing] = useState()
     const [btcprice,setbtcprice] = useState()
     const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
-    const getbalance = async(_id,cancel)=>{
-        
-            try{
-                
-                setrefreshing('refreshing balance..')
-                await axios({
-                    method: "POST",
-                    url: `https://myjupit.herokuapp.com/users/refresh`,
-                    headers:{
-                        'Content-Type':'application/json',
-                        'Authorization':reactLocalStorage.get('token')
-                    },
-                    data:JSON.stringify({_id:_id})
-                })
-                .then((res)=>{
-                    
-                    setrefreshing('') 
-                    // setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
-                    setuserBtc(5000.012145);
-                    reactLocalStorage.remove('user')
-                    reactLocalStorage.setObject('user',res.data.user)
-                    
-                
-                })
-                .catch((err)=>{
-                    setrefreshing('')
-                    console.log(err.response)
-                    
-                })
-        
-            }
-            catch(error){
-                if (axios.isCancel(error)) {
-                } else {
-                    throw error
-                }
-            }
-        
+    const getbalance = async(_id)=>{
+        setrefreshing('refreshing balance..')
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:_id})
+        })
+        .then((res)=>{
+            setrefreshing('') 
+            setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
+            reactLocalStorage.remove('user')
+            reactLocalStorage.setObject('user',res.data.user)
+            
+          
+        })
+        .catch((err)=>{
+            setrefreshing('')
+            console.log(err.response)
+            
+        })
     }
 
     useEffect(()=>{
@@ -71,13 +57,10 @@ const Index = ({comp})=>{
 
 
      useEffect(()=>{
-        const source = axios.CancelToken.source();
-
+       
          setuserBtc(reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;
-        getbalance(_id);
-
-        
+         getbalance(_id)
      },[])
 
     return (
@@ -102,9 +85,9 @@ const Index = ({comp})=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                            {userBtc && userBtc.toLocaleString('en-US',{maximumFractionDigits:2})}&nbsp;BTC <br/>
+                                            {userBtc && userBtc.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}&nbsp;BTC <br/>
                                             <div className='card_section_balance_equivalent'>
-                                                USD&nbsp;{parseFloat(userBtc * btcprice).toLocaleString('en-US',{maximumFractionDigits:2})}
+                                                USD&nbsp;{parseFloat(userBtc * btcprice).toFixed(2).toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
                                                 <div>{refresh}</div>
                                             </div>
                                             <div>{refresh}</div>

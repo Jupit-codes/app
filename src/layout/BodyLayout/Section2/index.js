@@ -13,7 +13,7 @@ import Usdt from './USDT.js'
 import Marketprice from '../../../context/actions/marketprice'
 import { GlobalContext } from "../../../context/Provider";
 import { reactLocalStorage } from 'reactjs-localstorage';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const Index = ()=>{
     const [showButton,setshowButton] = useState(false)
     const [component,setComponent] = useState('Naira')
@@ -29,10 +29,9 @@ const Index = ()=>{
             case 'Btc':
                 return <Btc comp={setComponent}/>
                 break;
-
-            // case 'Usdt':
-            //     return <Usdt comp={setComponent}/>
-            //     break;
+            case 'Usdt':
+                return <Usdt comp={setComponent}/>
+                break;
         
             default:
                 break;
@@ -40,7 +39,6 @@ const Index = ()=>{
     }
 
     const _handleWallet = ()=>{
-        // navigate('/client/wallet',{state:{wallettype: component}})
         history.push({
             pathname: '/client/wallet',
             state: { wallettype: component }

@@ -9,43 +9,34 @@ const Index = ({comp})=>{
     const [userNaira,setuserNaira] = useState()
     const [refresh,setrefreshing] = useState()
     const getbalance = async(_id)=>{
-        try{
-            setrefreshing('refreshing balance..')
-            await axios({
-                method: "POST",
-                url: `https://myjupit.herokuapp.com/users/refresh`,
-                headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':reactLocalStorage.get('token')
-                },
-                data:JSON.stringify({_id:_id})
-            })
-            .then((res)=>{
-                setrefreshing('')
-                setuserNaira(res.data.user.naira_wallet[0].balance.$numberDecimal);
-                reactLocalStorage.remove('user')
-                reactLocalStorage.setObject('user',res.data.user)
-                
-    
-                
-              
-            })
-            .catch((err)=>{
-                setrefreshing('')
-                console.log(err.response)
-                
-            })
-        }
-        catch(error){
-            if (axios.isCancel(error)) {
-            } else {
-                throw error
-            }
-        }
-        
+
+        setrefreshing('refreshing balance..')
+        await axios({
+            method: "POST",
+            url: `https://myjupit.herokuapp.com/users/refresh`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({_id:_id})
+        })
+        .then((res)=>{
+            setrefreshing('')
+            setuserNaira(res.data.user.naira_wallet[0].balance.$numberDecimal);
+            reactLocalStorage.remove('user')
+            reactLocalStorage.setObject('user',res.data.user)
+            
+
+            
+          
+        })
+        .catch((err)=>{
+            setrefreshing('')
+            console.log(err.response)
+            
+        })
     }
      useEffect(()=>{
-         const source = axios.CancelToken.source();
          setuserNaira(reactLocalStorage.getObject('user').naira_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;
          getbalance(_id)
