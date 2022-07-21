@@ -6,7 +6,7 @@ import KYC from  '../../container/Kyc'
 import Transactions from  '../../container/Transactions'
 import Notification from  '../../container/Notification'
 import Settings from  '../../container/Settings'
-// import Wallets from  '../../container/Wallets'
+import Wallets from  '../../container/Wallets'
 // import Send from '../../container/Send'
 // import BuyBTC from '../../container/Buybtc'
 // import BuyUSDT from '../../container/Buyusdt'
@@ -61,9 +61,9 @@ const Index=()=>{
             case '/client/notification':
                 return <Notification openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
-            // case '/client/wallet':
-            //     return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/wallet':
+                return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             // case '/client/sendbtc':
             //     return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
             //     break;

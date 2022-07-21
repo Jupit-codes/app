@@ -102,7 +102,7 @@ const Index = ({comp})=>{
                     
                     <div>
                         <Icon name="btc" size={25} /> <span>Bitcoin Wallet</span>
-                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice && btcprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;(USD/BTC)</span></div>
+                        <div className='newRating'><span>Rate:&nbsp;</span><span>&#36;{btcprice && btcprice.toLocaleString('en-US')}&nbsp;(USD/BTC)</span></div>
                     </div>
                     <div className='ratepercentage'>
                         {_renderRate()}
