@@ -7,14 +7,14 @@ import Transactions from  '../../container/Transactions'
 import Notification from  '../../container/Notification'
 import Settings from  '../../container/Settings'
 import Wallets from  '../../container/Wallets'
-// import Send from '../../container/Send'
+import Send from '../../container/Send'
 import BuyBTC from '../../container/Buybtc'
 import BuyUSDT from '../../container/Buyusdt'
-// import SendUSDT from '../../container/SendUsdt'
+import SendUSDT from '../../container/SendUsdt'
 import GiftCard from '../../container/Giftcard'
 import '../../assets/css/Dashboard/dashboard.css'
-// import SellUSDT from '../../container/SellUsdt'
-// import SellBTC from '../../container/SellBtc'
+import SellUSDT from '../../container/SellUsdt'
+import SellBTC from '../../container/SellBtc'
 import Withdrawal from '../../container/Withdrawal'
 import Exchange from '../../container/Exchange'
 import { useLocation } from "react-router-dom";
@@ -64,12 +64,12 @@ const Index=()=>{
             case '/client/wallet':
                 return <Wallets openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
-            // case '/client/sendbtc':
-            //     return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/sendusdt':
-            //     return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/sendbtc':
+                return <Send openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/sendusdt':
+                return <SendUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             case '/client/tradegiftcard':
                 return <GiftCard openClose={open} settrigger={settrigger} trigger={trigger}/>
             break;
@@ -79,12 +79,12 @@ const Index=()=>{
             case '/client/buyusdt':
                 return <BuyUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
-            // case '/client/sellusdt':
-            //     return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
-            // case '/client/sellbtc':
-            //     return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
-            //     break;
+            case '/client/sellusdt':
+                return <SellUSDT openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
+            case '/client/sellbtc':
+                return <SellBTC openClose={open} settrigger={settrigger} trigger={trigger}/>
+                break;
             case '/client/withdrawal':
                 return <Withdrawal openClose={open} settrigger={settrigger} trigger={trigger}/>
                 break;
