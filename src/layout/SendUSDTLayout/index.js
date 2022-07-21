@@ -547,7 +547,7 @@ const retrieveAutoFee = ()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance: {Balance && Balance.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")} USDT
+                            Balance: {Balance && parseFloat(Balance).toFixed(6).toLocaleString('en-US',{maximumFractionDigits:2 })} USDT
                         </div>
                     </div>
                     <div className='toBTC'>

@@ -66,7 +66,7 @@ const Index = ()=>{
 
                                         </div>
                                         <div className='card_section_balance'>
-                                        &#8358;{userNaira && userNaira.toString().replace(/(?<!\.\d+)\B(?=(\d{3})+\b)/g, ",")}
+                                        &#8358;{userNaira && userNaira.toLocaleString('en-US',{maximumFractionDigits:2 })}
                                         <div>{refresh}</div>
                                         </div>
                                     </div>
