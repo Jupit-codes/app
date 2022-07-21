@@ -216,4 +216,29 @@ and (max-device-width:700px)
     .fromBTC div{
         font-family: Acme;
     }
+    .receipentAddr-TextInfor{
+        font-family: Acme;
+        font-size: 10px;
+        padding-left: 10px;
+    }
+    .sendBTCFrom{
+        font-size: 14px;
+        font-family: Acme;
+        padding: 10px;
+        color:#3498db
+    }
+    .SendBodyII{
+        flex:1 1 50%;
+        margin: 10px;
+        border: 1px solid #cecece;
+        min-height: 25vh;
+        border-radius: 5px;
+        height: 100%;
+        -moz-box-shadow:    3px 3px 5px 6px #ccc;
+        -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+        box-shadow:         1px 2px 3px 3px #ccc;
+        padding: 20px;
+        background-color: #e5e5e5;
+        
+    }
 }
