@@ -539,7 +539,7 @@ const retrieveAutoFee = ()=>{
             <div className='back' onClick={()=>handleSend()}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to USDT Wallet</span></div>
             <div className='SendBody'>
                 <div className='SendBodyI'>
-                    <div className='currentRate'>&#36;{currentRate}</div>
+                    <div className='currentRate'>&#36;{currentRate.toLocaleString('en-US')}</div>
                     <div className='sendBTCFrom'>Send USDT From</div>
                     <div className='fromBTC'>
                         <div>
