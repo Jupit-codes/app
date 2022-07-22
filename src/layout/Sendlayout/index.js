@@ -472,11 +472,11 @@ const Index =()=>{
 
     const networkFeeFlow = ()=>{
         if(dataAddr === "BlockChain Transfer"){
-            let totalSumFee = parseFloat(chargeBlockChain) + parseFloat(networkFee); 
+            let totalSumFee = parseFloat(parseFloat(chargeBlockChain) + parseFloat(networkFee)).toFixed(8); 
             return totalSumFee;
         }
         else if(dataAddr === "Internal Transfer"){
-            let totalSumFee = parseFloat(chargeInternal) + parseFloat(networkFee); 
+            let totalSumFee = parseFloat(parseFloat(chargeInternal) + parseFloat(networkFee)).toFixed(8); 
             return totalSumFee;
         }
     }
@@ -593,7 +593,7 @@ const Index =()=>{
                     <div className='TextInformation'>
                             <div className='sendBTCFrom'>Amount(In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
-                                {btcamount}
+                                {parseFloat(btcamount).toFixed(8)}
                             </div>
                     </div>
                     <div className='TextInformation'>
