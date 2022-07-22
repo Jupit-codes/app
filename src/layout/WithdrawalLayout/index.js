@@ -464,7 +464,7 @@ const Index =()=>{
             return false;
         }
 
-        if(withdrawalCounter > 5){
+        if(withdrawalCounter && withdrawalCounter !="error" && withdrawalCounter > 5){
             toast.error('Sorry, you have exceeded your 5 times withdrawal limit for the day.');
             return false;
         }
