@@ -341,10 +341,10 @@ const retrieveAutoFee = ()=>{
             let pat = value.replace(/,/g, '') * currentRate 
             
             setusdamount(pat)
-            if(dataAddr === "Internal Transfer"){
-                setNetworkFee(0)
+            // if(dataAddr === "Internal Transfer"){
+            //     setNetworkFee(0)
                 
-            }
+            // }
             
             
         }
@@ -363,10 +363,10 @@ const retrieveAutoFee = ()=>{
             setusdamount(formattedValue)
             let pat = value.replace(/,/g, '') / currentRate 
             setbtcamount(pat)
-            if(dataAddr === "Internal Transfer"){
-                setNetworkFee(0)
+            // if(dataAddr === "Internal Transfer"){
+            //     setNetworkFee(0)
                 
-            }
+            // }
         }
         else{
             setbtcamount('');

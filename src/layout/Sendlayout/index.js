@@ -66,7 +66,8 @@ const Index =()=>{
     const [dataAutofee,setdataAutofee] = useState();
     const [addamount,setaddamount] = useState();
     const [Rate,setRate] = useState(0);
-
+    const [chargeBlockChain,setchargeBlockChain] = useState()
+    const [chargeInternal,setchargeInternal] = useState()
     
 
    useEffect(()=>{
@@ -250,6 +251,8 @@ const Index =()=>{
                 wallet_type:'BTC'
             }
             CheckAddress(items)(checkaddressDispatch)
+            let x = parseFloat(mediumFeeRate *  0.000001  ).toFixed(6);
+            setNetworkFee(x)
         }
         
         
@@ -464,6 +467,17 @@ const Index =()=>{
         })
     }
 
+    const networkFeeFlow = ()=>{
+        if(dataAddr === "BlockChain Transfer"){
+            let totalSumFee = parseFloat(chargeBlockChain) + parseFloat(networkFee); 
+            return totalSumFee;
+        }
+        else if(dataAddr === "Internal Transfer"){
+            let totalSumFee = parseFloat(chargeInternal) + parseFloat(networkFee); 
+            return totalSumFee;
+        }
+    }
+
 
     const check = (value)=>{
         let valuex;
@@ -582,15 +596,15 @@ const Index =()=>{
                     <div className='TextInformation'>
                             <div className='sendBTCFrom'>Network Fee ( In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
-                                {networkFee}
+                                {ReceipentAddress  && dataAddr && btcamount && networkFeeFlow()}
                             </div>
                     </div>
                     <div className='TextInformation'>
                             <div className='sendBTCFrom'>Total Fee (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {dataAddr && dataAddr === "Internal Transfer" && btcamount}
-                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee }
+                            {dataAddr && dataAddr === "Internal Transfer" && btcamount && parseFloat(networkFeeFlow()) + parseFloat(btcamount) }
+                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && parseFloat(networkFeeFlow()) + parseFloat(btcamount)}
                             </div>
                     </div>
                 </div>
