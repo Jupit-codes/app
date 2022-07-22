@@ -282,7 +282,7 @@ const Index =()=>{
         _getKyc(_id);
         getRate();
         getTransactionCount(_id);
-        withdrawalcheck(_id);
+        withdrawalcheckNo(_id);
 
     },[])
    
