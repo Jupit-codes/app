@@ -76,6 +76,7 @@ const Index =()=>{
     const [failedRequest,setFailedRequest] = useState(false)
     const [dailytransactioncount,setdailytransactioncount] = useState()
     const [withdrawalcheck,setwithdrawalcheck] = useState()
+    const [withdrawalCounter,setwithdrawalCounter] = useState();
 
 //    useEffect(()=>{
 //        let _id = reactLocalStorage.getObject('user')._id;
@@ -145,6 +146,29 @@ const Index =()=>{
         
     })
 
+   }
+
+   const withdrawalcheckNo  = (_id)=>{
+    axios({
+        method: "POST",
+        url: `https://myjupit.herokuapp.com/verify/withdrawal/count`,
+        headers:{
+            'Content-Type':'application/json',
+            
+            'Authorization':reactLocalStorage.get('token')
+        },
+        data:JSON.stringify({_id:_id})
+    })
+    .then((res)=>{
+    //    console.log(res.data)
+     setwithdrawalCounter(res.data.length)
+    })
+    .catch((err)=>{
+        
+        console.log('error',err.response)
+        setwithdrawalCounter('error')
+        
+    })
    }
 
    const getTransactionCount = (_id)=>{
@@ -250,12 +274,15 @@ const Index =()=>{
         })
     }
 
+    
+
     useEffect(()=>{
         const _id = reactLocalStorage.getObject('user')._id;
         getbalance(_id);
         _getKyc(_id);
         getRate();
         getTransactionCount(_id);
+        withdrawalcheck(_id);
 
     },[])
    
@@ -397,7 +424,7 @@ const Index =()=>{
         setusdamount(parseFloat(e.target.value) * currentRate);
         setngnamount(parseFloat(buyrate) * parseFloat(e.target.value) * currentRate )
     }
-    
+
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
         setngnamount(parseFloat(e.target.value) * parseFloat(buyrate))
