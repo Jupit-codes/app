@@ -77,6 +77,7 @@ const Index =()=>{
     const [dailytransactioncount,setdailytransactioncount] = useState()
     const [withdrawalcheck,setwithdrawalcheck] = useState()
     const [withdrawalCounter,setwithdrawalCounter] = useState();
+    const [charge,setcharge] = useState(100)
 
 //    useEffect(()=>{
 //        let _id = reactLocalStorage.getObject('user')._id;
@@ -674,17 +675,17 @@ const Index =()=>{
                                 {ngnamount}
                             </div>
                     </div>
-                    {/* <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Network Fee ( In BTC)</div>
+                    <div className='TextInformation'>
+                            <div className='sendBTCFrom'>Network Fee ( In Naira)</div>
                             <div className='receipentAddr-TextInfor'>
-                                {networkFee}
+                                {ngnamount && charge}
                             </div>
-                    </div> */}
+                    </div>
                     <div className='TextInformation'>
                             <div className='sendBTCFrom'>Total  (In Naira)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {ngnamount}
+                                {ngnamount && parseFloat(parseFloat(check(ngnamount)) + parseFloat(charge)).toLocaleString('en-US')}
                             </div>
                     </div>
                 </div>
