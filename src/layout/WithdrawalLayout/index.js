@@ -546,7 +546,7 @@ const Index =()=>{
         
 
         const BaseUrl = process.env.REACT_APP_BACKEND_URL  
-        let value = parseFloat(check(ngnamount)) + parseFloat(charge);
+        let value = check(ngnamount);
         
         setLoader(true)
         await axios({
