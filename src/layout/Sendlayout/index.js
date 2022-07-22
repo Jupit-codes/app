@@ -220,7 +220,10 @@ const Index =()=>{
        
         if(data){
             setcurrentRate(parseFloat(data.BTC.USD.PRICE) - 150);
-            
+            let chargeCalBlockChainCal = parseFloat(5)/ parseFloat(currentRate);
+            setchargeBlockChain(chargeCalBlockChainCal);
+            let chargeCalInternalCal = parseFloat(2)/ parseFloat(currentRate);
+            setchargeInternal(chargeCalInternalCal)
         }
         
 
@@ -569,7 +572,7 @@ const Index =()=>{
                         </div>
                     </div>
                     <div>
-                        {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && dataAutofee && _selectFee()}
+                        {/* {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && dataAutofee && _selectFee()} */}
                         {/* <small>{loadingAutofee && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small> */}
                         {/* {errorAutofee && <span className='errorBTCAddr'>{errorAutofee}</span>} */}
                        
