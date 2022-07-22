@@ -313,7 +313,7 @@ const Index =()=>{
 
         const {value} = e.target
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            const formattedValue = parseFloat(value) > 1 ? (Number(value.replace(/\D/g, '')) || '').toLocaleString(): value;
             
             setbtcamount(formattedValue)
             let pat = value.replace(/,/g, '') * currentRate 
@@ -338,12 +338,9 @@ const Index =()=>{
             const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
             
             setusdamount(formattedValue)
-            let pat = value.replace(/,/g, '') / currentRate 
+            let pat = parseFloat(value.replace(/,/g, '') / currentRate).toFixed(8) 
             setbtcamount(pat)
-            if(dataAddr === "Internal Transfer"){
-                setNetworkFee(0)
-                
-            }
+           
             
             
         }
@@ -566,7 +563,7 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && parseFloat(btcamount).toFixed(8).toLocaleString('en-US')}/>
+                            <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && parseFloat(btcamount) > 1 ? parseFloat(btcamount).toFixed(8).toLocaleString('en-US') : btcamount}/>
                             <img src={Equivalent}/>
                             <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
                         </div>
@@ -593,7 +590,7 @@ const Index =()=>{
                     <div className='TextInformation'>
                             <div className='sendBTCFrom'>Amount(In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
-                                {parseFloat(btcamount).toFixed(8)}
+                                {dataAddr && btcamount && parseFloat(btcamount).toFixed(8)}
                             </div>
                     </div>
                     <div className='TextInformation'>

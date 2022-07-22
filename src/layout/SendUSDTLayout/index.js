@@ -335,7 +335,7 @@ const retrieveAutoFee = ()=>{
 
         const {value} = e.target
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+            const formattedValue = parseFloat(value) > 1 ? (Number(value.replace(/\D/g, '')) || '').toLocaleString() : value;
             
             setbtcamount(formattedValue)
             let pat = value.replace(/,/g, '') * currentRate 
@@ -567,7 +567,7 @@ const retrieveAutoFee = ()=>{
                     <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
-                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Receipent USDT Address' value={ReceipentAddress} />
+                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Recipient USDT Address' value={ReceipentAddress} />
                             <small>{ReceipentAddress && loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
                             {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
                             {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
@@ -577,7 +577,7 @@ const retrieveAutoFee = ()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && parseFloat(btcamount).toFixed(6).toLocaleString('en-US')}/>
+                            <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount.toLocaleString('en-US')}/>
                             <img src={Equivalent}/>
                             <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
                         </div>
@@ -596,7 +596,7 @@ const retrieveAutoFee = ()=>{
                 </div>
                 <div className='SendBodyII'>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Receipent</div>
+                            <div className='sendBTCFrom'>Recipient</div>
                             <div className='receipentAddr-TextInfor'>
                                 {ReceipentAddress}
                             </div>
@@ -618,8 +618,8 @@ const retrieveAutoFee = ()=>{
                             <div className='sendBTCFrom'>Total Fee (In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                                {dataAddr && dataAddr === "Internal Transfer" && btcamount && parseFloat(networkFeeFlow()) + parseFloat(btcamount) }
-                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && parseFloat(networkFeeFlow()) + parseFloat(btcamount)}
+                                {dataAddr && dataAddr === "Internal Transfer" ? btcamount && parseFloat(parseFloat(networkFeeFlow()) + parseFloat(btcamount)).toFixed(6) : dataAddr === "BlockChain Transfer" && btcamount && parseFloat(parseFloat(networkFeeFlow()) +parseFloat(btcamount)).toFixed(6)  }
+                          
                             </div>
                     </div>
                 </div>
