@@ -160,7 +160,7 @@ const Index =()=>{
         data:JSON.stringify({_id:_id})
     })
     .then((res)=>{
-    //    console.log(res.data)
+       console.log(res.data.length)
      setwithdrawalCounter(res.data.length)
     })
     .catch((err)=>{
@@ -463,6 +463,12 @@ const Index =()=>{
             toast.error('Sorry, your account details has not been linked. Kindly conclude your KYC Level 2.');
             return false;
         }
+
+        if(withdrawalCounter > 5){
+            toast.error('Sorry, you have exceeded your 5 times withdrawal limit for the day.');
+            return false;
+        }
+        
 
 
         let kycprogress = 0
