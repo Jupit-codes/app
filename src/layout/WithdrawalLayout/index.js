@@ -151,7 +151,7 @@ const Index =()=>{
    const withdrawalcheckNo  = (_id)=>{
     axios({
         method: "POST",
-        url: `https://myjupit.herokuapp.com/verify/withdrawal/count`,
+        url: `https://myjupit.herokuapp.com/verify/getwithrawal/count`,
         headers:{
             'Content-Type':'application/json',
             
