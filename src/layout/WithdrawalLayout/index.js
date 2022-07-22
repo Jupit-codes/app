@@ -321,6 +321,7 @@ const Index =()=>{
         
         
     },[ReceipentAddress])
+
     const handleSend = ()=>{
         history.push({
             pathname:'/client/wallet',
@@ -396,6 +397,7 @@ const Index =()=>{
         setusdamount(parseFloat(e.target.value) * currentRate);
         setngnamount(parseFloat(buyrate) * parseFloat(e.target.value) * currentRate )
     }
+    
     const USDAmount = (e)=>{
         setusdamount(e.target.value);
         setngnamount(parseFloat(e.target.value) * parseFloat(buyrate))
