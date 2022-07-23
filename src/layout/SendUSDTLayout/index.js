@@ -59,7 +59,7 @@ const Index =()=>{
     const [kycLevel1,setkycLevel1] = useState('')
     const [kycLevel2,setkycLevel2] = useState('')
     const [kycLevel3,setkycLevel3] = useState('')
-    const[createPin,setcreatePin] =  useState()
+    const[createPin,setcreatePin] =  useState(false)
     const [openModal,setopenModal] = useState(false);
     const [success,setsuccess] = useState(false)
     const [dataAutofee,setdataAutofee] = useState();
@@ -76,12 +76,15 @@ const Index =()=>{
        
         UserDetailsRefresh(_id)(userdetailsDispatch)
     
-            if(USER_data ){
-                if(Balance != USER_data.user.usdt_wallet[0].balance.$numberDecimal){
+            if(USER_data){
+                
                     setBalance(USER_data.user.usdt_wallet[0].balance.$numberDecimal);
                     setcreatePin(USER_data.user.Pin_Created);
                     setmywallet(USER_data.user.wallet_pin);
-                }
+                    console.log('All cleared',USER_data.user.Pin_Created)
+                    console.log('createdPIn',createPin)
+                    console.log('wallet_pin',mywallet)
+                
                
             }
    },[])
@@ -99,10 +102,13 @@ const Index =()=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            if(Balance !== res.data.usdt_wallet[0].balance.$numberDecimal ){
-                setBalance(res.data.usdt_wallet[0].balance.$numberDecimal);
+            
+            // if(Balance !== res.data.user.usdt_wallet[0].balance.$numberDecimal ){
+                setBalance(res.data.user.usdt_wallet[0].balance.$numberDecimal);
+                setcreatePin(res.data.user.Pin_Created);
+                setmywallet(res.data.user.wallet_pin);
                 
-            }
+               
             
         })
         .catch((err)=>{
@@ -428,26 +434,26 @@ const retrieveAutoFee = ()=>{
    
     const sendCoin = ()=>{
 
-        let kycprogress = 0
-        if(kycLevel1 === "Verified"){
+    //     let kycprogress = 0
+    //     if(kycLevel1 === "Verified"){
             
-            kycprogress += 25
-        }
+    //         kycprogress += 25
+    //     }
 
-        if(kycLevel2 === "customeridentification.success"){
-            kycprogress += 30
-        }
+    //     if(kycLevel2 === "customeridentification.success"){
+    //         kycprogress += 30
+    //     }
 
-       if(kycprogress === 25 && usdamount > 100){
-        toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
-        return false;
-       }
-       if(kycprogress === 55 && usdamount > 500){
-        toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
-        return false;
-       }
-
-       let x = parseFloat(btcamount) + parseFloat(networkFee)
+    //    if(kycprogress === 25 && usdamount > 100){
+    //     toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
+    //     return false;
+    //    }
+    //    if(kycprogress === 55 && usdamount > 500){
+    //     toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
+    //     return false;
+    //    }
+    let charge = dataAddr == "BlockChain Transfer" ? chargeBlockChain : chargeInternal;
+       let x = parseFloat(btcamount) + parseFloat(networkFee) + parseFloat(charge)
         
         
        if(x > Balance){
@@ -505,7 +511,7 @@ const retrieveAutoFee = ()=>{
     
     useEffect(()=>{
         if(success){
-
+            let charge = dataAddr == "BlockChain Transfer" ? chargeBlockChain : chargeInternal;
             let valuebtc = check(btcamount);
             let valueusd = check(usdamount);
             const items={
@@ -515,6 +521,7 @@ const retrieveAutoFee = ()=>{
                 amount:valuebtc,
                 block_average:blockaverage,
                 wallet_type:"USDT",
+                charge:charge,
                 transferType:dataAddr,
                 senderAddress:reactLocalStorage.getObject('user').usdt_wallet[0].address,
                 usdvalue:valueusd,
