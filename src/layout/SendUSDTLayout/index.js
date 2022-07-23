@@ -23,6 +23,7 @@ import getNotification from '../../context/actions/getNotification';
 import Tether from '../../assets/images/tether.png'
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
 import EnterPinModal from '../../utils/modal/INPUT_PIN/'
+import NumberFormat from 'react-number-format';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -335,7 +336,9 @@ const retrieveAutoFee = ()=>{
 
         const {value} = e.target
         if(value){
-            const formattedValue = parseFloat(value) > 1 ? (Number(value.replace(/\D/g, '')) || '').toLocaleString() : value;
+            let integralpart = Math.trunc(value);
+            console.log(integralpart)
+            const formattedValue = integralpart.toLocaleString('en-US');
             
             setbtcamount(formattedValue)
             let pat = value.replace(/,/g, '') * currentRate 
@@ -360,7 +363,7 @@ const retrieveAutoFee = ()=>{
         const {value} = e.target
         if(value){
             const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
-            setusdamount(formattedValue)
+            setusdamount(parseFloat(value.replace(/\D/g, '')))
             let pat = value.replace(/,/g, '') / currentRate 
             setbtcamount(pat)
             // if(dataAddr === "Internal Transfer"){
@@ -577,10 +580,20 @@ const retrieveAutoFee = ()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="text"    placeholder='USDT' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount.toLocaleString('en-US')}/>
+                            <input type="text"    placeholder='USDT'  onChange={BTCAmount} value={btcamount && btcamount.toLocaleString('en-US')}/>
                             <img src={Equivalent}/>
-                            <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
+                            <input type="text"  placeholder='USD'   value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
+                        
                         </div>
+                        <NumberFormat
+                            value={usdamount && usdamount}
+                            className="foo"
+                            displayType={'number'}
+                            thousandSeparator={true}
+                            prefix={'$'}
+                            onChange={USDAmount}
+                            renderText={(value, props) => <div {...props}>{value}</div>}
+                            />
                     </div>
                     <div>
                         {/* {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && _selectFee()} */}

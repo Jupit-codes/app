@@ -603,8 +603,8 @@ const Index =()=>{
                             <div className='sendBTCFrom'>Total Fee (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
-                            {dataAddr && dataAddr === "Internal Transfer" && btcamount && parseFloat(networkFeeFlow()) + parseFloat(btcamount) }
-                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && parseFloat(networkFeeFlow()) + parseFloat(btcamount)}
+                            {dataAddr && dataAddr === "Internal Transfer" && btcamount && parseFloat(parseFloat(networkFeeFlow()) + parseFloat(btcamount)).toFixed(8) }
+                                {dataAddr && dataAddr === "BlockChain Transfer" && btcamount && parseFloat(parseFloat(networkFeeFlow()) + parseFloat(btcamount)).toFixed(8)}
                             </div>
                     </div>
                 </div>
