@@ -22,7 +22,7 @@ import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
 import Tether from '../../assets/images/tether.png'
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
-import EnterPinModal from '../../utils/modal/INPUT_PIN/'
+import EnterPinModal from '../../utils/modal/INPUT_PIN'
 import NumberFormat from 'react-number-format';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
@@ -339,7 +339,7 @@ const retrieveAutoFee = ()=>{
         if(value){
             setbtcamount(value);
             
-            let pat = value.replace(/,/g, '') * currentRate 
+            let pat = parseFloat(value.replace(/,/g, '') * currentRate).toFixed(2)
             setusdamount(pat)
         }
         else{
@@ -353,7 +353,7 @@ const retrieveAutoFee = ()=>{
         if(value){
             setusdamount(value);
         
-            let pat = value.replace(/,/g, '') / currentRate 
+            let pat = parseFloat(value.replace(/,/g, '') / currentRate).toFixed(8)
             setbtcamount(pat)
         }
         else{

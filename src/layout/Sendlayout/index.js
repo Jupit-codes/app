@@ -319,9 +319,9 @@ const Index =()=>{
         const { value } = e.target;
         if(value){
             setbtcamount(value);
-            let pat = value.replace(/,/g, '') * currentRate 
+            let pat = parseFloat(value.replace(/,/g, '') * currentRate).toFixed(2)
             setusdamount(pat)
-            console.log('This was called')
+            
         }
         else{
             setbtcamount('');

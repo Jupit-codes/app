@@ -25,6 +25,7 @@ import CreatePinModal from '../../utils/modal/CREATE_PIN'
 import EnterPinModal from '../../utils/modal/INPUT_PIN/'
 import { getAllByPlaceholderText } from '@testing-library/react';
 import {AiOutlineReload} from 'react-icons/ai'
+import NumberFormat from 'react-number-format';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -368,11 +369,11 @@ const Index =()=>{
     const BTCAmount = (e)=>{
         const {value} = e.target
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
             
-            setbtcamount(formattedValue)
-            setusdamount(parseFloat(value.replace(/,/g, '')) * currentRate);
-            setngnamount(parseFloat(sellrate) * parseFloat(value.replace(/,/g, '')) * currentRate )
+            
+            setbtcamount(value)
+            setusdamount(parseFloat(parseFloat(value.replace(/,/g, '')) * currentRate).toFixed(2));
+            setngnamount(parseFloat(parseFloat(sellrate) * parseFloat(value.replace(/,/g, '')) * currentRate).toFixed(2))
             
         }
         else{
@@ -385,9 +386,9 @@ const Index =()=>{
     const USDAmount = (e)=>{
         const {value} = e.target
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
-            setusdamount(formattedValue);
-            setngnamount(parseFloat(value.replace(/,/g, '')) * parseFloat(sellrate))
+            
+            setusdamount(value);
+            setngnamount(parseFloat(parseFloat(value.replace(/,/g, '')) * parseFloat(sellrate)).toFixed(2))
             setbtcamount(parseFloat(value.replace(/,/g, ''))/parseFloat(currentRate).toFixed(8))
         }
         else{
@@ -401,11 +402,11 @@ const Index =()=>{
 
         const {value} = e.target
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
             
-            setngnamount(formattedValue)
+            
+            setngnamount(value)
          
-            setusdamount((parseFloat(value.replace(/,/g, ''))/parseFloat(sellrate)).toFixed(3))
+            setusdamount((parseFloat(value.replace(/,/g, ''))/parseFloat(sellrate)).toFixed(2))
             setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
             if(Balance >= value.replace(/,/g, '')){
                 setDisableBTN(false)
@@ -627,7 +628,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance && Balance.toLocaleString('en-US')}
+                            Balance: {Balance && Balance.toLocaleString('en-US')}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
@@ -647,11 +648,34 @@ const Index =()=>{
                             {sellrate && 
                                 <>
 
-                                    <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?"  value={btcamount && parseFloat(btcamount).toFixed(8).toLocaleString('en-US')} onChange={BTCAmount}/>
+<NumberFormat 
+                                        thousandSeparator={','} 
+                                        decimalSeparator={'.'} 
+                                        placeholder="BTC"
+                                        value={btcamount || ''} 
+                                        onChange={BTCAmount}
+                                    />
+                                    
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount} />
+                                    <NumberFormat 
+                                        thousandSeparator={','} 
+                                        decimalSeparator={'.'} 
+                                        placeholder="USD"
+                                        value={usdamount || ''} 
+                                        
+                                        onChange={USDAmount}
+                                    />
+                                    
                                     <img src={Equivalent}/>
-                                    <input type="text"  placeholder='NGN'  pattern="[+-]?\d+(?:[.,]\d+)?" value={ngnamount && ngnamount.toLocaleString('en-US')} onChange={NGNAmount}/>
+                                    <NumberFormat 
+                                        thousandSeparator={','} 
+                                        decimalSeparator={'.'} 
+                                        placeholder="NGN"
+                                        value={ngnamount || ''} 
+                                       
+                                        onChange={NGNAmount}
+                                    />
+                                    
                                 </>
                             
 
