@@ -22,7 +22,8 @@ import axios from 'axios';
 import getNotification from '../../context/actions/getNotification';
 import { fabClasses } from '@mui/material';
 import CreatePinModal from '../../utils/modal/CREATE_PIN'
-import EnterPinModal from '../../utils/modal/INPUT_PIN/'
+import EnterPinModal from '../../utils/modal/INPUT_PIN'
+import NumberFormat from 'react-number-format';
 const Index =()=>{
     const [lowFee, setlowFee]= useState();
     const [mediumFee, setmediumFee]= useState();
@@ -137,6 +138,7 @@ const Index =()=>{
 
    }
 
+   
     const getbalance = (_id)=>{
         
         axios({
@@ -309,49 +311,40 @@ const Index =()=>{
         
     }
    
+  
+    
     const BTCAmount = (e)=>{
 
-        const {value} = e.target
+
+        const { value } = e.target;
         if(value){
-            const formattedValue = parseFloat(value) > 1 ? (Number(value.replace(/\D/g, '')) || '').toLocaleString(): value;
-            
-            setbtcamount(formattedValue)
+            setbtcamount(value);
             let pat = value.replace(/,/g, '') * currentRate 
             setusdamount(pat)
-            if(dataAddr === "Internal Transfer"){
-                setNetworkFee(0)
-                
-            }
-            
-            
+            console.log('This was called')
         }
         else{
             setbtcamount('');
             setusdamount('');
-           
-        }  
+        }
         
     }
-    const USDAmount=(e)=>{
-        const {value} = e.target
+    const USDAmount = (e)=>{
+        const {value } = e.target;
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
-            
-            setusdamount(formattedValue)
-            let pat = parseFloat(value.replace(/,/g, '') / currentRate).toFixed(8) 
+            setusdamount(value);
+            let pat = parseFloat(value.replace(/,/g, '') / currentRate).toFixed(8)
             setbtcamount(pat)
-           
-            
-            
         }
         else{
             setbtcamount('');
             setusdamount('');
-           
         }
-    
-       
+        
     }
+
+
+
     const CopyData = (e)=>{
        
         setReceipentAddress(e.clipboardData.getData('Text'))
@@ -563,9 +556,26 @@ const Index =()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="text"    placeholder='BTC' pattern="[+-]?\d+(?:[.,]\d+)?" onChange={BTCAmount} value={btcamount && parseFloat(btcamount) > 1 ? parseFloat(btcamount).toFixed(8).toLocaleString('en-US') : btcamount}/>
+                           
+                             <NumberFormat 
+                                thousandSeparator={','} 
+                                decimalSeparator={'.'} 
+                                placeholder="BTC"
+                                value={btcamount || ''} 
+                                onChange={BTCAmount}
+                               
+                            />
                             <img src={Equivalent}/>
-                            <input type="text"  placeholder='USD'  pattern="[+-]?\d+(?:[.,]\d+)?" value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
+                    
+                            <NumberFormat 
+                                thousandSeparator={','} 
+                                decimalSeparator={'.'} 
+                                placeholder="USD"
+                                value={usdamount || ''} 
+                                onChange={USDAmount}
+                               
+                            />
+
                         </div>
                     </div>
                     <div>

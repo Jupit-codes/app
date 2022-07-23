@@ -334,49 +334,56 @@ const retrieveAutoFee = ()=>{
    
     const BTCAmount = (e)=>{
 
-        const {value} = e.target
+
+        const { value } = e.target;
         if(value){
-            let integralpart = Math.trunc(value);
-            console.log(integralpart)
-            const formattedValue = integralpart.toLocaleString('en-US');
+            setbtcamount(value);
             
-            setbtcamount(formattedValue)
             let pat = value.replace(/,/g, '') * currentRate 
-            
             setusdamount(pat)
-            // if(dataAddr === "Internal Transfer"){
-            //     setNetworkFee(0)
-                
-            // }
-            
-            
         }
         else{
             setbtcamount('');
             setusdamount('');
-           
-        } 
+        }
         
     }
-    const USDAmount=(e)=>{
-       
-        const {value} = e.target
+    const USDAmount = (e)=>{
+        const {value } = e.target;
         if(value){
-            const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
-            setusdamount(parseFloat(value.replace(/\D/g, '')))
+            setusdamount(value);
+        
             let pat = value.replace(/,/g, '') / currentRate 
             setbtcamount(pat)
-            // if(dataAddr === "Internal Transfer"){
-            //     setNetworkFee(0)
-                
-            // }
         }
         else{
             setbtcamount('');
             setusdamount('');
-           
         }
+        
     }
+
+
+
+    // const USDAmount=(e)=>{
+       
+    //     const {value} = e.target
+    //     if(value){
+    //         const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
+    //         setusdamount(parseFloat(value.replace(/\D/g, '')))
+    //         let pat = value.replace(/,/g, '') / currentRate 
+    //         setbtcamount(pat)
+    //         // if(dataAddr === "Internal Transfer"){
+    //         //     setNetworkFee(0)
+                
+    //         // }
+    //     }
+    //     else{
+    //         setbtcamount('');
+    //         setusdamount('');
+           
+    //     }
+    // }
     const CopyData = (e)=>{
        
         setReceipentAddress(e.clipboardData.getData('Text'))
@@ -580,20 +587,36 @@ const retrieveAutoFee = ()=>{
                     <div>
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
-                            <input type="text"    placeholder='USDT'  onChange={BTCAmount} value={btcamount && btcamount.toLocaleString('en-US')}/>
+                           
+                            <NumberFormat 
+                                thousandSeparator={','} 
+                                decimalSeparator={'.'} 
+                                placeholder="USDT"
+                                value={btcamount || ''} 
+                                renderText={(value, props) => <div {...props}>{value}</div>} 
+                                onChange={BTCAmount}
+                            />
                             <img src={Equivalent}/>
-                            <input type="text"  placeholder='USD'   value={usdamount && usdamount.toLocaleString('en-US')} onChange={USDAmount}/>
-                        
+                    
+                            <NumberFormat 
+                                thousandSeparator={','} 
+                                decimalSeparator={'.'} 
+                                placeholder="USD"
+                                value={usdamount || ''} 
+                                renderText={(value, props) => <div {...props}>{value}</div>} 
+                                onChange={USDAmount}
+                            />
                         </div>
-                        <NumberFormat
+                        {/* <NumberFormat
                             value={usdamount && usdamount}
                             className="foo"
-                            displayType={'number'}
+                            displayType={'number'}send
                             thousandSeparator={true}
                             prefix={'$'}
                             onChange={USDAmount}
                             renderText={(value, props) => <div {...props}>{value}</div>}
-                            />
+                            /> */}
+                        
                     </div>
                     <div>
                         {/* {ReceipentAddress && dataAddr && dataAddr === "BlockChain Transfer" && _selectFee()} */}
