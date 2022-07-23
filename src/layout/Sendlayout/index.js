@@ -547,10 +547,10 @@ const Index =()=>{
                     <div className='toBTC'>
                         <div className='sendBTCFrom'>To</div>
                         <div>
-                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Receipent BTC Address' value={ReceipentAddress} />
+                            <input type="text"  onChange={_handleReceipent} placeholder='Paste Recipient BTC Address' value={ReceipentAddress} />
                             <small>{ReceipentAddress && loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
                             {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
-                            {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
+                            {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr == "BlockChain Transfer" ? 'Onchain Transfer': dataAddr}</small>}
                             
                         </div>
                     </div>

@@ -59,7 +59,8 @@ const Index =()=>{
     const [kycLevel1,setkycLevel1] = useState('')
     const [kycLevel2,setkycLevel2] = useState('')
     const [kycLevel3,setkycLevel3] = useState('')
-    const[createPin,setcreatePin] =  useState(false)
+    const[createPin,setcreatePin] =  useState(false);
+    const [checkpincreation, setcheckpincreation] = useState()
     const [openModal,setopenModal] = useState(false);
     const [success,setsuccess] = useState(false)
     const [dataAutofee,setdataAutofee] = useState();
@@ -76,17 +77,15 @@ const Index =()=>{
        
         UserDetailsRefresh(_id)(userdetailsDispatch)
     
-            if(USER_data){
+            // if(USER_data){
                 
-                    setBalance(USER_data.user.usdt_wallet[0].balance.$numberDecimal);
-                    setcreatePin(USER_data.user.Pin_Created);
-                    setmywallet(USER_data.user.wallet_pin);
-                    console.log('All cleared',USER_data.user.Pin_Created)
-                    console.log('createdPIn',createPin)
-                    console.log('wallet_pin',mywallet)
+            //         setBalance(USER_data.user.usdt_wallet[0].balance.$numberDecimal);
+            //         setcreatePin(USER_data.user.Pin_Created);
+            //         setmywallet(USER_data.user.wallet_pin);
+                    
                 
                
-            }
+            // }
    },[])
 
     const getbalance = (_id)=>{
@@ -103,10 +102,14 @@ const Index =()=>{
         })
         .then((res)=>{
             
-            // if(Balance !== res.data.user.usdt_wallet[0].balance.$numberDecimal ){
+            if(Balance !== res.data.user.usdt_wallet[0].balance.$numberDecimal ){
                 setBalance(res.data.user.usdt_wallet[0].balance.$numberDecimal);
                 setcreatePin(res.data.user.Pin_Created);
                 setmywallet(res.data.user.wallet_pin);
+                setcheckpincreation(res.data.user.Pin_Created)
+
+                
+            }
                 
                
             
@@ -587,7 +590,7 @@ const retrieveAutoFee = ()=>{
                             <input type="text"  onChange={_handleReceipent} placeholder='Paste Recipient USDT Address' value={ReceipentAddress} />
                             <small>{ReceipentAddress && loading && <img src={Loader} style={{width:30,paddingLeft:10}}/>}</small>
                             {ReceipentAddress && error && <small className='errorBTCAddr'>{error}</small>}
-                            {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr}</small>}
+                            {ReceipentAddress  && dataAddr && <small className='dataBTCAddr'>{dataAddr == "BlockChain Transfer" ? 'Onchain Transfer': dataAddr}</small>}
                             
                         </div>
                     </div>
