@@ -394,26 +394,26 @@ const Index =()=>{
     const sendCoin = ()=>{
         
 
-        let kycprogress = 0
-        if(kycLevel1 === "Verified"){
+    //     let kycprogress = 0
+    //     if(kycLevel1 === "Verified"){
             
-            kycprogress += 25
-        }
+    //         kycprogress += 25
+    //     }
 
-        if(kycLevel2 === "customeridentification.success"){
-            kycprogress += 30
-        }
+    //     if(kycLevel2 === "customeridentification.success"){
+    //         kycprogress += 30
+    //     }
 
-       if(kycprogress === 25 && usdamount > 100){
-        toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
-        return false;
-       }
-       if(kycprogress === 55 && usdamount > 500){
-        toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
-        return false;
-       }
-
-       let x = parseFloat(btcamount) + parseFloat(networkFee)
+    //    if(kycprogress === 25 && usdamount > 100){
+    //     toast.error("You can not transact more than 100 USD on this KYC LEVEL.","KYC Restriction");
+    //     return false;
+    //    }
+    //    if(kycprogress === 55 && usdamount > 500){
+    //     toast.error("Sorry,you can not transact more than 500 USD on this KYC LEVEL.");
+    //     return false;
+    //    }
+        let charge = dataAddr == "BlockChain Transfer" ? chargeBlockChain : chargeInternal;
+       let x = parseFloat(btcamount) + parseFloat(networkFee) + parseFloat(charge)
         
         if(x > Balance){
             toast.error("Insufficent Wallet Balance","ERROR")
@@ -486,12 +486,13 @@ const Index =()=>{
             if(success){
                 let valuebtc = check(btcamount);
                 let valueusd = check(usdamount);
-                
+                let charge = dataAddr == "BlockChain Transfer" ? chargeBlockChain : chargeInternal;
                 const items={
                     ReceipentAddress:ReceipentAddress,
                     networkFee:networkFee,
                     userid:reactLocalStorage.getObject('user')._id,
                     amount:valuebtc,
+                    charge:charge,
                     usdequivalent:valueusd,
                     current_usd_rate:currentRate,
                     block_average:blockaverage,
@@ -585,7 +586,7 @@ const Index =()=>{
                        
                     </div>
 
-                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount && btcamount < Balance  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
+                    <div className={dataAddr && dataAddr === "Internal Transfer" && btcamount  ? 'sendFund': dataAddr && dataAddr === "BlockChain Transfer" && btcamount && networkFee ? 'sendFund': 'sendFund disabled'  }  onClick={sendCoin}>
                             Continue
                     </div>
                    
