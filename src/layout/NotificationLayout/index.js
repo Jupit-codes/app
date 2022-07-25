@@ -200,10 +200,10 @@ const Index = ()=>{
                                 <div className='notify-flex-1'>
                                     <div className='info'>Deposit Alert (Virtual Account)</div>
                                     <div className="notifyMessage"><IoIosMail color="#1c1c93" size={20}/><div>DEPOSIT ALERT</div></div>
-                                    <small>You receive a sum of {d.from_address} into your virtual wallet account.<br/> The current status is <span class="success">{d.status}</span></small>
+                                    <small>You deposit  of {d.from_address} has been confirmed successful and added to your Naiara Wallet @ {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>
                                     <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                                 </div>
-                               
+                                
     
                         </div>
                     
@@ -220,13 +220,10 @@ const Index = ()=>{
                                 <div className={d.transfertype === "Buy"? 'green':'red'}>{d.transfertype == "Buy"? 'Buy Alert':'Sell Alert'}</div>
                                 <div className="notifyMessage"><div>{d.transfertype}</div></div>
                                 {d.transfertype=== 'Buy' &&<small>You have successfully bought	&#8358;{d.from_address} equivalent of {d.asset} ({d.initiator}) </small>}
-                                {d.transfertype=== 'Sell' &&<small>You have successfully sold {d.initiator}{d.asset} which is equivalents to &#8358;{d.from_address} </small>}
-                                
-                                <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                {d.transfertype=== 'Sell' &&<small>You withdrawal of {d.initiator}{d.asset} from your USDT wallet has been confirmed successful @ {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>}
+                                <div>If you don't recognize this activity, please contact us immediately.</div>
                             </div>
-                            {/* <div className='notify-flex-2'>
-                                <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
-                            </div> */}
+                    
 
                         </div>
                     
