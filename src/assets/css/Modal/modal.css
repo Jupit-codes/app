@@ -381,8 +381,8 @@
 
 .welcome2fa{
     font-family: Acme;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 16px;
+    padding: 5px;
     text-align: center;
     margin-top: 20px;
 }
@@ -390,7 +390,8 @@
 .welcome2fa-section{
   
     text-align: left;
-    margin-top: 20px;
+    margin-top: 20%;
+    padding:10px
     
 }
 .welcome2fa-section p{

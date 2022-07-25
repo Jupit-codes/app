@@ -153,7 +153,7 @@ const Index = ()=>{
                 setopenChangeModal(true)
             }
             else{
-                toast.info('Kindly Carry out your first transaction to create a pin','info')
+                toast.info('Kindly carry out your first transaction to create a Wallet Transaction Pin','info')
             }
         }
         const makeVisible = ()=>{
@@ -184,11 +184,11 @@ const Index = ()=>{
             </div>
 
             <div className='CoverDIvSecurity'>
-                <div className='reset'>{createpinStatus ? 'Change Pin': ' Create Pin'}</div>
+                <div className='reset'>{createpinStatus ? 'Change Wallet Transaction Pin': ' Create Wallet Transaction Pin'}</div>
                 <small>Click on the Button Below</small>
                 <div className={status ? 'TabInput SubmitModalDisable': 'TabInput SubmitModal'} onClick={()=>{handlePinChange()}} >
                  
-                    <RiLockPasswordFill size={20} style={{marginRight:10}}/> {createpinStatus ? 'Change Pin': ' Create Pin'}
+                    <RiLockPasswordFill size={20} style={{marginRight:10}}/> {createpinStatus ? 'Change Wallet Transaction Pin': ' Create Wallet Transaction Pin'}
                 </div>
             </div>
            

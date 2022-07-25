@@ -641,7 +641,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:{Balance && Balance.toLocaleString('en-US')}
+                            Balance:&nbsp;{Balance && Balance.toLocaleString('en-US')} USDT
                         </div>
                     </div>
                     {/* <div className='toBTC'>

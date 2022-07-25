@@ -593,7 +593,7 @@ const Index =()=>{
                 </div>
                 <div className='SendBodyII'>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Receipent</div>
+                            <div className='sendBTCFrom'>Recipient</div>
                             <div className='receipentAddr-TextInfor'>
                                 {ReceipentAddress}
                             </div>
@@ -611,7 +611,7 @@ const Index =()=>{
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Total Fee (In BTC)</div>
+                            <div className='sendBTCFrom'>Total Amount (In BTC)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
                             {dataAddr && dataAddr === "Internal Transfer" && btcamount && parseFloat(parseFloat(networkFeeFlow()) + parseFloat(btcamount)).toFixed(8) }

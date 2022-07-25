@@ -661,7 +661,7 @@ const retrieveAutoFee = ()=>{
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Total Fee (In USDT)</div>
+                            <div className='sendBTCFrom'>Total Amount (In USDT)</div>
                             <div className='receipentAddr-TextInfor'>
                                 
                                 {dataAddr && dataAddr === "Internal Transfer" ? btcamount && parseFloat(parseFloat(networkFeeFlow()) + parseFloat(btcamount)).toFixed(6) : dataAddr === "BlockChain Transfer" && btcamount && parseFloat(parseFloat(networkFeeFlow()) +parseFloat(btcamount)).toFixed(6)  }

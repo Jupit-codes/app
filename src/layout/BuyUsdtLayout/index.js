@@ -650,7 +650,7 @@ const Index =()=>{
                         </div>
                         <div>
                             {/* Balance:{USER_loading && reactLocalStorage.getObject('user').btc_wallet[0].balance.$numberDecimal} */}
-                            Balance:&#x20A6;{Balance && parseFloat(Balance).toFixed(6).toLocaleString('en-US')}
+                            Balance:&nbsp;&#x20A6;{Balance && parseFloat(Balance).toFixed(6).toLocaleString('en-US')}
                         </div>
                     </div>
                     {/* <div className='toBTC'>
@@ -674,7 +674,7 @@ const Index =()=>{
 <NumberFormat 
                                         thousandSeparator={','} 
                                         decimalSeparator={'.'} 
-                                        placeholder="BTC"
+                                        placeholder="USDT"
                                         value={btcamount || ''} 
                                         onChange={BTCAmount}
                                     />

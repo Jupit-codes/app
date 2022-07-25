@@ -560,6 +560,7 @@ const Index =()=>{
             data:JSON.stringify({
                 userid:reactLocalStorage.getObject('user')._id,
                 amount:value,
+                charge:charge,
                 firstname: reactLocalStorage.getObject('user').firstname,
                 lastname: reactLocalStorage.getObject('user').lastname,
                 email:reactLocalStorage.getObject('user').email,
@@ -676,7 +677,7 @@ const Index =()=>{
                             </div>
                     </div>
                     <div className='TextInformation'>
-                            <div className='sendBTCFrom'>Network Fee ( In Naira)</div>
+                            <div className='sendBTCFrom'>Withdrawal Fee ( In Naira)</div>
                             <div className='receipentAddr-TextInfor'>
                                 {ngnamount && charge}
                             </div>

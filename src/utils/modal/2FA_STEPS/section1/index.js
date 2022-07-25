@@ -67,12 +67,14 @@ const Index = ({Next})=>{
                     <div className=''>
                             <MdOutlineSecurity size={100} color="#3498db"/>
                     </div>
-                        Welcome to Jupit 2FA Authentication SetUp.
-                        Click on the Button Below to get Started, while we walk you through a seamless pipeline to activating the process.
+                        Two-factor authentication or 2FA is an extra layer of security to protect your account from the vulnerabilities of a standard password-only approach. The 2FA feature is optional, but we strongly recommend that you enable it to protect your account.
+                        <br/><br/>
+                        To set up the authentication feature, click “Get started” below and follow the instructions carefully.
                     </div>
+                    
 
                     <div className='TabInput SubmitModal' onClick={()=>activate()} >
-                      Activate 2FA
+                      Get Started
                 
             </div>
         </div>
