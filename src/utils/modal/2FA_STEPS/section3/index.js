@@ -60,7 +60,7 @@ const Index = ({Next})=>{
     return(
         <div>
             <div className='welcome2fa-section slide-right'>
-                 <p>
+                 <p className='scan'>
                     - Scan the barcode/Qrcode below with the Authenticator as Installed on your mobile device or Click on the secret key button to copy for manual setup on the Authenticator.
                 </p> 
                 <div className='barcodeAuth'>
@@ -76,7 +76,7 @@ const Index = ({Next})=>{
             </div>
 
             <div className='TabInput SubmitModal mt-4' onClick={()=>Next('Section4')}>
-               Click To Proceed After Authenticator SetUp
+               Proceed
                 
             </div>
         </div>

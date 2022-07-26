@@ -353,7 +353,7 @@
     font-family: Acme;
 }
 .Copy{
-    width: 100px;
+    width: 80px;
     text-align: center;
     background-color: #ffc857;
     display:flex ;
@@ -362,11 +362,14 @@
     font-family: Acme;
     color: #fff;
     cursor: pointer;
+    font-size: 10px;
+    padding: 10px;
 
 }
 
 .Copied{
-    width: 100px;
+    width: 80px;
+    font-size: 10px;
     text-align: center;
     background-color: #000;
     display:flex ;
@@ -375,6 +378,8 @@
     font-family: Acme;
     color: #fff;
     cursor: pointer;
+    padding: 10px;
+
     
 
 }
@@ -390,7 +395,7 @@
 .welcome2fa-section{
   
     text-align: left;
-    margin-top: 10px;
+    margin-top: 10%;
     padding:10px
     
 }
@@ -399,6 +404,14 @@
     font-size: 14px;
     padding: 10px;
 }
+
+.scan{
+    text-align: center;
+    
+}
+
+
+
 
 
 
@@ -430,13 +443,15 @@
      
       display: flex;
       justify-content: center;
-
+      align-items: center;
+      text-align: center;
+    
   }
   .barcodeAuth img{
-      width: 30%;
+      width: 50%;
   }
   .barcodeAuth .input{
-      width: 50%;
+      width: 20%;
   }
 
   .videobody{
@@ -563,7 +578,8 @@
         .modalContainerII{
         
             width: 80%;
-            height: 300px;
+            min-height: 30vh;
+            height: 90%;
             border-radius: 5px;
             background-color: #fff;
             box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
