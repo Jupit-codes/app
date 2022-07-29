@@ -27,11 +27,27 @@
     border-bottom: 3px solid #2d9cdb;
     
 }
+.other-infor{
+    display: none;
+}
 
 @media screen
 and (min-device-width:200px)
 and (max-device-width:399px)
 {
+    .other-infor{
+        display: block;
+    }
+    .mobile-ref{
+        display: flex;
+        align-items: center;
+    }
+    .mobile-ref > div:nth-child(2){
+        padding: 10px;
+    }
+    .ref-icon{
+        margin-left: 5px;
+    }
     .tabSettings div{
         font-family: candara;
         font-size: 14px;
@@ -46,5 +62,23 @@ and (max-device-width:700px)
         font-family: candara;
         font-size: 15px;
     }
+    .other-infor{
+        display: block
+    }
+    .other-infor{
+        display: block;
+    }
+    .mobile-ref{
+        display: flex;
+        align-items: center;
+    }
+    .mobile-ref > div:nth-child(2){
+        padding: 10px;
+    }
+    .ref-icon{
+        margin-left: 5px;
+    }
+    
+
 }
 

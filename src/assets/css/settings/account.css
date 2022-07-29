@@ -86,7 +86,11 @@
 @media screen 
 
 and (min-device-width:200)
-and (max-device-width:399)
+and (max-device-width:700)
 {
+    .mobile-ref{
+        display: flex;
+        background-color: #ea3c53;
+    }
     
 }
