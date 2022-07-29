@@ -21,6 +21,17 @@
 and (min-device-width:200px)
 and (max-device-width:700px)
 {
+
+    .jupit-side-bar-logo{
+        margin-top: 70%;
+    }
+
+    .jupit-side-bar-logo > img{
+        width: 100%;
+    }
+
+
+   
     .tabCustom{
         display: flex;
         flex-direction: row;
@@ -56,6 +67,7 @@ and (max-device-width:700px)
         align-items: center;
         padding-top: 10px;
         padding-bottom: 10px;
+        position: relative;
     }
     .moreDiv > div{
         font-size: 16px;

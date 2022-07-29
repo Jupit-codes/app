@@ -28,6 +28,7 @@ import {BsWallet2} from 'react-icons/bs'
 import {AiOutlineWhatsApp} from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import jupit_logo_white from '../../assets/images/jupit_logo_white.svg'
 
 const Index=()=>{
     const location = useLocation();
@@ -190,6 +191,10 @@ const Index=()=>{
                                     <div>
                                         Logout
                                     </div>
+                             </div>
+
+                             <div className="jupit-side-bar-logo">
+                                <img src={jupit_logo_white}/>
                              </div>
                             
                             
