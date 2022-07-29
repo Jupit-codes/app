@@ -198,8 +198,8 @@ const Index = ()=>{
     
      
                                 <div className='notify-flex-1'>
-                                    <div className='info'>Deposit Alert (Virtual Account)</div>
-                                    <div className="notifyMessage"><IoIosMail color="#1c1c93" size={20}/><div>DEPOSIT ALERT</div></div>
+                                    <div className='info'>Deposit Successful (Virtual Account)</div>
+                                    <div className="notifyMessage"><IoIosMail color="#1c1c93" size={20}/><div>DEPOSIT SUCCESSFUL</div></div>
                                     <small>You deposit  of {d.from_address} has been confirmed successful and added to your Naiara Wallet @ {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>
                                     <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                                 </div>
@@ -294,12 +294,10 @@ const Index = ()=>{
                     if(d.status === "Transaction Completed"){
                         return (    
                             <div key={index} className="notifyDiv">
-    
                                 <div className='notify-flex-1'>
-                                    <div className='info'>Deposit Alert (BlockChain)</div>
-                                    <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>DEPOSIT ALERT (BLOCKCHAIN)</div></div>
-                                    <small>A sum amount of {d.initiator} {d.transfertype} was received from wallet address {d.from_address} processed from Blockchain.<br/> The current status is <span class="warning">{d.status}</span></small>
-                                    <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                    <div className='info'>Deposit Successful</div>
+                                    <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>DEPOSIT SUCCESSFUL (BLOCKCHAIN)</div></div>
+                                    <small>A deposit of {d.initiator} {d.transfertype} has been confirmed successful and added to your {d.transfertype} wallet address @ {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>
                                 </div>
                                
     
@@ -340,10 +338,10 @@ const Index = ()=>{
         
          
                                     <div className='notify-flex-1'>
-                                        <div className='green'>Deposit Alert</div>
+                                        <div className='green'>Deposit Successful</div>
                                         <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
                                         <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address </small>
-                                        <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                        
                                     </div>
                                     <div className='notify-flex-2'>
                                     <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
@@ -380,7 +378,7 @@ const Index = ()=>{
                             return (    
                                 <div key={index} className="notifyDiv">
         
-         
+                                        
                                     <div className='notify-flex-1'>
                                         <div className='green'>Deposit Alert</div>
                                         <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
