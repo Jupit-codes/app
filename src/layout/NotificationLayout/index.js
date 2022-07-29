@@ -198,7 +198,7 @@ const Index = ()=>{
     
      
                                 <div className='notify-flex-1'>
-                                    <div className='info'>Deposit Successful (Virtual Account)</div>
+                                    {/* <div className='info'>Deposit Successful (Virtual Account)</div> */}
                                     <div className="notifyMessage"><IoIosMail color="#1c1c93" size={20}/><div>DEPOSIT SUCCESSFUL</div></div>
                                     <small>You deposit  of {d.from_address} has been confirmed successful and added to your Naira Wallet.</small>
                                     <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
@@ -278,7 +278,7 @@ const Index = ()=>{
     
      
                                 <div className='notify-flex-1'>
-                                    <div className='info'>Incoming Deposit Alert</div>
+                                    {/* <div className='info'>Incoming Deposit Alert</div> */}
                                     <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>INCOMING DEPOSIT ALERT</div></div>
                                     <small>A sum amount of {parseFloat(d.initiator) / 100000000} {d.transfertype} has been initiated on blockchain from wallet_address {d.from_address}.<br/> The current status is <span class="warning">{d.status}</span></small>
                                     <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
@@ -295,7 +295,7 @@ const Index = ()=>{
                         return (    
                             <div key={index} className="notifyDiv">
                                 <div className='notify-flex-1'>
-                                    <div className='info'>Deposit Successful</div>
+                                    {/* <div className='info'>Deposit Successful</div> */}
                                     <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>DEPOSIT SUCCESSFUL</div></div>
                                     <small>A deposit of {d.initiator} {d.transfertype} has been confirmed successful and added to your {d.transfertype} wallet address </small>
                                     <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
