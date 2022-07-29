@@ -155,10 +155,7 @@ const Index = ()=>{
                             <div className='notify-flex-1'>
                                 <div className='red'>Withdrawal</div>
                                 <div className="notifyMessage"><div>{d.transfertype}</div></div>
-                                <small>You have successfully withdrawal a sum of &#8358;{d.asset} from your naira wallet </small>
-                                
-                                
-                                <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                <small>You have successfully withdrawal a sum of &#8358;{d.asset} from your naira wallet at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")} </small>
                             </div>
                             {/* <div className='notify-flex-2'>
                                 <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
@@ -220,7 +217,7 @@ const Index = ()=>{
                                 <div className={d.transfertype === "Buy"? 'green':'red'}>{d.transfertype == "Buy"? 'Buy Alert':'Sell Alert'}</div>
                                 <div className="notifyMessage"><div>{d.transfertype}</div></div>
                                 {d.transfertype=== 'Buy' &&<small>You have successfully bought	&#8358;{d.from_address} equivalent of {d.asset} ({d.initiator}) </small>}
-                                {d.transfertype=== 'Sell' &&<small>You withdrawal of {d.initiator}{d.asset} from your USDT wallet has been confirmed successful @ {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>}
+                                {d.transfertype=== 'Sell' &&<small>You withdrawal of {d.initiator}{d.asset} from your USDT wallet has been confirmed successful at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>}
                                 <div>If you don't recognize this activity, please contact us immediately.</div>
                             </div>
                     
@@ -297,8 +294,8 @@ const Index = ()=>{
                                 <div className='notify-flex-1'>
                                     {/* <div className='info'>Deposit Successful</div> */}
                                     <div className="notifyMessage"><IoIosMail color={d.transfertype === "BTC"? '#d4af37':'#259c77'} size={20}/><div>DEPOSIT SUCCESSFUL</div></div>
-                                    <small>A deposit of {d.initiator} {d.transfertype} has been confirmed successful and added to your {d.transfertype} wallet address </small>
-                                    <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                    <small>A deposit of {d.initiator} {d.transfertype} has been confirmed successful and added to your {d.transfertype} wallet address at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}  </small>
+                                    <div className='time_and_date'></div>
                                 </div>
                                
     
@@ -321,8 +318,8 @@ const Index = ()=>{
                                     <div className='notify-flex-1'>
                                         <div className='red'>Withdrawal Alert</div>
                                         <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
-                                        <small>You have successfully transferred the sum amount of {d.amount} {d.asset} to {d.to_address} Address </small>
-                                        <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                        <small>You have successfully transferred the sum amount of {d.amount} {d.asset} to {d.to_address} Address at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")} </small>
+                                        <div className='time_and_date'></div>
                                     </div>
                                     <div className='notify-flex-2'>
                                     <Button  className='btnClass' onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
@@ -341,8 +338,8 @@ const Index = ()=>{
                                     <div className='notify-flex-1'>
                                         <div className='green'>Deposit Successful</div>
                                         <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
-                                        <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address </small>
-                                        <div className='time_and_date'> {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                        <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")} </small>
+                                        
                                     </div>
                                     <div className='notify-flex-2'>
                                     <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
@@ -363,8 +360,8 @@ const Index = ()=>{
                                     <div className='notify-flex-1'>
                                         <div className='red'>Withdrawal Alert</div>
                                         <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
-                                        <small>You have successfully transferred the sum amount of {d.amount} {d.asset} to {d.to_address} Address </small>
-                                        <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                        <small>You have successfully transferred the sum amount of {d.amount} {d.asset} to {d.to_address} Address at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")} </small>
+                                        {/* <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div> */}
                                     </div>
                                     <div className='notify-flex-2'>
                                     <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
@@ -383,8 +380,8 @@ const Index = ()=>{
                                     <div className='notify-flex-1'>
                                         <div className='green'>Deposit Alert</div>
                                         <div className="notifyAmount">{d.asset} {d.amount} <span>{d.type === "2" ? <AiOutlineRise color={d.type === "2"? 'red':'green'} size={30}/> : <AiOutlineFall color={d.type === "2"? 'red':'green'} size={30}/>}</span> </div>
-                                        <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address </small>
-                                        <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
+                                        <small>You have received a sum amount of {d.amount} {d.asset} from  ${d.from_address} Address at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")} </small>
+                                       
                                     </div>
                                     <div className='notify-flex-2'>
                                     <Button onClick={()=>{setmodal(true);setuserid(d._id)}}>View Details</Button>
