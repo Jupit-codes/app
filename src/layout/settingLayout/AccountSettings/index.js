@@ -92,37 +92,66 @@ const Index = ()=>{
 
     return(
         <div className="TabBodySecurity">
+           <div>
             {startloader && <Loader/>}
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                />
-            <div className='TabInput'>
-                <label>Username</label>
-                <input type="text" className='form-control' placeholder='' value={reactLocalStorage.getObject('user').username} disabled/>
-            </div>
-            <div className='TabInput'>
-                <label>Email Address</label>
-                <input type="text" className='form-control' placeholder='' value={reactLocalStorage.getObject('user').email} disabled/>
-            </div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    />
+                <div className='TabInput'>
+                    <label>Username</label>
+                    <input type="text" className='form-control' placeholder='' value={reactLocalStorage.getObject('user').username} disabled/>
+                </div>
+                <div className='TabInput'>
+                    <label>Email Address</label>
+                    <input type="text" className='form-control' placeholder='' value={reactLocalStorage.getObject('user').email} disabled/>
+                </div>
 
-            <div className='TabInput'>
-                 <label>Phonenumber</label>
-                <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
-            </div>
-            <div className='TabInput SubmitModal' onClick={handleEdit}>
-                <FaEdit size={20}/>{button}
-               
-            </div>
+                <div className='TabInput'>
+                    <label>Phonenumber</label>
+                    <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
+                </div>
+                <div className='TabInput SubmitModal' onClick={handleEdit}>
+                    <FaEdit size={20}/>{button}
+                
+                </div>
+           </div>
+
+           <div>
+               <div className='otherInfo'> Other Information</div> 
+                <div className='TabInput'>
+                    <label>KYC LEVEL</label>
+                    <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
+                </div>
+                <div className='TabInput'>
+                    <label>Bank</label>
+                    <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
+                </div>
+
+                <div className='TabInput'>
+                    <label>Account Number</label>
+                    <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
+                </div>
+                <div className='TabInput'>
+                    <label>Account Name</label>
+                    <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
+                </div>
+                <div className='TabInput'>
+                    <label>Referral Code</label>
+                    <input type="text" className='form-control' placeholder='' value={phone} onChange={handle_phonenumber} disabled={disable}/>
+                </div>
+                
+           </div>
            
         </div>
+        
     )
 }
 

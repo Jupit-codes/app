@@ -79,6 +79,10 @@
     
 }
 
+.otherInfo{
+    margin-top: 20px;
+}
+
 @media screen 
 
 and (min-device-width:200)
