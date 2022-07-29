@@ -176,7 +176,7 @@ const Index = ()=>{
 
  
                             <div className='notify-flex-1'>
-                                <div className='red'>BlockChain Transfer Alert</div>
+                                <div className='red'>BlockChain Transfer</div>
                                 <div className="notifyMessage"><div>{d.transfertype}</div></div>
                                 <small>You have initiated a transfer of {d.amount} {d.asset} from your USDT wallet to {d.to_address} address. </small>
                                 <div>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
