@@ -195,7 +195,7 @@ const Index=()=>{
 
                              <div className="jupit-side-bar-logo">
                                 <img src={jupit_white}/>
-                                <div>..fast and secure</div>
+                                <div>..your fast and secure exchange.</div>
                              </div>
                             
                             
