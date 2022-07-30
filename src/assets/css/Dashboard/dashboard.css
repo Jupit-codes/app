@@ -23,11 +23,30 @@ and (max-device-width:700px)
 {
 
     .jupit-side-bar-logo{
-        margin-top: 70%;
+        position: absolute;
+        bottom: 10px;
+        display: flex;
+        justify-content: flex-start;
+        padding:0px;
+        width: 100%;
+        flex-direction: column;
+        
+        
+        
     }
 
+    .jupit-side-bar-logo > div{
+        font-family: 'Jura' sans-serif;
+        color: #fff;
+        text-align: center;
+        font-size: 11px;
+    }
+
+
+
     .jupit-side-bar-logo > img{
-        width: 100%;
+        width: 70%;
+
     }
 
 
