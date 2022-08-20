@@ -5,7 +5,7 @@
     "background_color": "#fff",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://app-rust-one.vercel.app/",
+    "start_url": "https://app-rust-one.vercel.app/client",
     "icons":[
         {
            "src": "maskable.png",
