@@ -80,7 +80,7 @@ const Index = ({current,message,setdata,pickedB,setimageurlset1})=>{
         
         if(e.target.value){
             const filteredData= allgiftcard.filter(d=>{
-                return d.brandname.toLowerCase().includes(e.target.value.toLowerCase())
+                return d.brandname.toLowerCase().includes(e.target.value.toLowerCase()) 
             })
     
             console.log(filteredData)
