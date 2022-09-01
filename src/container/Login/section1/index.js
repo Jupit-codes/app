@@ -90,6 +90,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
                         </div>
                         
                     </form>
+                    <div style={{display:'flex',justifyContent:'center'}}>Don't have an account ?  <Link to='/client/signup' style={{marginLeft:5}}>Create an Account</Link></div>
                 </div>
     )
 }

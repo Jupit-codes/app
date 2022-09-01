@@ -255,4 +255,13 @@ and (max-device-width:1000px)
        
         height: 50px;
     }
+    .createAcct{
+        width: 100%;
+        display: none;
+        margin-top:10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFB74A;
+    }
 }

@@ -73,6 +73,7 @@ const Index=()=>{
                                 {_renderSection()}
                             </div>
                         </div>
+                        
                 </div>    
         </div>
     )
