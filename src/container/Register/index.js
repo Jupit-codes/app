@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import '../../assets/css/Auth/auth.css'
 import logoArea from '../../assets/images/IMG.png'
-import Jupit from '../../assets/images/logo.png'
+import Jupit from '../../assets/images/utility/logo_new.svg'
 import Loader from '../../utils/loader/loader'
 import {GlobalContext} from '../../context/Provider'
 import RegisterUI from "../../layout/Register";
