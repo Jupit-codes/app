@@ -40,10 +40,10 @@ const Index=()=>{
         seterror('')
         setdata('')
 
-
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",
-        url: `https://myjupit.herokuapp.com/users/resetpassword`,
+        url: `${Base_url}/users/resetpassword`,
         headers:{
             'Content-Type':'application/json',
             'Authorization':reactLocalStorage.get('token')

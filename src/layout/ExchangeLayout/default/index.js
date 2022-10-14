@@ -74,10 +74,10 @@ const Index=(props)=>{
 
 
     const getbalance = (_id)=>{
-        
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/refresh`,
+            url: `${Base_url}/users/refresh`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')

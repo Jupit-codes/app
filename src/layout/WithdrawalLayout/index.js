@@ -150,9 +150,10 @@ const Index =()=>{
    }
 
    const withdrawalcheckNo  = (_id)=>{
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",
-        url: `https://myjupit.herokuapp.com/verify/getwithrawal/count`,
+        url: `${Base_url}/verify/getwithrawal/count`,
         headers:{
             'Content-Type':'application/json',
             
@@ -173,10 +174,10 @@ const Index =()=>{
    }
 
    const getTransactionCount = (_id)=>{
-    
+    const Base_url = process.env.REACT_APP_BACKEND_URL;
     axios({
         method: "POST",
-        url: `https://myjupit.herokuapp.com/verify/getwithrawal/count`,
+        url: `${Base_url}/verify/getwithrawal/count`,
         headers:{
             'Content-Type':'application/json',
             
@@ -196,10 +197,10 @@ const Index =()=>{
    }
 
     const getbalance = (_id)=>{
-        
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/refresh`,
+            url: `${Base_url}/users/refresh`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -225,10 +226,10 @@ const Index =()=>{
     }
 
     const _getKyc = (_id)=>{
-        
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/kyc`,
+            url: `${Base_url}/users/kyc`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -248,9 +249,10 @@ const Index =()=>{
     }
     const getRate = async()=>{
         setReloadRate(false);
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "GET",
-            url: `https://myjupit.herokuapp.com/verify/get/current/rate`,
+            url: `${Base_url}/verify/get/current/rate`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')

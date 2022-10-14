@@ -54,9 +54,10 @@ const Index = ()=>{
     
     const loadKYC = async ()=>{
         let _id = reactLocalStorage.getObject('user')._id;
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/kyc`,
+            url: `${Base_url}/users/kyc`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -80,9 +81,10 @@ const Index = ()=>{
 
     const loadBank = async ()=>{
         let email = reactLocalStorage.getObject('user').email;
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/bank`,
+            url: `${Base_url}/users/bank`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -114,11 +116,12 @@ const Index = ()=>{
 
         if(counter === 1 && button === "Submit" && !disable ){
             counter=0;
+            const Base_url = process.env.REACT_APP_BACKEND_URL;
             let _id = reactLocalStorage.getObject('user')._id;
                 setstartloader(true);
                 axios({
                     method: "POST",
-                    url: `https://myjupit.herokuapp.com/threshold/update/phonenumber`,
+                    url: `${Base_url}/threshold/update/phonenumber`,
                     headers:{
                         'Content-Type':'application/json',
                         

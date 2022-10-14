@@ -89,9 +89,10 @@ const Index = ()=>{
 
     const NotificationCount = async ()=>{
         let _id = reactLocalStorage.getObject('user')._id;
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/threshold/notification/fetch/title`,
+            url: `${Base_url}/threshold/notification/fetch/title`,
             headers:{
                 'Content-Type':'application/json',
                 

@@ -11,9 +11,10 @@ const Index = ({comp})=>{
     const getbalance = async(_id)=>{
 
         setrefreshing('refreshing balance..')
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/refresh`,
+            url: `${Base_url}/users/refresh`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
