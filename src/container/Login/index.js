@@ -65,7 +65,7 @@ const Index=()=>{
                 <ToastContainer/>
                 <div class="divCover">
                         <div className="authCard">
-                            <div className="mylogo_new"><Link to='https://jupitapp.co'><img src={Jupit}  className="mylogo_me"/></Link></div>
+                            <div className="mylogo_new"><a href='https://jupitapp.co'><img src={Jupit}  className="mylogo_me"/></a></div>
                             <div className="welcomeback"> Welcome Back</div>
                             <div className="logincred">Kindly provide your login credentials.</div>
                             <div className="customerror">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
