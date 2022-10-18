@@ -76,7 +76,7 @@ const Index=()=>{
                 <div class="divCover">
                         <div className="authCardReset">
                             <div className="mylogo_new"><Link to='/'><img src={Jupit}  className="mylogo_me"/></Link></div>
-                            <div className="welcomeback"> PASSSWORD RESET</div>
+                            <div className="welcomeback"> PASSWORD RESET</div>
                            <div className="formClass">
                                     <BiArrowBack  size={20} onClick={()=>back()} style={{cursor:'pointer'}}/>&nbsp;Back
                            </div>
