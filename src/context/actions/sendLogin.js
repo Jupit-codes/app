@@ -34,7 +34,8 @@ export default (items)=>(dispatch)=>{
         err.response ?
         dispatch({
           type:LOGIN_ERROR,
-          payload:err.response.data
+          payload:'INVALID LOGIN CREDENTIALS'
+          // payload:err.response.data
          
         }) :
         dispatch({
@@ -50,7 +51,7 @@ export default (items)=>(dispatch)=>{
   else{
       dispatch({
         type:LOGIN_ERROR,
-        payload:'BAD EMAIL FORMAT'
+        payload:'INVALID LOGIN CREDENTIALS'
       
       }) 
     
