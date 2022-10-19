@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {EMAIL_VALIDATE,EMAIL_VALIDATE_CHECKED, REGISTER_LOADING,REGISTER_ERROR,REGISTER_SUCCESS} from '../../constants/actionTypes'
+import {EMAIL_VALIDATE,EMAIL_VALIDATE_CHECKED, REGISTER_LOADING,REGISTER_ERROR,REGISTER_SUCCESS,PHONE_NUMBER_VALIDATION,PASSWORD_STRENGTH} from '../../constants/actionTypes'
 import validator from 'validator'
 export default (items)=>(dispatch)=>{
 
@@ -7,6 +7,32 @@ export default (items)=>(dispatch)=>{
         dispatch({
             type:EMAIL_VALIDATE_CHECKED,
         })
+
+        
+        if(items.phonenumber.length < 11 || items.phonenumber.length > 11 ){
+            
+            dispatch({
+                type:PHONE_NUMBER_VALIDATION,
+                payload:'Incorrect Phonenumber Format. (acceptable format is 081xxxxxxxx)'
+            })
+            return false
+        }
+       
+        let checker = StrengthChecker(items.password)
+        if(checker == "Strong Password" || checker == "Medium Password"){
+            dispatch({
+                type:PASSWORD_STRENGTH,
+                payload:checker
+            })
+        }
+        else{
+            dispatch({
+                type:PASSWORD_STRENGTH,
+                payload:checker
+            })
+            return false;
+        }
+        
         dispatch({
             type:REGISTER_LOADING,
         })
@@ -61,4 +87,16 @@ export default (items)=>(dispatch)=>{
         })
     }
     
+}
+
+function StrengthChecker(PasswordParameter) {
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+    let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+    if(strongPassword.test(PasswordParameter)) {
+        return 'Strong Password';
+    } else if(mediumPassword.test(PasswordParameter)) {
+        return 'Medium Password';
+    } else {
+        return 'Weak Password';
+    }
 }

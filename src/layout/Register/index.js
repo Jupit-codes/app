@@ -5,9 +5,20 @@ import { GlobalContext } from "../../context/Provider";
 import { Alert } from "react-bootstrap";
 import {FiEye,FiEyeOff} from 'react-icons/fi'
 const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
-    const {registerDispatch,registerState:{registerAuth:{error,email_error}}} = useContext(GlobalContext)
+    const {registerDispatch,registerState:{registerAuth:{error,email_error,phonenumber_error,password_strength}}} = useContext(GlobalContext)
 
-        const [show,setshow] = useState(false)
+        const [show,setshow] = useState(false);
+
+        const passwordColor = (strength)=>{
+                switch(strength){
+                    case 'Strong Password':
+                        return '#003300'
+                    case 'Medium Password':
+                        return '#ffcc00'
+                    case 'Weak Password':
+                        return '#ff0000'
+                }
+        }
     
     return (
                 <form className="formClass" >
@@ -46,7 +57,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                                 value={Form.email || ""}
                                 onChange={onChange}
                                 required/>
-                                <small >{email_error && <div className="error_red">{error}</div>}</small>
+                                <small >{email_error && <div className="error_red" style={{color:"#ff0000"}}>{error}</div>}</small>
                         </div>
                         <div className="divForm"> 
                             <input type="text" 
@@ -56,7 +67,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                                 value={Form.phonenumber || ""}
                                 onChange={onChange}
                                 required/>
-                                
+                                <small >{phonenumber_error && <div className="error_red" style={{color:"#ff0000"}}>{phonenumber_error}</div>}</small>
                         </div>
 
                         <div className="divForm passwordForm">
@@ -70,7 +81,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                               onChange={onChange}
                               name="password"    
                               required/>
-
+                            <small >{<div  style={{color:passwordColor(password_strength)}}>{password_strength}</div> }</small>
                             
                         </div>
                         <div className="divForm"> 
