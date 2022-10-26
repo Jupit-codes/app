@@ -3,6 +3,16 @@ import {EMAIL_VALIDATE,EMAIL_VALIDATE_CHECKED, REGISTER_LOADING,REGISTER_ERROR,R
 import validator from 'validator'
 export default (items)=>(dispatch)=>{
 
+    if(items.phonenumber < 11){
+        dispatch({
+            type:EMAIL_VALIDATE,
+            payload:'Invalid Phonenumber'
+            
+        })
+        return false;
+    }
+    
+
      if(validator.isEmail(items.email)){
         dispatch({
             type:EMAIL_VALIDATE_CHECKED,
