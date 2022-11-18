@@ -198,9 +198,10 @@ const Index =()=>{
     }
     const getRate = async()=>{
         setReloadRate(false);
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "GET",
-            url: `https://myjupit.herokuapp.com/verify/get/current/rate`,
+            url: `${Base_url}/verify/get/current/rate`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
