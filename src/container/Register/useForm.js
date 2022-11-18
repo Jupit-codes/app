@@ -26,7 +26,7 @@ export default ()=>{
     const RegisterValidForm = !Form.username?.length 
     || !Form.email?.length 
     || !Form.password?.length 
-    || !Form.phonenumber?.length
+    || !Form.phonenumber?.length >=11
     || !Form.password?.length
     || !Form.firstname?.length
     || !Form.lastname?.length
