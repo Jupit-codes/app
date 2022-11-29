@@ -47,6 +47,7 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                                 name="lastname"  
                                 value={Form.lastname || ""}
                                 onChange={onChange}
+                            
                                 required/>
                         </div>
                         <div className="divForm"> 
