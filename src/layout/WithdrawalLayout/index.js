@@ -511,7 +511,7 @@ const Index =()=>{
         toast.error("Input Amount","ERROR")
         return false;
         }
-        if(parseFloat(ngnamount) > parseFloat(Balance)){
+        if( parseFloat(parseFloat(check(ngnamount)) + parseFloat(charge)) > parseFloat(Balance)){
             toast.error("Insufficent Wallet Balance","ERROR")
             return false;
         }
@@ -581,8 +581,9 @@ const Index =()=>{
           .catch((err)=>{
             setLoader(false);
             console.log(err)
-            console.log(err.response);
-            toast.error('Failed Request','Error')
+            console.log(err.response.data);
+
+            toast.error(err.response ? err.response.data : 'Failed Request','Error')
                 
                
                 
