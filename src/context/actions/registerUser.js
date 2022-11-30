@@ -52,9 +52,9 @@ export default (items)=>async (dispatch)=>{
            
         }).then(res => {
             
-            console.log(res.data)
+           
             if(res.data.freeCheck == "false"){
-               console.log('Technical',res.data.freeCheck)
+               
                 dispatch({
                     type:REGISTER_ERROR,
                     payload:'DISPOSABLE EMAIL NOT ALLOWED!'
