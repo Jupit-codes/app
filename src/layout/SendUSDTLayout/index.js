@@ -602,21 +602,21 @@ const retrieveAutoFee = ()=>{
                             <NumberFormat 
                                 thousandSeparator={','} 
                                 decimalSeparator={'.'} 
-                                placeholder="USDT"
-                                value={btcamount || ''} 
-                                renderText={(value, props) => <div {...props}>{value}</div>} 
-                                onChange={BTCAmount}
-                            />
-                            <img src={Equivalent}/>
-                    
-                            <NumberFormat 
-                                thousandSeparator={','} 
-                                decimalSeparator={'.'} 
                                 placeholder="USD"
                                 value={usdamount || ''} 
                                 renderText={(value, props) => <div {...props}>{value}</div>} 
                                 onChange={USDAmount}
                             />
+                            <img src={Equivalent}/>
+                            <NumberFormat 
+                                thousandSeparator={','} 
+                                decimalSeparator={'.'} 
+                                placeholder="USDT"
+                                value={btcamount || ''} 
+                                renderText={(value, props) => <div {...props}>{value}</div>} 
+                                onChange={BTCAmount}
+                            />
+                            
                         </div>
                         {/* <NumberFormat
                             value={usdamount && usdamount}

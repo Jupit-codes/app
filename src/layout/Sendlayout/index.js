@@ -559,16 +559,6 @@ const Index =()=>{
                         <div className='sendBTCFrom'>Amount</div>
                         <div className='amount'>
                            
-                             <NumberFormat 
-                                thousandSeparator={','} 
-                                decimalSeparator={'.'} 
-                                placeholder="BTC"
-                                value={btcamount || ''} 
-                                onChange={BTCAmount}
-                               
-                            />
-                            <img src={Equivalent}/>
-                    
                             <NumberFormat 
                                 thousandSeparator={','} 
                                 decimalSeparator={'.'} 
@@ -577,6 +567,17 @@ const Index =()=>{
                                 onChange={USDAmount}
                                
                             />
+                            <img src={Equivalent}/>
+                            <NumberFormat 
+                                thousandSeparator={','} 
+                                decimalSeparator={'.'} 
+                                placeholder="BTC"
+                                value={btcamount || ''} 
+                                onChange={BTCAmount}
+                               
+                            />
+                    
+                          
 
                         </div>
                     </div>
