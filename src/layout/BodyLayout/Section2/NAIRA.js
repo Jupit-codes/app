@@ -26,10 +26,6 @@ const Index = ({comp})=>{
             setuserNaira(res.data.user.naira_wallet[0].balance.$numberDecimal);
             reactLocalStorage.remove('user')
             reactLocalStorage.setObject('user',res.data.user)
-            
-
-            
-          
         })
         .catch((err)=>{
             setrefreshing('')
