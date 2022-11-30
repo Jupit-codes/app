@@ -36,7 +36,11 @@ const Index = ()=>{
         let x = reactLocalStorage.getObject('user');
         
         // setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
-        Marketprice()(priceDispatch);
+       
+        setTimeout(()=>{
+            Marketprice()(priceDispatch);
+        },5000)
+        
         if(data){
             let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
             let xUSDT = ((data.USDT.USD.PRICE - data.USDT.USD.OPEN24HOUR) / data.USDT.USD.OPEN24HOUR) * 100
