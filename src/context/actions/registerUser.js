@@ -1,53 +1,72 @@
 import axios from 'axios'
 import {EMAIL_VALIDATE,EMAIL_VALIDATE_CHECKED, REGISTER_LOADING,REGISTER_ERROR,REGISTER_SUCCESS,PHONE_NUMBER_VALIDATION,PASSWORD_STRENGTH} from '../../constants/actionTypes'
 import validator from 'validator'
-export default (items)=>(dispatch)=>{
+export default (items)=>async (dispatch)=>{
 
-    if(items.phonenumber < 11){
-        dispatch({
-            type:EMAIL_VALIDATE,
-            payload:'Invalid Phonenumber'
+    // if(items.phonenumber < 11){
+    //     dispatch({
+    //         type:EMAIL_VALIDATE,
+    //         payload:'Invalid Phonenumber'
             
+    //     })
+    //     return false;
+    // }
+
+
+    if(items.phonenumber.length < 11 || items.phonenumber.length > 11 ){
+            
+        dispatch({
+            type:PHONE_NUMBER_VALIDATION,
+            payload:'Incorrect Phonenumber Format. (acceptable format is 081xxxxxxxx)'
+        })
+        return false
+    }
+   
+    let checker = StrengthChecker(items.password)
+    if(checker == "Strong Password" || checker == "Medium Password"){
+        dispatch({
+            type:PASSWORD_STRENGTH,
+            payload:checker
+        })
+    }
+    else{
+        dispatch({
+            type:PASSWORD_STRENGTH,
+            payload:checker
         })
         return false;
     }
     
 
      if(validator.isEmail(items.email)){
-        dispatch({
-            type:EMAIL_VALIDATE_CHECKED,
-        })
 
-        
-        if(items.phonenumber.length < 11 || items.phonenumber.length > 11 ){
-            
-            dispatch({
-                type:PHONE_NUMBER_VALIDATION,
-                payload:'Incorrect Phonenumber Format. (acceptable format is 081xxxxxxxx)'
-            })
-            return false
-        }
-       
-        let checker = StrengthChecker(items.password)
-        if(checker == "Strong Password" || checker == "Medium Password"){
-            dispatch({
-                type:PASSWORD_STRENGTH,
-                payload:checker
-            })
-        }
-        else{
-            dispatch({
-                type:PASSWORD_STRENGTH,
-                payload:checker
-            })
-            return false;
-        }
-        
         dispatch({
             type:REGISTER_LOADING,
         })
-
-        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+            method: "GET",
+            url: `https://emailverification.whoisxmlapi.com/api/v2?apiKey=at_Uc3txjQaImRnJnvVD48jnEpIWelGI&emailAddress=${items.email}`,
+            headers: {
+            "Content-Type": "application/json"
+            },
+           
+        }).then(res => {
+            
+            console.log(res.data)
+            if(res.data.freeCheck == "false"){
+               console.log('Technical',res.data.freeCheck)
+                dispatch({
+                    type:REGISTER_ERROR,
+                    payload:'DISPOSABLE EMAIL NOT ALLOWED!'
+                    
+                    }) 
+                return false
+            }
+            else{
+                dispatch({
+                    type:EMAIL_VALIDATE_CHECKED,
+                })
+                const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
             url: `${Base_url}/users/register`,
@@ -86,6 +105,34 @@ export default (items)=>(dispatch)=>{
         
             
         })
+                console.log('Management',res.data.freeCheck)
+            }
+           
+
+        })
+        .catch((err)=>{
+
+            dispatch({
+                type:REGISTER_ERROR,
+                payload:'ERROR VERIFIYING EMAIL'
+                
+                }) 
+
+                return false
+        
+            console.log('Error',err)
+
+        
+            
+        })
+
+         
+        
+        // dispatch({
+        //     type:REGISTER_LOADING,
+        // })
+
+        
 
 
     }

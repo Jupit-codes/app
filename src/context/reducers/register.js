@@ -84,7 +84,7 @@ const registerAuth = (state,{payload,type})=>{
                     ...state,
                     registerAuth:{
                         ...state.registerAuth,
-                        error: '',
+                        error: null,
                         data:null,
                         loading:null,
                         errorAlert:false,
