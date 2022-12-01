@@ -118,7 +118,8 @@ const Index = ()=>{
     }
  //
     const renderTransactionForMobile  =()=>{
-        return data.length && data.map((d,index)=>{
+        let newdata = data.slice(0, 10)
+        return data.length && newdata.map((d,index)=>{
                 
             if(d.type== "Receive" || d.type == "Deposit"){
                 return <div key={index} style={{backgroundColor:'#00a693',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
