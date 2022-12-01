@@ -61,14 +61,14 @@ const Index = ({getClicked})=>{
             data:{btcaddress:address}
           })
         .then(res=>{
-            console.log(res.data);
+            // console.log(res.data);
             let sumRecieve = 0;
             let sumSend = 0
 
             setlabel([]);
             setreceiveData([]);
             res.data.forEach((d)=>{
-                console.log('year',d._id)
+                // console.log('year',d._id)
 
 
 
@@ -77,7 +77,7 @@ const Index = ({getClicked})=>{
                    
                    setlabel(mylabel =>[...mylabel,SwitchMonth(x.month)])
                     x.dailyusage.forEach((y)=>{
-                        console.log('Data',y.totalTransaction)
+                        // console.log('Data',y.totalTransaction)
                         if(y.Send === address){
                             sumSend += y.totalTransaction;
                         }
@@ -96,12 +96,12 @@ const Index = ({getClicked})=>{
                 })
             })
             setloader(false)
-            console.log('Label',mylabel);
-            console.log('Data',data)
+            // console.log('Label',mylabel);
+            // console.log('Data',data)
            
         })
         .catch(err=>{
-            console.log(err.response)
+            // console.log(err.response)
             setloader(false)
             //seterror(err.response ? err.response.data : 'Internal Server Error...Pls Try Again')
             
