@@ -132,7 +132,7 @@ const retrieveAutoFee = ()=>{
             "Authorization":`Bearer ${reactLocalStorage.get('token')}`
 
             },
-            data:JSON.stringify({walletType:'BTC'})
+            data:JSON.stringify({walletType:'USDT'})
         })
         .then(res=>{
         
@@ -155,7 +155,7 @@ const retrieveAutoFee = ()=>{
     
     })
     .catch(err=>{
-        // console.log(err.response)
+        console.log(err.response)
         {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
         
     })
