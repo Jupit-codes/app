@@ -3,6 +3,8 @@ import {BsArrowLeftCircle} from 'react-icons/bs'
 import '../../../assets/css/Wallet/walletdefault.css'
 import empty from '../../../assets/images/empty.png'
 import Marketprice from '../../../context/actions/marketprice'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { GlobalContext } from "../../../context/Provider";
 import Icon from "react-crypto-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
@@ -90,6 +92,17 @@ const Index = (props)=>{
             <div className=''>
                 {openModal && <ReceiveModal closeModal={setopenModal} />}
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
             <div className='back' onClick={()=>{props.Screen('Default')}}><BsArrowLeftCircle size={25} color='#3498db' /><span>Return to Wallet</span></div>
             <div className='flexMoreDetails'>
                 <div className='walletInfor slideInLeft'>

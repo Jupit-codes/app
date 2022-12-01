@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NairaWalletChart from '../../../utils/Charts/nairawalletChart'
 import BtcWalletChart from '../../../utils/Charts/btcwalletchart'
 import UsdtWalletChart from '../../../utils/Charts/usdtwalletchart'
-import {BsArrowUpSquare,BsArrowDownSquare} from 'react-icons/bs'
+import {BsArrowUpSquare,BsArrowDownSquare, BsLayoutSidebarInset} from 'react-icons/bs'
 import NairaWallet from './defaultNairaWallet.js'
 import UsdtWallet from './defaultUsdtWallet.js'
 import BtcWallet from './defaultBtcWallet.js'
@@ -21,6 +21,7 @@ import ReceiveModal from '../../../utils/modal/customModal.js'
 import ReceiveModalUsdt from '../../../utils/modal/usdtreceivemodal.js'
 import axios from 'axios'
 import DepositModal from '../../../utils/modal/depositModal.js'
+import { toast } from "react-toastify";
 const Index = ()=>{
    const location =  useLocation()
    const history = useHistory();
@@ -239,6 +240,11 @@ const Index = ()=>{
         }
     }
 
+    const buyBan = ()=>{
+        // alert('Feature Currently Unavailable')
+        toast.error('Sorry, this feature is currently unavailable')
+    }
+
     const _buy= ()=>{
         // if(component === "Naira"){
         //     return  <div className='TopUpSpace'>
@@ -259,7 +265,8 @@ const Index = ()=>{
                             <span>Click To Buy BTC.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={buybtc}/>
+                            {/* <BsArrowUpSquare color='#fff' size={20} onClick={buybtc}/> */}
+                            <BsArrowUpSquare color='#fff' size={20} onClick={()=>buyBan()}/>
                         </div>
                     </div>
                    
@@ -271,7 +278,8 @@ const Index = ()=>{
                             <span>Click To Buy USDT.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={buyusdt}/>
+                            {/* <BsArrowUpSquare color='#fff' size={20} onClick={buyusdt}/> */}
+                              <BsArrowUpSquare color='#fff' size={20} onClick={()=>buyBan()}/>
                         </div>
                     </div>
                    
