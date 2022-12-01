@@ -7,6 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 import Table from './Table';
 import Spinner from '../../assets/images/spinner.gif'
 import './table.css'
+import { flexbox } from '@mui/system';
 
 // import { Table } from 'react-bootstrap';
 // import DataTable from 'react-data-table-component';
@@ -120,19 +121,27 @@ const Index = ()=>{
         return data.length && data.map((d,index)=>{
                 
             if(d.type== "Receive" || d.type == "Deposit"){
-                return <div style={{backgroundColor:'#00a693',width:'100%',height:100,borderRadius:10,marginBottom:10}}>
-                            <div>{d.type}</div>
-                       
+                return <div key={index} style={{backgroundColor:'#00a693',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
+                            <div style={{fontSize:18,fontWeight:'bold'}}>{d.type}</div>
+                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>amount :</span>{d.amount}</div>
+                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>currency:</span>{d.currency}</div>
+                            {d.type == "Receive" && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>{d.from_address}</div>}
+                            {d.type == "Deposit" && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>{d.serial}</div>}
                         </div>
             }
             if(d.type== "Send" || d.type == "Withdrawal"){
-                return <div style={{backgroundColor:'#f0ad4e',width:'100%',height:100,borderRadius:10,marginBottom:10}}>
-                            <div>{d.type}</div>
+                return <div key={index} style={{backgroundColor:'#FF7F7F',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
+                            <div style={{fontSize:18,fontWeight:'bold'}}>{d.type}</div>
                         </div>
             }
             if(d.type== "Buy" || d.type == "Sell"){
-                return <div style={{backgroundColor:'#ebdbb2',width:'100%',height:100,borderRadius:10,marginBottom:10}}>
-                            <div>{d.type}</div>
+                return <div key={index} style={{backgroundColor:'#A47FFF',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
+                             
+                             <div style={{fontSize:18,fontWeight:'bold'}}>{d.type}</div>
+                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>amount :</span>{d.amount}</div>
+                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>currency:</span>{d.currency}</div>
+                            {d.type == "Buy"  && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>Internal Transfer</div>}
+                            {d.type == "Sell" && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>Internal Transfer</div>}
                         </div>
             }
         })
@@ -141,7 +150,7 @@ const Index = ()=>{
     
     return (
         <div className='history'>
-            
+              <div className='notifyTitle'>TRANSACTION HISTORY</div>
                 {Loading && <div style={{display:'flex',width:'100%',justifyContent:'center'}}>Loading Data..</div>}
                 {/* {data && data.length === 0 && 
                 <div>
@@ -155,7 +164,7 @@ const Index = ()=>{
                 </div>
                 } */}
                 <div className='tableDiv'>
-                    <div className='notifyTitle'>TRANSACTION HISTORY</div>
+                  
                     {windowDimenion.winWidth > 900 && data.length > 0 && <Table  column={columns} data={data}/>}
                     {windowDimenion.winWidth < 900 && data.length >0 && renderTransactionForMobile()}
                     {!Loading && data.length === 0 && _renderEmpty()}
