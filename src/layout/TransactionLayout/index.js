@@ -16,6 +16,20 @@ const Index = ()=>{
     const [data,setdata] = useState([]);
     const [error,seterror] = useState();
     const[Loading,setLoading] = useState(true)
+
+    const [windowDimenion, detectHW] = useState({
+        winWidth: window.innerWidth,
+        winHeight: window.innerHeight,
+      })
+
+      const detectSize = () => {
+        detectHW({
+          winWidth: window.innerWidth,
+          winHeight: window.innerHeight,
+        })
+      }
+
+
     const Base_url = process.env.REACT_APP_BACKEND_URL;
     const getTransaction = async()=>{
         await axios({
@@ -30,7 +44,7 @@ const Index = ()=>{
           })
         .then(res=>{
             setLoading(false)
-            
+            console.log(res.data)
            setdata(res.data)
         
         })
@@ -47,63 +61,15 @@ const Index = ()=>{
             getTransaction();
         },[])
 
-        // const columns = [
-        //     {
-        //         name: 'TransactionID',
-        //         selector: row => row.title,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'Date',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'FromAddress',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'ToAddress',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'Coin',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'Amount',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'Note',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        //     {
-        //         name: 'Status',
-        //         selector: row => row.year,
-        //         sortable: true,
-        //     },
-        // ];
+        useEffect(() => {
+            window.addEventListener('resize', detectSize)
         
-        // const datarep = [
-        //     {
-        //         id: 1,
-        //         title: 'Beetlejuice',
-        //         year: '1988',
-        //     },
-        //     {
-        //         id: 2,
-        //         title: 'Ghostbusters',
-        //         year: '1984',
-        //     },
-        // ]
+            return () => {
+              window.removeEventListener('resize', detectSize)
+            }
+          }, [windowDimenion])
 
-
+       
     const columns = [
         
         {
@@ -149,6 +115,29 @@ const Index = ()=>{
                             <img src={empty}/>
                      </div>
     }
+ //
+    const renderTransactionForMobile  =()=>{
+        return data.length && data.map((d,index)=>{
+                
+            if(d.type== "Receive" || d.type == "Deposit"){
+                return <div style={{backgroundColor:'#00a693',width:'100%',height:100,borderRadius:10,marginBottom:10}}>
+                            <div>{d.type}</div>
+                       
+                        </div>
+            }
+            if(d.type== "Send" || d.type == "Withdrawal"){
+                return <div style={{backgroundColor:'#f0ad4e',width:'100%',height:100,borderRadius:10,marginBottom:10}}>
+                            <div>{d.type}</div>
+                        </div>
+            }
+            if(d.type== "Buy" || d.type == "Sell"){
+                return <div style={{backgroundColor:'#ebdbb2',width:'100%',height:100,borderRadius:10,marginBottom:10}}>
+                            <div>{d.type}</div>
+                        </div>
+            }
+        })
+    }
+
     
     return (
         <div className='history'>
@@ -166,7 +155,9 @@ const Index = ()=>{
                 </div>
                 } */}
                 <div className='tableDiv'>
-                    {data.length > 0 && <Table  column={columns} data={data}/>}
+                    <div className='notifyTitle'>TRANSACTION HISTORY</div>
+                    {windowDimenion.winWidth > 900 && data.length > 0 && <Table  column={columns} data={data}/>}
+                    {windowDimenion.winWidth < 900 && data.length >0 && renderTransactionForMobile()}
                     {!Loading && data.length === 0 && _renderEmpty()}
                 </div>
            

@@ -545,12 +545,10 @@ const Index =()=>{
 
     const Withdrawal = async ()=>{
 
-        
-
         const BaseUrl = process.env.REACT_APP_BACKEND_URL  
         let value = check(ngnamount);
-        
         setLoader(true)
+        console.log('value',value)
         await axios({
         
             url:`${BaseUrl}/verify/client/withdrawal`,
