@@ -51,7 +51,7 @@ export default function Index() {
       })
     .then(res=>{
         
-      console.log(res.data)
+      // console.log(res.data)
         
         setfirstLevel(res.data.level1[0].status)
         setsecondLevel(res.data.level2[0].event_status);
@@ -89,7 +89,7 @@ export default function Index() {
     })
     .catch(err=>{
       setloaderState(false)
-        console.log(err.response)
+        // console.log(err.response)
     })
  }
 

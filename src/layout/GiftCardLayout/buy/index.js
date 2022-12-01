@@ -61,7 +61,7 @@ const Index = ()=>{
 
     const handleChangeFile= (file) => {
         setFiles(file);
-        console.log(console.log(file))
+        // console.log(console.log(file))
       };
    
 
@@ -93,7 +93,7 @@ const Index = ()=>{
 
    
     const handleChange = (e)=>{
-        console.log(e.value)
+        // console.log(e.value)
         setSelectOption(e.value);
     }
     const selectSet = ()=>{
@@ -132,7 +132,7 @@ const Index = ()=>{
 
    
       const onDrop = useCallback( (acceptedFiles) => {
-          console.log('acceptedFiles',acceptedFiles)
+        //   console.log('acceptedFiles',acceptedFiles)
         //   const reader = new FileReader();
         //   reader.onload=()=>{
         //       setImages(prevState =>[...image,reader.result]);
@@ -151,7 +151,7 @@ const Index = ()=>{
                 }
                 reader.readAsDataURL(file)
             })
-            console.log('myImages',images)
+            // console.log('myImages',images)
             
       }, [])
 
@@ -165,12 +165,12 @@ const Index = ()=>{
       }, []);
 
       useEffect(()=>{
-        console.log('images',images)
+        // console.log('images',images)
       },[images])
       const {getRootProps,getInputProps,isDragActive} = useDropzone({onDrop,accept: 'image/*'});
 
   const removeFile =(selectedFilesTobeDeleted)=>{
-        console.log(selectedFilesTobeDeleted)
+       // console.log(selectedFilesTobeDeleted)
         return setImages(images.filter(item =>item != selectedFilesTobeDeleted));
 
   }
@@ -196,7 +196,7 @@ const Index = ()=>{
         
         let counter = 0;
           SelectOption && SelectOption.map((d,index)=>{
-            console.log(d.value);
+            // console.log(d.value);
 
             if(Form[index]){
                 counter+= parseInt(d.value) * parseInt(Form[index]);
@@ -323,7 +323,7 @@ const Index = ()=>{
         })
         .catch(err=>{
             setloader(false);
-            console.log(err);
+            // console.log(err);
             Swal.fire({
                 title: 'Oops!',
                 text: err.response,

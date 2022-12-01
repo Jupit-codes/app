@@ -34,7 +34,7 @@ const Index = ({comp})=>{
         })
         .catch((err)=>{
             setrefreshing('')
-            console.log(err.response)
+            // console.log(err.response)
             
         })
     }

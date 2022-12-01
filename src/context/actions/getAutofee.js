@@ -22,7 +22,7 @@ export default (item)=>(dispatch)=>{
         type:AUTO_FEE_SUCCESS,
         payload:res.data
     })
-    console.log(res.data)
+    // console.log(res.data)
    
    
 })

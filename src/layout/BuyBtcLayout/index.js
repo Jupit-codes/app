@@ -132,7 +132,7 @@ const Index =()=>{
     
     })
     .catch(err=>{
-        console.log(err.response)
+        // console.log(err.response)
         {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
         
         // toast.error(err.response,'Error')
@@ -169,7 +169,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -192,7 +192,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -249,7 +249,7 @@ const Index =()=>{
 
         if(SEND_COIN_error){
             ReceipentAddress && btcamount && toast.error(SEND_COIN_error.Message,'ERROR')
-            console.log(SEND_COIN_error.Message);
+            // console.log(SEND_COIN_error.Message);
             // toast.error(SEND_COIN_error.Message,"ERROR")
         }
 
@@ -568,7 +568,7 @@ const Index =()=>{
             
           })
           .then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
             setLoader(false)
             toast.success(res.data.message,'success');
             setngnamount('');
@@ -579,7 +579,7 @@ const Index =()=>{
           })
           .catch((err)=>{
             setLoader(false)
-                console.log(err.response);
+                // console.log(err.response);
                 toast.error('Failed Request','Error')
                 
                
@@ -590,7 +590,7 @@ const Index =()=>{
         useEffect(()=>{
             if(success){
               
-                console.log(success)
+                // console.log(success)
                 purchaseCoin();
                 
                 

@@ -38,7 +38,7 @@ const Index = ()=>{
           
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
             setErr(err.response? err.response.data:'NO Connecetion')
             
         })
@@ -61,7 +61,7 @@ const Index = ()=>{
           
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
             setErr(err.response? err.response.data:'NO Connecetion')
             
         })
@@ -86,7 +86,7 @@ const Index = ()=>{
 
     useEffect(()=>{
         setcreatepinStatus(reactLocalStorage.getObject('user').Pin_Created)
-        console.log(reactLocalStorage.getObject('user').Pin_Created);
+        // console.log(reactLocalStorage.getObject('user').Pin_Created);
         get2fa();
         getUser();
     },[])
@@ -117,7 +117,7 @@ const Index = ()=>{
             .then((res)=>{
                 
                 setmyloader(false)
-                console.log(res.data)
+                // console.log(res.data)
                 toast.success(res.data.message, {
                     position: "top-right",
                     autoClose: 5000,
@@ -131,7 +131,7 @@ const Index = ()=>{
             })
             .catch((err)=>{
                 setmyloader(false)
-                console.log(err.response)
+                // console.log(err.response)
                 toast.error(err.response, {
                     position: "top-right",
                     autoClose: 5000,

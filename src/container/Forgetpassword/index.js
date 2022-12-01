@@ -59,7 +59,7 @@ const Index=()=>{
     .catch((err)=>{
         setloading(false)
         seterror(err.response ? err.response.data.message : 'No Connection')
-        console.log(err.response)
+        // console.log(err.response)
         
     })
 }

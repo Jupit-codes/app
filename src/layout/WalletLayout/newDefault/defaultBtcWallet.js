@@ -69,7 +69,7 @@ const Index = ({comp})=>{
     })
     .then((res)=>{
         setrefresh('')
-        console.log('jhjkhkj',res.data)
+        // console.log('jhjkhkj',res.data)
         setuserBtc(res.data.user.btc_wallet[0].balance.$numberDecimal);
         reactLocalStorage.remove('user');
         reactLocalStorage.setObject('user',res.data.user)
@@ -78,7 +78,7 @@ const Index = ({comp})=>{
     })
     .catch((err)=>{
     
-        console.log(err.response)
+        // console.log(err.response)
         
     })
 }

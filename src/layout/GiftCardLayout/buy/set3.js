@@ -46,7 +46,7 @@ function getWindowDimensions() {
             
 
             if(Form[index]){
-                console.log(Form[index])
+                // console.log(Form[index])
                 counter+= parseInt(d.value) * parseInt(Form[index]);
                 
             }
@@ -141,7 +141,7 @@ function getWindowDimensions() {
         })
         .catch(err=>{
             setloader(false);
-            console.log(err);
+            // console.log(err);
             Swal.fire({
                 title: 'Oops!',
                 text: err.response,

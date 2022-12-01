@@ -3,7 +3,7 @@ import Flag from "react-flags";
 import { US,CA,GB,CH,AU } from 'country-flag-icons/react/3x2'
 const Index = ({current,data,pickedC,message,giftcardrate})=>{
     
-    console.log('data',data)
+    // console.log('data',data)
     const handleCurrency = (e)=>{
         
         if(e.target.classList.contains('selectbutton')){

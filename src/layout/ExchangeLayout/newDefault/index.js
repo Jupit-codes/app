@@ -153,7 +153,7 @@ const Index = ()=>{
         })
         .catch((err)=>{
 
-            console.log(err)
+            // console.log(err)
             if(err.response){
                 if(err.response.status === 403){
                     reactLocalStorage.clear();

@@ -32,7 +32,7 @@ useEffect(()=>{
             setTotal(x)
         }
     }
-    console.log('acceptedRate',acceptRate)
+    // console.log('acceptedRate',acceptRate)
     return (
         
             <div className="">

@@ -45,7 +45,7 @@ const Index = ()=>{
           })
         .then(res=>{
             setLoading(false)
-            console.log(res.data)
+            // console.log(res.data)
            setdata(res.data)
         
         })

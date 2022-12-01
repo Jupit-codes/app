@@ -24,7 +24,7 @@ const Index=()=>{
       
        
 
-        console.log("xxx",name)
+        // console.log("xxx",name)
 
         
     }

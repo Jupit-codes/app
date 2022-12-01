@@ -83,7 +83,7 @@ export default (items)=>async (dispatch)=>{
             })
             
         
-            console.log('res',res.data)
+            // console.log('res',res.data)
             
 
         })
@@ -100,12 +100,12 @@ export default (items)=>async (dispatch)=>{
             
             }) 
 
-            console.log('Error',err)
+            // console.log('Error',err)
 
         
             
         })
-                console.log('Management',res.data.freeCheck)
+                // console.log('Management',res.data.freeCheck)
             }
            
 
@@ -120,7 +120,7 @@ export default (items)=>async (dispatch)=>{
 
                 return false
         
-            console.log('Error',err)
+            // console.log('Error',err)
 
         
             

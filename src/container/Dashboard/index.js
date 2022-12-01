@@ -42,7 +42,7 @@ const Index=()=>{
     const handleCallback =(value)=>{
         setOpen(value)
     }
-   console.log("okay",path);
+//    console.log("okay",path);
     const x =1
     const _renderBodyComponent=()=>{
         let component;

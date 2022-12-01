@@ -116,7 +116,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -155,7 +155,7 @@ const retrieveAutoFee = ()=>{
     
     })
     .catch(err=>{
-        console.log(err.response)
+        // console.log(err.response)
         {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
         
     })
@@ -179,7 +179,7 @@ const retrieveAutoFee = ()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -203,7 +203,7 @@ const retrieveAutoFee = ()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -231,7 +231,7 @@ const retrieveAutoFee = ()=>{
 
         if(SEND_COIN_error){
             ReceipentAddress && btcamount && toast.error(SEND_COIN_error.Message,'ERROR')
-            console.log(SEND_COIN_error.Message);
+            // console.log(SEND_COIN_error.Message);
             toast.error(SEND_COIN_error,"ERROR")
         }
 
@@ -303,7 +303,7 @@ const retrieveAutoFee = ()=>{
             sethighFee(false);
             setmediumFee(false);
             setlowFee(true);
-            console.log('lowRate',lowFeeRate)
+            // console.log('lowRate',lowFeeRate)
             let x =parseFloat(lowFeeRate *  0.000001 ).toFixed(8);
             setNetworkFee(x)
             setblockaverage(100);
@@ -508,7 +508,7 @@ const retrieveAutoFee = ()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -534,7 +534,7 @@ const retrieveAutoFee = ()=>{
                 email:reactLocalStorage.getObject('user').email
     
             }
-            console.log(success);
+            // console.log(success);
     
             ProcessCoin(items)(sendcoinDispatch);
             setsuccess(false);

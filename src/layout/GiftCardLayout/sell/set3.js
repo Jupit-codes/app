@@ -44,7 +44,7 @@ function getWindowDimensions() {
         
     }
     const onDrop = useCallback( (acceptedFiles) => {
-        console.log('acceptedFiles',acceptedFiles)
+        // console.log('acceptedFiles',acceptedFiles)
       
         
           acceptedFiles.forEach(file=>{
@@ -64,7 +64,7 @@ function getWindowDimensions() {
     
 
     const removeFile =(selectedFilesTobeDeleted)=>{
-        console.log(selectedFilesTobeDeleted)
+        // console.log(selectedFilesTobeDeleted)
         return setImages(images.filter(item =>item != selectedFilesTobeDeleted));
 
   }
@@ -94,7 +94,7 @@ function getWindowDimensions() {
             
 
             if(Form[index]){
-                console.log(Form[index])
+                // console.log(Form[index])
                 counter+= parseInt(d.value) * parseInt(Form[index]);
                 
             }
@@ -189,7 +189,7 @@ function getWindowDimensions() {
         })
         .catch(err=>{
             setloader(false);
-            console.log(err);
+            // console.log(err);
             Swal.fire({
                 title: 'Oops!',
                 text: err.response,
@@ -201,7 +201,7 @@ function getWindowDimensions() {
     }
 
     const handleSubmit = async()=>{
-        console.log(SelectOption);
+        // console.log(SelectOption);
         let counter = 0;
         let cart = [];
         SelectOption.forEach((d,index)=>{
@@ -257,12 +257,12 @@ function getWindowDimensions() {
            setImages([]);
            setSelectOption()
            
-           console.log(res.data);
+        //    console.log(res.data);
            
         })
         .catch(err=>{
             setloader(false);
-            console.log(err.response);
+           // console.log(err.response);
  
         })
     }

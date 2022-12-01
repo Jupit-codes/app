@@ -2,7 +2,7 @@ import {BiArrowBack} from 'react-icons/bi'
 import { US,CA,GB,CH,AU,NZ } from 'country-flag-icons/react/3x2'
 const Index = ({current,data,pickedC,message,giftcardrate})=>{
     
-    console.log('setdata',)
+    // console.log('setdata',)
 
     const handleCurrency = (e)=>{
         
@@ -66,7 +66,7 @@ const Index = ({current,data,pickedC,message,giftcardrate})=>{
         })
     }
     const _renderComponent = ()=>{
-        console.log(data)
+        // console.log(data)
         return data && data.map((d)=>{
             return <div className="country_div">
                         

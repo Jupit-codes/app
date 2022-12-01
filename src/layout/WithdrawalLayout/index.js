@@ -114,7 +114,7 @@ const Index =()=>{
             data:JSON.stringify({walletType:'BTC',email:reactLocalStorage.getObject('user').email})
         })
         .then(res=>{
-        console.log(res.data);
+        //console.log(res.data);
        
         res.data.message.auto_fees.forEach((d)=>{
                             
@@ -134,7 +134,7 @@ const Index =()=>{
     
     })
     .catch(err=>{
-        console.log(err.response)
+        //console.log(err.response)
         {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
         
         // toast.error(err.response,'Error')
@@ -162,12 +162,12 @@ const Index =()=>{
         data:JSON.stringify({_id:_id})
     })
     .then((res)=>{
-       console.log(res.data.length)
+       //console.log(res.data.length)
      setwithdrawalCounter(res.data.length)
     })
     .catch((err)=>{
         
-        console.log('error',err.response)
+       // console.log('error',err.response)
         setwithdrawalCounter('error')
         
     })
@@ -191,7 +191,7 @@ const Index =()=>{
     })
     .catch((err)=>{
         
-        console.log('error',err.response)
+        //console.log('error',err.response)
         
     })
    }
@@ -209,7 +209,7 @@ const Index =()=>{
             data:JSON.stringify({_id:_id})
         })
         .then((res)=>{
-            console.log(res.data)
+           // console.log(res.data)
             setwithdrawalcheck(res.data.bankCheck);
             if(Balance !== res.data.user.naira_wallet[0].balance.$numberDecimal ){
                 setBalance(parseFloat(res.data.user.naira_wallet[0].balance.$numberDecimal));
@@ -220,7 +220,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            //.log('error',err.response)
             
         })
     }
@@ -243,7 +243,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            //.log('error',err.response)
             
         })
     }
@@ -304,7 +304,7 @@ const Index =()=>{
 
         if(SEND_COIN_error){
             ReceipentAddress && btcamount && toast.error(SEND_COIN_error.Message,'ERROR')
-            console.log(SEND_COIN_error.Message);
+            //console.log(SEND_COIN_error.Message);
             // toast.error(SEND_COIN_error.Message,"ERROR")
         }
 
@@ -439,7 +439,7 @@ const Index =()=>{
         if(value){
             const formattedValue = (Number(value.replace(/\D/g, '')) || '').toLocaleString();
             setngnamount(formattedValue);
-            console.log(formattedValue)
+            //console.log(formattedValue)
             setusdamount((parseFloat(value.replace(/,/g, ''))/parseFloat(buyrate)).toFixed(3))
             setbtcamount((parseFloat(usdamount)/currentRate).toFixed(8))
             if(Balance >= value.replace(/,/g, '')){
@@ -548,7 +548,7 @@ const Index =()=>{
         const BaseUrl = process.env.REACT_APP_BACKEND_URL  
         let value = check(ngnamount);
         setLoader(true)
-        console.log('value',value)
+        //console.log('value',value)
         await axios({
         
             url:`${BaseUrl}/verify/client/withdrawal`,
@@ -569,7 +569,7 @@ const Index =()=>{
             
           })
           .then((res)=>{
-            console.log(res.data)
+           // console.log(res.data)
             setngnamount('')
             setLoader(false)
             toast.success(res.data,'Success');
@@ -578,8 +578,8 @@ const Index =()=>{
           })
           .catch((err)=>{
             setLoader(false);
-            console.log(err)
-            console.log(err.response.data);
+           // console.log(err)
+            //console.log(err.response.data);
 
             toast.error(err.response ? err.response.data : 'Failed Request','Error')
                 

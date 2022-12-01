@@ -67,7 +67,7 @@ const Index = ()=>{
             })
           .then(res=>{
               
-            console.log("IDCARD",res.data)
+            // console.log("IDCARD",res.data)
       
           
              if(res.data[0].status === "Verified"){
@@ -87,7 +87,7 @@ const Index = ()=>{
                     // setTextDisable(true)
                     // toast.success('Successfully Resolved','SUCCESS');
                     // update_validation();
-                    console.log('Veririfed')
+                    // console.log('Veririfed')
              }
               
       

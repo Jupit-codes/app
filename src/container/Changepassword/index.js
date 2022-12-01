@@ -107,7 +107,7 @@ const Index = ()=>{
             })
             .then((res)=>{
                 
-                console.log(res.data)
+                // console.log(res.data)
                 setmydisable(true);
                 setsubmitbutton(res.data.message);
                 if(res.data.status){

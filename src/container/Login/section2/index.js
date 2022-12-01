@@ -29,7 +29,7 @@ const Index = ({Next,userEmail,userPassword})=>{
             setloader(false)
             setmydata(res.data)
 
-            console.log(res.data)
+            // console.log(res.data)
             
             if(res.data && res.data !== "Token is Required"){
                

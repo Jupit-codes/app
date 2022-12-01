@@ -123,7 +123,7 @@ const Index =()=>{
     
     })
     .catch(err=>{
-        console.log(err.response)
+        // console.log(err.response)
         {err.response ? toast.error('Network Fee :'+ err.response.data.message,'Network Fee Error'): toast.error('Network Fee:NO Connection To Server','Network Fee Error') }
         
         // toast.error(err.response,'Error')
@@ -160,7 +160,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -183,7 +183,7 @@ const Index =()=>{
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }
@@ -210,7 +210,7 @@ const Index =()=>{
 
         if(SEND_COIN_error){
             ReceipentAddress && btcamount && toast.error(SEND_COIN_error.Message,'ERROR')
-            console.log(SEND_COIN_error.Message);
+            // console.log(SEND_COIN_error.Message);
             // toast.error(SEND_COIN_error.Message,"ERROR")
         }
 
@@ -420,7 +420,7 @@ const Index =()=>{
             return false;
         }
         else{
-             console.log(createPin)
+            //  console.log(createPin)
             if(createPin){
                     setInputwalletPIn(true)
             }
@@ -452,11 +452,11 @@ const Index =()=>{
         })
         .then((res)=>{
             setRate(res.data) 
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch((err)=>{
             
-            console.log('error',err.response)
+            // console.log('error',err.response)
             
         })
     }

@@ -30,7 +30,7 @@ const Index = ({current,message,setdata,pickedB,imageurlgift})=>{
            
         })
         .catch(err=>{
-            console.log(err.response)
+            // console.log(err.response)
             
             
             
@@ -60,7 +60,7 @@ const Index = ({current,message,setdata,pickedB,imageurlgift})=>{
           let selectedData = allgiftcard.filter((d)=>{
               return d.brandname === x.children[1].textContent
           })
-          console.log('SElectedData',selectedData)
+        //   console.log('SElectedData',selectedData)
           message('nocurrency');
           setdata(selectedData)
           imageurlgift(url)
@@ -82,7 +82,7 @@ const Index = ({current,message,setdata,pickedB,imageurlgift})=>{
                 return d.brandname.toLowerCase().includes(e.target.value.toLowerCase())
             })
     
-            console.log(filteredData)
+            // console.log(filteredData)
             setallgiftcard(filteredData);
         }
         else{

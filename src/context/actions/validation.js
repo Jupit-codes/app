@@ -33,7 +33,7 @@ export default (item)=>(dispatch)=>{
                     payload:res.data.err && res.data.err 
                 })
 
-                console.log(res.data)
+                // console.log(res.data)
                 
 
            
@@ -48,7 +48,7 @@ export default (item)=>(dispatch)=>{
                 payload:err.response && err.response.data 
             })
 
-            console.log('ValidationError',err.response)
+            // console.log('ValidationError',err.response)
             
         
         })

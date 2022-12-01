@@ -51,7 +51,7 @@ const Index = ()=>{
        })
        .catch((err)=>{
           
-           console.log("err",err.response)
+        //    console.log("err",err.response)
            
        })
    }
@@ -72,7 +72,7 @@ const Index = ()=>{
             data:JSON.stringify({addressBTC:addressBTC,addressUSDT:addressUSDT,email,virtual_account:reactLocalStorage.getObject('user').virtual_account})
         })
         .then(res=>{
-            console.log('Sort',res.data)
+            // console.log('Sort',res.data)
             setState(res.data)
             setmyLoader(false)
 
@@ -81,7 +81,7 @@ const Index = ()=>{
     
         })
         .catch(err=>{
-            console.log("err",err)
+            // console.log("err",err)
         })
     
   
@@ -112,7 +112,7 @@ const Index = ()=>{
         
             })
             .catch(err=>{
-                console.log("err",err)
+                // console.log("err",err)
             })
     
         }

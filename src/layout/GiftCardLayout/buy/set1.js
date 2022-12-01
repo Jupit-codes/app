@@ -24,14 +24,14 @@ const Index = ({current,message,setdata,pickedB,setimageurlset1})=>{
           })
         .then(res=>{
 
-            console.log(res.data)
+            // console.log(res.data)
             setbrandloader(false)
             setallgiftcard(res.data)
             setprevData(res.data);
            
         })
         .catch(err=>{
-            console.log(err.response)
+            //console.log(err.response)
             
             
             
@@ -61,7 +61,7 @@ const Index = ({current,message,setdata,pickedB,setimageurlset1})=>{
           let selectedData = allgiftcard.filter((d)=>{
               return d.brandname === x.children[1].textContent
           })
-          console.log('SElectedData',selectedData)
+        //   console.log('SElectedData',selectedData)
           message('nocurrency');
           setdata(selectedData)
           setimageurlset1(url)

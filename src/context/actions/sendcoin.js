@@ -43,7 +43,7 @@ export default (item)=>(dispatch)=>{
             payload:res.data
         })
 
-        console.log(res.data)
+        // console.log(res.data)
         
       
     })
@@ -53,7 +53,7 @@ export default (item)=>(dispatch)=>{
             payload:err.response ? err.response.error : 'CONNECTION FAULT'
         })
 
-        console.log(err.response)
+        // console.log(err.response)
        
     })
 }

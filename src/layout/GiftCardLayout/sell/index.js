@@ -78,7 +78,7 @@ const Index = ()=>{
 
     const handleChangeFile= (file) => {
         setFiles(file);
-        console.log(console.log(file))
+        // console.log(console.log(file))
       };
    
 
@@ -110,7 +110,7 @@ const Index = ()=>{
 
    
     const handleChange = (e)=>{
-        console.log(e.value)
+        // console.log(e.value)
         setSelectOption(e.value);
     }
     const selectSet = ()=>{

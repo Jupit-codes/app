@@ -44,12 +44,12 @@ const Index = ()=>{
         .then(res=>{
             setloader(false)
             settransactions(res.data)
-            console.log('RES',res.data)
+            // console.log('RES',res.data)
            
            
         })
         .catch(err=>{
-            console.log(err.response)
+            // console.log(err.response)
             setloader(false)
             //seterror(err.response ? err.response.data : 'Internal Server Error...Pls Try Again')
             

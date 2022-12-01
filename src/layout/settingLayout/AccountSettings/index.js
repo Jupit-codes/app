@@ -102,7 +102,7 @@ const Index = ()=>{
         })
         .catch((err)=>{
 
-            console.log(err)
+            // console.log(err)
             
             
         })
@@ -140,7 +140,7 @@ const Index = ()=>{
                 .catch((err)=>{
                     setstartloader(false);
                     toast.error(err.response && err.response.data,'ERROR');
-                    console.log(err.response)
+                    // console.log(err.response)
                     
                     
                 })
@@ -188,7 +188,7 @@ const Index = ()=>{
     },[])
 
     const _renderBank = (bankcode)=>{
-        console.log(bankcode)
+        // console.log(bankcode)
         return banks.map((d)=>{
             if(d.code == bankcode){
                 setbank(d.name);

@@ -19,7 +19,7 @@ const Index = ({stepPage,checked,rateSet})=>{
         // hasFlag('US') === true
         // hasFlag('ZZ') === false
 
-        console.log(hasFlag('US'));
+        // console.log(hasFlag('US'));
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         
         await axios({
@@ -34,7 +34,7 @@ const Index = ({stepPage,checked,rateSet})=>{
           })
         .then(res=>{
 
-            console.log(res.data)
+            // console.log(res.data)
             setloader(false)
             
             setdata(res.data)
@@ -47,7 +47,7 @@ const Index = ({stepPage,checked,rateSet})=>{
            
         })
         .catch(err=>{
-            console.log(err.response)
+            // console.log(err.response)
             setloader(false)
             
             

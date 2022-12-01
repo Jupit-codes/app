@@ -15,7 +15,7 @@ const Index = ()=>{
     const getMoreDetails = (ScreenName)=>{
         setwalletTab(ScreenName)
     }
-    console.log(location.state.wallettype)
+    //console.log(location.state.wallettype)
     
     useEffect(()=>{
         if(location.state){
@@ -23,7 +23,7 @@ const Index = ()=>{
                 setwalletTab(location.state.wallettype)
             }
         }
-        console.log(walletTab)
+        // console.log(walletTab)
     },[location])
         const _renderWalletDetails = ()=>{
             switch(walletTab){

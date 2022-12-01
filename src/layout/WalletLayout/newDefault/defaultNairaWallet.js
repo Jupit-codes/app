@@ -28,13 +28,13 @@ const Index = ()=>{
         
         reactLocalStorage.remove('user')
         reactLocalStorage.setObject('user',res.data.user)  
-        console.log(res.data.user)
+        // console.log(res.data.user)
         setrefresh('')
     
     })
     .catch((err)=>{
 
-        console.log(err.response)
+        // console.log(err.response)
         
     })
     }
