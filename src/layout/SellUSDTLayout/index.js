@@ -177,10 +177,10 @@ const Index =()=>{
     }
 
     const _getKyc = (_id)=>{
-        
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://jupit.app/users/kyc`,
+            url: `${Base_url}/users/kyc`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -200,9 +200,10 @@ const Index =()=>{
     }
     const getRate = async()=>{
         setReloadRate(false);
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "GET",
-            url: `https://jupit.app/verify/get/current/rate`,
+            url: `${Base_url}/verify/get/current/rate`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
@@ -262,7 +263,8 @@ const Index =()=>{
         Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(data.USDT.USD.PRICE);
+            setcurrentRate(data[1].current_price);
+            //setcurrentRate(data.USDT.USD.PRICE);
             
         }
         

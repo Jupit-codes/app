@@ -261,6 +261,7 @@ const Index =()=>{
         Marketprice()(priceDispatch);
        
         if(data){
+            console.log('150',data)
             setcurrentRate(parseFloat(data[0].current_price) - 150);
             
         }
