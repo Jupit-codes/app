@@ -44,6 +44,16 @@ const Index = ()=>{
         if(data){
            
             
+            // let xBTCPercentage = ((data[0].current_price - data[0].low_24h) / data[0].current_price) * 100
+            // let xUSDTPercentage = ((data[1].current_price - data[1].low_24h) / data[0].current_price) * 100
+            // let xBTC = data[0].current_price
+            // let xUSDT = data[1].current_price
+
+            // console.log(xBTC,xUSDT)
+            // setpercentageBTC(parseFloat(xBTCPercentage).toFixed(5));
+            // setpercentageUSDT(parseFloat(xUSDTPercentage).toFixed(5));
+            // setbtcprice(parseFloat(xBTC)- 150);
+            // setusdtprice(parseFloat(xUSDT) );
             let xBTCPercentage = ((data[0].current_price - data[0].low_24h) / data[0].current_price) * 100
             let xUSDTPercentage = ((data[1].current_price - data[1].low_24h) / data[0].current_price) * 100
             let xBTC = data[0].current_price

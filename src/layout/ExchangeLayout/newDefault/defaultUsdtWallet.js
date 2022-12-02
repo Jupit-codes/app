@@ -44,13 +44,23 @@ const Index = ()=>{
         // setuserBtc(x.btc_wallet[0].balance.$numberDecimal);
         Marketprice()(priceDispatch);
         if(data){
-            let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
-            let xUSDT = ((data.USDT.USD.PRICE - data.USDT.USD.OPEN24HOUR) / data.USDT.USD.OPEN24HOUR) * 100
+            // let xBTC = ((data.BTC.USD.PRICE - data.BTC.USD.OPEN24HOUR) / data.BTC.USD.OPEN24HOUR) * 100
+            // let xUSDT = ((data.USDT.USD.PRICE - data.USDT.USD.OPEN24HOUR) / data.USDT.USD.OPEN24HOUR) * 100
             
-            setpercentageBTC(parseFloat(xBTC).toFixed(5));
-            setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
-            setbtcprice(data.BTC.USD.PRICE);
-            setusdtprice(data.USDT.USD.PRICE);
+            // setpercentageBTC(parseFloat(xBTC).toFixed(5));
+            // setpercentageUSDT(parseFloat(xUSDT).toFixed(5));
+            // setbtcprice(data.BTC.USD.PRICE);
+            // setusdtprice(data.USDT.USD.PRICE);
+            let xBTCPercentage = ((data[0].current_price - data[0].low_24h) / data[0].current_price) * 100
+            let xUSDTPercentage = ((data[1].current_price - data[1].low_24h) / data[0].current_price) * 100
+            let xBTC = data[0].current_price
+            let xUSDT = data[1].current_price
+
+           
+            setpercentageBTC(parseFloat(xBTCPercentage).toFixed(5));
+            setpercentageUSDT(parseFloat(xUSDTPercentage).toFixed(5));
+            setbtcprice(parseFloat(xBTC)- 150);
+            setusdtprice(parseFloat(xUSDT) );
         }
         
 
