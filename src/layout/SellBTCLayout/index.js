@@ -149,10 +149,10 @@ const Index =()=>{
    }
 
     const getbalance = (_id)=>{
-        
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/refresh`,
+            url: `${Base_url}/users/refresh`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -176,10 +176,10 @@ const Index =()=>{
     }
 
     const _getKyc = (_id)=>{
-        
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/kyc`,
+            url: `${Base_url}/users/kyc`,
             headers:{
                 'Content-Type':'application/json',
                 

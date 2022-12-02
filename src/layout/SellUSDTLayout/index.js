@@ -180,7 +180,7 @@ const Index =()=>{
         
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/users/kyc`,
+            url: `https://jupit.app/users/kyc`,
             headers:{
                 'Content-Type':'application/json',
                 
@@ -202,7 +202,7 @@ const Index =()=>{
         setReloadRate(false);
         axios({
             method: "GET",
-            url: `https://myjupit.herokuapp.com/verify/get/current/rate`,
+            url: `https://jupit.app/verify/get/current/rate`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
