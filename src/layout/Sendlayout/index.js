@@ -221,7 +221,7 @@ const Index =()=>{
         Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(parseFloat(data.BTC.USD.PRICE) - 150);
+            setcurrentRate(parseFloat(data[0].current_price) - 150);
             let chargeCalBlockChainCal = parseFloat(5)/ parseFloat(currentRate);
             setchargeBlockChain(chargeCalBlockChainCal);
             let chargeCalInternalCal = parseFloat(2)/ parseFloat(currentRate);

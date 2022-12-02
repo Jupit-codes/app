@@ -240,9 +240,10 @@ const retrieveAutoFee = ()=>{
     useEffect(()=>{
         
         Marketprice()(priceDispatch);
-       
+        
         if(data){
-            setcurrentRate(data.USDT.USD.PRICE);
+            
+            setcurrentRate(data[1].current_price);
             let chargeCalBlockChainCal = parseFloat(5)/ parseFloat(currentRate);
             setchargeBlockChain(chargeCalBlockChainCal);
             let chargeCalInternalCal = parseFloat(2)/ parseFloat(currentRate);

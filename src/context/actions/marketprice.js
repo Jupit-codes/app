@@ -15,7 +15,7 @@ axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=te
     }
 })
 .then(res=>{
-    console.log(res.data)
+    // console.log(res.data)
     dispatch({
         type:PRICE_SUCCESS,
         payload:res.data
