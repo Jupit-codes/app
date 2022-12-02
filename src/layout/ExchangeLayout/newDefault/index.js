@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
 import '../../../assets/css/newWallet/newWallet.css'
-
+import { GlobalContext } from "../../../context/Provider";
+import Marketprice from '../../../context/actions/marketprice'
 import Naira from '../../BodyLayout/Section2/NAIRA.js'
 import Btc from '../../BodyLayout/Section2/BTC'
 import Usdt from '../../BodyLayout/Section2/USDT'
@@ -30,7 +31,7 @@ const Index = ()=>{
     const [openModal,setopenModal] = useState(false);
     const [openModalUsdt,setopenModalUsdt] = useState(false);
     const [activeButton,setActivebutton] = useState('Btc')
-    
+    const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     // console.log(reactLocalStorage.getObject('kyc'))
     const [kycLevel1,setkycLevel1] = useState('');
     const [kycLevel2,setkycLevel2] = useState('');
@@ -179,7 +180,7 @@ const Index = ()=>{
 
     useEffect(()=>{
         if(location.state){
-           
+            
             if(location.state.wallettype != "undefined"){
                 setComponent(location.state.wallettype)
                 setActivebutton(location.state.wallettype)
@@ -417,9 +418,14 @@ const Index = ()=>{
         
     }
 
+    useEffect(()=>{
+        setTimeout(()=>{ Marketprice()(priceDispatch)},1000)
+    },[])
+
     const changeTransTo = (trans)=>{
+        Marketprice()(priceDispatch)
         setActivebutton(trans);
-        setComponent(trans)
+        setComponent(trans);
     }
 
     return(

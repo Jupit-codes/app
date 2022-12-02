@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
 import '../../../assets/css/newWallet/newWallet.css'
 
 import Naira from '../../BodyLayout/Section2/NAIRA.js'
@@ -7,6 +7,7 @@ import Usdt from '../../BodyLayout/Section2/USDT'
 import jupit from '../../../assets/images/utility/jupit.png'
 import cardType from '../../../assets/images/utility/mastercard.png'
 import { ProgressBar } from 'react-bootstrap'
+import Marketprice from '../../../context/actions/marketprice'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NairaWalletChart from '../../../utils/Charts/nairawalletChart'
 import BtcWalletChart from '../../../utils/Charts/btcwalletchart'
@@ -21,6 +22,7 @@ import ReceiveModal from '../../../utils/modal/customModal.js'
 import ReceiveModalUsdt from '../../../utils/modal/usdtreceivemodal.js'
 import axios from 'axios'
 import DepositModal from '../../../utils/modal/depositModal.js'
+import { GlobalContext } from "../../../context/Provider";
 const Index = ()=>{
    const location =  useLocation()
    const history = useHistory();
@@ -29,7 +31,7 @@ const Index = ()=>{
     const [openModal,setopenModal] = useState(false);
     const [openModalUsdt,setopenModalUsdt] = useState(false);
     const [activeButton,setActivebutton] = useState('Naira')
-    
+    const {priceState:{price:{data}},priceDispatch} = useContext(GlobalContext);
     // console.log(reactLocalStorage.getObject('kyc'))
     const [kycLevel1,setkycLevel1] = useState('');
     const [kycLevel2,setkycLevel2] = useState('');
@@ -178,7 +180,7 @@ const Index = ()=>{
 
     useEffect(()=>{
         if(location.state){
-           
+            setTimeout(()=>{Marketprice()(priceDispatch)},5000)
             if(location.state.wallettype != "undefined"){
                 setComponent(location.state.wallettype)
                 setActivebutton(location.state.wallettype)

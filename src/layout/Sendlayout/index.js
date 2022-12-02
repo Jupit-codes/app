@@ -215,11 +215,11 @@ const Index =()=>{
         }
 
     },[SEND_COIN_data,SEND_COIN_error])
-
+    useEffect(()=>{
+        setTimeout(()=>{  Marketprice()(priceDispatch)},5000)
+    },[])
     useEffect(()=>{
         
-        Marketprice()(priceDispatch);
-       
         if(data){
             setcurrentRate(parseFloat(data[0].current_price) - 150);
             let chargeCalBlockChainCal = parseFloat(5)/ parseFloat(currentRate);

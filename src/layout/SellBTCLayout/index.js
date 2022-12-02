@@ -258,10 +258,12 @@ const Index =()=>{
 
     useEffect(()=>{
         
-        Marketprice()(priceDispatch);
+        // setTimeout(()=>{
+        //     Marketprice()(priceDispatch);
+        // },5000)
        
         if(data){
-            console.log('150',data)
+           
             setcurrentRate(parseFloat(data[0].current_price) - 150);
             
         }

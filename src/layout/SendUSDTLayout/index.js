@@ -238,9 +238,13 @@ const retrieveAutoFee = ()=>{
     },[SEND_COIN_data,SEND_COIN_error])
 
     useEffect(()=>{
+        setTimeout(()=>{  Marketprice()(priceDispatch)},5000)
+    },[])
+
+
+    useEffect(()=>{
         
-        Marketprice()(priceDispatch);
-        
+    
         if(data){
             
             setcurrentRate(data[1].current_price);
