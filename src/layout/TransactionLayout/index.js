@@ -124,25 +124,60 @@ const Index = ()=>{
             if(d.type== "Receive" || d.type == "Deposit"){
                 return <div key={index} style={{backgroundColor:'#00a693',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
                             <div style={{fontSize:18,fontWeight:'bold'}}>{d.type}</div>
-                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>amount :</span>{d.amount}</div>
-                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>currency:</span>{d.currency}</div>
-                            {d.type == "Receive" && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>{d.from_address}</div>}
-                            {d.type == "Deposit" && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>{d.serial}</div>}
+                            <div>
+                                <div style={{fontWeight:'bold',fontSize:13}}>amount</div>
+                                <div>{d.amount}</div>
+                            </div>
+                            <div>
+                                <div style={{fontWeight:'bold',fontSize:13}}>currency</div>
+                                <div>{d.currency}</div>
+                            </div>
+                            {d.type == "Receive" && <div>
+                                <div style={{fontWeight:'bold',fontSize:13 }}>from_address</div>
+                                <div>{d.from_address}</div>
+                            </div>}
+                            {d.type == "Deposit" && <div>
+                                <div style={{fontWeight:'bold',fontSize:13 }}>from_address</div>
+                                <div>
+                                  {d.serial}
+                                </div>
+
+                            </div>
+                            }
                         </div>
             }
             if(d.type== "Send" || d.type == "Withdrawal"){
                 return <div key={index} style={{backgroundColor:'#FF7F7F',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
                             <div style={{fontSize:18,fontWeight:'bold'}}>{d.type}</div>
+                            <div>
+                                <div style={{fontWeight:'bold',fontSize:13}}>amount</div>
+                                <div>{d.amount}</div>
+                                <div style={{fontWeight:'bold',fontSize:13}}>currency</div>
+                                <div>{d.currency}</div>
+                                <div>{d.to_address}</div>
+                            </div>
                         </div>
             }
             if(d.type== "Buy" || d.type == "Sell"){
                 return <div key={index} style={{backgroundColor:'#A47FFF',width:'100%',height:'20%',borderRadius:10,marginBottom:10,display:'flex',flexDirection:'column',padding:10,justifyContent:'start',alignItems:'start',color:'#fff'}}>
                              
                              <div style={{fontSize:18,fontWeight:'bold'}}>{d.type}</div>
-                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>amount :</span>{d.amount}</div>
-                            <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5}}>currency:</span>{d.currency}</div>
-                            {d.type == "Buy"  && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>Internal Transfer</div>}
-                            {d.type == "Sell" && <div><span style={{fontWeight:'bold',fontSize:13,marginRight:5 }}>from_address :</span>Internal Transfer</div>}
+                            <div>
+                                <div style={{fontWeight:'bold',fontSize:13}}>amount</div>
+                                <div>{d.amount}</div>
+                            </div>
+                            <div>
+                                <div style={{fontWeight:'bold',fontSize:13}}>currency</div>
+                                <div>{d.currency}</div>
+                            </div>
+                            {d.type == "Buy"  && <div>
+                                <div style={{fontWeight:'bold',fontSize:13 }}>from_address</div>
+                                <div>Internal Transfer</div>
+                                </div>}
+                            {d.type == "Sell" && <div>
+                                <div style={{fontWeight:'bold',fontSize:13 }}>from_address</div>
+                                <div>Internal Transfer</div>
+                            </div>}
                         </div>
             }
         })
