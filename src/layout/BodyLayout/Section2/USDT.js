@@ -38,7 +38,8 @@ const Index = ({comp})=>{
         comp('Usdt')
          setuserUSDT(reactLocalStorage.getObject('user').usdt_wallet[0].balance.$numberDecimal)
          let _id = reactLocalStorage.getObject('user')._id;
-         getbalance(_id)
+         setTimeout(()=>{getbalance(_id)},3000)
+        // getbalance(_id)
      },[])
 
     return (
