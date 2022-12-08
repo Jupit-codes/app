@@ -31,9 +31,10 @@ const [visibility,setvisibility] =useState(false);
     const _sendmail = ()=>{
         set_loss_focus(true)
         set_btn_name('Please Wait..');
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/sendOTP/wallet/pin/creation`,
+            url: `${Base_url}/sendOTP/wallet/pin/creation`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')

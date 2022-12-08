@@ -13,10 +13,11 @@ const [disable,setdisable] = useState(false)
     }
 
     const savepin = ()=>{
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
         setdisable(true)
         axios({
             method: "POST",
-            url: `https://myjupit.herokuapp.com/save/pin`,
+            url: `${Base_url}/save/pin`,
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
