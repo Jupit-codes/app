@@ -317,7 +317,7 @@ const Index =()=>{
         if(data){
             // setcurrentRate(data.BTC.USD.PRICE);
             setcurrentRate(parseFloat(data[0].current_price) - 150);
-            console.log('current',currentRate)
+            // console.log('current',currentRate)
         }
         
 
@@ -338,6 +338,15 @@ const Index =()=>{
     //    retrieveAutoFee();
         
     // },[])
+    useEffect(()=>{
+        console.log('I am here')
+        if(success){
+          
+            Withdrawal();
+               
+        }
+
+    },[success])
 
     useEffect(()=>{
         
@@ -578,29 +587,24 @@ const Index =()=>{
       
           })
           .catch((err)=>{
-            setLoader(false);
+            setsuccess(false)
+            console.log("myerror",err.response)
+            //setLoader(false);
            // console.log(err)
             //console.log(err.response.data);
 
             toast.error(err.response ? err.response.data : 'Failed Request','Error')
-                
+            toast.error(err.data ? err.data.message : 'Failed Request','Error')   
                
                 
           })
     }
 
-        useEffect(()=>{
-            if(success){
-              
-                Withdrawal();
-                   
-            }
-
-        },[success])
+       
     
     return (
         <div className="sendBTC">
-            { loader && <LoaderOverlay/>}
+            { success && <LoaderOverlay/>}
             {openModal && <CreatePinModal closeModal={setopenModal} callback={setsuccess}/>}
             { InputwalletPIn && <EnterPinModal closeModal={setInputwalletPIn} mywalletpin={mywallet} callback={setsuccess} /> }
             <ToastContainer
