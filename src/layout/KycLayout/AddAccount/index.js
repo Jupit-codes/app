@@ -308,7 +308,8 @@ const banks = [
             </div>
             <div className="formAccount_form">
                 
-                <input type="submit" className={`form-control ${accountName && accountNumber && bank & bvn ? 'btn btn-primary': 'disable'}` } value={TextDisable ? 'Edit':'Submit'} onClick={sendValidation}/>
+               {/* <input type="submit" className={`form-control ${accountName && accountNumber && bank & bvn ? 'btn btn-primary': 'disable'}` } value={TextDisable ? 'Edit':'Submit'} onClick={sendValidation}/> */}
+                <input type="submit" className="form-control btn btn-primary" value={TextDisable ? 'Edit':'Submit'} onClick={sendValidation}/>
             </div>
             
         </div>
