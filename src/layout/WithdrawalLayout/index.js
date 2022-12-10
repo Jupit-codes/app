@@ -312,11 +312,12 @@ const Index =()=>{
 
     useEffect(()=>{
         
-        Marketprice()(priceDispatch);
+        // Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(data.BTC.USD.PRICE);
-            
+            // setcurrentRate(data.BTC.USD.PRICE);
+            setcurrentRate(parseFloat(data[0].current_price) - 150);
+            console.log('current',currentRate)
         }
         
 

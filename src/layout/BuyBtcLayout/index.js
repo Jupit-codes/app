@@ -257,11 +257,12 @@ const Index =()=>{
 
     useEffect(()=>{
         
-        Marketprice()(priceDispatch);
+        // Marketprice()(priceDispatch);
        
         if(data){
-            setcurrentRate(parseFloat(data.BTC.USD.PRICE) - 150);
-            
+            // setcurrentRate(parseFloat(data.BTC.USD.PRICE) - 150);
+            setcurrentRate(parseFloat(data[0].current_price) - 150);
+            console.log("currenct",currentRate)
         }
         
 
