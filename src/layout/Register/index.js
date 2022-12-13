@@ -3,6 +3,8 @@ import '../../assets/css/Auth/auth.css'
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/Provider";
 import { Alert } from "react-bootstrap";
+// import AlertDismissible from '../../utils/alert/alertDisplay'
+
 import {FiEye,FiEyeOff} from 'react-icons/fi'
 const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
     const {registerDispatch,registerState:{registerAuth:{error,email_error,phonenumber_error,password_strength}}} = useContext(GlobalContext)
@@ -82,6 +84,12 @@ const RegisterUI = ({Form:{onChange,Form,RegisterValidForm,onSubmit}})=>{
                               onChange={onChange}
                               name="password"    
                               required/>
+                            <Alert variant="info">
+                                <li style={{fontSize:13}}>Password cannot be less than 6 digits.</li>
+                                <li style={{fontSize:13}}>Password must contain at least one capital letter</li>
+                                <li style={{fontSize:13}}>Password must contain at least one small Letter</li>
+                                <li style={{fontSize:13}}>Password must contain at least one string character such as $,#,@ etc</li>
+                            </Alert>
                             <small >{<div  style={{color:passwordColor(password_strength)}}>{password_strength}</div> }</small>
                             
                         </div>

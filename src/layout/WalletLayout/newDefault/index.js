@@ -149,7 +149,7 @@ const Index = ()=>{
             setkycLevel1(res.data.level1[0].status);
             setkycLevel2(res.data.level2[0].event_status)
             setkycLevel3(res.data.level3[0].callbackStatus)
-
+            console.log(res.data)
             
             
         })
