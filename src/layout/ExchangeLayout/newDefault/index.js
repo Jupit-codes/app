@@ -403,7 +403,7 @@ const Index = ()=>{
                     </div>
         }
         else if(component === "Btc"){
-            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sellusdt}>
+            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sellbtc}>
                         <div>
                             Sell BTC<br/>
                             <span>Click to Sell BTC</span>
