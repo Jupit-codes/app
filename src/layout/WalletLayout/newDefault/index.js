@@ -259,25 +259,25 @@ const Index = ()=>{
                    
         // }
         if(component === "Btc"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' onClick={buybtc}>
                          <div>
                             Buy BTC<br/>
                             <span>Click To Buy BTC.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={buybtc}/>
+                            <BsArrowUpSquare color='#fff' size={20} />
                         </div>
                     </div>
                    
         }
         else if(component === "Usdt"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' onClick={buyusdt}>
                          <div>
                             Buy USDT<br/>
                             <span>Click To Buy USDT.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={buyusdt}/>
+                            <BsArrowUpSquare color='#fff' size={20} />
                         </div>
                     </div>
                    
@@ -301,25 +301,25 @@ const Index = ()=>{
                    
         }
         else if(component === "Btc"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sendBtc}>
                          <div>
                             Send BTC<br/>
                             <span>Click To Send Funds.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={sendBtc}/>
+                            <BsArrowUpSquare color='#fff' size={20} />
                         </div>
                     </div>
                    
         }
         else if(component === "Usdt"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sendUsdt}>
                          <div>
                             Send USDT<br/>
                             <span>Click To Send funds.</span>
                         </div>
                         <div className='TopupIcon'>
-                            <BsArrowUpSquare color='#fff' size={20} onClick={sendUsdt}/>
+                            <BsArrowUpSquare color='#fff' size={20} />
                         </div>
                     </div>
                    
@@ -347,26 +347,26 @@ const Index = ()=>{
     const _showWithdrawal = ()=>{
 
         if(component === "Usdt"){
-            return      <div className='TopUpSpace'>
+            return      <div className='TopUpSpace'  style={{cursor:"pointer"}} onClick={()=>setopenModalUsdt(true)}>
                         <div>
-                            Receive USDT<br/>
-                            <span>Click to Receive USDT</span>
+                            Deposit USDT<br/>
+                            <span>Click to Deposit USDT</span>
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModalUsdt(true)}/>
+                            <BsArrowDownSquare color='#fff' size={20} />
                         </div>
                     </div>
         }
         else if(component === "Btc"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' onClick={()=>setopenModal(true)} style={{cursor:"pointer"}}>
                         <div>
-                            Receive BTC<br/>
-                            <span>Click to Receive BTC</span>
+                            Deposit BTC<br/>
+                            <span>Click to Deposit BTC</span>
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={()=>setopenModal(true)}/>
+                            <BsArrowDownSquare color='#fff' size={20} />
                         </div>
                     </div>
         }

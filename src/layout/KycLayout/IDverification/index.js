@@ -104,7 +104,6 @@ const Index = ()=>{
 
     const saveImageVerification = ()=>{
        
-     
         var decodedImg = decodeBase64Image(CapturedImage);
         var dataToBlob = dataURItoBlob(CapturedImage)
         var x = CapturedImage.toString().replace(/^data:image\/jpeg;base64,/, "")
