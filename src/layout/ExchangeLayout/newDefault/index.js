@@ -260,27 +260,27 @@ const Index = ()=>{
                    
         // }
         if(component === "Btc"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' onClick={()=>buyBan()}>
                          <div>
                             Buy BTC<br/>
                             <span>Click To Buy BTC.</span>
                         </div>
                         <div className='TopupIcon'>
                             {/* <BsArrowUpSquare color='#fff' size={20} onClick={buybtc}/> */}
-                            <BsArrowUpSquare color='#fff' size={20} onClick={()=>buyBan()}/>
+                            <BsArrowUpSquare color='#fff' size={20} />
                         </div>
                     </div>
                    
         }
         else if(component === "Usdt"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' onClick={()=>buyBan()}>
                          <div>
                             Buy USDT<br/>
                             <span>Click To Buy USDT.</span>
                         </div>
                         <div className='TopupIcon'>
                             {/* <BsArrowUpSquare color='#fff' size={20} onClick={buyusdt}/> */}
-                              <BsArrowUpSquare color='#fff' size={20} onClick={()=>buyBan()}/>
+                              <BsArrowUpSquare color='#fff' size={20}/>
                         </div>
                     </div>
                    
