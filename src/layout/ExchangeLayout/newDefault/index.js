@@ -260,7 +260,7 @@ const Index = ()=>{
                    
         // }
         if(component === "Btc"){
-            return  <div className='TopUpSpace' onClick={()=>buyBan()}>
+            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={()=>buyBan()}>
                          <div>
                             Buy BTC<br/>
                             <span>Click To Buy BTC.</span>
@@ -273,7 +273,7 @@ const Index = ()=>{
                    
         }
         else if(component === "Usdt"){
-            return  <div className='TopUpSpace' onClick={()=>buyBan()}>
+            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={()=>buyBan()}>
                          <div>
                             Buy USDT<br/>
                             <span>Click To Buy USDT.</span>
