@@ -391,26 +391,26 @@ const Index = ()=>{
     const _Sell = ()=>{
 
         if(component === "Usdt"){
-            return      <div className='TopUpSpace'>
+            return      <div className='TopUpSpace' onClick={sellusdt} style={{cursor:"pointer"}}>
                         <div>
                             Sell USDT<br/>
                             <span>Click to Sell USDT</span>
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={sellusdt}/>
+                            <BsArrowDownSquare color='#fff' size={20} />
                         </div>
                     </div>
         }
         else if(component === "Btc"){
-            return  <div className='TopUpSpace'>
+            return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sellusdt}>
                         <div>
                             Sell BTC<br/>
                             <span>Click to Sell BTC</span>
                         </div>
 
                         <div className='TopupIcon'>
-                            <BsArrowDownSquare color='#fff' size={20} onClick={sellbtc}/>
+                            <BsArrowDownSquare color='#fff' size={20}/>
                         </div>
                     </div>
         }
