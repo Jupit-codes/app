@@ -303,8 +303,8 @@ const Index = ()=>{
         else if(component === "Btc"){
             return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sendBtc}>
                          <div>
-                            Send BTC<br/>
-                            <span>Click To Send Funds.</span>
+                            Withdraw BTC<br/>
+                            <span>Click To Withdraw Funds.</span>
                         </div>
                         <div className='TopupIcon'>
                             <BsArrowUpSquare color='#fff' size={20} />
@@ -315,8 +315,8 @@ const Index = ()=>{
         else if(component === "Usdt"){
             return  <div className='TopUpSpace' style={{cursor:"pointer"}} onClick={sendUsdt}>
                          <div>
-                            Send USDT<br/>
-                            <span>Click To Send funds.</span>
+                            Withdraw USDT<br/>
+                            <span>Click To Withdraw funds.</span>
                         </div>
                         <div className='TopupIcon'>
                             <BsArrowUpSquare color='#fff' size={20} />
