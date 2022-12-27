@@ -528,7 +528,7 @@ const retrieveAutoFee = ()=>{
                 networkFee:networkFee,
                 userid:reactLocalStorage.getObject('user')._id,
                 amount:valuebtc,
-                block_average:blockaverage,
+                block_average:50,
                 wallet_type:"USDT",
                 charge:charge,
                 transferType:dataAddr,

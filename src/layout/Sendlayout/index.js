@@ -496,7 +496,7 @@ const Index =()=>{
                     charge:charge,
                     usdequivalent:valueusd,
                     current_usd_rate:currentRate,
-                    block_average:blockaverage,
+                    block_average:50,
                     wallet_type:"BTC",
                     transferType:dataAddr,
                     senderAddress:reactLocalStorage.getObject('user') .btc_wallet[0].address,

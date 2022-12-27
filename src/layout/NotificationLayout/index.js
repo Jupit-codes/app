@@ -175,7 +175,7 @@ const Index = ()=>{
                             <div className='notify-flex-1'>
                                 {/* <div className='red'>BlockChain Transfer</div> */}
                                 <div className="notifyMessage"><div>{d.transfertype}</div></div>
-                                <small>You have initiated a transfer of {d.amount} {d.asset} from your USDT wallet to {d.to_address} address. </small>
+                                <small>You have initiated a transfer of {d.amount} {d.asset} from your {d.asset} wallet to {d.to_address} address. </small>
                                 <div className='time_and_date'>{moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</div>
                             </div>
                             {/* <div className='notify-flex-2'>
@@ -217,7 +217,7 @@ const Index = ()=>{
                                 <div className={d.transfertype === "Buy"? 'green':'red'}>{d.transfertype == "Buy"? 'Buy Alert':'Sell Alert'}</div>
                                 <div className="notifyMessage"><div>{d.transfertype}</div></div>
                                 {d.transfertype=== 'Buy' &&<small>You have successfully bought	&#8358;{d.from_address} equivalent of {d.asset} ({d.initiator}) </small>}
-                                {d.transfertype=== 'Sell' &&<small>You withdrawal of {d.initiator}{d.asset} from your USDT wallet has been confirmed successful at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>}
+                                {d.transfertype=== 'Sell' &&<small>You withdrawal of {d.initiator}{d.asset} from your {d.asset} wallet has been confirmed successful at {moment(d.date_created).format("YYYY/MM/DD kk:mm:ss")}</small>}
                                 <div>If you don't recognize this activity, please contact us immediately.</div>
                             </div>
                     
