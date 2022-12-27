@@ -310,7 +310,7 @@ const Index = ()=>{
                 }
                 if(d.type === "12"){
                     if(d.asset === "BTC"){
-                        if(d.from_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
+                        if(d.from_address && d.from_address === reactLocalStorage.getObject('user').btc_wallet[0].address){
                             return (    
                                 <div key={index} className="notifyDiv">
         
