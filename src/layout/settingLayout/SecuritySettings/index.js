@@ -56,7 +56,7 @@ const Index = ()=>{
         })
         .then((res)=>{
             
-           setcreatepinStatus(res.data.Pin_Created);
+           setcreatepinStatus(res.data.user.Pin_Created);
           
           
         })
@@ -85,6 +85,7 @@ const Index = ()=>{
     }
 
     useEffect(()=>{
+       
         setcreatepinStatus(reactLocalStorage.getObject('user').Pin_Created)
         // console.log(reactLocalStorage.getObject('user').Pin_Created);
         get2fa();
