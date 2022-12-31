@@ -12,7 +12,7 @@ const Index = ({closeModal})=>{
     const [address, setAddress] = useState();
     const [copied,setCopied] = useState(false)
     useEffect(async ()=>{
-        
+        console.log(reactLocalStorage.getObject('user')._id)
         const Base_url = process.env.REACT_APP_BACKEND_URL;
         await axios({
             method: "POST",
@@ -21,7 +21,11 @@ const Index = ({closeModal})=>{
                 'Content-Type':'application/json',
                 'Authorization':reactLocalStorage.get('token')
             },
-            data:JSON.stringify({address:reactLocalStorage.getObject('user').btc_wallet[0].address,wallet_type:"BTC"})
+            data:JSON.stringify({
+                address:reactLocalStorage.getObject('user').btc_wallet[0].address,
+                wallet_type:"BTC",
+                userid:reactLocalStorage.getObject('user')._id
+            })
         })
         .then((res)=>{
             console.log('WalletCheck',res.data)
