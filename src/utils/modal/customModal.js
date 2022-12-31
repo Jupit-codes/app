@@ -38,8 +38,8 @@ const Index = ({closeModal})=>{
             }
             else{
                 
-                setAddress('Invalid Wallet Address')
-                QRcode.toDataURL("Invalid Wallet Address").then((data)=>{
+                setAddress('Invalid Wallet Address..Kindly login afresh')
+                QRcode.toDataURL("Invalid Wallet Address..Kindly login afresh").then((data)=>{
                     setSrc(data)
                 })
             }

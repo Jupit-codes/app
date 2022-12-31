@@ -5,16 +5,62 @@ import {IoClose} from 'react-icons/io5'
 import QRcode from 'qrcode'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import axios from 'axios'
 const Index = ({closeModal})=>{
     
     const [src,setSrc]= useState('')
     const [address, setAddress] = useState();
     const [copied,setCopied] = useState(false)
-    useEffect(()=>{
-        setAddress(reactLocalStorage.getObject('user').usdt_wallet[0].address)
-        QRcode.toDataURL(reactLocalStorage.getObject('user').usdt_wallet[0].address).then((data)=>{
-            setSrc(data)
+    useEffect(async()=>{
+        // setAddress(reactLocalStorage.getObject('user').usdt_wallet[0].address)
+        // QRcode.toDataURL(reactLocalStorage.getObject('user').usdt_wallet[0].address).then((data)=>{
+        //     setSrc(data)
+        // })
+
+        console.log(reactLocalStorage.getObject('user')._id)
+        const Base_url = process.env.REACT_APP_BACKEND_URL;
+        await axios({
+            method: "POST",
+            url: `${Base_url}/threshold/checkwalletaddress`,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':reactLocalStorage.get('token')
+            },
+            data:JSON.stringify({
+                address:reactLocalStorage.getObject('user').usdt_wallet[0].address,
+                wallet_type:"USDT",
+                userid:reactLocalStorage.getObject('user')._id
+            })
         })
+        .then((res)=>{
+            console.log('WalletCheck',res.data)
+            if(res.data.status){
+                
+                setAddress(reactLocalStorage.getObject('user').usdt_wallet[0].address)
+                QRcode.toDataURL(reactLocalStorage.getObject('user').usdt_wallet[0].address).then((data)=>{
+                    setSrc(data)
+                })
+            }
+            else{
+                
+                setAddress('Invalid Wallet Address..Kindly login afresh')
+                QRcode.toDataURL("Invalid Wallet Address..Kindly login afresh").then((data)=>{
+                    setSrc(data)
+                })
+            }
+           
+            
+            
+        })
+        .catch((err)=>{
+
+            console.log(err)
+           
+            
+        })
+
+
+
     },[])
     return (
         <div className="modalBackground">
