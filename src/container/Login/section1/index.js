@@ -53,7 +53,7 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
         }
         else{
             if(data && data !== "Token is Required"){
-               console.log("data",data.removeCoreDetails[0])
+          
                 reactLocalStorage.set('token',data.token);
                 reactLocalStorage.setObject('user',data.removeCoreDetails[0]);
                 

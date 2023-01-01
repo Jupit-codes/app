@@ -59,7 +59,7 @@ const Index = ()=>{
             let xBTC = data[0].current_price
             let xUSDT = data[1].current_price
 
-            console.log(xBTC,xUSDT)
+         
             setpercentageBTC(parseFloat(xBTCPercentage).toFixed(5));
             setpercentageUSDT(parseFloat(xUSDTPercentage).toFixed(5));
             setbtcprice(parseFloat(xBTC)- 150);
