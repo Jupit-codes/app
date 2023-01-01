@@ -31,8 +31,8 @@ const Index = ({closeModal})=>{
             console.log('WalletCheck',res.data)
             if(res.data.status){
                 
-                setAddress(reactLocalStorage.getObject('user').btc_wallet[0].address)
-                QRcode.toDataURL(reactLocalStorage.getObject('user').btc_wallet[0].address).then((data)=>{
+                setAddress(res.data.wallet_address)
+                QRcode.toDataURL(res.data.wallet_address).then((data)=>{
                     setSrc(data)
                 })
             }
