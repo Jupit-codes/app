@@ -28,7 +28,7 @@ const Index = ({closeModal})=>{
             })
         })
         .then((res)=>{
-            console.log('WalletCheck',res.data)
+            
             if(res.data.status){
                 
                 setAddress(res.data.wallet_address)
