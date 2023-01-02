@@ -50,7 +50,7 @@
 
 @media screen 
 and (min-device-width:200px)
-and (max-device-width:399px)
+and (max-device-width:499px)
 {
 
     .changepassword{
@@ -107,7 +107,7 @@ and (max-device-width:399px)
 }
 
 @media screen 
-and (min-device-width:400px)
+and (min-device-width:500px)
 and (max-device-width:600px)
 {
     
