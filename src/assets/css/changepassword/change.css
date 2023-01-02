@@ -105,3 +105,60 @@ and (max-device-width:399px)
     
 
 }
+
+@media screen 
+and (min-device-width:400px)
+and (max-device-width:600px)
+{
+    
+    .changepassword{
+        padding: 5px;
+ 
+     }
+ 
+     .errorChangepwd{
+         width:100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-size: 12px;
+         color:#ff0000;
+     }
+ 
+     .circularPassword{
+         width: 30px;
+         height: 30px;
+         border-radius: 30px;
+         background-color: #fff;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+     }
+ 
+     .form{
+         width: 100%;
+         padding: 10px;
+         height: 200px;
+         display: flex;
+         justify-content: space-around;
+         flex-direction: column;
+         background-color: #fff;
+         border-radius: 10px;
+        
+     }
+     .btn-size{
+         font-size: 14px;
+     }
+     .newpassword{
+         font-size: 14px;
+         margin: 0px;
+     }
+     .cnewpassword{
+         
+         font-size: 14px;
+         margin: 0px;
+         
+     }
+
+}
