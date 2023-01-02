@@ -150,23 +150,23 @@ const Index = ()=>{
             <Header changepassword={5}/>
             { myloader ? <div className='Chartloader'> </div>: <div className='passwordResetFormDiv'>
                 <div className='circularPassword'>
-                    <AiFillUnlock size={30}/>
+                    <AiFillUnlock size={15}/>
                 </div>
                 
                     
                     <div className='form'>
                         
                         <div className='form-group'>
-                                <input type='password' className='form-control' placeholder='New Password' value={password} onChange={handlePassword} required/>
+                                <input type='password' className='form-control newpassword' placeholder='New Password' value={password} onChange={handlePassword} required/>
                         </div>
                         <div className='form-group'>
-                                <input type='password' className='form-control' placeholder='Confirm Password' onChange={handleConfirmPassword} value={confirmpassword} required/>
+                                <input type='password' className='form-control cnewpassword' placeholder='Confirm Password' onChange={handleConfirmPassword} value={confirmpassword} required/>
                         </div>
 
                         <div className='form-group'>
-                            <input type='submit' className='form-control btn-primary' value={submitbutton} onClick={()=>changePassword()} disabled={mydisable}/>
+                            <input type='submit' className='form-control btn-primary btn-size' value={submitbutton} onClick={()=>changePassword()} disabled={mydisable}/>
                         </div>
-                        {error && <div className ='errorChangepwd'>{error}</div>}
+                        
                     
                     </div>
                 
