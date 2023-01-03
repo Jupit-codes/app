@@ -73,7 +73,7 @@ export default (items)=>async (dispatch)=>{
             headers: {
             "Content-Type": "application/json"
             },
-            data:JSON.stringify({username:items.username,email:items.email,phonenumber:items.phonenumber,password:items.password,firstname:items.firstname,lastname:items.lastname})
+            data:JSON.stringify({username:items.username,email:items.email,phonenumber:items.phonenumber,password:items.password.trim(),firstname:items.firstname,lastname:items.lastname})
         }).then(res => {
             
             dispatch({
