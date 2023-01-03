@@ -90,12 +90,12 @@ const RenderRouter = (route)=>{
     if(route.isAuthenticated){
       if(reactLocalStorage.get('token') && reactLocalStorage.get('user') ){
 
-        if(reactLocalStorage.get('user') != undefined || reactLocalStorage.get('user') !== "undefined"  ){
-            alert('Session Expired')
-            reactLocalStorage.clear();
-            window.location='/client/signin';
-            return false
-        }
+        if(reactLocalStorage.get('user') === undefined || reactLocalStorage.get('user') === "undefined"  ){
+          alert('Session Expired')
+          reactLocalStorage.clear();
+          window.location='/client/signin';
+          return false
+      }
         
         const decodedJwt = parseJwt(reactLocalStorage.get('token'));
         const expiration = new Date(decodedJwt.exp * 1000);
