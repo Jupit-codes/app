@@ -88,7 +88,7 @@ const RenderRouter = (route)=>{
   document.title = route.title || 'Jupit App';
 
     if(route.isAuthenticated){
-      if(reactLocalStorage.get('token') && reactLocalStorage.get('user') ){
+      if(reactLocalStorage.get('token') && reactLocalStorage.get('user') && reactLocalStorage.get('user') != undefined ){
         
         const decodedJwt = parseJwt(reactLocalStorage.get('token'));
         const expiration = new Date(decodedJwt.exp * 1000);
