@@ -32,7 +32,7 @@ const Index=()=>{
                 <div class="divCover">
                 <div className="authCard">
                         <div className="mylogo_new"><Link to='https://jupitapp.co'><img src={Jupit}  className="mylogo_me"/></Link></div>
-                        <div className="logincred">Fill the fields below to have an account with us.</div>
+                        <div className="logincred">Fill the fields below to have an account with us..</div>
                         <div className="customerror">{errorAlert && <AlertDismissible itemData={error} itemState={errorAlert}/>}</div>
                         <div className="customsuccess">{data && <AlertSuccess itemData={data.message} itemState={true}/>}</div>
                         <RegisterUI Form={useForm()}/>
