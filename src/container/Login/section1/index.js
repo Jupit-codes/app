@@ -55,7 +55,12 @@ const Index=({Next,setUserPassword,setUserEmail})=>{
             if(data && data !== "Token is Required"){
           
                 reactLocalStorage.set('token',data.token);
-                reactLocalStorage.setObject('user',data.removeCoreDetails[0]);
+
+                if(data.removeCoreDetails[0] != undefined){
+                    console.log('here')
+                    reactLocalStorage.setObject('user',data.removeCoreDetails[0]);
+                }
+               
                 
                 history.push('/client');
             }
