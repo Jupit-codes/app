@@ -470,8 +470,9 @@ const Index =()=>{
   
    
     const buycoin = ()=>{
-        
-        
+
+        let value = check(ngnamount);
+     
         if(!withdrawalcheck){
             toast.error('Sorry, your account details has not been linked. Kindly conclude your KYC Level 2.');
             return false;
@@ -497,20 +498,21 @@ const Index =()=>{
             kycprogress += 45
         }
 
-       if(kycprogress === 25 && ngnamount > 10000){
+       if(kycprogress === 25 && value > 10000){
         toast.error("You can not transact more than N10,000 per transaction on this KYC LEVEL.","KYC Restriction");
         return false;
        }
-       if(kycprogress === 55 && ngnamount > 200000){
+       if(kycprogress === 55 && value > 200000){
         toast.error("Sorry,you can not transact more than N200,000 per transaction on this KYC LEVEL.");
         return false;
        }
 
-       if(kycprogress === 100 && ngnamount > 1000000){
+       if(kycprogress === 100 && value > 1000000){
         toast.error("Sorry,you can not transact more than N1,000,000 per transaction on this KYC LEVEL.");
         return false;
        }
 
+    
         
        if(dailytransactioncount >5){
         toast.error("Sorry, you have exceeded your five withdrawal limit for the day...");
