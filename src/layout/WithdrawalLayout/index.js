@@ -502,15 +502,15 @@ const Index =()=>{
         toast.error("You can not transact more than N10,000 per transaction on this KYC LEVEL.","KYC Restriction");
         return false;
        }
-       if(kycprogress === 55 && value > 200000){
-        toast.error("Sorry,you can not transact more than N200,000 per transaction on this KYC LEVEL.");
-        return false;
-       }
+    //    if(kycprogress === 55 && value > 200000){
+    //     toast.error("Sorry,you can not transact more than N200,000 per transaction on this KYC LEVEL.");
+    //     return false;
+    //    }
 
-       if(kycprogress === 100 && value > 1000000){
-        toast.error("Sorry,you can not transact more than N1,000,000 per transaction on this KYC LEVEL.");
-        return false;
-       }
+    //    if(kycprogress === 100 && value > 1000000){
+    //     toast.error("Sorry,you can not transact more than N1,000,000 per transaction on this KYC LEVEL.");
+    //     return false;
+    //    }
 
     
         
