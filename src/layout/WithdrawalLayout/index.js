@@ -519,7 +519,7 @@ const Index =()=>{
         return false;
        }
        
-       if(ngnamount == "" || ngnamount === 0 ){
+       if(value == "" || value === 0 ){
         toast.error("Input Amount","ERROR")
         return false;
         }
