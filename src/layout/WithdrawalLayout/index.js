@@ -584,7 +584,8 @@ const Index =()=>{
           .then((res)=>{
            // console.log(res.data)
             setngnamount('')
-            setLoader(false)
+            
+            setsuccess(false)
             toast.success(res.data,'Success');
             getbalance(reactLocalStorage.getObject('user')._id)
       
