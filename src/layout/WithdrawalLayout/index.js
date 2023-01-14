@@ -584,14 +584,16 @@ const Index =()=>{
           .then((res)=>{
            // console.log(res.data)
             setngnamount('')
-            
+            setLoader(false)
             setsuccess(false)
             toast.success(res.data,'Success');
             getbalance(reactLocalStorage.getObject('user')._id)
       
           })
           .catch((err)=>{
+            setLoader(false)
             setsuccess(false)
+            getbalance(reactLocalStorage.getObject('user')._id)
             console.log("myerror",err.response)
             //setLoader(false);
            // console.log(err)
