@@ -509,7 +509,7 @@ const Index =()=>{
        }
 
        if(kycprogress === 100 && value > 1000000){
-        toast.error("Sorry,you can not transact more than N1,000,000 per transaction on this KYC LEVEL.");
+        toast.error("Sorry, you can not transact more than N1,000,000 per transaction on this KYC LEVEL.");
         return false;
        }
 
@@ -587,7 +587,8 @@ const Index =()=>{
             setLoader(false)
             setsuccess(false)
             toast.success(res.data,'Success');
-            getbalance(reactLocalStorage.getObject('user')._id)
+            handleSend()
+            //getbalance(reactLocalStorage.getObject('user')._id)
       
           })
           .catch((err)=>{
