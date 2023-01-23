@@ -36,7 +36,7 @@ const Index = ()=>{
             url: `${Base_url}/verify/latest/transaction`,
             headers: {
               "Content-Type": "application/json",
-              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+              "Authorization":reactLocalStorage.get('token')
     
             },
             data:{btcaddress:btc_address,usdtaddress:usdt_address}

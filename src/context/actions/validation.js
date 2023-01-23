@@ -13,7 +13,7 @@ export default (item)=>(dispatch)=>{
             url: `${Base_url}/users/validate/bvntoaccount/kyc/level2`,
             headers: {
             "Content-Type": "application/json",
-            "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+            "Authorization":reactLocalStorage.get('token')
             },
             data:JSON.stringify({account_name:item.accountName,account_number:item.accountNumber,bankcode:item.bank,bvn:item.bvn,email:reactLocalStorage.getObject('user').email})
         })

@@ -55,7 +55,7 @@ const Index = ({getClicked})=>{
             url: `${Base_url}/verify/getChart/data`,
             headers: {
               "Content-Type": "application/json",
-              "Authorization":`Bearer ${reactLocalStorage.get('token')}`
+              "Authorization":reactLocalStorage.get('token')
     
             },
             data:{btcaddress:address}
